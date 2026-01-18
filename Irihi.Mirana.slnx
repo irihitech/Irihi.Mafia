@@ -11,6 +11,8 @@
     <Project Path="demo\Irihi.Mirana.Demo\Irihi.Mirana.Demo.csproj" Type="C#" />
     <Project Path="demo\Irihi.Mirana.Demo.Android\Irihi.Mirana.Demo.Android.csproj" Type="C#" />
     <Project Path="demo\Irihi.Mirana.Demo.Desktop\Irihi.Mirana.Demo.Desktop.csproj" Type="C#" />
+    <Project Path="demo\Irihi.Mirana.Demo.Browser\Irihi.Mirana.Demo.Browser.csproj" Type="C#" />
+    <Project Path="demo\Irihi.Mirana.Demo.iOS\Irihi.Mirana.Demo.iOS.csproj" Type="C#" />
   </Folder>
   <Folder Name="/benchmark/" />
   <Properties Name="Visual Studio">
