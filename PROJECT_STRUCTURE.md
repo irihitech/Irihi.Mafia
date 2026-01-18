@@ -70,7 +70,7 @@ Key packages:
 
 ### Build all projects (except Android which requires workload):
 ```bash
-dotnet build Irihi.Mirana.sln
+dotnet build Irihi.Mirana.slnx
 ```
 
 ### Build specific projects:
