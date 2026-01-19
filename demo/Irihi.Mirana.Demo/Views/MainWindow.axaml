@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="using:Irihi.Mirana.Demo.Views"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="750" d:DesignHeight="1334"
+        Width="750" Height="1334"
         x:Class="Irihi.Mirana.Demo.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="Irihi.Mirana.Demo">

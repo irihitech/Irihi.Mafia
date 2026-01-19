@@ -21,4 +21,9 @@
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Irihi.Mirana.Themes.TDesign\Irihi.Mirana.Themes.TDesign.csproj" />
+    <ProjectReference Include="..\..\src\Irihi.Mirana\Irihi.Mirana.csproj" />
+  </ItemGroup>
 </Project>
