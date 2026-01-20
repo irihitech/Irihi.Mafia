@@ -1,19 +1,16 @@
-<Solution>
+<Solution> 
+  <Folder Name="/benchmark/" />
   <Folder Name="/src/">
-    <Project Path="src\Irihi.Mirana\Irihi.Mirana.csproj" Type="C#" />
-    <Project Path="src\Irihi.Mirana.Themes.TDesign\Irihi.Mirana.Themes.TDesign.csproj" Type="C#" />
+    <Project Path="src/Irihi.Mirana/Irihi.Mirana.csproj" />
+    <Project Path="src/Irihi.Mirana.Themes.TDesign/Irihi.Mirana.Themes.TDesign.csproj" />
   </Folder>
   <Folder Name="/test/">
-    <Project Path="test\Irihi.Mirana.UnitTest\Irihi.Mirana.UnitTest.csproj" Type="C#" />
-    <Project Path="test\Irihi.Mirana.HeadlessTest\Irihi.Mirana.HeadlessTest.csproj" Type="C#" />
+    <Project Path="test/Irihi.Mirana.UnitTest/Irihi.Mirana.UnitTest.csproj" />
+    <Project Path="test/Irihi.Mirana.HeadlessTest/Irihi.Mirana.HeadlessTest.csproj" />
   </Folder>
   <Folder Name="/demo/">
-    <Project Path="demo\Irihi.Mirana.Demo\Irihi.Mirana.Demo.csproj" Type="C#" />
-    <Project Path="demo\Irihi.Mirana.Demo.Android\Irihi.Mirana.Demo.Android.csproj" Type="C#" />
-    <Project Path="demo\Irihi.Mirana.Demo.Desktop\Irihi.Mirana.Demo.Desktop.csproj" Type="C#" />
+    <Project Path="demo/Irihi.Mirana.Demo/Irihi.Mirana.Demo.csproj" />
+    <Project Path="demo/Irihi.Mirana.Demo.Android/Irihi.Mirana.Demo.Android.csproj" />
+    <Project Path="demo/Irihi.Mirana.Demo.Desktop/Irihi.Mirana.Demo.Desktop.csproj" />
   </Folder>
-  <Folder Name="/benchmark/" />
-  <Properties Name="Visual Studio">
-    <Property Name="OpenWith" Value="Visual Studio Version 17" />
-  </Properties>
 </Solution>
