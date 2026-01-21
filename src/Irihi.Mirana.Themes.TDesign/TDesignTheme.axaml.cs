@@ -2,4 +2,4 @@
 
 namespace Irihi.Mirana.Themes.TDesign;
 
-public class MiranaTheme : Styles;
+public class TDesignTheme : Styles;

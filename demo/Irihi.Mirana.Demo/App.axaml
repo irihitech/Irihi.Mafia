@@ -9,6 +9,6 @@
     </Application.DataTemplates>
 
     <Application.Styles>
-        <td:MiranaTheme />
+        <td:TDesignTheme />
     </Application.Styles>
 </Application>
