@@ -6,7 +6,8 @@
     <Styles.Resources>
         <ResourceDictionary>
             <ResourceDictionary.ThemeDictionaries>
-                <td:Dark x:Key="Default" />
+                <td:Light x:Key="Default" />
+                <td:Light x:Key="Light" />
                 <td:Dark x:Key="Dark" />
             </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>
