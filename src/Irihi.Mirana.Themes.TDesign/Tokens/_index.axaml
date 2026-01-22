@@ -1,0 +1,15 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:td="https://irihi.tech/td">
+    <ResourceDictionary.ThemeDictionaries>
+        <td:Light x:Key="Default" />
+        <td:Light x:Key="Light" />
+        <td:Dark x:Key="Dark" />
+    </ResourceDictionary.ThemeDictionaries>
+    <ResourceDictionary.MergedDictionaries>
+        <td:Font />
+        <td:Radius />
+        <td:Size />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
