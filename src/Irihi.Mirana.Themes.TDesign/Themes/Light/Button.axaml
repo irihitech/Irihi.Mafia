@@ -1,85 +1,86 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <!-- Default -->
-    <StaticResource x:Key="TDButtonDefaultColor" ResourceKey="TDTextColorPrimary" />
-    <StaticResource x:Key="TDButtonDefaultBgColor" ResourceKey="TDBgColorComponent" />
-    <StaticResource x:Key="TDButtonDefaultBorderColor" ResourceKey="TDBgColorComponent" />
-    <StaticResource x:Key="TDButtonDefaultActiveBgColor" ResourceKey="TDBgColorComponentActive" />
-    <StaticResource x:Key="TDButtonDefaultActiveBorderColor" ResourceKey="TDBgColorComponentActive" />
-    <StaticResource x:Key="TDButtonDefaultDisabledColor" ResourceKey="TDTextColorDisabled" />
-    <StaticResource x:Key="TDButtonDefaultDisabledBg" ResourceKey="TDBgColorComponentDisabled" />
-    <StaticResource x:Key="TDButtonDefaultDisabledBorderColor" ResourceKey="TDBgColorComponentDisabled" />
+    <!-- Base -->
+    <StaticResource x:Key="TDButtonBaseForeground" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDButtonBaseBackground" ResourceKey="TDBgColorComponent" />
+    <StaticResource x:Key="TDButtonBaseBorderBrush" ResourceKey="TDBgColorComponent" />
+    <StaticResource x:Key="TDButtonBasePressedBackground" ResourceKey="TDBgColorComponentActive" />
+    <StaticResource x:Key="TDButtonBasePressedBorderBrush" ResourceKey="TDBgColorComponentActive" />
+    <StaticResource x:Key="TDButtonBaseDisabledForeground" ResourceKey="TDTextColorDisabled" />
+    <StaticResource x:Key="TDButtonBaseDisabledBackground" ResourceKey="TDBgColorComponentDisabled" />
+    <StaticResource x:Key="TDButtonBaseDisabledBorderBrush" ResourceKey="TDBgColorComponentDisabled" />
 
-    <StaticResource x:Key="TDButtonPrimaryColor" ResourceKey="TDFontWhite1" />
-    <StaticResource x:Key="TDButtonPrimaryBgColor" ResourceKey="TDBrandColor" />
-    <StaticResource x:Key="TDButtonPrimaryBorderColor" ResourceKey="TDBrandColor" />
-    <StaticResource x:Key="TDButtonPrimaryActiveBgColor" ResourceKey="TDBrandColorActive" />
-    <StaticResource x:Key="TDButtonPrimaryActiveBorderColor" ResourceKey="TDBrandColorActive" />
-    <!-- <StaticResource x:Key="TDButtonPrimaryDisabledColor" ResourceKey="TDFontWhite1" /> -->
-    <StaticResource x:Key="TDButtonPrimaryDisabledColor" ResourceKey="TDTextColorDisabled" />
-    <StaticResource x:Key="TDButtonPrimaryDisabledBg" ResourceKey="TDBrandColorDisabled" />
-    <StaticResource x:Key="TDButtonPrimaryDisabledBorderColor" ResourceKey="TDBrandColorDisabled" />
+    <StaticResource x:Key="TDButtonPrimaryForeground" ResourceKey="TDFontWhite1" />
+    <StaticResource x:Key="TDButtonPrimaryBackground" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDButtonPrimaryBorderBrush" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDButtonPrimaryPressedBackground" ResourceKey="TDBrandColorActive" />
+    <StaticResource x:Key="TDButtonPrimaryPressedBorderBrush" ResourceKey="TDBrandColorActive" />
+    <!-- <StaticResource x:Key="TDButtonPrimaryDisabledForeground" ResourceKey="TDFontWhite1" /> -->
+    <StaticResource x:Key="TDButtonPrimaryDisabledForeground" ResourceKey="TDTextColorDisabled" />
+    <StaticResource x:Key="TDButtonPrimaryDisabledBackground" ResourceKey="TDBrandColorDisabled" />
+    <StaticResource x:Key="TDButtonPrimaryDisabledBorderBrush" ResourceKey="TDBrandColorDisabled" />
 
-    <StaticResource x:Key="TDButtonDangerColor" ResourceKey="TDFontWhite1" />
-    <StaticResource x:Key="TDButtonDangerBgColor" ResourceKey="TDErrorColor" />
-    <StaticResource x:Key="TDButtonDangerBorderColor" ResourceKey="TDErrorColor" />
-    <StaticResource x:Key="TDButtonDangerActiveBgColor" ResourceKey="TDErrorColor7" />
-    <StaticResource x:Key="TDButtonDangerActiveBorderColor" ResourceKey="TDErrorColor7" />
-    <!-- <StaticResource x:Key="TDButtonDangerDisabledColor" ResourceKey="TDErrorColorDisabled" /> -->
-    <StaticResource x:Key="TDButtonDangerDisabledColor" ResourceKey="TDTextColorDisabled" />
-    <StaticResource x:Key="TDButtonDangerDisabledBg" ResourceKey="TDErrorColor3" />
-    <StaticResource x:Key="TDButtonDangerDisabledBorderColor" ResourceKey="TDErrorColor3" />
+    <StaticResource x:Key="TDButtonDangerForeground" ResourceKey="TDFontWhite1" />
+    <StaticResource x:Key="TDButtonDangerBackground" ResourceKey="TDErrorColor" />
+    <StaticResource x:Key="TDButtonDangerBorderBrush" ResourceKey="TDErrorColor" />
+    <StaticResource x:Key="TDButtonDangerPressedBackground" ResourceKey="TDErrorColor7" />
+    <StaticResource x:Key="TDButtonDangerPressedBorderBrush" ResourceKey="TDErrorColor7" />
+    <!-- <StaticResource x:Key="TDButtonDangerDisabledForeground" ResourceKey="TDErrorColorDisabled" /> -->
+    <StaticResource x:Key="TDButtonDangerDisabledForeground" ResourceKey="TDTextColorDisabled" />
+    <StaticResource x:Key="TDButtonDangerDisabledBackground" ResourceKey="TDErrorColor3" />
+    <StaticResource x:Key="TDButtonDangerDisabledBorderBrush" ResourceKey="TDErrorColor3" />
 
-    <StaticResource x:Key="TDButtonLightColor" ResourceKey="TDBrandColor" />
-    <StaticResource x:Key="TDButtonLightBgColor" ResourceKey="TDBrandColorLight" />
-    <StaticResource x:Key="TDButtonLightBorderColor" ResourceKey="TDBrandColorLight" />
-    <StaticResource x:Key="TDButtonLightActiveBgColor" ResourceKey="TDBrandColorLightActive" />
-    <StaticResource x:Key="TDButtonLightActiveBorderColor" ResourceKey="TDBrandColorLightActive" />
-    <StaticResource x:Key="TDButtonLightDisabledColor" ResourceKey="TDBrandColorDisabled" />
-    <StaticResource x:Key="TDButtonLightDisabledBg" ResourceKey="TDBrandColorLight" />
-    <StaticResource x:Key="TDButtonLightDisabledBorderColor" ResourceKey="TDBrandColorLight" />
+    <StaticResource x:Key="TDButtonLightForeground" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDButtonLightBackground" ResourceKey="TDBrandColorLight" />
+    <StaticResource x:Key="TDButtonLightBorderBrush" ResourceKey="TDBrandColorLight" />
+    <StaticResource x:Key="TDButtonLightPressedBackground" ResourceKey="TDBrandColorLightActive" />
+    <StaticResource x:Key="TDButtonLightPressedBorderBrush" ResourceKey="TDBrandColorLightActive" />
+    <StaticResource x:Key="TDButtonLightDisabledForeground" ResourceKey="TDBrandColorDisabled" />
+    <StaticResource x:Key="TDButtonLightDisabledBackground" ResourceKey="TDBrandColorLight" />
+    <StaticResource x:Key="TDButtonLightDisabledBorderBrush" ResourceKey="TDBrandColorLight" />
 
     <!-- Outline -->
-    <StaticResource x:Key="TDButtonDefaultOutlineColor" ResourceKey="TDTextColorPrimary" />
-    <StaticResource x:Key="TDButtonDefaultOutlineBorderColor" ResourceKey="TDComponentBorder" />
-    <StaticResource x:Key="TDButtonDefaultOutlineActiveBgColor" ResourceKey="TDBgColorContainerActive" />
-    <StaticResource x:Key="TDButtonDefaultOutlineActiveBorderColor" ResourceKey="TDComponentBorder" />
-    <StaticResource x:Key="TDButtonDefaultOutlineDisabledColor" ResourceKey="TDComponentBorder" />
+    <StaticResource x:Key="TDButtonOutlineBaseForeground" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDButtonOutlineBaseBorderBrush" ResourceKey="TDComponentBorder" />
+    <StaticResource x:Key="TDButtonOutlineBasePressedBackground" ResourceKey="TDBgColorContainerActive" />
+    <StaticResource x:Key="TDButtonOutlineBasePressedBorderBrush" ResourceKey="TDComponentBorder" />
+    <StaticResource x:Key="TDButtonOutlineBaseDisabledForeground" ResourceKey="TDComponentBorder" />
 
-    <StaticResource x:Key="TDButtonPrimaryOutlineColor" ResourceKey="TDBrandColor" />
-    <StaticResource x:Key="TDButtonPrimaryOutlineBorderColor" ResourceKey="TDButtonPrimaryOutlineColor" />
-    <StaticResource x:Key="TDButtonPrimaryOutlineActiveBgColor" ResourceKey="TDBgColorContainerActive" />
-    <StaticResource x:Key="TDButtonPrimaryOutlineActiveBorderColor" ResourceKey="TDBrandColorActive" />
-    <StaticResource x:Key="TDButtonPrimaryOutlineDisabledColor" ResourceKey="TDBrandColorDisabled" />
+    <StaticResource x:Key="TDButtonOutlinePrimaryForeground" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDButtonOutlinePrimaryBorderBrush" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDButtonOutlinePrimaryPressedBackground" ResourceKey="TDBgColorContainerActive" />
+    <StaticResource x:Key="TDButtonOutlinePrimaryPressedBorderBrush" ResourceKey="TDBrandColorActive" />
+    <StaticResource x:Key="TDButtonOutlinePrimaryDisabledForeground" ResourceKey="TDBrandColorDisabled" />
 
-    <StaticResource x:Key="TDButtonDangerOutlineColor" ResourceKey="TDErrorColor" />
-    <StaticResource x:Key="TDButtonDangerOutlineBorderColor" ResourceKey="TDButtonDangerOutlineColor" />
-    <StaticResource x:Key="TDButtonDangerOutlineActiveBgColor" ResourceKey="TDBgColorContainerActive" />
-    <StaticResource x:Key="TDButtonDangerOutlineActiveBorderColor" ResourceKey="TDErrorColor7" />
-    <StaticResource x:Key="TDButtonDangerOutlineDisabledColor" ResourceKey="TDErrorColor3" />
+    <StaticResource x:Key="TDButtonOutlineDangerForeground" ResourceKey="TDErrorColor" />
+    <StaticResource x:Key="TDButtonOutlineDangerBorderBrush" ResourceKey="TDErrorColor" />
+    <StaticResource x:Key="TDButtonOutlineDangerPressedBackground" ResourceKey="TDBgColorContainerActive" />
+    <StaticResource x:Key="TDButtonOutlineDangerPressedBorderBrush" ResourceKey="TDErrorColor7" />
+    <StaticResource x:Key="TDButtonOutlineDangerDisabledForeground" ResourceKey="TDErrorColor3" />
 
-    <StaticResource x:Key="TDButtonLightOutlineColor" ResourceKey="TDBrandColor" />
-    <!-- <StaticResource x:Key="TDButtonLightOutlineBgColor" ResourceKey="TDBrandColorLight" /> -->
-    <StaticResource x:Key="TDButtonLightOutlineBorderColor" ResourceKey="TDButtonLightOutlineColor" />
-    <StaticResource x:Key="TDButtonLightOutlineActiveBgColor" ResourceKey="TDBrandColorLightActive" />
-    <StaticResource x:Key="TDButtonLightOutlineActiveBorderColor" ResourceKey="TDBrandColorActive" />
-    <StaticResource x:Key="TDButtonLightOutlineDisabledColor" ResourceKey="TDBrandColorDisabled" />
+    <StaticResource x:Key="TDButtonOutlineLightForeground" ResourceKey="TDBrandColor" />
+    <!-- <StaticResource x:Key="TDButtonOutlineLightBorderBrush" ResourceKey="TDBrandColor" /> -->
+    <StaticResource x:Key="TDButtonOutlineLightBorderBrush" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDButtonOutlineLightPressedBackground" ResourceKey="TDBrandColorLightActive" />
+    <StaticResource x:Key="TDButtonOutlineLightPressedBorderBrush" ResourceKey="TDBrandColorActive" />
+    <StaticResource x:Key="TDButtonOutlineLightDisabledForeground" ResourceKey="TDBrandColorDisabled" />
 
     <!-- Text -->
-    <StaticResource x:Key="TDButtonDefaultTEXTActiveBgColor" ResourceKey="TDBgColorContainerActive" />
-    <StaticResource x:Key="TDButtonDefaultTEXTDisabledColor" ResourceKey="TDComponentBorder" />
+    <StaticResource x:Key="TDButtonBaseTextForeground" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDButtonBaseTextPressedBackground" ResourceKey="TDBgColorContainerActive" />
+    <StaticResource x:Key="TDButtonBaseTextDisabledForeground" ResourceKey="TDComponentBorder" />
 
-    <StaticResource x:Key="TDButtonPrimaryTEXTColor" ResourceKey="TDBrandColor" />
-    <StaticResource x:Key="TDButtonPrimaryTEXTActiveBgColor" ResourceKey="TDBgColorContainerActive" />
-    <StaticResource x:Key="TDButtonPrimaryTEXTDisabledColor" ResourceKey="TDBrandColorDisabled" />
+    <StaticResource x:Key="TDButtonPrimaryTextForeground" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDButtonPrimaryTextPressedBackground" ResourceKey="TDBgColorContainerActive" />
+    <StaticResource x:Key="TDButtonPrimaryTextDisabledForeground" ResourceKey="TDBrandColorDisabled" />
 
-    <StaticResource x:Key="TDButtonDangerTEXTColor" ResourceKey="TDErrorColor" />
-    <StaticResource x:Key="TDButtonDangerTEXTActiveBgColor" ResourceKey="TDBgColorContainerActive" />
-    <StaticResource x:Key="TDButtonDangerTEXTDisabledColor" ResourceKey="TDErrorColor3" />
+    <StaticResource x:Key="TDButtonDangerTextForeground" ResourceKey="TDErrorColor" />
+    <StaticResource x:Key="TDButtonDangerTextPressedBackground" ResourceKey="TDBgColorContainerActive" />
+    <StaticResource x:Key="TDButtonDangerTextDisabledForeground" ResourceKey="TDErrorColor3" />
 
-    <StaticResource x:Key="TDButtonLightTEXTColor" ResourceKey="TDBrandColor" />
-    <StaticResource x:Key="TDButtonLightTEXTActiveBgColor" ResourceKey="TDBgColorContainerActive" />
-    <StaticResource x:Key="TDButtonLightTEXTDisabledColor" ResourceKey="TDBrandColorDisabled" />
+    <StaticResource x:Key="TDButtonLightTextForeground" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDButtonLightTextPressedBackground" ResourceKey="TDBgColorContainerActive" />
+    <StaticResource x:Key="TDButtonLightTextDisabledForeground" ResourceKey="TDBrandColorDisabled" />
 
     <!-- Ghost -->
     <StaticResource x:Key="TDButtonGhostBorderColor" ResourceKey="TDButtonGhostColor" />

@@ -46,6 +46,8 @@
         <Setter Property="Padding" Value="{DynamicResource TDButtonMediumPaddingHorizontal}" />
         <Setter Property="MinHeight" Value="{DynamicResource TDButtonMediumHeight}" />
         <Setter Property="CornerRadius" Value="{DynamicResource TDButtonBorderRadius}" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TDButtonBorderWidth}" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -84,63 +86,62 @@
         x:Key="{x:Type Button}"
         TargetType="Button"
         BasedOn="{StaticResource BaseButtonControlTheme}">
-        <Setter Property="Foreground" Value="{DynamicResource TDButtonDefaultColor}" />
-        <Setter Property="Background" Value="{DynamicResource TDButtonDefaultBgColor}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource TDButtonDefaultBorderColor}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource TDButtonBorderWidth}" />
+        <Setter Property="Foreground" Value="{DynamicResource TDButtonBaseForeground}" />
+        <Setter Property="Background" Value="{DynamicResource TDButtonBaseBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TDButtonBaseBorderBrush}" />
 
         <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Background" Value="{DynamicResource TDButtonDefaultActiveBgColor}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TDButtonDefaultActiveBorderColor}" />
+            <Setter Property="Background" Value="{DynamicResource TDButtonBasePressedBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TDButtonBasePressedBorderBrush}" />
         </Style>
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource TDButtonDefaultDisabledColor}" />
-            <Setter Property="Background" Value="{DynamicResource TDButtonDefaultDisabledBg}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TDButtonDefaultDisabledBorderColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource TDButtonBaseDisabledForeground}" />
+            <Setter Property="Background" Value="{DynamicResource TDButtonBaseDisabledBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TDButtonBaseDisabledBorderBrush}" />
         </Style>
 
         <Style Selector="^.Primary">
-            <Setter Property="Foreground" Value="{DynamicResource TDButtonPrimaryColor}" />
-            <Setter Property="Background" Value="{DynamicResource TDButtonPrimaryBgColor}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TDButtonPrimaryBorderColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource TDButtonPrimaryForeground}" />
+            <Setter Property="Background" Value="{DynamicResource TDButtonPrimaryBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TDButtonPrimaryBorderBrush}" />
             <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="{DynamicResource TDButtonPrimaryActiveBgColor}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonPrimaryActiveBorderColor}" />
+                <Setter Property="Background" Value="{DynamicResource TDButtonPrimaryPressedBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonPrimaryPressedBorderBrush}" />
             </Style>
             <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource TDButtonPrimaryDisabledColor}" />
-                <Setter Property="Background" Value="{DynamicResource TDButtonPrimaryDisabledBg}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonPrimaryDisabledBorderColor}" />
+                <Setter Property="Foreground" Value="{DynamicResource TDButtonPrimaryDisabledForeground}" />
+                <Setter Property="Background" Value="{DynamicResource TDButtonPrimaryDisabledBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonPrimaryDisabledBorderBrush}" />
             </Style>
         </Style>
 
         <Style Selector="^.Danger">
-            <Setter Property="Foreground" Value="{DynamicResource TDButtonDangerColor}" />
-            <Setter Property="Background" Value="{DynamicResource TDButtonDangerBgColor}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TDButtonDangerBorderColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource TDButtonDangerForeground}" />
+            <Setter Property="Background" Value="{DynamicResource TDButtonDangerBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TDButtonDangerBorderBrush}" />
             <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="{DynamicResource TDButtonDangerActiveBgColor}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonDangerActiveBorderColor}" />
+                <Setter Property="Background" Value="{DynamicResource TDButtonDangerPressedBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonDangerPressedBorderBrush}" />
             </Style>
             <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource TDButtonDangerDisabledColor}" />
-                <Setter Property="Background" Value="{DynamicResource TDButtonDangerDisabledBg}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonDangerDisabledBorderColor}" />
+                <Setter Property="Foreground" Value="{DynamicResource TDButtonDangerDisabledForeground}" />
+                <Setter Property="Background" Value="{DynamicResource TDButtonDangerDisabledBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonDangerDisabledBorderBrush}" />
             </Style>
         </Style>
 
         <Style Selector="^.Light">
-            <Setter Property="Foreground" Value="{DynamicResource TDButtonLightColor}" />
-            <Setter Property="Background" Value="{DynamicResource TDButtonLightBgColor}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TDButtonLightBorderColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource TDButtonLightForeground}" />
+            <Setter Property="Background" Value="{DynamicResource TDButtonLightBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TDButtonLightBorderBrush}" />
             <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="{DynamicResource TDButtonLightActiveBgColor}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonLightActiveBorderColor}" />
+                <Setter Property="Background" Value="{DynamicResource TDButtonLightPressedBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonLightPressedBorderBrush}" />
             </Style>
             <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource TDButtonLightDisabledColor}" />
-                <Setter Property="Background" Value="{DynamicResource TDButtonLightDisabledBg}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonLightDisabledBorderColor}" />
+                <Setter Property="Foreground" Value="{DynamicResource TDButtonLightDisabledForeground}" />
+                <Setter Property="Background" Value="{DynamicResource TDButtonLightDisabledBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonLightDisabledBorderBrush}" />
             </Style>
         </Style>
     </ControlTheme>
@@ -149,56 +150,56 @@
         x:Key="OutlineButton"
         TargetType="Button"
         BasedOn="{StaticResource BaseButtonControlTheme}">
-        <Setter Property="Foreground" Value="{DynamicResource TDButtonDefaultOutlineColor}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource TDButtonDefaultOutlineBorderColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource TDButtonOutlineBaseForeground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TDButtonOutlineBaseBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource TDButtonBorderWidth}" />
 
         <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Background" Value="{DynamicResource TDButtonDefaultOutlineActiveBgColor}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TDButtonDefaultOutlineActiveBorderColor}" />
+            <Setter Property="Background" Value="{DynamicResource TDButtonOutlineBasePressedBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TDButtonOutlineBasePressedBorderBrush}" />
         </Style>
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource TDButtonDefaultOutlineDisabledColor}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TDButtonDefaultOutlineDisabledColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource TDButtonOutlineBaseDisabledForeground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TDButtonOutlineBaseDisabledForeground}" />
         </Style>
 
         <Style Selector="^.Primary">
-            <Setter Property="Foreground" Value="{DynamicResource TDButtonPrimaryOutlineColor}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TDButtonPrimaryOutlineBorderColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource TDButtonOutlinePrimaryForeground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TDButtonOutlinePrimaryBorderBrush}" />
             <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="{DynamicResource TDButtonPrimaryOutlineActiveBgColor}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonPrimaryOutlineActiveBorderColor}" />
+                <Setter Property="Background" Value="{DynamicResource TDButtonOutlinePrimaryPressedBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonOutlinePrimaryPressedBorderBrush}" />
             </Style>
             <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource TDButtonPrimaryOutlineDisabledColor}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonPrimaryOutlineDisabledColor}" />
+                <Setter Property="Foreground" Value="{DynamicResource TDButtonOutlinePrimaryDisabledForeground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonOutlinePrimaryDisabledForeground}" />
             </Style>
         </Style>
 
         <Style Selector="^.Danger">
-            <Setter Property="Foreground" Value="{DynamicResource TDButtonDangerOutlineColor}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TDButtonDangerOutlineBorderColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource TDButtonOutlineDangerForeground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TDButtonOutlineDangerBorderBrush}" />
             <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="{DynamicResource TDButtonDangerOutlineActiveBgColor}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonDangerOutlineActiveBorderColor}" />
+                <Setter Property="Background" Value="{DynamicResource TDButtonOutlineDangerPressedBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonOutlineDangerPressedBorderBrush}" />
             </Style>
             <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource TDButtonDangerOutlineDisabledColor}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonDangerOutlineDisabledColor}" />
+                <Setter Property="Foreground" Value="{DynamicResource TDButtonOutlineDangerDisabledForeground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonOutlineDangerDisabledForeground}" />
             </Style>
         </Style>
 
         <Style Selector="^.Light">
-            <Setter Property="Foreground" Value="{DynamicResource TDButtonLightOutlineColor}" />
-            <Setter Property="Background" Value="{DynamicResource TDButtonLightBgColor}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TDButtonLightOutlineBorderColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource TDButtonOutlineLightForeground}" />
+            <Setter Property="Background" Value="{DynamicResource TDButtonLightBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TDButtonOutlineLightBorderBrush}" />
             <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="{DynamicResource TDButtonLightOutlineActiveBgColor}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonLightOutlineActiveBorderColor}" />
+                <Setter Property="Background" Value="{DynamicResource TDButtonOutlineLightPressedBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonOutlineLightPressedBorderBrush}" />
             </Style>
             <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource TDButtonLightOutlineDisabledColor}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonLightOutlineDisabledColor}" />
+                <Setter Property="Foreground" Value="{DynamicResource TDButtonOutlineLightDisabledForeground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource TDButtonOutlineLightDisabledForeground}" />
             </Style>
         </Style>
     </ControlTheme>
@@ -207,41 +208,41 @@
         x:Key="TextButton"
         TargetType="Button"
         BasedOn="{StaticResource BaseButtonControlTheme}">
-        <Setter Property="Foreground" Value="{DynamicResource TDButtonDefaultColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource TDButtonBaseTextForeground}" />
         <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Background" Value="{DynamicResource TDButtonDefaultTEXTActiveBgColor}" />
+            <Setter Property="Background" Value="{DynamicResource TDButtonBaseTextPressedBackground}" />
         </Style>
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource TDButtonDefaultTEXTDisabledColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource TDButtonBaseTextDisabledForeground}" />
         </Style>
 
         <Style Selector="^.Primary">
-            <Setter Property="Foreground" Value="{DynamicResource TDButtonPrimaryTEXTColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource TDButtonPrimaryTextForeground}" />
             <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="{DynamicResource TDButtonPrimaryTEXTActiveBgColor}" />
+                <Setter Property="Background" Value="{DynamicResource TDButtonPrimaryTextPressedBackground}" />
             </Style>
             <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource TDButtonPrimaryTEXTDisabledColor}" />
+                <Setter Property="Foreground" Value="{DynamicResource TDButtonPrimaryTextDisabledForeground}" />
             </Style>
         </Style>
 
         <Style Selector="^.Danger">
-            <Setter Property="Foreground" Value="{DynamicResource TDButtonDangerTEXTColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource TDButtonDangerTextForeground}" />
             <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="{DynamicResource TDButtonDangerTEXTActiveBgColor}" />
+                <Setter Property="Background" Value="{DynamicResource TDButtonDangerTextPressedBackground}" />
             </Style>
             <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource TDButtonDangerTEXTDisabledColor}" />
+                <Setter Property="Foreground" Value="{DynamicResource TDButtonDangerTextDisabledForeground}" />
             </Style>
         </Style>
 
         <Style Selector="^.Light">
-            <Setter Property="Foreground" Value="{DynamicResource TDButtonLightTEXTColor}" />
+            <Setter Property="Foreground" Value="{DynamicResource TDButtonLightTextForeground}" />
             <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="{DynamicResource TDButtonLightTEXTActiveBgColor}" />
+                <Setter Property="Background" Value="{DynamicResource TDButtonLightTextPressedBackground}" />
             </Style>
             <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource TDButtonLightTEXTDisabledColor}" />
+                <Setter Property="Foreground" Value="{DynamicResource TDButtonLightTextDisabledForeground}" />
             </Style>
         </Style>
     </ControlTheme>
