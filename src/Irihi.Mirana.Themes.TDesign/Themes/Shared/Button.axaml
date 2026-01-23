@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StaticResource x:Key="TDButtonBorderRadius" ResourceKey="TDRadiusDefault" />
+    <StaticResource x:Key="TDButtonIconSpacer" ResourceKey="TDSpacer" />
+    <StaticResource x:Key="TDButtonLARGEFontSize" ResourceKey="TDFontSizeTitleMedium" />
+    <StaticResource x:Key="TDButtonMediumFontSize" ResourceKey="TDFontSizeTitleMedium" />
+    <StaticResource x:Key="TDButtonSMALLFontSize" ResourceKey="TDFontSizeBodyMedium" />
+    <StaticResource x:Key="TDButtonExtraSMALLFontSize" ResourceKey="TDFontSizeBodyMedium" />
+
+    <Thickness x:Key="TDButtonBorderWidth">1</Thickness>
+    <x:Double x:Key="TDButtonExtraSMALLHeight">28</x:Double>
+    <x:Double x:Key="TDButtonExtraSMALLIconSize">18</x:Double>
+    <Thickness x:Key="TDButtonExtraSMALLPaddingHorizontal">8</Thickness>
+    <CornerRadius x:Key="TDButtonIconBorderRadius">4</CornerRadius>
+    <x:Double x:Key="TDButtonLARGEHeight">48</x:Double>
+    <x:Double x:Key="TDButtonLARGEIconSize">24</x:Double>
+    <Thickness x:Key="TDButtonLARGEPaddingHorizontal">20</Thickness>
+    <x:Double x:Key="TDButtonMediumHeight">40</x:Double>
+    <x:Double x:Key="TDButtonMediumIconSize">20</x:Double>
+    <Thickness x:Key="TDButtonMediumPaddingHorizontal">16,0</Thickness>
+    <x:Double x:Key="TDButtonSMALLHeight">32</x:Double>
+    <x:Double x:Key="TDButtonSMALLIconSize">18</x:Double>
+    <Thickness x:Key="TDButtonSMALLPaddingHorizontal">12</Thickness>
+
+    <FontWeight x:Key="TDButtonFontWeight">600</FontWeight>
+</ResourceDictionary>
