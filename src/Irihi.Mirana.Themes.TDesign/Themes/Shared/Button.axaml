@@ -22,6 +22,7 @@
     <StaticResource x:Key="TDButtonExtraSmallFontSize" ResourceKey="TDFontSizeBodyMedium" />
     <Thickness x:Key="TDButtonExtraSmallPaddingHorizontal">8,0</Thickness>
 
+    <x:Double x:Key="TDIconButtonInnerSpacing">4</x:Double>
 
     <StreamGeometry x:Key="Temporary">
         M3 3H10V10H3V3ZM14 14H21V21H14V14ZM3 14H10V21H3V14Z
