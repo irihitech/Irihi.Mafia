@@ -1,26 +1,30 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="TDButtonBorderRadius" ResourceKey="TDRadiusDefault" />
-    <StaticResource x:Key="TDButtonIconSpacer" ResourceKey="TDSpacer" />
-    <StaticResource x:Key="TDButtonLARGEFontSize" ResourceKey="TDFontSizeTitleMedium" />
-    <StaticResource x:Key="TDButtonMediumFontSize" ResourceKey="TDFontSizeTitleMedium" />
-    <StaticResource x:Key="TDButtonSMALLFontSize" ResourceKey="TDFontSizeBodyMedium" />
-    <StaticResource x:Key="TDButtonExtraSMALLFontSize" ResourceKey="TDFontSizeBodyMedium" />
+    <StaticResource x:Key="TDButtonRectangleBorderRadius" ResourceKey="TDRadiusDefault" />
+    <StaticResource x:Key="TDButtonRoundBorderRadius" ResourceKey="TDRadiusRound" />
 
-    <Thickness x:Key="TDButtonBorderWidth">1</Thickness>
-    <x:Double x:Key="TDButtonExtraSMALLHeight">28</x:Double>
-    <x:Double x:Key="TDButtonExtraSMALLIconSize">18</x:Double>
-    <Thickness x:Key="TDButtonExtraSMALLPaddingHorizontal">8</Thickness>
-    <CornerRadius x:Key="TDButtonIconBorderRadius">4</CornerRadius>
-    <x:Double x:Key="TDButtonLARGEHeight">48</x:Double>
-    <x:Double x:Key="TDButtonLARGEIconSize">24</x:Double>
-    <Thickness x:Key="TDButtonLARGEPaddingHorizontal">20</Thickness>
-    <x:Double x:Key="TDButtonMediumHeight">40</x:Double>
-    <x:Double x:Key="TDButtonMediumIconSize">20</x:Double>
-    <Thickness x:Key="TDButtonMediumPaddingHorizontal">16,0</Thickness>
-    <x:Double x:Key="TDButtonSMALLHeight">32</x:Double>
-    <x:Double x:Key="TDButtonSMALLIconSize">18</x:Double>
-    <Thickness x:Key="TDButtonSMALLPaddingHorizontal">12</Thickness>
-
+    <Thickness x:Key="TDButtonBorderThickness">1</Thickness>
     <FontWeight x:Key="TDButtonFontWeight">600</FontWeight>
+
+    <x:Double x:Key="TDButtonLargeMinHeight">48</x:Double>
+    <StaticResource x:Key="TDButtonLargeFontSize" ResourceKey="TDFontSizeBodyLarge" />
+    <Thickness x:Key="TDButtonLargePaddingHorizontal">20,0</Thickness>
+
+    <x:Double x:Key="TDButtonMediumMinHeight">40</x:Double>
+    <StaticResource x:Key="TDButtonMediumFontSize" ResourceKey="TDFontSizeBodyLarge" />
+    <Thickness x:Key="TDButtonMediumPaddingHorizontal">16,0</Thickness>
+
+    <x:Double x:Key="TDButtonSmallMinHeight">32</x:Double>
+    <StaticResource x:Key="TDButtonSmallFontSize" ResourceKey="TDFontSizeBodyMedium" />
+    <Thickness x:Key="TDButtonSmallPaddingHorizontal">12,0</Thickness>
+
+    <x:Double x:Key="TDButtonExtraSmallMinHeight">28</x:Double>
+    <StaticResource x:Key="TDButtonExtraSmallFontSize" ResourceKey="TDFontSizeBodyMedium" />
+    <Thickness x:Key="TDButtonExtraSmallPaddingHorizontal">8,0</Thickness>
+
+
+    <StreamGeometry x:Key="Temporary">
+        M3 3H10V10H3V3ZM14 14H21V21H14V14ZM3 14H10V21H3V14Z
+        M21.5 6.5C21.5 8.70914 19.7091 10.5 17.5 10.5C15.2909 10.5 13.5 8.70914 13.5 6.5C13.5 4.29086 15.2909 2.5 17.5 2.5C19.7091 2.5 21.5 4.29086 21.5 6.5Z
+    </StreamGeometry>
 </ResourceDictionary>

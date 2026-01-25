@@ -38,16 +38,28 @@
                 <Button Theme="{DynamicResource TextButton}" Classes="Danger" Content="文字按钮" IsEnabled="False" />
                 <Button Theme="{DynamicResource TextButton}" Classes="Light" Content="文字按钮" IsEnabled="False" />
             </WrapPanel>
+            <WrapPanel ItemSpacing="16">
+                <Button Classes="Primary Large" Content="按钮" />
+                <Button Classes="Primary Medium" Content="按钮" />
+                <Button Classes="Primary Small" Content="按钮" />
+                <Button Classes="Primary ExtraSmall" Content="按钮" />
+            </WrapPanel>
+            <WrapPanel ItemSpacing="16">
+                <Button Classes="Primary Rectangle" Content="按钮" />
+                <Button Classes="Primary Square" Content="{StaticResource Temporary}" />
+                <Button Classes="Primary Round" Content="按钮" />
+                <Button Classes="Primary Circle" Content="{StaticResource Temporary}" />
+            </WrapPanel>
         </StackPanel>
     </Design.PreviewWith>
 
     <ControlTheme x:Key="BaseButtonControlTheme" TargetType="Button">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Padding" Value="{DynamicResource TDButtonMediumPaddingHorizontal}" />
-        <Setter Property="MinHeight" Value="{DynamicResource TDButtonMediumHeight}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource TDButtonBorderRadius}" />
+        <Setter Property="MinHeight" Value="{DynamicResource TDButtonMediumMinHeight}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TDButtonRectangleBorderRadius}" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="BorderThickness" Value="{DynamicResource TDButtonBorderWidth}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TDButtonBorderThickness}" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -55,7 +67,7 @@
         <Setter Property="FontSize" Value="{DynamicResource TDButtonMediumFontSize}" />
         <Setter Property="FontWeight" Value="{DynamicResource TDButtonFontWeight}" />
         <Setter Property="RenderTransform" Value="none" />
-        <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
+        <!-- <Setter Property="BackgroundSizing" Value="OuterBorderEdge" /> -->
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
             <ControlTemplate TargetType="Button">
@@ -71,7 +83,13 @@
                     ContentTemplate="{TemplateBinding ContentTemplate}"
                     TextElement.FontSize="{TemplateBinding FontSize}"
                     TextElement.FontWeight="{TemplateBinding FontWeight}"
-                    UseLayoutRounding="False" />
+                    UseLayoutRounding="False">
+                    <ContentPresenter.DataTemplates>
+                        <DataTemplate DataType="Geometry">
+                            <PathIcon Data="{Binding}" />
+                        </DataTemplate>
+                    </ContentPresenter.DataTemplates>
+                </ContentPresenter>
             </ControlTemplate>
         </Setter>
 
@@ -79,6 +97,43 @@
             <Setter Property="Background" Value="{TemplateBinding Background}" />
             <Setter Property="BorderBrush" Value="{TemplateBinding BorderBrush}" />
             <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+
+        <Style Selector="^.Large">
+            <Setter Property="MinHeight" Value="{DynamicResource TDButtonLargeMinHeight}" />
+            <Setter Property="FontSize" Value="{DynamicResource TDButtonLargeFontSize}" />
+            <Setter Property="Padding" Value="{DynamicResource TDButtonLargePaddingHorizontal}" />
+        </Style>
+        <Style Selector="^.Medium">
+            <Setter Property="MinHeight" Value="{DynamicResource TDButtonMediumMinHeight}" />
+            <Setter Property="FontSize" Value="{DynamicResource TDButtonMediumFontSize}" />
+            <Setter Property="Padding" Value="{DynamicResource TDButtonMediumPaddingHorizontal}" />
+        </Style>
+        <Style Selector="^.Small">
+            <Setter Property="MinHeight" Value="{DynamicResource TDButtonSmallMinHeight}" />
+            <Setter Property="FontSize" Value="{DynamicResource TDButtonSmallFontSize}" />
+            <Setter Property="Padding" Value="{DynamicResource TDButtonSmallPaddingHorizontal}" />
+        </Style>
+        <Style Selector="^.ExtraSmall">
+            <Setter Property="MinHeight" Value="{DynamicResource TDButtonExtraSmallMinHeight}" />
+            <Setter Property="FontSize" Value="{DynamicResource TDButtonExtraSmallFontSize}" />
+            <Setter Property="Padding" Value="{DynamicResource TDButtonExtraSmallPaddingHorizontal}" />
+        </Style>
+
+        <Style Selector="^.Rectangle">
+            <Setter Property="CornerRadius" Value="{DynamicResource TDButtonRectangleBorderRadius}" />
+        </Style>
+        <Style Selector="^.Square">
+            <Setter Property="MinWidth" Value="{Binding $self.MinHeight}" />
+            <Setter Property="Padding" Value="0" />
+        </Style>
+        <Style Selector="^.Round">
+            <Setter Property="CornerRadius" Value="{DynamicResource TDButtonRoundBorderRadius}" />
+        </Style>
+        <Style Selector="^.Circle">
+            <Setter Property="CornerRadius" Value="{DynamicResource TDButtonRoundBorderRadius}" />
+            <Setter Property="MinWidth" Value="{Binding $self.MinHeight}" />
+            <Setter Property="Padding" Value="0" />
         </Style>
     </ControlTheme>
 
@@ -152,7 +207,7 @@
         BasedOn="{StaticResource BaseButtonControlTheme}">
         <Setter Property="Foreground" Value="{DynamicResource TDButtonOutlineBaseForeground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource TDButtonOutlineBaseBorderBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource TDButtonBorderWidth}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TDButtonBorderThickness}" />
 
         <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Background" Value="{DynamicResource TDButtonOutlineBasePressedBackground}" />
