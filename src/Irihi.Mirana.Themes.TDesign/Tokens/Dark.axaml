@@ -78,6 +78,7 @@
     <SolidColorBrush x:Key="TDBrandColorDisabled" Color="{StaticResource TDBrandColor3}" />
     <SolidColorBrush x:Key="TDBrandColorLight" Color="{StaticResource TDBrandColor1}" />
     <SolidColorBrush x:Key="TDBrandColorLightHover" Color="{StaticResource TDBrandColor2}" />
+    <SolidColorBrush x:Key="TDBrandColorLightActive" Color="{StaticResource TDBrandColor2}" />
 
     <SolidColorBrush x:Key="TDWarningColorHover" Color="{StaticResource TDWarningColor7}" />
     <SolidColorBrush x:Key="TDWarningColorFocus" Color="{StaticResource TDWarningColor2}" />
