@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Avalonia" />
+    <PackageReference Include="Irihi.Avalonia.Shared" />
   </ItemGroup>
 
 </Project>
