@@ -29,6 +29,6 @@ public partial class MainViewModel : ViewModelBase
     public MainViewModel()
     {
         // Set default resolution to iPhone X
-        _selectedResolution = PhoneResolutions[0];
+        SelectedResolution = PhoneResolutions[0];
     }
 }

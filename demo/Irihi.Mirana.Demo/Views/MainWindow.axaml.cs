@@ -6,6 +6,8 @@ namespace Irihi.Mirana.Demo.Views;
 
 public partial class MainWindow : Window
 {
+    private MainViewModel? _currentViewModel;
+
     public MainWindow()
     {
         InitializeComponent();
@@ -16,9 +18,23 @@ public partial class MainWindow : Window
 
     private void OnDataContextChanged(object? sender, System.EventArgs e)
     {
+        // Unsubscribe from previous ViewModel if exists
+        if (_currentViewModel != null)
+        {
+            _currentViewModel.PropertyChanged -= ViewModel_PropertyChanged;
+        }
+        
         if (DataContext is MainViewModel viewModel)
         {
+            _currentViewModel = viewModel;
             viewModel.PropertyChanged += ViewModel_PropertyChanged;
+            
+            // Apply initial resolution
+            if (viewModel.SelectedResolution != null)
+            {
+                Width = viewModel.SelectedResolution.Width;
+                Height = viewModel.SelectedResolution.Height;
+            }
         }
     }
 
