@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Thickness x:Key="TDDividerContentMargin">12,0</Thickness>
+    <x:Double x:Key="TDDividerBorderLineHeight">1</x:Double>
+    <x:Double x:Key="TDDividerBorderLineMaxWidth">30</x:Double>
+    <StaticResource x:Key="TDDividerContentFontSize" ResourceKey="TDFontSizeBodySmall" />
+
+    <Thickness x:Key="TDDividerVerticalMargin">8,0</Thickness>
+    <x:Double x:Key="TDDividerVerticalHeight">16</x:Double>
+</ResourceDictionary>
