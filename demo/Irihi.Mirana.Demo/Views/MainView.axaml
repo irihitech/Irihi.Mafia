@@ -12,5 +12,17 @@
     <vm:MainViewModel />
   </Design.DataContext>
 
-  <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+  <DockPanel>
+    <StackPanel DockPanel.Dock="Top" Margin="10" Spacing="10">
+      <TextBlock Text="Select Phone Resolution:" FontWeight="Bold" />
+      <ComboBox ItemsSource="{Binding PhoneResolutions}"
+                SelectedItem="{Binding SelectedResolution}"
+                MinWidth="250"
+                HorizontalAlignment="Left" />
+    </StackPanel>
+    
+    <TextBlock Text="{Binding Greeting}" 
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Center"/>
+  </DockPanel>
 </UserControl>
