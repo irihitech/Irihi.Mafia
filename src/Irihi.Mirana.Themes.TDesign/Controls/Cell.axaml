@@ -27,9 +27,6 @@
             <!-- Cell with Required -->
             <m:Cell Title="单元格标题" Classes="required" />
             
-            <!-- Cell without Border -->
-            <m:Cell Title="单元格标题" Classes="noborder" />
-            
             <!-- Complex Cell -->
             <m:Cell 
                 Title="单元格标题" 
