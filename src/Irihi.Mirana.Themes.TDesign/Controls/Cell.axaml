@@ -155,9 +155,11 @@
 
                 <!-- Right Side: Content, Right Icon, Arrow -->
                 <StackPanel Grid.Column="2" 
+                           Name="PART_RightPanel"
                            Orientation="Horizontal" 
                            Spacing="8"
-                           Margin="12,0,0,0">
+                           Margin="12,0,0,0"
+                           VerticalAlignment="Center">
                     <!-- Right Content (Button Content) -->
                     <ContentPresenter
                         Name="PART_ContentPresenter"
@@ -224,13 +226,13 @@
         </Style>
         
         <!-- Alignment Styles -->
-        <Style Selector="^:align-top /template/ StackPanel#PART_ContentPresenter">
+        <Style Selector="^:align-top /template/ StackPanel#PART_RightPanel">
             <Setter Property="VerticalAlignment" Value="Top" />
         </Style>
-        <Style Selector="^:align-middle /template/ StackPanel#PART_ContentPresenter">
+        <Style Selector="^:align-middle /template/ StackPanel#PART_RightPanel">
             <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
-        <Style Selector="^:align-bottom /template/ StackPanel#PART_ContentPresenter">
+        <Style Selector="^:align-bottom /template/ StackPanel#PART_RightPanel">
             <Setter Property="VerticalAlignment" Value="Bottom" />
         </Style>
         
