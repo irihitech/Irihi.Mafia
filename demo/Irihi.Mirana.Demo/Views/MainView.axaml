@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:Irihi.Mirana.Demo.ViewModels"
              xmlns:m="https://irihi.tech/mirana"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1450"
              x:Class="Irihi.Mirana.Demo.Views.MainView"
              x:DataType="vm:MainViewModel">
   <Design.DataContext>
@@ -21,9 +21,9 @@
       <TextBlock Text="Basic Cells" FontSize="18" FontWeight="SemiBold" Margin="0,10,0,10"/>
       <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="4">
         <StackPanel Spacing="0">
-          <m:Cell Title="Basic Cell" Classes="bordered" />
-          <m:Cell Title="Cell with Description" Description="This is a description" Classes="bordered" />
-          <m:Cell Title="Cell with Note" Note="Note text" Classes="bordered" />
+          <m:Cell Content="Basic Cell" Classes="bordered" />
+          <m:Cell Content="Cell with Description" Description="This is a description" Classes="bordered" />
+          <m:Cell Content="Cell with Note" Note="Note text" Classes="bordered" />
         </StackPanel>
       </Border>
       
@@ -31,9 +31,9 @@
       <TextBlock Text="Cells with Icons" FontSize="18" FontWeight="SemiBold" Margin="0,20,0,10"/>
       <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="4">
         <StackPanel Spacing="0">
-          <m:Cell Title="Cell with Left Icon" LeftIcon="{StaticResource Temporary}" Classes="bordered" />
-          <m:Cell Title="Cell with Right Icon" RightIcon="{StaticResource Temporary}" Classes="bordered" />
-          <m:Cell Title="Cell with Both Icons" LeftIcon="{StaticResource Temporary}" RightIcon="{StaticResource Temporary}" Classes="bordered" />
+          <m:Cell Content="Cell with Left Icon" InnerLeftContent="{StaticResource Temporary}" Classes="bordered" />
+          <m:Cell Content="Cell with Right Icon" InnerRightContent="{StaticResource Temporary}" Classes="bordered" />
+          <m:Cell Content="Cell with Both Icons" InnerLeftContent="{StaticResource Temporary}" InnerRightContent="{StaticResource Temporary}" Classes="bordered" />
         </StackPanel>
       </Border>
       
@@ -41,8 +41,8 @@
       <TextBlock Text="Cells with Arrow" FontSize="18" FontWeight="SemiBold" Margin="0,20,0,10"/>
       <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="4">
         <StackPanel Spacing="0">
-          <m:Cell Title="Cell with Arrow" Classes="arrow bordered" />
-          <m:Cell Title="Navigable Cell" Description="Click to navigate" Classes="arrow bordered" />
+          <m:Cell Content="Cell with Arrow" Classes="arrow bordered" />
+          <m:Cell Content="Navigable Cell" Description="Click to navigate" Classes="arrow bordered" />
         </StackPanel>
       </Border>
       
@@ -50,8 +50,8 @@
       <TextBlock Text="Required Field" FontSize="18" FontWeight="SemiBold" Margin="0,20,0,10"/>
       <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="4">
         <StackPanel Spacing="0">
-          <m:Cell Title="Required Field" Classes="required bordered" />
-          <m:Cell Title="Required with Arrow" Classes="required arrow bordered" />
+          <m:Cell Content="Required Field" Classes="required bordered" />
+          <m:Cell Content="Required with Arrow" Classes="required arrow bordered" />
         </StackPanel>
       </Border>
       
@@ -60,14 +60,13 @@
       <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="4">
         <StackPanel Spacing="0">
           <m:Cell 
-              Title="Complete Cell" 
+              Content="Complete Cell" 
               Description="With all features"
               Note="Note"
-              LeftIcon="{StaticResource Temporary}"
-              Content="Value"
+              InnerLeftContent="{StaticResource Temporary}"
               Classes="arrow bordered" />
           <m:Cell 
-              Title="Profile Cell" 
+              Content="Profile Cell" 
               Description="User profile information"
               Image="{StaticResource Temporary}"
               Classes="arrow bordered" />
@@ -78,9 +77,9 @@
       <TextBlock Text="Without Border" FontSize="18" FontWeight="SemiBold" Margin="0,20,0,10"/>
       <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="4">
         <StackPanel Spacing="0">
-          <m:Cell Title="No Border Cell 1" />
-          <m:Cell Title="No Border Cell 2" />
-          <m:Cell Title="No Border Cell 3" />
+          <m:Cell Content="No Border Cell 1" />
+          <m:Cell Content="No Border Cell 2" />
+          <m:Cell Content="No Border Cell 3" />
         </StackPanel>
       </Border>
       
@@ -89,22 +88,16 @@
       <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="4">
         <StackPanel Spacing="0">
           <m:Cell 
-              Title="Top Aligned" 
+              Content="Top Aligned" 
               Description="Right content aligns to top"
-              Content="Top"
-              Align="Top"
               Classes="bordered" />
           <m:Cell 
-              Title="Middle Aligned (Default)" 
+              Content="Middle Aligned (Default)" 
               Description="Right content aligns to center"
-              Content="Middle"
-              Align="Center"
               Classes="bordered" />
           <m:Cell 
-              Title="Bottom Aligned" 
+              Content="Bottom Aligned" 
               Description="Right content aligns to bottom"
-              Content="Bottom"
-              Align="Bottom"
               Classes="bordered" />
         </StackPanel>
       </Border>
