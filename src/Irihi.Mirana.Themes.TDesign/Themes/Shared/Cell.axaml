@@ -1,46 +1,23 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
-    <!-- Cell Padding and Spacing -->
     <Thickness x:Key="TDCellHorizontalPadding">16,0</Thickness>
     <Thickness x:Key="TDCellVerticalPadding">0,16</Thickness>
     <Thickness x:Key="TDCellPadding">16</Thickness>
     <x:Double x:Key="TDCellBorderLeftSpace">16</x:Double>
     <x:Double x:Key="TDCellBorderRightSpace">0</x:Double>
-    
-    <!-- Cell Content Spacing -->
     <x:Double x:Key="TDCellContentSpacing">4</x:Double>
-    
-    <!-- Cell Height -->
-    <!-- auto height, no fixed value -->
-    
-    <!-- Cell Image Size -->
     <x:Double x:Key="TDCellImageHeight">48</x:Double>
     <x:Double x:Key="TDCellImageWidth">48</x:Double>
-    
-    <!-- Cell Icon Size -->
     <x:Double x:Key="TDCellLeftIconSize">24</x:Double>
     <x:Double x:Key="TDCellRightIconSize">24</x:Double>
-    
-    <!-- Cell Title Font -->
     <StaticResource x:Key="TDCellTitleFont" ResourceKey="TDFontSizeBodyLarge" />
-    
-    <!-- Cell Note Font -->
     <StaticResource x:Key="TDCellNoteFont" ResourceKey="TDFontSizeBodyMedium" />
-    
-    <!-- Cell Description Font -->
     <StaticResource x:Key="TDCellDescriptionFont" ResourceKey="TDFontSizeBodyMedium" />
-    
-    <!-- Cell Required Font -->
     <StaticResource x:Key="TDCellRequiredFont" ResourceKey="TDFontSizeBodyMedium" />
-    
-    <!-- Cell Group -->
+
     <x:Double x:Key="TDCellGroupTitleFontSize">14</x:Double>
     <x:Double x:Key="TDCellGroupTitleLineHeight">45</x:Double>
-    <x:Double x:Key="TDCellGroupTitlePaddingLeft">16</x:Double>
-    
-    <!-- Cell Arrow Geometry -->
-    <StreamGeometry x:Key="TDCellArrowGeometry">M9 6L15 12L9 18</StreamGeometry>
-    
+    <Thickness x:Key="TDCellGroupTitlePadding">16,0,0,0</Thickness>
+
 </ResourceDictionary>

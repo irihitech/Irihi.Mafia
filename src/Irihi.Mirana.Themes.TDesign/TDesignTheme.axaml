@@ -12,6 +12,8 @@
                 <ResourceInclude Source="/Tokens/_index.axaml" />
                 <ResourceInclude Source="/Themes/Shared/_index.axaml" />
                 <ResourceInclude Source="/Controls/_index.axaml" />
+
+                <ResourceInclude Source="Temp.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
