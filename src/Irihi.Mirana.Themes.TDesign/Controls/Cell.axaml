@@ -4,20 +4,20 @@
     xmlns:m="https://irihi.tech/mirana">
     <Design.PreviewWith>
         <StackPanel Width="400">
-            <m:Cell Content="单元格标题" />
-            <m:Cell Content="单元格标题" Description="描述信息" />
-            <m:Cell Content="单元格标题" Note="说明文字" />
-            <m:Cell Content="单元格标题" Classes="arrow" />
-            <m:Cell Content="单元格标题" InnerLeftContent="{StaticResource Temporary}" />
-            <m:Cell Content="单元格标题" Image="{StaticResource Temporary}" />
-            <m:Cell Content="单元格标题" InnerRightContent="{StaticResource Temporary}" />
-            <m:Cell Content="单元格标题" Classes="required" />
+            <m:Cell />
+            <m:Cell Content="单行标题" />
+            <m:Cell Content="单行标题" Classes="Arrow" />
+            <m:Cell Content="单行标题" Classes="Arrow" IsRequired="True" />
+            <m:Cell Content="单行标题" Classes="Arrow" Note="辅助信息" />
+            <m:Cell Content="单行标题" Classes="Arrow" />
+            <m:Cell Content="单行标题" InnerLeftContent="{StaticResource Temporary}" />
+            <m:Cell Content="单行标题" InnerRightContent="{StaticResource TDCellArrowGeometry}" />
             <m:Cell
-                Content="单元格标题"
-                Description="描述信息"
-                Note="说明"
-                InnerLeftContent="{StaticResource Temporary}"
-                Classes="arrow Bordered" />
+                Classes="Arrow"
+                Content="单行标题"
+                Description="一段很长很长的内容文字"
+                Note="辅助信息"
+                InnerLeftContent="{StaticResource Temporary}" />
         </StackPanel>
     </Design.PreviewWith>
 
@@ -33,153 +33,101 @@
     <!-- Arrow Icon Geometry -->
     <StreamGeometry x:Key="TDCellArrowGeometry">M9 6L15 12L9 18</StreamGeometry>
 
-    <ControlTemplate x:Key="CellTemplate" TargetType="m:Cell">
-        <Border
-            Name="PART_Background"
-            Padding="{TemplateBinding Padding}"
-            MinHeight="{DynamicResource TDCellMinHeight}"
-            Background="{DynamicResource TDBgColorContainer}"
-            BorderBrush="{DynamicResource TDComponentBorder}">
-
-            <Grid Name="{x:Static m:Cell.PART_RootPanel}" ColumnDefinitions="Auto,*,Auto">
-                <!-- Left Side: Image or Left Icon -->
-                <Panel Grid.Column="0" Margin="0,0,12,0">
-                    <ContentPresenter
-                        Name="PART_Image"
-                        Content="{TemplateBinding Image}"
-                        ContentTemplate="{TemplateBinding ImageTemplate}"
-                        Width="{DynamicResource TDCellImageSize}"
-                        Height="{DynamicResource TDCellImageSize}"
-                        VerticalAlignment="Center"
-                        IsVisible="{TemplateBinding Image, Converter={x:Static ObjectConverters.IsNotNull}}">
-                        <ContentPresenter.DataTemplates>
-                            <DataTemplate DataType="Geometry">
-                                <PathIcon Data="{Binding}"
-                                          Width="{DynamicResource TDCellImageSize}"
-                                          Height="{DynamicResource TDCellImageSize}" />
-                            </DataTemplate>
-                        </ContentPresenter.DataTemplates>
-                    </ContentPresenter>
-
-                    <ContentPresenter
-                        Name="PART_InnerLeftContent"
-                        Content="{TemplateBinding InnerLeftContent}"
-                        ContentTemplate="{TemplateBinding InnerLeftContentTemplate}"
-                        Width="{DynamicResource TDCellIconSize}"
-                        Height="{DynamicResource TDCellIconSize}"
-                        VerticalAlignment="Center">
-                        <ContentPresenter.IsVisible>
-                            <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                <TemplateBinding Property="Image" Converter="{x:Static ObjectConverters.IsNull}" />
-                                <TemplateBinding Property="InnerLeftContent" Converter="{x:Static ObjectConverters.IsNotNull}" />
-                            </MultiBinding>
-                        </ContentPresenter.IsVisible>
-                        <ContentPresenter.DataTemplates>
-                            <DataTemplate DataType="Geometry">
-                                <PathIcon Data="{Binding}"
-                                          Width="{DynamicResource TDCellIconSize}"
-                                          Height="{DynamicResource TDCellIconSize}" />
-                            </DataTemplate>
-                        </ContentPresenter.DataTemplates>
-                    </ContentPresenter>
-                </Panel>
-
-                <!-- Center: Content, Description -->
-                <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="{DynamicResource TDCellContentSpacing}">
-                    <StackPanel Orientation="Horizontal" Spacing="{DynamicResource TDCellContentNoteSpacing}">
-                        <!-- <TextBlock  -->
-                        <!--     Text="*"  -->
-                        <!--     Foreground="{DynamicResource TDErrorColor6}" -->
-                        <!--     VerticalAlignment="Center" -->
-                        <!--     IsVisible="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(m:Cell.Classes)[required]}" /> -->
-
-                        <ContentPresenter
-                            Name="PART_ContentPresenter"
-                            Content="{TemplateBinding Content}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}"
-                            VerticalAlignment="Center"
-                            TextElement.FontSize="{DynamicResource TDFontSizeBodyLarge}"
-                            TextElement.FontWeight="Medium"
-                            TextElement.Foreground="{DynamicResource TDTextColorPrimary}"
-                            IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
-
-                        <ContentPresenter
-                            Name="PART_Description"
-                            Content="{TemplateBinding Description}"
-                            ContentTemplate="{TemplateBinding DescriptionTemplate}"
-                            VerticalAlignment="Center"
-                            TextElement.FontSize="{DynamicResource TDFontSizeBodyMedium}"
-                            TextElement.Foreground="{DynamicResource TDTextColorSecondary}"
-                            IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}" />
-                    </StackPanel>
-
-                </StackPanel>
-
-                <!-- Right Side: Note, Right Icon, Arrow -->
-                <StackPanel Grid.Column="2"
-                            Name="PART_RightPanel"
-                            Orientation="Horizontal"
-                            Spacing="8"
-                            Margin="12,0,0,0"
-                            VerticalAlignment="Center">
-                    <ContentPresenter
-                        Name="PART_Note"
-                        Content="{TemplateBinding Note}"
-                        ContentTemplate="{TemplateBinding NoteTemplate}"
-                        TextElement.FontSize="{DynamicResource TDFontSizeBodyMedium}"
-                        TextElement.Foreground="{DynamicResource TDTextColorSecondary}"
-                        IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNotNull}}">
-                        <ContentPresenter.DataTemplates>
-                            <DataTemplate DataType="Geometry">
-                                <PathIcon Data="{Binding}" />
-                            </DataTemplate>
-                        </ContentPresenter.DataTemplates>
-                    </ContentPresenter>
-
-                    <ContentPresenter
-                        Name="PART_InnerRightContent"
-                        Content="{TemplateBinding InnerRightContent}"
-                        ContentTemplate="{TemplateBinding InnerRightContentTemplate}"
-                        Width="{DynamicResource TDCellIconSize}"
-                        Height="{DynamicResource TDCellIconSize}"
-                        IsVisible="{TemplateBinding InnerRightContent, Converter={x:Static ObjectConverters.IsNotNull}}">
-                        <ContentPresenter.DataTemplates>
-                            <DataTemplate DataType="Geometry">
-                                <PathIcon Data="{Binding}"
-                                          Width="{DynamicResource TDCellIconSize}"
-                                          Height="{DynamicResource TDCellIconSize}" />
-                            </DataTemplate>
-                        </ContentPresenter.DataTemplates>
-                    </ContentPresenter>
-                </StackPanel>
-            </Grid>
-        </Border>
-    </ControlTemplate>
-
     <ControlTheme x:Key="{x:Type m:Cell}" TargetType="m:Cell">
-        <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="{DynamicResource TDCellPadding}" />
         <Setter Property="Background" Value="{DynamicResource TDBgColorContainer}" />
         <Setter Property="BorderBrush" Value="{DynamicResource TDComponentBorder}" />
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Template" Value="{DynamicResource CellTemplate}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="m:Cell">
+                <Border
+                    Name="PART_Background"
+                    Padding="{TemplateBinding Padding}"
+                    MinHeight="{TemplateBinding MinHeight}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}">
+                    <Grid
+                        Name="{x:Static m:Cell.PART_RootPanel}"
+                        ColumnDefinitions="Auto,*,Auto">
 
-        <Style Selector="^.Bordered /template/ Border#PART_Background">
-            <Setter Property="BorderThickness" Value="0,0,0,1" />
-        </Style>
+                        <ContentPresenter
+                            Grid.Column="0"
+                            Name="PART_InnerLeftContent"
+                            Margin="0,0,12,0"
+                            Content="{TemplateBinding InnerLeftContent}"
+                            ContentTemplate="{TemplateBinding InnerLeftContentTemplate}"
+                            IsVisible="{TemplateBinding InnerLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}">
+                            <ContentPresenter.DataTemplates>
+                                <DataTemplate DataType="Geometry">
+                                    <PathIcon Data="{Binding}" />
+                                </DataTemplate>
+                            </ContentPresenter.DataTemplates>
+                        </ContentPresenter>
+
+                        <StackPanel
+                            Grid.Column="1"
+                            Margin="0,0,16,0"
+                            Spacing="{DynamicResource TDCellContentSpacing}">
+                            <StackPanel Orientation="Horizontal" Spacing="2">
+                                <ContentPresenter
+                                    Name="PART_ContentPresenter"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    TextElement.FontSize="{DynamicResource TDFontSizeBodyLarge}"
+                                    TextElement.Foreground="{DynamicResource TDTextColorPrimary}"
+                                    IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                <TextBlock
+                                    Foreground="{DynamicResource TDErrorColor6}"
+                                    IsVisible="{TemplateBinding IsRequired}"
+                                    Text="*" />
+                            </StackPanel>
+                            <ContentPresenter
+                                Name="PART_Description"
+                                Content="{TemplateBinding Description}"
+                                ContentTemplate="{TemplateBinding DescriptionTemplate}"
+                                TextElement.FontSize="{DynamicResource TDFontSizeBodyMedium}"
+                                TextElement.Foreground="{DynamicResource TDTextColorSecondary}"
+                                IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                        </StackPanel>
+
+                        <StackPanel
+                            Grid.Column="2"
+                            Name="PART_RightPanel"
+                            Orientation="Horizontal"
+                            Spacing="{DynamicResource TDCellContentSpacing}"
+                            VerticalAlignment="Center">
+                            <ContentPresenter
+                                Name="PART_Note"
+                                Content="{TemplateBinding Note}"
+                                ContentTemplate="{TemplateBinding NoteTemplate}"
+                                TextElement.FontSize="{DynamicResource TDFontSizeBodyMedium}"
+                                TextElement.Foreground="{DynamicResource TDTextColorSecondary}"
+                                IsVisible="{TemplateBinding Note, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                            <ContentPresenter
+                                Name="PART_InnerRightContent"
+                                Content="{TemplateBinding InnerRightContent}"
+                                ContentTemplate="{TemplateBinding InnerRightContentTemplate}"
+                                IsVisible="{Binding !!$self.Content}">
+                                <ContentPresenter.DataTemplates>
+                                    <DataTemplate DataType="Geometry">
+                                        <PathIcon Data="{Binding}" />
+                                    </DataTemplate>
+                                </ContentPresenter.DataTemplates>
+                            </ContentPresenter>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
         <Style Selector="^.Arrow /template/ ContentPresenter#PART_InnerRightContent">
-            <Setter Property="Content" Value="{StaticResource TDCellArrowGeometry}" />
+            <Setter Property="Content" Value="{DynamicResource TDCellArrowGeometry}" />
         </Style>
-        <Style Selector="^:pointerover /template/ Border#PART_Background">
-            <Setter Property="Background" Value="{DynamicResource TDBgColorContainerHover}" />
-        </Style>
-        <Style Selector="^:pressed /template/ Border#PART_Background">
+        <Style Selector="^.Hover:pressed /template/ Border#PART_Background">
             <Setter Property="Background" Value="{DynamicResource TDBgColorContainerActive}" />
-        </Style>
-        <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="0.4" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

@@ -15,6 +15,15 @@ public class Cell : Button, IInnerContentControl
     public const string PC_Required = ":required";
     public const string PART_RootPanel = "PART_RootPanel";
 
+    public static readonly StyledProperty<bool> IsRequiredProperty = AvaloniaProperty.Register<Cell, bool>(
+        nameof(IsRequired));
+
+    public bool IsRequired
+    {
+        get => GetValue(IsRequiredProperty);
+        set => SetValue(IsRequiredProperty, value);
+    }
+    
     public static readonly StyledProperty<object?> DescriptionProperty =
         AvaloniaProperty.Register<Cell, object?>(nameof(Description));
 
@@ -49,24 +58,6 @@ public class Cell : Button, IInnerContentControl
     {
         get => GetValue(NoteTemplateProperty);
         set => SetValue(NoteTemplateProperty, value);
-    }
-
-    public static readonly StyledProperty<object?> ImageProperty =
-        AvaloniaProperty.Register<Cell, object?>(nameof(Image));
-
-    public object? Image
-    {
-        get => GetValue(ImageProperty);
-        set => SetValue(ImageProperty, value);
-    }
-
-    public static readonly StyledProperty<IDataTemplate?> ImageTemplateProperty =
-        AvaloniaProperty.Register<Cell, IDataTemplate?>(nameof(ImageTemplate));
-
-    public IDataTemplate? ImageTemplate
-    {
-        get => GetValue(ImageTemplateProperty);
-        set => SetValue(ImageTemplateProperty, value);
     }
 
     public static readonly StyledProperty<object?> InnerLeftContentProperty =
