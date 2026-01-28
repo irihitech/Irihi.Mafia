@@ -7,12 +7,8 @@ using Irihi.Avalonia.Shared.Contracts;
 namespace Irihi.Mirana.Controls;
 
 [TemplatePart(PART_RootPanel, typeof(Panel))]
-[PseudoClasses(PC_Bordered, PC_Arrow, PC_Required)]
 public class Cell : Button, IInnerContentControl
 {
-    public const string PC_Bordered = ":bordered";
-    public const string PC_Arrow = ":arrow";
-    public const string PC_Required = ":required";
     public const string PART_RootPanel = "PART_RootPanel";
 
     public static readonly StyledProperty<bool> IsRequiredProperty = AvaloniaProperty.Register<Cell, bool>(
@@ -23,7 +19,7 @@ public class Cell : Button, IInnerContentControl
         get => GetValue(IsRequiredProperty);
         set => SetValue(IsRequiredProperty, value);
     }
-    
+
     public static readonly StyledProperty<object?> DescriptionProperty =
         AvaloniaProperty.Register<Cell, object?>(nameof(Description));
 

@@ -3,8 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:m="https://irihi.tech/mirana">
     <Design.PreviewWith>
-        <StackPanel Width="400">
-            <m:Cell />
+        <m:CellGroup Header="基础用法" Width="400" Margin="20">
             <m:Cell Content="单行标题" />
             <m:Cell Content="单行标题" Classes="Arrow" />
             <m:Cell Content="单行标题" Classes="Arrow" IsRequired="True" />
@@ -18,26 +17,42 @@
                 Description="一段很长很长的内容文字"
                 Note="辅助信息"
                 InnerLeftContent="{StaticResource Temporary}" />
-        </StackPanel>
+        </m:CellGroup>
     </Design.PreviewWith>
 
-    <!-- Resources -->
-    <Thickness x:Key="TDCellPadding">16,14</Thickness>
-    <Thickness x:Key="TDCellInnerSpacing">12</Thickness>
-    <x:Double x:Key="TDCellContentNoteSpacing">8</x:Double>
+    <Thickness x:Key="TDCellPadding">16</Thickness>
     <x:Double x:Key="TDCellContentSpacing">4</x:Double>
-    <x:Double x:Key="TDCellImageSize">48</x:Double>
-    <x:Double x:Key="TDCellIconSize">24</x:Double>
-    <x:Double x:Key="TDCellMinHeight">56</x:Double>
-
-    <!-- Arrow Icon Geometry -->
     <StreamGeometry x:Key="TDCellArrowGeometry">M9 6L15 12L9 18</StreamGeometry>
 
+    <ControlTheme x:Key="{x:Type m:CellGroup}" TargetType="m:CellGroup">
+        <Setter Property="BorderBrush" Value="{DynamicResource TDComponentBorder}" />
+        <Setter Property="BorderThickness" Value="0,1" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="m:CellGroup">
+                <StackPanel>
+                    <ContentPresenter
+                        Padding="16,0,0,0"
+                        FontSize="14"
+                        LineHeight="45"
+                        Foreground="{DynamicResource TDTextColorPlaceholder}"
+                        Background="{DynamicResource TDBgColorSecondarycontainer}"
+                        Content="{TemplateBinding Header}"
+                        ContentTemplate="{TemplateBinding HeaderTemplate}"
+                        IsVisible="{TemplateBinding Header, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                    <Border
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </Border>
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
     <ControlTheme x:Key="{x:Type m:Cell}" TargetType="m:Cell">
-        <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="Padding" Value="{DynamicResource TDCellPadding}" />
         <Setter Property="Background" Value="{DynamicResource TDBgColorContainer}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource TDComponentBorder}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TDComponentStroke}" />
         <Setter Property="BorderThickness" Value="0,0,0,1" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
@@ -57,6 +72,7 @@
                             Grid.Column="0"
                             Name="PART_InnerLeftContent"
                             Margin="0,0,12,0"
+                            Foreground="{DynamicResource TDBrandColor}"
                             Content="{TemplateBinding InnerLeftContent}"
                             ContentTemplate="{TemplateBinding InnerLeftContentTemplate}"
                             IsVisible="{TemplateBinding InnerLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}">
@@ -104,10 +120,11 @@
                                 Content="{TemplateBinding Note}"
                                 ContentTemplate="{TemplateBinding NoteTemplate}"
                                 TextElement.FontSize="{DynamicResource TDFontSizeBodyMedium}"
-                                TextElement.Foreground="{DynamicResource TDTextColorSecondary}"
+                                TextElement.Foreground="{DynamicResource TDTextColorPlaceholder}"
                                 IsVisible="{TemplateBinding Note, Converter={x:Static ObjectConverters.IsNotNull}}" />
                             <ContentPresenter
                                 Name="PART_InnerRightContent"
+                                Foreground="{DynamicResource TDTextColorPlaceholder}"
                                 Content="{TemplateBinding InnerRightContent}"
                                 ContentTemplate="{TemplateBinding InnerRightContentTemplate}"
                                 IsVisible="{Binding !!$self.Content}">

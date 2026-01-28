@@ -15,4 +15,6 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
+
+    <StyleInclude Source="Styles/_index.axaml" />
 </Styles>

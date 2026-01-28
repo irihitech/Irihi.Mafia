@@ -7,100 +7,17 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1450"
              x:Class="Irihi.Mirana.Demo.Views.MainView"
              x:DataType="vm:MainViewModel">
-  <Design.DataContext>
-    <!-- This only sets the DataContext for the previewer in an IDE,
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
          to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-    <vm:MainViewModel />
-  </Design.DataContext>
+        <vm:MainViewModel />
+    </Design.DataContext>
 
-  <ScrollViewer>
-    <StackPanel Spacing="0" Margin="20">
-      <TextBlock Text="Cell Component Demo" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
-      
-      <!-- Basic Cells -->
-      <TextBlock Text="Basic Cells" FontSize="18" FontWeight="SemiBold" Margin="0,10,0,10"/>
-      <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="4">
-        <StackPanel Spacing="0">
-          <m:Cell Content="Basic Cell" Classes="bordered" />
-          <m:Cell Content="Cell with Description" Description="This is a description" Classes="bordered" />
-          <m:Cell Content="Cell with Note" Note="Note text" Classes="bordered" />
-        </StackPanel>
-      </Border>
-      
-      <!-- Cells with Icons -->
-      <TextBlock Text="Cells with Icons" FontSize="18" FontWeight="SemiBold" Margin="0,20,0,10"/>
-      <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="4">
-        <StackPanel Spacing="0">
-          <m:Cell Content="Cell with Left Icon" InnerLeftContent="{StaticResource Temporary}" Classes="bordered" />
-          <m:Cell Content="Cell with Right Icon" InnerRightContent="{StaticResource Temporary}" Classes="bordered" />
-          <m:Cell Content="Cell with Both Icons" InnerLeftContent="{StaticResource Temporary}" InnerRightContent="{StaticResource Temporary}" Classes="bordered" />
-        </StackPanel>
-      </Border>
-      
-      <!-- Cells with Arrow -->
-      <TextBlock Text="Cells with Arrow" FontSize="18" FontWeight="SemiBold" Margin="0,20,0,10"/>
-      <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="4">
-        <StackPanel Spacing="0">
-          <m:Cell Content="Cell with Arrow" Classes="arrow bordered" />
-          <m:Cell Content="Navigable Cell" Description="Click to navigate" Classes="arrow bordered" />
-        </StackPanel>
-      </Border>
-      
-      <!-- Required Fields -->
-      <TextBlock Text="Required Field" FontSize="18" FontWeight="SemiBold" Margin="0,20,0,10"/>
-      <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="4">
-        <StackPanel Spacing="0">
-          <m:Cell Content="Required Field" Classes="required bordered" />
-          <m:Cell Content="Required with Arrow" Classes="required arrow bordered" />
-        </StackPanel>
-      </Border>
-      
-      <!-- Complex Cells -->
-      <TextBlock Text="Complex Cells" FontSize="18" FontWeight="SemiBold" Margin="0,20,0,10"/>
-      <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="4">
-        <StackPanel Spacing="0">
-          <m:Cell 
-              Content="Complete Cell" 
-              Description="With all features"
-              Note="Note"
-              InnerLeftContent="{StaticResource Temporary}"
-              Classes="arrow bordered" />
-          <m:Cell 
-              Content="Profile Cell" 
-              Description="User profile information"
-              Image="{StaticResource Temporary}"
-              Classes="arrow bordered" />
-        </StackPanel>
-      </Border>
-      
-      <!-- Without Border -->
-      <TextBlock Text="Without Border" FontSize="18" FontWeight="SemiBold" Margin="0,20,0,10"/>
-      <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="4">
-        <StackPanel Spacing="0">
-          <m:Cell Content="No Border Cell 1" />
-          <m:Cell Content="No Border Cell 2" />
-          <m:Cell Content="No Border Cell 3" />
-        </StackPanel>
-      </Border>
-      
-      <!-- Alignment Examples -->
-      <TextBlock Text="Right Content Alignment" FontSize="18" FontWeight="SemiBold" Margin="0,20,0,10"/>
-      <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="4">
-        <StackPanel Spacing="0">
-          <m:Cell 
-              Content="Top Aligned" 
-              Description="Right content aligns to top"
-              Classes="bordered" />
-          <m:Cell 
-              Content="Middle Aligned (Default)" 
-              Description="Right content aligns to center"
-              Classes="bordered" />
-          <m:Cell 
-              Content="Bottom Aligned" 
-              Description="Right content aligns to bottom"
-              Classes="bordered" />
-        </StackPanel>
-      </Border>
-    </StackPanel>
-  </ScrollViewer>
+    <ScrollViewer>
+        <m:CellGroup Header="1">
+            <m:Cell Content="Basic Cell" />
+            <m:Cell Content="Cell with Description" Description="This is a description" />
+            <m:Cell Content="Cell with Note" Note="Note text" />
+        </m:CellGroup>
+    </ScrollViewer>
 </UserControl>
