@@ -20,22 +20,18 @@
         </m:CellGroup>
     </Design.PreviewWith>
 
-    <Thickness x:Key="TDCellPadding">16</Thickness>
-    <x:Double x:Key="TDCellContentSpacing">4</x:Double>
-    <StreamGeometry x:Key="TDCellArrowGeometry">M9 6L15 12L9 18</StreamGeometry>
-
     <ControlTheme x:Key="{x:Type m:CellGroup}" TargetType="m:CellGroup">
-        <Setter Property="BorderBrush" Value="{DynamicResource TDComponentBorder}" />
+        <Setter Property="BorderBrush" Value="{StaticResource TDCellGroupBorderColor}" />
         <Setter Property="BorderThickness" Value="0,1" />
         <Setter Property="Template">
             <ControlTemplate TargetType="m:CellGroup">
                 <StackPanel>
                     <ContentPresenter
-                        Padding="16,0,0,0"
-                        FontSize="14"
-                        LineHeight="45"
-                        Foreground="{DynamicResource TDTextColorPlaceholder}"
-                        Background="{DynamicResource TDBgColorSecondarycontainer}"
+                        Padding="{StaticResource TDCellGroupTitlePaddingLeft},0,0,0"
+                        FontSize="{StaticResource TDCellGroupTitleFontSize}"
+                        LineHeight="{StaticResource TDCellGroupTitleLineHeight}"
+                        Foreground="{StaticResource TDCellGroupTitleColor}"
+                        Background="{StaticResource TDCellGroupTitleBgColor}"
                         Content="{TemplateBinding Header}"
                         ContentTemplate="{TemplateBinding HeaderTemplate}"
                         IsVisible="{TemplateBinding Header, Converter={x:Static ObjectConverters.IsNotNull}}" />
@@ -50,9 +46,9 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type m:Cell}" TargetType="m:Cell">
-        <Setter Property="Padding" Value="{DynamicResource TDCellPadding}" />
-        <Setter Property="Background" Value="{DynamicResource TDBgColorContainer}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource TDComponentStroke}" />
+        <Setter Property="Padding" Value="{StaticResource TDCellPadding}" />
+        <Setter Property="Background" Value="{StaticResource TDCellBgColor}" />
+        <Setter Property="BorderBrush" Value="{StaticResource TDCellBorderColor}" />
         <Setter Property="BorderThickness" Value="0,0,0,1" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
@@ -72,7 +68,7 @@
                             Grid.Column="0"
                             Name="PART_InnerLeftContent"
                             Margin="0,0,12,0"
-                            Foreground="{DynamicResource TDBrandColor}"
+                            Foreground="{StaticResource TDCellLeftIconColor}"
                             Content="{TemplateBinding InnerLeftContent}"
                             ContentTemplate="{TemplateBinding InnerLeftContentTemplate}"
                             IsVisible="{TemplateBinding InnerLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}">
@@ -86,17 +82,17 @@
                         <StackPanel
                             Grid.Column="1"
                             Margin="0,0,16,0"
-                            Spacing="{DynamicResource TDCellContentSpacing}">
+                            Spacing="{StaticResource TDCellContentSpacing}">
                             <StackPanel Orientation="Horizontal" Spacing="2">
                                 <ContentPresenter
                                     Name="PART_ContentPresenter"
                                     Content="{TemplateBinding Content}"
                                     ContentTemplate="{TemplateBinding ContentTemplate}"
-                                    TextElement.FontSize="{DynamicResource TDFontSizeBodyLarge}"
-                                    TextElement.Foreground="{DynamicResource TDTextColorPrimary}"
+                                    TextElement.FontSize="{StaticResource TDCellTitleFont}"
+                                    TextElement.Foreground="{StaticResource TDCellTitleColor}"
                                     IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                 <TextBlock
-                                    Foreground="{DynamicResource TDErrorColor6}"
+                                    Foreground="{StaticResource TDCellRequiredColor}"
                                     IsVisible="{TemplateBinding IsRequired}"
                                     Text="*" />
                             </StackPanel>
@@ -104,8 +100,8 @@
                                 Name="PART_Description"
                                 Content="{TemplateBinding Description}"
                                 ContentTemplate="{TemplateBinding DescriptionTemplate}"
-                                TextElement.FontSize="{DynamicResource TDFontSizeBodyMedium}"
-                                TextElement.Foreground="{DynamicResource TDTextColorSecondary}"
+                                TextElement.FontSize="{StaticResource TDCellDescriptionFont}"
+                                TextElement.Foreground="{StaticResource TDCellDescriptionColor}"
                                 IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}" />
                         </StackPanel>
 
@@ -113,18 +109,18 @@
                             Grid.Column="2"
                             Name="PART_RightPanel"
                             Orientation="Horizontal"
-                            Spacing="{DynamicResource TDCellContentSpacing}"
+                            Spacing="{StaticResource TDCellContentSpacing}"
                             VerticalAlignment="Center">
                             <ContentPresenter
                                 Name="PART_Note"
                                 Content="{TemplateBinding Note}"
                                 ContentTemplate="{TemplateBinding NoteTemplate}"
-                                TextElement.FontSize="{DynamicResource TDFontSizeBodyMedium}"
-                                TextElement.Foreground="{DynamicResource TDTextColorPlaceholder}"
+                                TextElement.FontSize="{StaticResource TDCellNoteFont}"
+                                TextElement.Foreground="{StaticResource TDCellNoteColor}"
                                 IsVisible="{TemplateBinding Note, Converter={x:Static ObjectConverters.IsNotNull}}" />
                             <ContentPresenter
                                 Name="PART_InnerRightContent"
-                                Foreground="{DynamicResource TDTextColorPlaceholder}"
+                                Foreground="{StaticResource TDCellRightIconColor}"
                                 Content="{TemplateBinding InnerRightContent}"
                                 ContentTemplate="{TemplateBinding InnerRightContentTemplate}"
                                 IsVisible="{Binding !!$self.Content}">
@@ -141,10 +137,10 @@
         </Setter>
 
         <Style Selector="^.Arrow /template/ ContentPresenter#PART_InnerRightContent">
-            <Setter Property="Content" Value="{DynamicResource TDCellArrowGeometry}" />
+            <Setter Property="Content" Value="{StaticResource TDCellArrowGeometry}" />
         </Style>
         <Style Selector="^.Hover:pressed /template/ Border#PART_Background">
-            <Setter Property="Background" Value="{DynamicResource TDBgColorContainerActive}" />
+            <Setter Property="Background" Value="{StaticResource TDCellHoverColor}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

@@ -1,4 +1,41 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- Cell Background Color -->
+    <StaticResource x:Key="TDCellBgColor" ResourceKey="TDBgColorContainer" />
+    
+    <!-- Cell Border Color -->
+    <StaticResource x:Key="TDCellBorderColor" ResourceKey="TDComponentStroke" />
+    
+    <!-- Cell Hover Color -->
+    <StaticResource x:Key="TDCellHoverColor" ResourceKey="TDBgColorSecondarycontainer" />
+    
+    <!-- Cell Title Color -->
+    <StaticResource x:Key="TDCellTitleColor" ResourceKey="TDTextColorPrimary" />
+    
+    <!-- Cell Description Color -->
+    <StaticResource x:Key="TDCellDescriptionColor" ResourceKey="TDTextColorSecondary" />
+    
+    <!-- Cell Note Color -->
+    <StaticResource x:Key="TDCellNoteColor" ResourceKey="TDTextColorPlaceholder" />
+    
+    <!-- Cell Left Icon Color -->
+    <StaticResource x:Key="TDCellLeftIconColor" ResourceKey="TDBrandColor" />
+    
+    <!-- Cell Right Icon Color -->
+    <StaticResource x:Key="TDCellRightIconColor" ResourceKey="TDTextColorPlaceholder" />
+    
+    <!-- Cell Required Color -->
+    <StaticResource x:Key="TDCellRequiredColor" ResourceKey="TDErrorColor6" />
+    
+    <!-- Cell Group Border Color -->
+    <StaticResource x:Key="TDCellGroupBorderColor" ResourceKey="TDBorderLevel2Color" />
+    
+    <!-- Cell Group Title Background Color -->
+    <StaticResource x:Key="TDCellGroupTitleBgColor" ResourceKey="TDBgColorSecondarycontainer" />
+    
+    <!-- Cell Group Title Color -->
+    <StaticResource x:Key="TDCellGroupTitleColor" ResourceKey="TDTextColorPlaceholder" />
+    
 </ResourceDictionary>
