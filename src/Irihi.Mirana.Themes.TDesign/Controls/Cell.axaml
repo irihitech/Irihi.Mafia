@@ -82,8 +82,8 @@
                         <StackPanel
                             Grid.Column="1"
                             Margin="{DynamicResource TDCellContentMargin}"
-                            Spacing="{DynamicResource TDCellContentSpacing}">
-                            <StackPanel Orientation="Horizontal" Spacing="2">
+                            Spacing="{DynamicResource TDCellContentPanelSpacing}">
+                            <StackPanel Orientation="Horizontal" Spacing="{DynamicResource TDCellContentSpacing}">
                                 <ContentPresenter
                                     Name="PART_ContentPresenter"
                                     Content="{TemplateBinding Content}"
@@ -111,7 +111,7 @@
                             Grid.Column="2"
                             Name="PART_RightPanel"
                             Orientation="Horizontal"
-                            Spacing="{DynamicResource TDCellContentSpacing}"
+                            Spacing="{DynamicResource TDCellRightPanelSpacing}"
                             VerticalAlignment="Center">
                             <ContentPresenter
                                 Name="PART_Note"
