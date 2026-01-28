@@ -1,16 +1,16 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StaticResource x:Key="TDCellGroupTitleColor" ResourceKey="TDTextColorPlaceholder" />
-    <StaticResource x:Key="TDCellGroupTitleBgColor" ResourceKey="TDBgColorSecondarycontainer" />
-    <StaticResource x:Key="TDCellGroupBorderColor" ResourceKey="TDBorderLevel2Color" />
-    <StaticResource x:Key="TDCellBgColor" ResourceKey="TDBgColorContainer" />
-    <StaticResource x:Key="TDCellBorderColor" ResourceKey="TDComponentStroke" />
-    <StaticResource x:Key="TDCellHoverColor" ResourceKey="TDBgColorSecondarycontainer" />
-    <StaticResource x:Key="TDCellTitleColor" ResourceKey="TDTextColorPrimary" />
-    <StaticResource x:Key="TDCellDescriptionColor" ResourceKey="TDTextColorSecondary" />
-    <StaticResource x:Key="TDCellNoteColor" ResourceKey="TDTextColorPlaceholder" />
-    <StaticResource x:Key="TDCellLeftIconColor" ResourceKey="TDBrandColor" />
-    <StaticResource x:Key="TDCellRightIconColor" ResourceKey="TDTextColorPlaceholder" />
-    <StaticResource x:Key="TDCellRequiredColor" ResourceKey="TDErrorColor6" />
+    <StaticResource x:Key="TDCellGroupHeaderForeground" ResourceKey="TDTextColorPlaceholder" />
+    <StaticResource x:Key="TDCellGroupHeaderBackground" ResourceKey="TDBgColorSecondarycontainer" />
+    <StaticResource x:Key="TDCellGroupBorderBrush" ResourceKey="TDBorderLevel2Color" />
+    <StaticResource x:Key="TDCellBackground" ResourceKey="TDBgColorContainer" />
+    <StaticResource x:Key="TDCellBorderBrush" ResourceKey="TDComponentStroke" />
+    <StaticResource x:Key="TDCellPressedBackground" ResourceKey="TDBgColorSecondarycontainer" />
+    <StaticResource x:Key="TDCellContentForeground" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDCellDescriptionForeground" ResourceKey="TDTextColorSecondary" />
+    <StaticResource x:Key="TDCellNoteForeground" ResourceKey="TDTextColorPlaceholder" />
+    <StaticResource x:Key="TDCellLeftContentForeground" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDCellRightContentForeground" ResourceKey="TDTextColorPlaceholder" />
+    <StaticResource x:Key="TDCellAsteriskForeground" ResourceKey="TDErrorColor6" />
 </ResourceDictionary>

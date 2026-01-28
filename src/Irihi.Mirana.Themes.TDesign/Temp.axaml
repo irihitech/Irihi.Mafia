@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StreamGeometry x:Key="TempArrowGlyph">M9 6L15 12L9 18</StreamGeometry>
+    <StreamGeometry x:Key="TempArrowGlyph">M9.5 17.5L15 12L9.5 6.5</StreamGeometry>
     <StreamGeometry x:Key="TempAppGlyph">
         M3 3H10V10H3V3ZM14 14H21V21H14V14ZM3 14H10V21H3V14Z
         M21.5 6.5C21.5 8.70914 19.7091 10.5 17.5 10.5C15.2909 10.5 13.5 8.70914 13.5 6.5C13.5 4.29086 15.2909 2.5 17.5 2.5C19.7091 2.5 21.5 4.29086 21.5 6.5Z
