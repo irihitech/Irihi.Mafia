@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- CheckBox Colors - Dark Theme -->
+    <StaticResource x:Key="TDCheckBoxBgColor" ResourceKey="TDBgColorContainer" />
+    <StaticResource x:Key="TDCheckBoxBorderColor" ResourceKey="TDComponentStroke" />
+    <StaticResource x:Key="TDCheckBoxTitleColor" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDCheckBoxTitleDisabledColor" ResourceKey="TDTextColorDisabled" />
+    
+    <!-- CheckBox Icon Colors -->
+    <SolidColorBrush x:Key="TDCheckBoxIconBackground" Color="Transparent" />
+    <StaticResource x:Key="TDCheckBoxIconBorderBrush" ResourceKey="TDComponentBorder" />
+    <StaticResource x:Key="TDCheckBoxIconCheckedColor" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDCheckBoxIconCheckedBackground" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDCheckBoxIconCheckedBorderBrush" ResourceKey="TDBrandColor" />
+    
+    <!-- CheckBox Disabled Colors -->
+    <StaticResource x:Key="TDCheckBoxIconDisabledBackground" ResourceKey="TDBgColorComponentDisabled" />
+    <StaticResource x:Key="TDCheckBoxIconDisabledBorderBrush" ResourceKey="TDComponentBorder" />
+    <StaticResource x:Key="TDCheckBoxIconDisabledColor" ResourceKey="TDBrandColorDisabled" />
+
+</ResourceDictionary>

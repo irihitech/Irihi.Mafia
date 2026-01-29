@@ -4,9 +4,11 @@
         <ResourceInclude Source="Avatar.axaml" />
         <ResourceInclude Source="Button.axaml" />
         <ResourceInclude Source="Cell.axaml" />
+        <ResourceInclude Source="CheckBox.axaml" />
         <ResourceInclude Source="Divider.axaml" />
         <ResourceInclude Source="HyperlinkButton.axaml" />
         <ResourceInclude Source="IconButton.axaml" />
         <ResourceInclude Source="PathIcon.axaml" />
+        <ResourceInclude Source="RadioButton.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

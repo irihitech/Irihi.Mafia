@@ -1,0 +1,122 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <StackPanel Spacing="16" Margin="16">
+            <WrapPanel ItemSpacing="16">
+                <RadioButton Content="默认单选框" GroupName="Group1" />
+                <RadioButton Content="选中状态" GroupName="Group1" IsChecked="True" />
+                <RadioButton Content="禁用状态" GroupName="Group2" IsEnabled="False" />
+                <RadioButton Content="选中禁用" GroupName="Group2" IsChecked="True" IsEnabled="False" />
+            </WrapPanel>
+            <WrapPanel ItemSpacing="16">
+                <RadioButton Classes="Right" Content="右侧单选框" GroupName="Group3" />
+                <RadioButton Classes="Right" Content="选中状态" GroupName="Group3" IsChecked="True" />
+            </WrapPanel>
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type RadioButton}" TargetType="RadioButton">
+        <Setter Property="Padding" Value="{DynamicResource TDRadioButtonPadding}" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="{DynamicResource TDRadioButtonLabelFontSize}" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="Foreground" Value="{DynamicResource TDRadioButtonLabelColor}" />
+        <Setter Property="Background" Value="{DynamicResource TDRadioButtonBgColor}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TDRadioButtonBorderColor}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="MinHeight" Value="{DynamicResource TDRadioButtonMinHeight}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="RadioButton">
+                <Border
+                    Name="PART_RootBorder"
+                    Padding="{TemplateBinding Padding}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    MinHeight="{TemplateBinding MinHeight}">
+                    <Grid ColumnDefinitions="Auto,*">
+                        <!-- Radio Icon -->
+                        <Border
+                            Name="PART_RadioBorder"
+                            Grid.Column="0"
+                            Width="{DynamicResource TDRadioButtonIconSize}"
+                            Height="{DynamicResource TDRadioButtonIconSize}"
+                            Background="{DynamicResource TDRadioButtonIconBackground}"
+                            BorderBrush="{DynamicResource TDRadioButtonIconBorderBrush}"
+                            BorderThickness="{DynamicResource TDRadioButtonIconBorderThickness}"
+                            CornerRadius="{DynamicResource TDRadioButtonIconCornerRadius}"
+                            VerticalAlignment="Center">
+                            <!-- Inner Circle for Checked State -->
+                            <Ellipse
+                                Name="PART_CheckedDot"
+                                Width="8"
+                                Height="8"
+                                Fill="{DynamicResource TDRadioButtonIconCheckedColor}"
+                                IsVisible="False"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" />
+                        </Border>
+
+                        <!-- Content -->
+                        <ContentPresenter
+                            Name="PART_ContentPresenter"
+                            Grid.Column="1"
+                            Margin="{DynamicResource TDRadioButtonContentMargin}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            TextElement.FontSize="{TemplateBinding FontSize}"
+                            TextElement.FontWeight="{TemplateBinding FontWeight}"
+                            TextElement.Foreground="{TemplateBinding Foreground}" />
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <!-- Unchecked State (Default) -->
+        <Style Selector="^:unchecked /template/ Border#PART_RadioBorder">
+            <Setter Property="Background" Value="{DynamicResource TDRadioButtonIconBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TDRadioButtonIconBorderBrush}" />
+        </Style>
+
+        <!-- Checked State -->
+        <Style Selector="^:checked /template/ Border#PART_RadioBorder">
+            <Setter Property="Background" Value="{DynamicResource TDRadioButtonIconCheckedBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TDRadioButtonIconCheckedBorderBrush}" />
+        </Style>
+        <Style Selector="^:checked /template/ Ellipse#PART_CheckedDot">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+
+        <!-- Disabled State -->
+        <Style Selector="^:disabled">
+            <Setter Property="Foreground" Value="{DynamicResource TDRadioButtonLabelDisabledColor}" />
+            <Setter Property="Cursor" Value="Arrow" />
+        </Style>
+        <Style Selector="^:disabled /template/ Border#PART_RadioBorder">
+            <Setter Property="Background" Value="{DynamicResource TDRadioButtonIconDisabledBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TDRadioButtonIconDisabledBorderBrush}" />
+        </Style>
+        <Style Selector="^:disabled /template/ Ellipse#PART_CheckedDot">
+            <Setter Property="Fill" Value="{DynamicResource TDRadioButtonIconDisabledColor}" />
+        </Style>
+
+        <!-- Right Placement Class -->
+        <Style Selector="^.Right /template/ Grid">
+            <Setter Property="ColumnDefinitions" Value="*,Auto" />
+        </Style>
+        <Style Selector="^.Right /template/ Border#PART_RadioBorder">
+            <Setter Property="Grid.Column" Value="1" />
+        </Style>
+        <Style Selector="^.Right /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Grid.Column" Value="0" />
+            <Setter Property="Margin" Value="0,0,8,0" />
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>
