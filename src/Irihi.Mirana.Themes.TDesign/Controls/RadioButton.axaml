@@ -38,11 +38,11 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     MinHeight="{TemplateBinding MinHeight}">
-                    <Grid ColumnDefinitions="Auto,*">
+                    <DockPanel>
                         <!-- Radio Icon -->
                         <Border
                             Name="PART_RadioBorder"
-                            Grid.Column="0"
+                            DockPanel.Dock="Left"
                             Width="{DynamicResource TDRadioButtonIconSize}"
                             Height="{DynamicResource TDRadioButtonIconSize}"
                             Background="{DynamicResource TDRadioButtonIconBackground}"
@@ -53,9 +53,9 @@
                             <!-- Inner Circle for Checked State -->
                             <Ellipse
                                 Name="PART_CheckedDot"
-                                Width="8"
-                                Height="8"
-                                Fill="{DynamicResource TDRadioButtonIconCheckMarkColor}"
+                                Width="10"
+                                Height="10"
+                                Fill="{DynamicResource TDRadioButtonIconCheckedColor}"
                                 IsVisible="False"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center" />
@@ -64,7 +64,6 @@
                         <!-- Content -->
                         <ContentPresenter
                             Name="PART_ContentPresenter"
-                            Grid.Column="1"
                             Margin="{DynamicResource TDRadioButtonContentMargin}"
                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
@@ -73,7 +72,7 @@
                             TextElement.FontSize="{TemplateBinding FontSize}"
                             TextElement.FontWeight="{TemplateBinding FontWeight}"
                             TextElement.Foreground="{TemplateBinding Foreground}" />
-                    </Grid>
+                    </DockPanel>
                 </Border>
             </ControlTemplate>
         </Setter>
@@ -84,11 +83,7 @@
             <Setter Property="BorderBrush" Value="{DynamicResource TDRadioButtonIconBorderBrush}" />
         </Style>
 
-        <!-- Checked State -->
-        <Style Selector="^:checked /template/ Border#PART_RadioBorder">
-            <Setter Property="Background" Value="{DynamicResource TDRadioButtonIconCheckedBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TDRadioButtonIconCheckedBorderBrush}" />
-        </Style>
+        <!-- Checked State - only show dot, don't fill background -->
         <Style Selector="^:checked /template/ Ellipse#PART_CheckedDot">
             <Setter Property="IsVisible" Value="True" />
         </Style>
@@ -98,27 +93,19 @@
             <Setter Property="Foreground" Value="{DynamicResource TDRadioButtonLabelDisabledColor}" />
             <Setter Property="Cursor" Value="Arrow" />
         </Style>
-        <Style Selector="^:disabled:unchecked /template/ Border#PART_RadioBorder">
-            <Setter Property="Background" Value="{DynamicResource TDRadioButtonIconDisabledBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TDRadioButtonIconDisabledBorderBrush}" />
-        </Style>
-        <Style Selector="^:disabled:checked /template/ Border#PART_RadioBorder">
+        <Style Selector="^:disabled /template/ Border#PART_RadioBorder">
             <Setter Property="Background" Value="{DynamicResource TDRadioButtonIconDisabledBackground}" />
             <Setter Property="BorderBrush" Value="{DynamicResource TDRadioButtonIconDisabledBorderBrush}" />
         </Style>
         <Style Selector="^:disabled /template/ Ellipse#PART_CheckedDot">
-            <Setter Property="Fill" Value="{DynamicResource TDRadioButtonIconCheckMarkDisabledColor}" />
+            <Setter Property="Fill" Value="{DynamicResource TDRadioButtonIconDisabledColor}" />
         </Style>
 
         <!-- Right Placement Class -->
-        <Style Selector="^.Right /template/ Grid">
-            <Setter Property="ColumnDefinitions" Value="*,Auto" />
-        </Style>
         <Style Selector="^.Right /template/ Border#PART_RadioBorder">
-            <Setter Property="Grid.Column" Value="1" />
+            <Setter Property="DockPanel.Dock" Value="Right" />
         </Style>
         <Style Selector="^.Right /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Grid.Column" Value="0" />
             <Setter Property="Margin" Value="0,0,8,0" />
         </Style>
     </ControlTheme>

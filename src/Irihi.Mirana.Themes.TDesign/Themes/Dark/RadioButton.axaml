@@ -10,13 +10,11 @@
     <!-- RadioButton Icon Colors -->
     <SolidColorBrush x:Key="TDRadioButtonIconBackground" Color="Transparent" />
     <StaticResource x:Key="TDRadioButtonIconBorderBrush" ResourceKey="TDComponentBorder" />
-    <StaticResource x:Key="TDRadioButtonIconCheckedBackground" ResourceKey="TDBrandColor" />
-    <StaticResource x:Key="TDRadioButtonIconCheckedBorderBrush" ResourceKey="TDBrandColor" />
-    <SolidColorBrush x:Key="TDRadioButtonIconCheckMarkColor" Color="White" />
+    <StaticResource x:Key="TDRadioButtonIconCheckedColor" ResourceKey="TDBrandColor" />
     
     <!-- RadioButton Disabled Colors -->
     <StaticResource x:Key="TDRadioButtonIconDisabledBackground" ResourceKey="TDBgColorComponentDisabled" />
     <StaticResource x:Key="TDRadioButtonIconDisabledBorderBrush" ResourceKey="TDComponentBorder" />
-    <SolidColorBrush x:Key="TDRadioButtonIconCheckMarkDisabledColor" Color="White" />
+    <StaticResource x:Key="TDRadioButtonIconDisabledColor" ResourceKey="TDTextColorDisabled" />
 
 </ResourceDictionary>

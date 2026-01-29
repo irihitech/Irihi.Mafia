@@ -10,13 +10,11 @@
     <!-- CheckBox Icon Colors -->
     <SolidColorBrush x:Key="TDCheckBoxIconBackground" Color="Transparent" />
     <StaticResource x:Key="TDCheckBoxIconBorderBrush" ResourceKey="TDComponentBorder" />
-    <StaticResource x:Key="TDCheckBoxIconCheckedBackground" ResourceKey="TDBrandColor" />
-    <StaticResource x:Key="TDCheckBoxIconCheckedBorderBrush" ResourceKey="TDBrandColor" />
-    <SolidColorBrush x:Key="TDCheckBoxIconCheckMarkColor" Color="White" />
+    <StaticResource x:Key="TDCheckBoxIconCheckedColor" ResourceKey="TDBrandColor" />
     
     <!-- CheckBox Disabled Colors -->
     <StaticResource x:Key="TDCheckBoxIconDisabledBackground" ResourceKey="TDBgColorComponentDisabled" />
     <StaticResource x:Key="TDCheckBoxIconDisabledBorderBrush" ResourceKey="TDComponentBorder" />
-    <SolidColorBrush x:Key="TDCheckBoxIconCheckMarkDisabledColor" Color="White" />
+    <StaticResource x:Key="TDCheckBoxIconDisabledColor" ResourceKey="TDTextColorDisabled" />
 
 </ResourceDictionary>
