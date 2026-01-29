@@ -55,7 +55,7 @@
                                 Name="PART_CheckedDot"
                                 Width="8"
                                 Height="8"
-                                Fill="{DynamicResource TDRadioButtonIconCheckedColor}"
+                                Fill="{DynamicResource TDRadioButtonIconCheckMarkColor}"
                                 IsVisible="False"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center" />
@@ -103,7 +103,7 @@
             <Setter Property="BorderBrush" Value="{DynamicResource TDRadioButtonIconDisabledBorderBrush}" />
         </Style>
         <Style Selector="^:disabled /template/ Ellipse#PART_CheckedDot">
-            <Setter Property="Fill" Value="{DynamicResource TDRadioButtonIconDisabledColor}" />
+            <Setter Property="Fill" Value="{DynamicResource TDRadioButtonIconCheckMarkDisabledColor}" />
         </Style>
 
         <!-- Right Placement Class -->

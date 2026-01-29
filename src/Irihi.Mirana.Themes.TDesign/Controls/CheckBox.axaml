@@ -56,7 +56,7 @@
                                 <Path
                                     Name="PART_CheckMark"
                                     Data="M4,8 L7,11 L12,4"
-                                    Stroke="{DynamicResource TDCheckBoxIconCheckedColor}"
+                                    Stroke="{DynamicResource TDCheckBoxIconCheckMarkColor}"
                                     StrokeThickness="2"
                                     StrokeLineCap="Round"
                                     StrokeLineJoin="Round"
@@ -68,7 +68,7 @@
                                     Name="PART_IndeterminateMark"
                                     Width="8"
                                     Height="2"
-                                    Fill="{DynamicResource TDCheckBoxIconCheckedColor}"
+                                    Fill="{DynamicResource TDCheckBoxIconCheckMarkColor}"
                                     IsVisible="False"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center" />
@@ -126,10 +126,10 @@
             <Setter Property="BorderBrush" Value="{DynamicResource TDCheckBoxIconDisabledBorderBrush}" />
         </Style>
         <Style Selector="^:disabled /template/ Path#PART_CheckMark">
-            <Setter Property="Stroke" Value="{DynamicResource TDCheckBoxIconDisabledColor}" />
+            <Setter Property="Stroke" Value="{DynamicResource TDCheckBoxIconCheckMarkDisabledColor}" />
         </Style>
         <Style Selector="^:disabled /template/ Rectangle#PART_IndeterminateMark">
-            <Setter Property="Fill" Value="{DynamicResource TDCheckBoxIconDisabledColor}" />
+            <Setter Property="Fill" Value="{DynamicResource TDCheckBoxIconCheckMarkDisabledColor}" />
         </Style>
 
         <!-- Right Placement Class -->
