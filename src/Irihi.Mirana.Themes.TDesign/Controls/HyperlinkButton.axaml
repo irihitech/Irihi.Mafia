@@ -1,0 +1,103 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <StackPanel Margin="20">
+            <HyperlinkButton Content="跳转链接" Classes="WithIcon Underline"/>
+            <HyperlinkButton Content="跳转链接" Classes="Primary Underline WithIcon" />
+            <HyperlinkButton Content="跳转链接" Classes="Success Underline WithIcon" />
+            <HyperlinkButton Content="跳转链接" Classes="Warning Underline WithIcon" />
+            <HyperlinkButton Content="跳转链接" Classes="Danger Underline WithIcon" />
+            <HyperlinkButton Content="跳转链接" IsEnabled="False" />
+            <HyperlinkButton Content="跳转链接" IsEnabled="False" Classes="Primary" />
+            <HyperlinkButton Content="跳转链接" IsEnabled="False" Classes="Success" />
+            <HyperlinkButton Content="跳转链接" IsEnabled="False" Classes="Warning" />
+            <HyperlinkButton Content="跳转链接" IsEnabled="False" Classes="Danger" />
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <ControlTheme TargetType="HyperlinkButton" x:Key="{x:Type HyperlinkButton}">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="{DynamicResource TDLinkDefaultForeground}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="HyperlinkButton">
+                <ReversibleStackPanel
+                    Name="PART_RootPanel"
+                    Orientation="Horizontal"
+                    Spacing="{DynamicResource TDLinkIconSpacing}">
+                    <PathIcon
+                        Name="PART_LinkGlyph"
+                        IsVisible="False"
+                        Width="{DynamicResource TDLinkIconWidth}"
+                        Height="{Binding $self.Width}"
+                        Data="{DynamicResource TempLinkGlyph}"
+                        Foreground="{Binding #PART_ContentPresenter.Foreground}" />
+                    <ContentPresenter
+                        Name="PART_ContentPresenter"
+                        Foreground="{TemplateBinding Foreground}"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                </ReversibleStackPanel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource TDLinkDefaultPressedForeground}" />
+        </Style>
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource TDLinkDefaultDisabledForeground}" />
+        </Style>
+
+        <Style Selector="^.Primary">
+            <Setter Property="Foreground" Value="{DynamicResource TDLinkPrimaryForeground}" />
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource TDLinkPrimaryPressedForeground}" />
+            </Style>
+            <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource TDLinkPrimaryDisabledForeground}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Success">
+            <Setter Property="Foreground" Value="{DynamicResource TDLinkSuccessForeground}" />
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource TDLinkSuccessPressedForeground}" />
+            </Style>
+            <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource TDLinkSuccessDisabledForeground}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Warning">
+            <Setter Property="Foreground" Value="{DynamicResource TDLinkWarningForeground}" />
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource TDLinkWarningPressedForeground}" />
+            </Style>
+            <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource TDLinkWarningDisabledForeground}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Danger">
+            <Setter Property="Foreground" Value="{DynamicResource TDLinkDangerForeground}" />
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource TDLinkDangerPressedForeground}" />
+            </Style>
+            <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource TDLinkDangerDisabledForeground}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^.WithIcon /template/ PathIcon#PART_LinkGlyph">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+
+        <Style Selector="^.Underline /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="TextBlock.TextDecorations" Value="Underline" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

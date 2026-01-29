@@ -4,5 +4,6 @@
         <ResourceInclude Source="Button.axaml" />
         <ResourceInclude Source="Cell.axaml" />
         <ResourceInclude Source="Divider.axaml" />
+        <ResourceInclude Source="HyperlinkButton.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

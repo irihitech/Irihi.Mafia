@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StaticResource x:Key="TDLinkDefaultForeground" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDLinkDefaultPressedForeground" ResourceKey="TDBrandColorActive" />
+    <StaticResource x:Key="TDLinkDefaultDisabledForeground" ResourceKey="TDTextColorDisabled" />
+    <StaticResource x:Key="TDLinkPrimaryForeground" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDLinkPrimaryPressedForeground" ResourceKey="TDBrandColorActive" />
+    <StaticResource x:Key="TDLinkPrimaryDisabledForeground" ResourceKey="TDBrandColorDisabled" />
+    <StaticResource x:Key="TDLinkSuccessForeground" ResourceKey="TDSuccessColor" />
+    <StaticResource x:Key="TDLinkSuccessPressedForeground" ResourceKey="TDSuccessColorActive" />
+    <StaticResource x:Key="TDLinkSuccessDisabledForeground" ResourceKey="TDSuccessColorDisabled" />
+    <StaticResource x:Key="TDLinkWarningForeground" ResourceKey="TDWarningColor" />
+    <StaticResource x:Key="TDLinkWarningPressedForeground" ResourceKey="TDWarningColorActive" />
+    <StaticResource x:Key="TDLinkWarningDisabledForeground" ResourceKey="TDWarningColorDisabled" />
+    <StaticResource x:Key="TDLinkDangerForeground" ResourceKey="TDErrorColor" />
+    <StaticResource x:Key="TDLinkDangerPressedForeground" ResourceKey="TDErrorColorActive" />
+    <StaticResource x:Key="TDLinkDangerDisabledForeground" ResourceKey="TDErrorColorDisabled" />
+</ResourceDictionary>
