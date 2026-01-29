@@ -15,4 +15,7 @@
     <ProjectReference Include="..\Irihi.Mirana\Irihi.Mirana.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
 </Project>
