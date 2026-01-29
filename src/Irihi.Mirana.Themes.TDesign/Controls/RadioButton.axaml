@@ -98,7 +98,11 @@
             <Setter Property="Foreground" Value="{DynamicResource TDRadioButtonLabelDisabledColor}" />
             <Setter Property="Cursor" Value="Arrow" />
         </Style>
-        <Style Selector="^:disabled /template/ Border#PART_RadioBorder">
+        <Style Selector="^:disabled:unchecked /template/ Border#PART_RadioBorder">
+            <Setter Property="Background" Value="{DynamicResource TDRadioButtonIconDisabledBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TDRadioButtonIconDisabledBorderBrush}" />
+        </Style>
+        <Style Selector="^:disabled:checked /template/ Border#PART_RadioBorder">
             <Setter Property="Background" Value="{DynamicResource TDRadioButtonIconDisabledBackground}" />
             <Setter Property="BorderBrush" Value="{DynamicResource TDRadioButtonIconDisabledBorderBrush}" />
         </Style>

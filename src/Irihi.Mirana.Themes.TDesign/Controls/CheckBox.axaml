@@ -121,7 +121,15 @@
             <Setter Property="Foreground" Value="{DynamicResource TDCheckBoxTitleDisabledColor}" />
             <Setter Property="Cursor" Value="Arrow" />
         </Style>
-        <Style Selector="^:disabled /template/ Border#PART_CheckBorder">
+        <Style Selector="^:disabled:unchecked /template/ Border#PART_CheckBorder">
+            <Setter Property="Background" Value="{DynamicResource TDCheckBoxIconDisabledBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TDCheckBoxIconDisabledBorderBrush}" />
+        </Style>
+        <Style Selector="^:disabled:checked /template/ Border#PART_CheckBorder">
+            <Setter Property="Background" Value="{DynamicResource TDCheckBoxIconDisabledBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TDCheckBoxIconDisabledBorderBrush}" />
+        </Style>
+        <Style Selector="^:disabled:indeterminate /template/ Border#PART_CheckBorder">
             <Setter Property="Background" Value="{DynamicResource TDCheckBoxIconDisabledBackground}" />
             <Setter Property="BorderBrush" Value="{DynamicResource TDCheckBoxIconDisabledBorderBrush}" />
         </Style>
