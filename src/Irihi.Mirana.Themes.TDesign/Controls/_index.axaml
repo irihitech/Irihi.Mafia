@@ -5,6 +5,7 @@
         <ResourceInclude Source="Button.axaml" />
         <ResourceInclude Source="Cell.axaml" />
         <ResourceInclude Source="CheckBox.axaml" />
+        <ResourceInclude Source="Collapse.axaml" />
         <ResourceInclude Source="Divider.axaml" />
         <ResourceInclude Source="HyperlinkButton.axaml" />
         <ResourceInclude Source="IconButton.axaml" />
