@@ -1,29 +1,22 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
-        <StackPanel Width="400">
+        <StackPanel Width="400" Margin="20">
             <CheckBox Content="多选标题" />
-            <CheckBox Content="多选标题" IsChecked="True" />
+            <CheckBox Content="多选标题" Classes="Justify" IsChecked="True" />
             <CheckBox Content="多选标题" IsThreeState="True" IsChecked="{x:Null}" />
             <CheckBox Content="选项禁用-已选" IsChecked="True" IsEnabled="False" />
             <CheckBox Content="选项禁用-默认" IsEnabled="False" />
-            <CheckBox Theme="{DynamicResource CardCheckBox}" Content="多选" />
-            <CheckBox Theme="{DynamicResource CardCheckBox}" Content="多选" IsChecked="True" />
         </StackPanel>
     </Design.PreviewWith>
 
-    <!-- Default theme: full-width cell style for mobile -->
     <ControlTheme x:Key="{x:Type CheckBox}" TargetType="CheckBox">
-        <Setter Property="HorizontalAlignment" Value="Stretch" />
-        <Setter Property="VerticalAlignment" Value="Top" />
-        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="{DynamicResource TDCheckBoxPadding}" />
         <Setter Property="MinHeight" Value="{DynamicResource TDCheckBoxMinHeight}" />
         <Setter Property="FontSize" Value="{DynamicResource TDCheckBoxTitleFontSize}" />
-        <Setter Property="Foreground" Value="{DynamicResource TDCheckBoxTitleColor}" />
-        <Setter Property="Background" Value="{DynamicResource TDCheckBoxBgColor}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource TDCheckBoxBorderColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource TDCheckBoxContentForeground}" />
+        <Setter Property="Background" Value="{DynamicResource TDCheckBoxBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TDCheckBoxBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource TDCheckBoxBorderThickness}" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">
@@ -35,37 +28,26 @@
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}">
-                    <Grid ColumnDefinitions="Auto,*" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
+                    <Grid ColumnDefinitions="Auto,*,Auto"
+                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
                         <Panel
                             Name="PART_GlyphPanel"
                             Grid.Column="0"
-                            Margin="{DynamicResource TDCheckBoxIconMargin}"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                            <Border
-                                Name="PART_CheckBorder"
+                            <Ellipse
+                                Name="PART_OuterEllipse"
                                 Width="{DynamicResource TDCheckBoxIconSize}"
-                                Height="{DynamicResource TDCheckBoxIconSize}"
-                                Background="{DynamicResource TDCheckBoxIconBackground}"
-                                BorderBrush="{DynamicResource TDCheckBoxIconBorderBrush}"
-                                BorderThickness="{DynamicResource TDCheckBoxIconBorderThickness}"
-                                CornerRadius="{DynamicResource TDCheckBoxIconCornerRadius}"
+                                Height="{Binding $self.Width}"
+                                Fill="{DynamicResource TDCheckBoxIconBackground}"
+                                Stroke="{DynamicResource TDCheckBoxIconBorderBrush}"
+                                StrokeThickness="{DynamicResource TDCheckBoxIconBorderThickness}"
                                 UseLayoutRounding="False" />
-                            <Path
-                                Name="PART_CheckMark"
-                                Data="M3,7 L6,10 L13,3"
-                                Stroke="{DynamicResource TDCheckBoxIconCheckedColor}"
-                                StrokeThickness="2"
-                                StrokeLineCap="Round"
-                                Stretch="Uniform"
-                                Margin="3"
-                                UseLayoutRounding="False" />
-                            <Rectangle
-                                Name="PART_IndeterminateMark"
-                                Width="10"
-                                Height="2"
-                                Fill="{DynamicResource TDCheckBoxIconCheckedColor}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
+                            <PathIcon
+                                Name="PART_CheckedIcon"
+                                Width="{DynamicResource TDCheckBoxIconSize}"
+                                Height="{Binding $self.Width}"
+                                Data="{DynamicResource TempCheckCircleGlyph}"
+                                Foreground="{DynamicResource TDCheckBoxIconCheckedForeground}"
                                 UseLayoutRounding="False" />
                         </Panel>
                         <ContentPresenter
@@ -88,165 +70,33 @@
             <Setter Property="RecognizesAccessKey" Value="True" />
         </Style>
 
-        <!-- Unchecked State -->
-        <Style Selector="^:unchecked /template/ Path#PART_CheckMark">
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
-        <Style Selector="^:unchecked /template/ Rectangle#PART_IndeterminateMark">
-            <Setter Property="IsVisible" Value="False" />
+        <Style Selector="^.Justify /template/ Panel#PART_GlyphPanel">
+            <Setter Property="Grid.Column" Value="2" />
         </Style>
 
-        <!-- Checked State -->
-        <Style Selector="^:checked /template/ Path#PART_CheckMark">
-            <Setter Property="IsVisible" Value="True" />
-        </Style>
-        <Style Selector="^:checked /template/ Rectangle#PART_IndeterminateMark">
+        <Style Selector="^:unchecked /template/ PathIcon#PART_CheckedIcon">
             <Setter Property="IsVisible" Value="False" />
         </Style>
-
-        <!-- Indeterminate State -->
-        <Style Selector="^:indeterminate /template/ Path#PART_CheckMark">
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
-        <Style Selector="^:indeterminate /template/ Rectangle#PART_IndeterminateMark">
-            <Setter Property="IsVisible" Value="True" />
+        <Style Selector="^:checked,^:indeterminate">
+            <Style Selector="^ /template/ PathIcon#PART_CheckedIcon">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
         </Style>
 
-        <!-- Disabled State -->
+        <Style Selector="^:indeterminate /template/ PathIcon#PART_CheckedIcon">
+            <Setter Property="Data" Value="{DynamicResource TempIndeterminateCircleGlyph}" />
+        </Style>
+
         <Style Selector="^:disabled">
-            <Setter Property="Cursor" Value="Arrow" />
-        </Style>
-        <Style Selector="^:disabled /template/ Border#PART_CheckBorder">
-            <Setter Property="Background" Value="{DynamicResource TDCheckBoxIconDisabledBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TDCheckBoxIconDisabledBorderBrush}" />
-        </Style>
-        <Style Selector="^:disabled /template/ Path#PART_CheckMark">
-            <Setter Property="Stroke" Value="{DynamicResource TDCheckBoxIconDisabledColor}" />
-        </Style>
-        <Style Selector="^:disabled /template/ Rectangle#PART_IndeterminateMark">
-            <Setter Property="Fill" Value="{DynamicResource TDCheckBoxIconDisabledColor}" />
-        </Style>
-        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="TextElement.Foreground" Value="{DynamicResource TDCheckBoxTitleDisabledColor}" />
-        </Style>
-    </ControlTheme>
-
-    <!-- Card theme: compact inline style -->
-    <ControlTheme x:Key="CardCheckBox" TargetType="CheckBox">
-        <Setter Property="HorizontalAlignment" Value="Left" />
-        <Setter Property="VerticalAlignment" Value="Top" />
-        <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Padding" Value="{DynamicResource TDCheckBoxCardPadding}" />
-        <Setter Property="FontSize" Value="{DynamicResource TDCheckBoxTitleFontSize}" />
-        <Setter Property="Foreground" Value="{DynamicResource TDCheckBoxTitleColor}" />
-        <Setter Property="Background" Value="{DynamicResource TDCheckBoxCardBackground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource TDCheckBoxCardBorderBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource TDCheckBoxCardBorderThickness}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource TDCheckBoxCardCornerRadius}" />
-        <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Template">
-            <ControlTemplate TargetType="CheckBox">
-                <Border
-                    Name="PART_RootBorder"
-                    Padding="{TemplateBinding Padding}"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}">
-                    <Grid ColumnDefinitions="Auto,*">
-                        <Panel
-                            Name="PART_GlyphPanel"
-                            Grid.Column="0"
-                            Margin="{DynamicResource TDCheckBoxIconMargin}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                            <Border
-                                Name="PART_CheckBorder"
-                                Width="{DynamicResource TDCheckBoxIconSize}"
-                                Height="{DynamicResource TDCheckBoxIconSize}"
-                                Background="{DynamicResource TDCheckBoxIconBackground}"
-                                BorderBrush="{DynamicResource TDCheckBoxIconBorderBrush}"
-                                BorderThickness="{DynamicResource TDCheckBoxIconBorderThickness}"
-                                CornerRadius="{DynamicResource TDCheckBoxIconCornerRadius}"
-                                UseLayoutRounding="False" />
-                            <Path
-                                Name="PART_CheckMark"
-                                Data="M3,7 L6,10 L13,3"
-                                Stroke="{DynamicResource TDCheckBoxIconCheckedColor}"
-                                StrokeThickness="2"
-                                StrokeLineCap="Round"
-                                Stretch="Uniform"
-                                Margin="3"
-                                UseLayoutRounding="False" />
-                            <Rectangle
-                                Name="PART_IndeterminateMark"
-                                Width="10"
-                                Height="2"
-                                Fill="{DynamicResource TDCheckBoxIconCheckedColor}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                UseLayoutRounding="False" />
-                        </Panel>
-                        <ContentPresenter
-                            Name="PART_ContentPresenter"
-                            Grid.Column="1"
-                            Margin="{DynamicResource TDCheckBoxContentMargin}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            Content="{TemplateBinding Content}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}"
-                            IsVisible="{TemplateBinding Content,Converter={x:Static ObjectConverters.IsNotNull}}"
-                            TextElement.FontSize="{TemplateBinding FontSize}"
-                            TextElement.Foreground="{TemplateBinding Foreground}"
-                            TextWrapping="Wrap" />
-                    </Grid>
-                </Border>
-            </ControlTemplate>
-        </Setter>
-
-        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="RecognizesAccessKey" Value="True" />
-        </Style>
-
-        <!-- Copy state styles from default theme -->
-        <Style Selector="^:unchecked /template/ Path#PART_CheckMark">
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
-        <Style Selector="^:unchecked /template/ Rectangle#PART_IndeterminateMark">
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
-        <Style Selector="^:checked /template/ Path#PART_CheckMark">
-            <Setter Property="IsVisible" Value="True" />
-        </Style>
-        <Style Selector="^:checked /template/ Rectangle#PART_IndeterminateMark">
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
-        <Style Selector="^:indeterminate /template/ Path#PART_CheckMark">
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
-        <Style Selector="^:indeterminate /template/ Rectangle#PART_IndeterminateMark">
-            <Setter Property="IsVisible" Value="True" />
-        </Style>
-        <Style Selector="^:disabled">
-            <Setter Property="Cursor" Value="Arrow" />
-        </Style>
-        <Style Selector="^:disabled /template/ Border#PART_CheckBorder">
-            <Setter Property="Background" Value="{DynamicResource TDCheckBoxIconDisabledBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TDCheckBoxIconDisabledBorderBrush}" />
-        </Style>
-        <Style Selector="^:disabled /template/ Path#PART_CheckMark">
-            <Setter Property="Stroke" Value="{DynamicResource TDCheckBoxIconDisabledColor}" />
-        </Style>
-        <Style Selector="^:disabled /template/ Rectangle#PART_IndeterminateMark">
-            <Setter Property="Fill" Value="{DynamicResource TDCheckBoxIconDisabledColor}" />
-        </Style>
-        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="TextElement.Foreground" Value="{DynamicResource TDCheckBoxTitleDisabledColor}" />
-        </Style>
-
-        <!-- Card specific styles -->
-        <Style Selector="^:checked /template/ Border#PART_RootBorder">
-            <Setter Property="Background" Value="{DynamicResource TDCheckBoxCardCheckedBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TDCheckBoxCardCheckedBorderBrush}" />
+            <Style Selector="^ /template/ Ellipse#PART_OuterEllipse">
+                <Setter Property="Stroke" Value="{DynamicResource TDCheckBoxIconDisabledBorderBrush}" />
+            </Style>
+            <Style Selector="^ /template/ PathIcon#PART_CheckedIcon">
+                <Setter Property="Foreground" Value="{DynamicResource TDCheckBoxIconDisabledForeground}" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource TDCheckBoxContentDisabledForeground}" />
+            </Style>
         </Style>
     </ControlTheme>
 
