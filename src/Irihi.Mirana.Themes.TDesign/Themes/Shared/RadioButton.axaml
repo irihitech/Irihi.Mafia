@@ -8,7 +8,7 @@
     <Thickness x:Key="TDRadioButtonPadding">16</Thickness>
     <Thickness x:Key="TDRadioButtonContentMargin">8,0,0,0</Thickness>
     <Thickness x:Key="TDRadioButtonIconMargin">0,0,0,0</Thickness>
-    <Thickness x:Key="TDRadioButtonIconBorderThickness">1</Thickness>
+    <x:Double x:Key="TDRadioButtonIconBorderThickness">1</x:Double>
     <CornerRadius x:Key="TDRadioButtonIconCornerRadius">12</CornerRadius>
     <Thickness x:Key="TDRadioButtonBorderThickness">0,0,0,1</Thickness>
     

@@ -56,7 +56,6 @@
                                 Stroke="{DynamicResource TDCheckBoxIconCheckedColor}"
                                 StrokeThickness="2"
                                 StrokeLineCap="Round"
-                                StrokeLineJoin="Round"
                                 Stretch="Uniform"
                                 Margin="3"
                                 UseLayoutRounding="False" />
@@ -176,7 +175,6 @@
                                 Stroke="{DynamicResource TDCheckBoxIconCheckedColor}"
                                 StrokeThickness="2"
                                 StrokeLineCap="Round"
-                                StrokeLineJoin="Round"
                                 Stretch="Uniform"
                                 Margin="3"
                                 UseLayoutRounding="False" />
