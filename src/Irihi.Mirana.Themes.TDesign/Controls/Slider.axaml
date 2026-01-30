@@ -58,7 +58,6 @@
 
     <!-- Thumb Theme -->
     <ControlTheme x:Key="SliderThumbTheme" TargetType="Thumb">
-        <Setter Property="CornerRadius" Value="{DynamicResource TDSliderThumbCornerRadius}" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Background" Value="{DynamicResource TDSliderThumbBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource TDSliderThumbBorderBrush}" />
@@ -71,7 +70,7 @@
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}" />
+                    CornerRadius="{DynamicResource TDSliderThumbCornerRadius}" />
             </ControlTemplate>
         </Setter>
         <Style Selector="^:pointerover">
@@ -124,7 +123,6 @@
                                     Name="thumb"
                                     Width="{DynamicResource TDSliderThumbSize}"
                                     Height="{DynamicResource TDSliderThumbSize}"
-                                    DataContext="{TemplateBinding Value}"
                                     Theme="{StaticResource SliderThumbTheme}" />
                             </Track>
                         </Grid>
@@ -167,7 +165,6 @@
                                     Name="thumb"
                                     Width="{DynamicResource TDSliderThumbSize}"
                                     Height="{DynamicResource TDSliderThumbSize}"
-                                    DataContext="{TemplateBinding Value}"
                                     Theme="{StaticResource SliderThumbTheme}" />
                             </Track>
                         </Grid>
