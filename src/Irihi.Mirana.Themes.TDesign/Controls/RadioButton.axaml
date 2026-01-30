@@ -6,8 +6,8 @@
             <RadioButton Content="单选标题" GroupName="Group1" IsChecked="True" />
             <RadioButton Content="选项禁用-已选" GroupName="Group2" IsChecked="True" IsEnabled="False" />
             <RadioButton Content="选项禁用-默认" GroupName="Group2" IsEnabled="False" />
-            <RadioButton Theme="{DynamicResource CardRadioButton}" Content="多选" GroupName="Group3" />
-            <RadioButton Theme="{DynamicResource CardRadioButton}" Content="多选" GroupName="Group3" IsChecked="True" />
+            <RadioButton Theme="{DynamicResource CardRadioButton}" Content="单选" GroupName="Group3" />
+            <RadioButton Theme="{DynamicResource CardRadioButton}" Content="单选" GroupName="Group3" IsChecked="True" />
         </StackPanel>
     </Design.PreviewWith>
 
