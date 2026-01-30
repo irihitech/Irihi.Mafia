@@ -7,7 +7,14 @@
     <StaticResource x:Key="TDCheckBoxTitleFontSize" ResourceKey="TDFontSizeBodyLarge" />
     <Thickness x:Key="TDCheckBoxPadding">16</Thickness>
     <Thickness x:Key="TDCheckBoxContentMargin">8,0,0,0</Thickness>
+    <Thickness x:Key="TDCheckBoxIconMargin">0,0,0,0</Thickness>
     <Thickness x:Key="TDCheckBoxIconBorderThickness">1</Thickness>
     <CornerRadius x:Key="TDCheckBoxIconCornerRadius">3</CornerRadius>
+    <Thickness x:Key="TDCheckBoxBorderThickness">0,0,0,1</Thickness>
+    
+    <!-- CheckBox Card Tokens -->
+    <Thickness x:Key="TDCheckBoxCardPadding">12</Thickness>
+    <Thickness x:Key="TDCheckBoxCardBorderThickness">1</Thickness>
+    <CornerRadius x:Key="TDCheckBoxCardCornerRadius">6</CornerRadius>
 
 </ResourceDictionary>

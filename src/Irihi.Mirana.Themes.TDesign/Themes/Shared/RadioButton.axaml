@@ -7,7 +7,14 @@
     <StaticResource x:Key="TDRadioButtonLabelFontSize" ResourceKey="TDFontSizeBodyLarge" />
     <Thickness x:Key="TDRadioButtonPadding">16</Thickness>
     <Thickness x:Key="TDRadioButtonContentMargin">8,0,0,0</Thickness>
+    <Thickness x:Key="TDRadioButtonIconMargin">0,0,0,0</Thickness>
     <Thickness x:Key="TDRadioButtonIconBorderThickness">1</Thickness>
     <CornerRadius x:Key="TDRadioButtonIconCornerRadius">12</CornerRadius>
+    <Thickness x:Key="TDRadioButtonBorderThickness">0,0,0,1</Thickness>
+    
+    <!-- RadioButton Card Tokens -->
+    <Thickness x:Key="TDRadioButtonCardPadding">12</Thickness>
+    <Thickness x:Key="TDRadioButtonCardBorderThickness">1</Thickness>
+    <CornerRadius x:Key="TDRadioButtonCardCornerRadius">6</CornerRadius>
 
 </ResourceDictionary>
