@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- Progress Track (Background) -->
+    <SolidColorBrush x:Key="TDProgressTrackBackground" Color="{StaticResource TDGrayColor3}" />
+    
+    <!-- Plump Progress Text -->
+    <StaticResource x:Key="TDProgressPlumpTextForeground" ResourceKey="TDTextColorPrimary" />
+    
+    <!-- Circle Progress Text -->
+    <StaticResource x:Key="TDProgressCircleTextForeground" ResourceKey="TDTextColorPrimary" />
+
+</ResourceDictionary>

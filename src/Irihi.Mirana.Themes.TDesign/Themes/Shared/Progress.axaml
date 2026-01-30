@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- Border Radius -->
+    <StaticResource x:Key="TDProgressBorderRadius" ResourceKey="TDRadiusRound" />
+    
+    <!-- Line Progress Heights -->
+    <x:Double x:Key="TDProgressSmallHeight">4</x:Double>
+    <x:Double x:Key="TDProgressDefaultHeight">6</x:Double>
+    <x:Double x:Key="TDProgressLargeHeight">8</x:Double>
+    
+    <!-- Plump Progress -->
+    <x:Double x:Key="TDProgressPlumpHeight">28</x:Double>
+    <StaticResource x:Key="TDProgressPlumpFontSize" ResourceKey="TDFontSizeBodyMedium" />
+    
+    <!-- Circle Progress -->
+    <x:Double x:Key="TDProgressCircleSmallSize">56</x:Double>
+    <x:Double x:Key="TDProgressCircleSize">112</x:Double>
+    <x:Double x:Key="TDProgressCircleLargeSize">160</x:Double>
+    
+    <x:Double x:Key="TDProgressCircleStrokeWidth">6</x:Double>
+    <StaticResource x:Key="TDProgressCircleFontSize" ResourceKey="TDFontSizeBodyLarge" />
+
+</ResourceDictionary>

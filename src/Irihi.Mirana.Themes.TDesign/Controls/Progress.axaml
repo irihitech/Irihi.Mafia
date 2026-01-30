@@ -1,0 +1,180 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="using:Avalonia.Controls.Converters">
+    <Design.PreviewWith>
+        <StackPanel Margin="20" Spacing="20" Width="400">
+            <!-- Line Theme (Default) -->
+            <TextBlock Text="Line Theme (Default)" FontWeight="Bold" />
+            <ProgressBar Value="20" Minimum="0" Maximum="100" />
+            <ProgressBar Value="50" Minimum="0" Maximum="100" Classes="Primary" />
+            <ProgressBar Value="80" Minimum="0" Maximum="100" Classes="Success" />
+            
+            <!-- Plump Theme -->
+            <TextBlock Text="Plump Theme" FontWeight="Bold" Margin="0,16,0,0" />
+            <ProgressBar Value="30" Minimum="0" Maximum="100" Theme="{DynamicResource PlumpProgress}" ShowProgressText="True" />
+            <ProgressBar Value="60" Minimum="0" Maximum="100" Theme="{DynamicResource PlumpProgress}" Classes="Warning" ShowProgressText="True" />
+            
+            <!-- Status Variants -->
+            <TextBlock Text="Status Variants" FontWeight="Bold" Margin="0,16,0,0" />
+            <ProgressBar Value="100" Minimum="0" Maximum="100" Classes="Success" />
+            <ProgressBar Value="75" Minimum="0" Maximum="100" Classes="Warning" />
+            <ProgressBar Value="50" Minimum="0" Maximum="100" Classes="Error" />
+            
+            <!-- Sizes -->
+            <TextBlock Text="Sizes" FontWeight="Bold" Margin="0,16,0,0" />
+            <ProgressBar Value="40" Minimum="0" Maximum="100" Classes="Small" />
+            <ProgressBar Value="40" Minimum="0" Maximum="100" />
+            <ProgressBar Value="40" Minimum="0" Maximum="100" Classes="Large" />
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <converters:StringFormatConverter x:Key="StringFormatConverter" />
+
+    <!-- Base Progress Theme (Line Theme) -->
+    <ControlTheme x:Key="BaseProgressTheme" TargetType="ProgressBar">
+        <Setter Property="Foreground" Value="{DynamicResource TDBrandColor}" />
+        <Setter Property="Background" Value="{DynamicResource TDProgressTrackBackground}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TDProgressBorderRadius}" />
+        <Setter Property="MinHeight" Value="{DynamicResource TDProgressDefaultHeight}" />
+        <Setter Property="MinWidth" Value="200" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ProgressBar">
+                <Border
+                    Name="ProgressBarRoot"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    ClipToBounds="True">
+                    <Panel>
+                        <!-- Determinate Progress -->
+                        <Border
+                            Name="PART_Indicator"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Stretch"
+                            Background="{TemplateBinding Foreground}"
+                            CornerRadius="{TemplateBinding CornerRadius}" />
+                        
+                        <!-- Indeterminate Progress -->
+                        <Border
+                            Name="PART_IndeterminateIndicator"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Stretch"
+                            Background="{TemplateBinding Foreground}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            IsVisible="False" />
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <!-- Horizontal Layout -->
+        <Style Selector="^:horizontal /template/ Border#PART_Indicator">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+        </Style>
+
+        <!-- Vertical Layout -->
+        <Style Selector="^:vertical">
+            <Setter Property="MinWidth" Value="{DynamicResource TDProgressDefaultHeight}" />
+            <Setter Property="MinHeight" Value="200" />
+        </Style>
+        <Style Selector="^:vertical /template/ Border#PART_Indicator">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+        </Style>
+
+        <!-- Indeterminate State -->
+        <Style Selector="^:indeterminate /template/ Border#PART_Indicator">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:indeterminate /template/ Border#PART_IndeterminateIndicator">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+
+        <!-- Size Variants -->
+        <Style Selector="^.Small">
+            <Setter Property="MinHeight" Value="{DynamicResource TDProgressSmallHeight}" />
+        </Style>
+        <Style Selector="^.Large">
+            <Setter Property="MinHeight" Value="{DynamicResource TDProgressLargeHeight}" />
+        </Style>
+
+        <!-- Status Colors -->
+        <Style Selector="^.Primary">
+            <Setter Property="Foreground" Value="{DynamicResource TDBrandColor}" />
+        </Style>
+        <Style Selector="^.Success">
+            <Setter Property="Foreground" Value="{DynamicResource TDSuccessColor}" />
+        </Style>
+        <Style Selector="^.Warning">
+            <Setter Property="Foreground" Value="{DynamicResource TDWarningColor}" />
+        </Style>
+        <Style Selector="^.Error">
+            <Setter Property="Foreground" Value="{DynamicResource TDErrorColor}" />
+        </Style>
+    </ControlTheme>
+
+    <!-- Default Progress Theme (Line Theme) -->
+    <ControlTheme
+        x:Key="{x:Type ProgressBar}"
+        TargetType="ProgressBar"
+        BasedOn="{StaticResource BaseProgressTheme}" />
+
+    <!-- Plump Progress Theme (Progress bar with label inside) -->
+    <ControlTheme
+        x:Key="PlumpProgress"
+        TargetType="ProgressBar"
+        BasedOn="{StaticResource BaseProgressTheme}">
+        <Setter Property="MinHeight" Value="{DynamicResource TDProgressPlumpHeight}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ProgressBar">
+                <Border
+                    Name="ProgressBarRoot"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    ClipToBounds="True">
+                    <Grid>
+                        <!-- Progress Indicator -->
+                        <Border
+                            Name="PART_Indicator"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Stretch"
+                            Background="{TemplateBinding Foreground}"
+                            CornerRadius="{TemplateBinding CornerRadius}" />
+                        
+                        <!-- Progress Text (Inside) -->
+                        <TextBlock
+                            Name="PART_ProgressText"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="{DynamicResource TDProgressPlumpTextForeground}"
+                            FontSize="{DynamicResource TDProgressPlumpFontSize}"
+                            FontWeight="Medium"
+                            IsVisible="{TemplateBinding ShowProgressText}">
+                            <TextBlock.Text>
+                                <MultiBinding Converter="{StaticResource StringFormatConverter}">
+                                    <TemplateBinding Property="ProgressTextFormat" />
+                                    <Binding Path="Value" RelativeSource="{RelativeSource TemplatedParent}" />
+                                    <TemplateBinding Property="Percentage" />
+                                    <TemplateBinding Property="Minimum" />
+                                    <TemplateBinding Property="Maximum" />
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <!-- Note: Circle Progress Theme (Circular/Ring Progress) is not implemented
+         as it requires custom rendering with Arc control which is not a native Avalonia control.
+         The TDesign mobile vue circular progress would require PathGeometry or custom rendering
+         which goes beyond using only native Avalonia controls as specified in requirements. -->
+
+</ResourceDictionary>
