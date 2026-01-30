@@ -152,29 +152,4 @@
             <Setter Property="Foreground" Value="{DynamicResource TDCollapseExpandIconDisabledForeground}" />
         </Style>
     </ControlTheme>
-
-    <!-- Design Tokens for Collapse -->
-    <SolidColorBrush x:Key="TDCollapseBorderBrush">#E7E7E7</SolidColorBrush>
-    <Thickness x:Key="TDCollapseBorderThickness">0</Thickness>
-    <SolidColorBrush x:Key="TDCollapseBackground">White</SolidColorBrush>
-
-    <SolidColorBrush x:Key="TDCollapsePanelBackground">White</SolidColorBrush>
-    <Thickness x:Key="TDCollapsePanelBorderThickness">0,0,0,1</Thickness>
-    <Thickness x:Key="TDCollapsePanelHeaderPadding">16</Thickness>
-    <Thickness x:Key="TDCollapsePanelHeaderLeftMargin">0,0,8,0</Thickness>
-    <x:Double x:Key="TDCollapsePanelHeaderFontSize">16</x:Double>
-    <SolidColorBrush x:Key="TDCollapsePanelHeaderForeground" Opacity="0.9" Color="#000" />
-    <x:Double x:Key="TDCollapsePanelHeaderRightSpacing">8</x:Double>
-    <SolidColorBrush x:Key="TDCollapsePanelHeaderRightForeground" Opacity="0.6" Color="#000" />
-    <SolidColorBrush x:Key="TDCollapsePanelHeaderHoverBackground">#F5F5F5</SolidColorBrush>
-    <SolidColorBrush x:Key="TDCollapsePanelHeaderPressedBackground">#E8E8E8</SolidColorBrush>
-    <SolidColorBrush x:Key="TDCollapsePanelHeaderDisabledForeground" Opacity="0.26" Color="#000" />
-
-    <Thickness x:Key="TDCollapsePanelContentPadding">16</Thickness>
-    <x:Double x:Key="TDCollapsePanelContentFontSize">14</x:Double>
-    <SolidColorBrush x:Key="TDCollapsePanelContentForeground" Opacity="0.9" Color="#000" />
-
-    <StreamGeometry x:Key="TDCollapseExpandIconData">M16 10 L12 14 L8 10</StreamGeometry>
-    <SolidColorBrush x:Key="TDCollapseExpandIconForeground" Opacity="0.4" Color="#000" />
-    <SolidColorBrush x:Key="TDCollapseExpandIconDisabledForeground" Opacity="0.26" Color="#000" />
 </ResourceDictionary>
