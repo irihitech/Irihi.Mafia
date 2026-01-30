@@ -1,26 +1,16 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
-    <!-- RadioButton Colors -->
-    <StaticResource x:Key="TDRadioButtonBgColor" ResourceKey="TDBgColorContainer" />
-    <StaticResource x:Key="TDRadioButtonBorderColor" ResourceKey="TDBorderLevel1Color" />
-    <StaticResource x:Key="TDRadioButtonLabelColor" ResourceKey="TDTextColorPrimary" />
-    <StaticResource x:Key="TDRadioButtonLabelDisabledColor" ResourceKey="TDTextColorDisabled" />
-    
-    <!-- RadioButton Icon Colors -->
+
+    <StaticResource x:Key="TDRadioButtonBackground" ResourceKey="TDBgColorContainer" />
+    <StaticResource x:Key="TDRadioButtonBorderBrush" ResourceKey="TDBorderLevel1Color" />
+    <StaticResource x:Key="TDRadioButtonContentForeground" ResourceKey="TDTextColorPrimary" />
+
     <SolidColorBrush x:Key="TDRadioButtonIconBackground" Color="Transparent" />
     <StaticResource x:Key="TDRadioButtonIconBorderBrush" ResourceKey="TDComponentBorder" />
-    <StaticResource x:Key="TDRadioButtonIconCheckedColor" ResourceKey="TDBrandColor" />
-    
-    <!-- RadioButton Disabled Colors -->
-    <StaticResource x:Key="TDRadioButtonIconDisabledBackground" ResourceKey="TDBgColorComponentDisabled" />
+    <StaticResource x:Key="TDRadioButtonIconCheckedForeground" ResourceKey="TDBrandColor" />
+
     <StaticResource x:Key="TDRadioButtonIconDisabledBorderBrush" ResourceKey="TDComponentBorder" />
-    <StaticResource x:Key="TDRadioButtonIconDisabledColor" ResourceKey="TDTextColorDisabled" />
-    
-    <!-- RadioButton Card Colors -->
-    <SolidColorBrush x:Key="TDRadioButtonCardBackground" Color="Transparent" />
-    <StaticResource x:Key="TDRadioButtonCardBorderBrush" ResourceKey="TDComponentBorder" />
-    <StaticResource x:Key="TDRadioButtonCardCheckedBackground" ResourceKey="TDBrandColorLight" />
-    <StaticResource x:Key="TDRadioButtonCardCheckedBorderBrush" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDRadioButtonIconDisabledForeground" ResourceKey="TDBrandColorDisabled" />
+    <StaticResource x:Key="TDRadioButtonContentDisabledForeground" ResourceKey="TDTextColorDisabled" />
 
 </ResourceDictionary>
