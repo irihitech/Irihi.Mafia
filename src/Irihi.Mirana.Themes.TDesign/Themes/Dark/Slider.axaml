@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- Track Colors -->
+    <StaticResource x:Key="TDSliderTrackBackground" ResourceKey="TDGrayColor11" />
+    <StaticResource x:Key="TDSliderTrackForeground" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDSliderTrackDisabledBackground" ResourceKey="TDGrayColor11" />
+    <StaticResource x:Key="TDSliderTrackDisabledForeground" ResourceKey="TDGrayColor8" />
+
+    <!-- Thumb Colors -->
+    <StaticResource x:Key="TDSliderThumbBackground" ResourceKey="TDGrayColor14" />
+    <StaticResource x:Key="TDSliderThumbBorderBrush" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDSliderThumbPointeroverBackground" ResourceKey="TDGrayColor14" />
+    <StaticResource x:Key="TDSliderThumbPointeroverBorderBrush" ResourceKey="TDBrandColorHover" />
+    <StaticResource x:Key="TDSliderThumbPressedBackground" ResourceKey="TDGrayColor14" />
+    <StaticResource x:Key="TDSliderThumbPressedBorderBrush" ResourceKey="TDBrandColorActive" />
+    <StaticResource x:Key="TDSliderThumbDisabledBackground" ResourceKey="TDGrayColor14" />
+    <StaticResource x:Key="TDSliderThumbDisabledBorderBrush" ResourceKey="TDGrayColor8" />
+
+</ResourceDictionary>

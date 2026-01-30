@@ -10,5 +10,6 @@
         <ResourceInclude Source="IconButton.axaml" />
         <ResourceInclude Source="PathIcon.axaml" />
         <ResourceInclude Source="RadioButton.axaml" />
+        <ResourceInclude Source="Slider.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
