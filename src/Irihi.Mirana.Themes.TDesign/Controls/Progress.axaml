@@ -8,6 +8,7 @@
             <ProgressBar Value="20" Minimum="0" Maximum="100" />
             <ProgressBar Value="50" Minimum="0" Maximum="100" Classes="Primary" />
             <ProgressBar Value="80" Minimum="0" Maximum="100" Classes="Success" />
+            <ProgressBar IsIndeterminate="True" />
             
             <!-- Plump Theme -->
             <TextBlock Text="Plump Theme" FontWeight="Bold" Margin="0,16,0,0" />
@@ -92,6 +93,24 @@
         </Style>
         <Style Selector="^:indeterminate /template/ Border#PART_IndeterminateIndicator">
             <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Width" Value="100" />
+        </Style>
+        
+        <!-- Indeterminate Animation - Simple pulsing effect using only AXAML -->
+        <Style Selector="^:horizontal:indeterminate /template/ Border#PART_IndeterminateIndicator">
+            <Style.Animations>
+                <Animation IterationCount="Infinite" Duration="0:0:1.5">
+                    <KeyFrame KeyTime="0:0:0">
+                        <Setter Property="Opacity" Value="0.4" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:0.75">
+                        <Setter Property="Opacity" Value="1" />
+                    </KeyFrame>
+                    <KeyFrame KeyTime="0:0:1.5">
+                        <Setter Property="Opacity" Value="0.4" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
         </Style>
 
         <!-- Size Variants -->
@@ -146,6 +165,15 @@
                             VerticalAlignment="Stretch"
                             Background="{TemplateBinding Foreground}"
                             CornerRadius="{TemplateBinding CornerRadius}" />
+                        
+                        <!-- Indeterminate Indicator -->
+                        <Border
+                            Name="PART_IndeterminateIndicator"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Stretch"
+                            Background="{TemplateBinding Foreground}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            IsVisible="False" />
                         
                         <!-- Progress Text (Inside) -->
                         <TextBlock
