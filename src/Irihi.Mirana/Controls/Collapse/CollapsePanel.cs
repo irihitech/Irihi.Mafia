@@ -12,6 +12,8 @@ public class CollapsePanel : HeaderedContentControl
 {
     public const string PART_HeaderButton = "PART_HeaderButton";
 
+    private Button? _headerButton;
+
     public static readonly StyledProperty<bool> IsExpandedProperty =
         AvaloniaProperty.Register<CollapsePanel, bool>(nameof(IsExpanded));
 
@@ -87,9 +89,21 @@ public class CollapsePanel : HeaderedContentControl
     {
         base.OnApplyTemplate(e);
 
+        // Unsubscribe from previous button if it exists
+        if (_headerButton != null)
+        {
+            _headerButton.Click -= OnHeaderButtonClick;
+        }
+
         if (e.NameScope.Find<Button>(PART_HeaderButton) is { } button)
         {
-            button.Click += (_, _) => IsExpanded = !IsExpanded;
+            _headerButton = button;
+            _headerButton.Click += OnHeaderButtonClick;
         }
+    }
+
+    private void OnHeaderButtonClick(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        IsExpanded = !IsExpanded;
     }
 }

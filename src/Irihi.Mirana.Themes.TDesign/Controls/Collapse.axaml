@@ -114,7 +114,7 @@
                         <!-- Content Section -->
                         <Border
                             Name="PART_ContentBorder"
-                            IsVisible="{TemplateBinding IsExpanded, Mode=TwoWay}">
+                            IsVisible="{TemplateBinding IsExpanded}">
                             <ContentPresenter
                                 Name="PART_ContentPresenter"
                                 Padding="{DynamicResource TDCollapsePanelContentPadding}"

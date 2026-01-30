@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Avalonia;
@@ -40,26 +41,27 @@ public class Collapse : ItemsControl
             }
 
             // Set up panel value if not set
-            if (panel.Value == null)
+            if (!panel.IsSet(CollapsePanel.ValueProperty))
             {
                 panel.Value = index;
             }
 
-            // Handle expand mutex logic
-            panel.PropertyChanged += (_, e) =>
-            {
-                if (e.Property == CollapsePanel.IsExpandedProperty && e.NewValue is true && ExpandMutex)
+            // Handle expand mutex logic using observable
+            panel.GetObservable(CollapsePanel.IsExpandedProperty)
+                .Subscribe(isExpanded =>
                 {
-                    // Collapse all other panels
-                    foreach (var child in GetPanels())
+                    if (isExpanded && ExpandMutex)
                     {
-                        if (child != panel)
+                        // Collapse all other panels
+                        foreach (var child in GetPanels())
                         {
-                            child.IsExpanded = false;
+                            if (child != panel)
+                            {
+                                child.IsExpanded = false;
+                            }
                         }
                     }
-                }
-            };
+                });
         }
     }
 
