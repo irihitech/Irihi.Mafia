@@ -80,7 +80,8 @@
                             Name="PART_SwitchKnob"
                             Width="{DynamicResource TDSwitchKnobSize}"
                             Height="{DynamicResource TDSwitchKnobSize}"
-                            HorizontalAlignment="Left">
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center">
                             <Panel
                                 Name="PART_MovingKnobs"
                                 Width="{DynamicResource TDSwitchKnobSize}"

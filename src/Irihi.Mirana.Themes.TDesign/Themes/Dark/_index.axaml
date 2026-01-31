@@ -7,5 +7,6 @@
         <ResourceInclude Source="Divider.axaml" />
         <ResourceInclude Source="HyperlinkButton.axaml" />
         <ResourceInclude Source="RadioButton.axaml" />
+        <ResourceInclude Source="Switch.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
