@@ -2,11 +2,11 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <StaticResource x:Key="TDSwitchCheckedBackground" ResourceKey="TDBrandColor" />
-    <SolidColorBrush x:Key="TDSwitchUncheckedBackground" Color="{StaticResource TDGrayColor4}" />
+    <StaticResource x:Key="TDSwitchUncheckedBackground" ResourceKey="TDBgColorSecondarycontainerActive" />
     <StaticResource x:Key="TDSwitchCheckedDisabledBackground" ResourceKey="TDBrandColorDisabled" />
-    <SolidColorBrush x:Key="TDSwitchUncheckedDisabledBackground" Color="{StaticResource TDGrayColor2}" />
-    <SolidColorBrush x:Key="TDSwitchKnobBackground" Color="#FFF" />
-    <SolidColorBrush x:Key="TDSwitchKnobDisabledBackground" Color="#FFF" />
+    <StaticResource x:Key="TDSwitchUncheckedDisabledBackground" ResourceKey="TDBgColorComponentDisabled" />
+    <StaticResource x:Key="TDSwitchKnobBackground" ResourceKey="TDFontWhite1" />
+    <StaticResource x:Key="TDSwitchKnobDisabledBackground" ResourceKey="TDFontWhite1" />
     <StaticResource x:Key="TDSwitchKnobShadow" ResourceKey="TDShadow1"/>
 
 </ResourceDictionary>
