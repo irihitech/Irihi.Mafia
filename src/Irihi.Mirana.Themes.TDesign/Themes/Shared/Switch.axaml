@@ -21,7 +21,6 @@
     <x:Double x:Key="TDSwitchLargeHeight">32</x:Double>
     <CornerRadius x:Key="TDSwitchLargeCornerRadius">16</CornerRadius>
     <x:Double x:Key="TDSwitchLargeKnobSize">26</x:Double>
-    <Thickness x:Key="TDSwitchLargeKnobMargin">3</Thickness>
     <CornerRadius x:Key="TDSwitchLargeKnobCornerRadius">13</CornerRadius>
 
     <!-- Switch Text -->

@@ -95,9 +95,7 @@
                                         IsVisible="{TemplateBinding IsChecked}">
                                         <ContentPresenter.DataTemplates>
                                             <DataTemplate DataType="Geometry">
-                                                <PathIcon
-                                                    Foreground="{Binding $parent[ContentPresenter].Foreground}"
-                                                    Data="{Binding}" />
+                                                <PathIcon Data="{Binding}" />
                                             </DataTemplate>
                                         </ContentPresenter.DataTemplates>
                                     </ContentPresenter>
@@ -113,9 +111,7 @@
                                         IsVisible="{TemplateBinding IsChecked,Converter={x:Static BoolConverters.Not}}">
                                         <ContentPresenter.DataTemplates>
                                             <DataTemplate DataType="Geometry">
-                                                <PathIcon
-                                                    Foreground="{Binding $parent[ContentPresenter].Foreground}"
-                                                    Data="{Binding}" />
+                                                <PathIcon Data="{Binding}" />
                                             </DataTemplate>
                                         </ContentPresenter.DataTemplates>
                                     </ContentPresenter>
