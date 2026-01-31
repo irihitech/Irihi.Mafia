@@ -11,5 +11,10 @@
         <ResourceInclude Source="PathIcon.axaml" />
         <ResourceInclude Source="RadioButton.axaml" />
         <ResourceInclude Source="Switch.axaml" />
+
+        <ResourceInclude Source="EmbeddableControlRoot.axaml" />
+        <ResourceInclude Source="Popup.axaml" />
+        <ResourceInclude Source="ThemeVariantScope.axaml" />
+        <ResourceInclude Source="Window.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
