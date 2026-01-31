@@ -8,9 +8,9 @@ public class SwitchMovingLengthConverter : MarkupMultiValueConverter
     public override object? Convert(IList<object?>? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value is null || value.Count != 3) return 0;
-        if (value[0] is double borderWidth && value[1] is double knobWidth && value[2] is double konbSpacing)
+        if (value[0] is double borderWidth && value[1] is double knobWidth && value[2] is double knobSpacing)
         {
-            return borderWidth - knobWidth - konbSpacing * 2;
+            return borderWidth - knobWidth - knobSpacing * 2;
         }
 
         return 0;
