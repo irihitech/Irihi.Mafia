@@ -1,0 +1,195 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:td="https://irihi.tech/td">
+    <Design.PreviewWith>
+        <StackPanel Width="300" Margin="20" Spacing="16">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <ToggleSwitch Classes="Small" />
+                <ToggleSwitch Classes="Small" IsChecked="True" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <ToggleSwitch />
+                <ToggleSwitch IsChecked="True" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <ToggleSwitch Classes="Large" />
+                <ToggleSwitch Classes="Large" IsChecked="True" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <ToggleSwitch IsEnabled="False" />
+                <ToggleSwitch IsChecked="True" IsEnabled="False" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <ToggleSwitch OnContent="开" OffContent="关" />
+                <ToggleSwitch OnContent="开" OffContent="关" IsChecked="True" />
+            </StackPanel>
+             <StackPanel Orientation="Horizontal" Spacing="8">
+                <ToggleSwitch IsEnabled="False" OnContent="■" OffContent="■" />
+                <ToggleSwitch IsEnabled="False" OnContent="■" OffContent="■" IsChecked="True" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <ToggleSwitch OnContent="{DynamicResource TempCheckGlyph}" OffContent="{DynamicResource TempCloseGlyph}" />
+                <ToggleSwitch OnContent="{DynamicResource TempCheckGlyph}" OffContent="{DynamicResource TempCloseGlyph}" IsChecked="True" />
+            </StackPanel>
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type ToggleSwitch}" TargetType="ToggleSwitch">
+        <Setter Property="OnContent" Value="{x:Null}" />
+        <Setter Property="OffContent" Value="{x:Null}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="KnobTransitions">
+            <Transitions>
+                <DoubleTransition
+                    Easing="CubicEaseOut"
+                    Property="Canvas.Left"
+                    Duration="0:0:0.3" />
+            </Transitions>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ToggleSwitch">
+                <Border
+                    Name="PART_SwitchBackgroundBorder"
+                    Width="{DynamicResource TDSwitchWidth}"
+                    Height="{DynamicResource TDSwitchHeight}"
+                    Background="{DynamicResource TDSwitchUncheckedBackground}"
+                    BackgroundSizing="OuterBorderEdge"
+                    CornerRadius="{DynamicResource TDSwitchCornerRadius}">
+                    <Border.Transitions>
+                        <Transitions>
+                            <BrushTransition Property="Background" Duration="0:0:0.3" />
+                        </Transitions>
+                    </Border.Transitions>
+                    <Canvas
+                        Name="PART_SwitchKnob"
+                        Margin="{DynamicResource TDSwitchKnobMargin}"
+                        Height="{DynamicResource TDSwitchKnobSize}"
+                        HorizontalAlignment="Left">
+                        <Canvas.Width>
+                            <MultiBinding Converter="{td:SwitchMovingLengthConverter}">
+                                <Binding Path="Width" ElementName="PART_SwitchBackgroundBorder" />
+                                <Binding Path="Width" ElementName="PART_MovingKnobs" />
+                                <Binding Path="Margin.Left" RelativeSource="{RelativeSource Self}" />
+                            </MultiBinding>
+                        </Canvas.Width>
+                        <Panel
+                            Name="PART_MovingKnobs"
+                            Width="{DynamicResource TDSwitchKnobSize}"
+                            Height="{Binding $self.Width}">
+                            <Border
+                                Name="PART_SwitchKnobIndicator"
+                                Background="{DynamicResource TDSwitchKnobBackground}"
+                                BoxShadow="{DynamicResource TDSwitchKnobShadow}"
+                                CornerRadius="{DynamicResource TDSwitchKnobCornerRadius}">
+                                <Panel>
+                                    <ContentPresenter
+                                        Name="PART_OnContentPresenter"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Content="{TemplateBinding OnContent}"
+                                        ContentTemplate="{TemplateBinding OnContentTemplate}"
+                                        FontSize="{DynamicResource TDSwitchFontSize}"
+                                        Foreground="{Binding #PART_SwitchBackgroundBorder.Background}"
+                                        IsVisible="{TemplateBinding IsChecked}">
+                                        <ContentPresenter.DataTemplates>
+                                            <DataTemplate DataType="Geometry">
+                                                <PathIcon
+                                                    Foreground="{Binding $parent[ContentPresenter].Foreground}"
+                                                    Data="{Binding}" />
+                                            </DataTemplate>
+                                        </ContentPresenter.DataTemplates>
+                                    </ContentPresenter>
+
+                                    <ContentPresenter
+                                        Name="PART_OffContentPresenter"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Content="{TemplateBinding OffContent}"
+                                        ContentTemplate="{TemplateBinding OffContentTemplate}"
+                                        FontSize="{DynamicResource TDSwitchFontSize}"
+                                        Foreground="{Binding #PART_SwitchBackgroundBorder.Background}"
+                                        IsVisible="{TemplateBinding IsChecked,Converter={x:Static BoolConverters.Not}}">
+                                        <ContentPresenter.DataTemplates>
+                                            <DataTemplate DataType="Geometry">
+                                                <PathIcon
+                                                    Foreground="{Binding $parent[ContentPresenter].Foreground}"
+                                                    Data="{Binding}" />
+                                            </DataTemplate>
+                                        </ContentPresenter.DataTemplates>
+                                    </ContentPresenter>
+                                </Panel>
+                            </Border>
+                        </Panel>
+                    </Canvas>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:unchecked">
+            <Style Selector="^ /template/ Border#PART_SwitchBackgroundBorder">
+                <Setter Property="Background" Value="{DynamicResource TDSwitchUncheckedBackground}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:checked">
+            <Style Selector="^ /template/ Border#PART_SwitchBackgroundBorder">
+                <Setter Property="Background" Value="{DynamicResource TDSwitchCheckedBackground}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Style Selector="^:unchecked /template/ Border#PART_SwitchBackgroundBorder">
+                <Setter Property="Background" Value="{DynamicResource TDSwitchUncheckedDisabledBackground}" />
+            </Style>
+            <Style Selector="^:checked /template/ Border#PART_SwitchBackgroundBorder">
+                <Setter Property="Background" Value="{DynamicResource TDSwitchCheckedDisabledBackground}" />
+            </Style>
+            <Style Selector="^ /template/ Border#PART_SwitchKnobIndicator">
+                <Setter Property="Background" Value="{DynamicResource TDSwitchKnobDisabledBackground}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^.Small">
+            <Style Selector="^ /template/ Border#PART_SwitchBackgroundBorder">
+                <Setter Property="Width" Value="{DynamicResource TDSwitchSmallWidth}" />
+                <Setter Property="Height" Value="{DynamicResource TDSwitchSmallHeight}" />
+                <Setter Property="CornerRadius" Value="{DynamicResource TDSwitchSmallCornerRadius}" />
+            </Style>
+            <Style Selector="^ /template/ Canvas#PART_SwitchKnob">
+                <Setter Property="Height" Value="{DynamicResource TDSwitchSmallKnobSize}" />
+            </Style>
+            <Style Selector="^ /template/ Panel#PART_MovingKnobs">
+                <Setter Property="Width" Value="{DynamicResource TDSwitchSmallKnobSize}" />
+            </Style>
+            <Style Selector="^ /template/ Border#PART_SwitchKnobIndicator">
+                <Setter Property="CornerRadius" Value="{DynamicResource TDSwitchSmallKnobCornerRadius}" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_OnContentPresenter,^ /template/ ContentPresenter#PART_OffContentPresenter">
+                <Setter Property="TextElement.FontSize" Value="{DynamicResource TDSwitchSmallFontSize}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^.Large">
+            <Style Selector="^ /template/ Border#PART_SwitchBackgroundBorder">
+                <Setter Property="Width" Value="{DynamicResource TDSwitchLargeWidth}" />
+                <Setter Property="Height" Value="{DynamicResource TDSwitchLargeHeight}" />
+                <Setter Property="CornerRadius" Value="{DynamicResource TDSwitchLargeCornerRadius}" />
+            </Style>
+            <Style Selector="^ /template/ Canvas#PART_SwitchKnob">
+                <Setter Property="Height" Value="{DynamicResource TDSwitchLargeKnobSize}" />
+            </Style>
+            <Style Selector="^ /template/ Panel#PART_MovingKnobs">
+                <Setter Property="Width" Value="{DynamicResource TDSwitchLargeKnobSize}" />
+            </Style>
+            <Style Selector="^ /template/ Border#PART_SwitchKnobIndicator">
+                <Setter Property="CornerRadius" Value="{DynamicResource TDSwitchLargeKnobCornerRadius}" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_OnContentPresenter,^ /template/ ContentPresenter#PART_OffContentPresenter">
+                <Setter Property="TextElement.FontSize" Value="{DynamicResource TDSwitchLargeFontSize}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>
