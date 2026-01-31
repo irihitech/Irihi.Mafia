@@ -25,6 +25,10 @@
                 <ToggleSwitch OnContent="开" OffContent="关" />
                 <ToggleSwitch OnContent="开" OffContent="关" IsChecked="True" />
             </StackPanel>
+             <StackPanel Orientation="Horizontal" Spacing="8">
+                <ToggleSwitch IsEnabled="False" OnContent="■" OffContent="■" />
+                <ToggleSwitch IsEnabled="False" OnContent="■" OffContent="■" IsChecked="True" />
+            </StackPanel>
             <StackPanel Orientation="Horizontal" Spacing="8">
                 <ToggleSwitch OnContent="{DynamicResource TempCheckGlyph}" OffContent="{DynamicResource TempCloseGlyph}" />
                 <ToggleSwitch OnContent="{DynamicResource TempCheckGlyph}" OffContent="{DynamicResource TempCloseGlyph}" IsChecked="True" />
@@ -52,8 +56,6 @@
                     Height="{DynamicResource TDSwitchHeight}"
                     Background="{DynamicResource TDSwitchUncheckedBackground}"
                     BackgroundSizing="OuterBorderEdge"
-                    BorderBrush="Black"
-                    BorderThickness="0"
                     CornerRadius="{DynamicResource TDSwitchCornerRadius}">
                     <Border.Transitions>
                         <Transitions>
@@ -85,10 +87,12 @@
                                     <ContentPresenter
                                         Name="PART_OnContentPresenter"
                                         HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
                                         Content="{TemplateBinding OnContent}"
                                         ContentTemplate="{TemplateBinding OnContentTemplate}"
                                         FontSize="{DynamicResource TDSwitchFontSize}"
-                                        Foreground="Black">
+                                        Foreground="{Binding #PART_SwitchBackgroundBorder.Background}"
+                                        IsVisible="{TemplateBinding IsChecked}">
                                         <ContentPresenter.DataTemplates>
                                             <DataTemplate DataType="Geometry">
                                                 <PathIcon
@@ -101,10 +105,12 @@
                                     <ContentPresenter
                                         Name="PART_OffContentPresenter"
                                         HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
                                         Content="{TemplateBinding OffContent}"
                                         ContentTemplate="{TemplateBinding OffContentTemplate}"
                                         FontSize="{DynamicResource TDSwitchFontSize}"
-                                        Foreground="Black">
+                                        Foreground="{Binding #PART_SwitchBackgroundBorder.Background}"
+                                        IsVisible="{TemplateBinding IsChecked,Converter={x:Static BoolConverters.Not}}">
                                         <ContentPresenter.DataTemplates>
                                             <DataTemplate DataType="Geometry">
                                                 <PathIcon
@@ -122,24 +128,12 @@
         </Setter>
 
         <Style Selector="^:unchecked">
-            <Style Selector="^ /template/ ContentPresenter#PART_OnContentPresenter">
-                <Setter Property="IsVisible" Value="False" />
-            </Style>
-            <Style Selector="^ /template/ ContentPresenter#PART_OffContentPresenter">
-                <Setter Property="IsVisible" Value="True" />
-            </Style>
             <Style Selector="^ /template/ Border#PART_SwitchBackgroundBorder">
                 <Setter Property="Background" Value="{DynamicResource TDSwitchUncheckedBackground}" />
             </Style>
         </Style>
 
         <Style Selector="^:checked">
-            <Style Selector="^ /template/ ContentPresenter#PART_OnContentPresenter">
-                <Setter Property="IsVisible" Value="True" />
-            </Style>
-            <Style Selector="^ /template/ ContentPresenter#PART_OffContentPresenter">
-                <Setter Property="IsVisible" Value="False" />
-            </Style>
             <Style Selector="^ /template/ Border#PART_SwitchBackgroundBorder">
                 <Setter Property="Background" Value="{DynamicResource TDSwitchCheckedBackground}" />
             </Style>
