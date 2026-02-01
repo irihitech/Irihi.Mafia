@@ -8,5 +8,6 @@
         <ResourceInclude Source="HyperlinkButton.axaml" />
         <ResourceInclude Source="Progress.axaml" />
         <ResourceInclude Source="RadioButton.axaml" />
+        <ResourceInclude Source="Switch.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

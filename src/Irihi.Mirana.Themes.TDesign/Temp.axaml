@@ -23,4 +23,13 @@
     <StreamGeometry x:Key="TempIndeterminateCircleGlyph">
         M12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1ZM17.5 13V11L6.5 11V13L17.5 13Z
     </StreamGeometry>
+    <!-- <StreamGeometry x:Key="TempCloseGlyph"> -->
+    <!--     M16.9503 7.05029L12.0005 12M12.0005 12L7.05078 16.9498M12.0005 12L16.9503 16.9498M12.0005 12L7.05078 7.05029 -->
+    <!-- </StreamGeometry> -->
+    <StreamGeometry x:Key="TempCloseGlyph">
+        M17.66 19.78a1.5 1.5 0 0 0 2.12-2.12L14.12 12l5.66-5.66a1.5 1.5 0 0 0-2.12-2.12L12 9.88 6.34 4.22a1.5 1.5 0 1 0-2.12 2.12L9.88 12l-5.66 5.66a1.5 1.5 0 0 0 2.12 2.12L12 14.12l5.66 5.66Z
+    </StreamGeometry>
+    <StreamGeometry x:Key="TempCheckGlyph">
+        M19.5708 7.37842L10.3785 16.5708L5.42871 11.6211
+    </StreamGeometry>
 </ResourceDictionary>
