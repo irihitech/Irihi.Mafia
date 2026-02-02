@@ -79,7 +79,9 @@
         <Setter Property="ShowProgressText" Value="True" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ProgressBar">
-                <DockPanel HorizontalSpacing="8" VerticalSpacing="8">
+                <DockPanel
+                    HorizontalSpacing="{DynamicResource TDProgressInfoSpacing}"
+                    VerticalSpacing="{DynamicResource TDProgressInfoSpacing}">
                     <LayoutTransformControl
                         Name="PART_LayoutTransformControl"
                         IsVisible="{TemplateBinding ShowProgressText}">
@@ -87,7 +89,7 @@
                             Name="PART_ProgressText"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Foreground="{DynamicResource TDProgressInfoDarkColor}">
+                            Foreground="{DynamicResource TDProgressInfoDarkForeground}">
                             <TextBlock.Text>
                                 <MultiBinding Converter="{StaticResource StringFormatConverter}">
                                     <TemplateBinding Property="ProgressTextFormat" />
@@ -186,7 +188,7 @@
                             Opacity="{TemplateBinding ShowProgressText,Converter={td:BooleansToOpacityConverter}}">
                             <TextBlock
                                 Name="PART_ProgressText"
-                                Foreground="{DynamicResource TDProgressInfoDarkColor}">
+                                Foreground="{DynamicResource TDProgressInfoLightForeground}">
                                 <TextBlock.Text>
                                     <MultiBinding Converter="{StaticResource StringFormatConverter}">
                                         <TemplateBinding Property="ProgressTextFormat" />
@@ -207,7 +209,7 @@
             <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransformControl">
                 <Setter Property="HorizontalAlignment" Value="Right" />
                 <Setter Property="VerticalAlignment" Value="Center" />
-                <Setter Property="Margin" Value="8,0" />
+                <Setter Property="Margin" Value="{DynamicResource TDProgressPlumpHorizontalTextMargin}" />
             </Style>
             <Style Selector="^ /template/ Border#PART_Indicator">
                 <Setter Property="HorizontalAlignment" Value="Left" />
@@ -221,11 +223,15 @@
                 </Setter>
                 <Setter Property="HorizontalAlignment" Value="Center" />
                 <Setter Property="VerticalAlignment" Value="Bottom" />
-                <Setter Property="Margin" Value="0,8" />
+                <Setter Property="Margin" Value="{DynamicResource TDProgressPlumpVerticalTextMargin}" />
             </Style>
             <Style Selector="^ /template/ Border#PART_Indicator">
                 <Setter Property="VerticalAlignment" Value="Top" />
             </Style>
+        </Style>
+
+        <Style Selector="^[Percentage=0] /template/ TextBlock#PART_ProgressText">
+            <Setter Property="Foreground" Value="{DynamicResource TDProgressInfoDarkForeground}" />
         </Style>
 
         <Style Selector="^.Success /template/ Border#PART_Indicator">
@@ -274,7 +280,7 @@
                         Name="PART_ProgressText"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Foreground="{DynamicResource TDProgressInfoDarkColor}"
+                        Foreground="{DynamicResource TDProgressInfoDarkForeground}"
                         IsVisible="{TemplateBinding ShowProgressText}">
                         <TextBlock.Text>
                             <MultiBinding Converter="{StaticResource StringFormatConverter}">
