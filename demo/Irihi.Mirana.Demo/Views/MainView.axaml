@@ -6,23 +6,11 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Irihi.Mirana.Demo.Views.MainView"
              x:DataType="vm:MainViewModel">
-  <Design.DataContext>
-    <!-- This only sets the DataContext for the previewer in an IDE,
-         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-    <vm:MainViewModel />
-  </Design.DataContext>
-
-  <DockPanel>
-    <StackPanel DockPanel.Dock="Top" Margin="10" Spacing="10">
-      <TextBlock Text="Select Phone Resolution:" FontWeight="Bold" />
-      <ComboBox ItemsSource="{Binding PhoneResolutions}"
-                SelectedItem="{Binding SelectedResolution}"
-                MinWidth="250"
-                HorizontalAlignment="Left" />
+    <StackPanel>
+        <TextBlock Text="Select Phone Resolution:" FontWeight="Bold" />
+        <ComboBox ItemsSource="{Binding PhoneResolutions}"
+                  SelectedItem="{Binding SelectedResolution}"
+                  MinWidth="250"
+                  HorizontalAlignment="Left" />
     </StackPanel>
-    
-    <TextBlock Text="{Binding Greeting}" 
-               HorizontalAlignment="Center" 
-               VerticalAlignment="Center"/>
-  </DockPanel>
 </UserControl>

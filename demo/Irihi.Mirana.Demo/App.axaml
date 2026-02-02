@@ -2,13 +2,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="using:Irihi.Mirana.Demo"
              xmlns:td="https://irihi.tech/td"
+             xmlns:semi="https://irihi.tech/semi"
              x:Class="Irihi.Mirana.Demo.App">
 
     <Application.DataTemplates>
-        <local:ViewLocator/>
+        <local:ViewLocator />
     </Application.DataTemplates>
 
     <Application.Styles>
+        <semi:SemiTheme />
         <td:TDesignTheme />
     </Application.Styles>
 </Application>

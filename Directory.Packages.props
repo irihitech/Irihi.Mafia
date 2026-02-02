@@ -17,6 +17,7 @@
         <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.0"/>
         <PackageVersion Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.2.0.1"/>
         <PackageVersion Include="Irihi.Avalonia.Shared" Version="0.3.1"/>
+        <PackageVersion Include="Semi.Avalonia" Version="11.3.7.2"/>
         <!-- Test packages -->
         <PackageVersion Include="coverlet.collector" Version="6.0.0"/>
         <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.8.0"/>
