@@ -1,0 +1,97 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <StackPanel Width="400" Margin="20">
+            <RadioButton Content="单选标题" GroupName="Group1" />
+            <RadioButton Classes="Justify" Content="单选标题" GroupName="Group1" IsChecked="True" />
+            <RadioButton Content="选项禁用-已选" GroupName="Group2" IsChecked="True" IsEnabled="False" />
+            <RadioButton Content="选项禁用-默认" GroupName="Group2" IsEnabled="False" />
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type RadioButton}" TargetType="RadioButton">
+        <Setter Property="Padding" Value="{DynamicResource TDRadioButtonPadding}" />
+        <Setter Property="MinHeight" Value="{DynamicResource TDRadioButtonMinHeight}" />
+        <Setter Property="FontSize" Value="{DynamicResource TDRadioButtonLabelFontSize}" />
+        <Setter Property="Foreground" Value="{DynamicResource TDRadioButtonContentForeground}" />
+        <Setter Property="Background" Value="{DynamicResource TDRadioButtonBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TDRadioButtonBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TDRadioButtonBorderThickness}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="RadioButton">
+                <Border
+                    Name="PART_RootBorder"
+                    Padding="{TemplateBinding Padding}"
+                    MinHeight="{TemplateBinding MinHeight}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}">
+                    <Grid ColumnDefinitions="Auto,*,Auto"
+                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
+                        <Panel
+                            Name="PART_GlyphPanel"
+                            Grid.Column="0"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <Ellipse
+                                Name="PART_OuterEllipse"
+                                Width="{DynamicResource TDRadioButtonIconSize}"
+                                Height="{Binding $self.Width}"
+                                Fill="{DynamicResource TDRadioButtonIconBackground}"
+                                Stroke="{DynamicResource TDRadioButtonIconBorderBrush}"
+                                StrokeThickness="{DynamicResource TDRadioButtonIconBorderThickness}"
+                                UseLayoutRounding="False" />
+                            <PathIcon
+                                Name="PART_CheckedIcon"
+                                Width="{DynamicResource TDRadioButtonIconSize}"
+                                Height="{Binding $self.Width}"
+                                Data="{DynamicResource TempCheckCircleGlyph}"
+                                Foreground="{DynamicResource TDRadioButtonIconCheckedForeground}"
+                                UseLayoutRounding="False" />
+                        </Panel>
+                        <ContentPresenter
+                            Name="PART_ContentPresenter"
+                            Grid.Column="1"
+                            Margin="{DynamicResource TDRadioButtonContentMargin}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            IsVisible="{TemplateBinding Content,Converter={x:Static ObjectConverters.IsNotNull}}"
+                            TextElement.FontSize="{TemplateBinding FontSize}"
+                            TextElement.Foreground="{TemplateBinding Foreground}"
+                            TextWrapping="Wrap" />
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+
+        <Style Selector="^.Justify /template/ Panel#PART_GlyphPanel">
+            <Setter Property="Grid.Column" Value="2" />
+        </Style>
+
+        <Style Selector="^:unchecked /template/ PathIcon#PART_CheckedIcon">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+
+        <Style Selector="^:checked /template/ PathIcon#PART_CheckedIcon">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Style Selector="^ /template/ Ellipse#PART_OuterEllipse">
+                <Setter Property="Stroke" Value="{DynamicResource TDRadioButtonIconDisabledBorderBrush}" />
+            </Style>
+            <Style Selector="^ /template/ PathIcon#PART_CheckedIcon">
+                <Setter Property="Foreground" Value="{DynamicResource TDRadioButtonIconDisabledForeground}" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource TDRadioButtonContentDisabledForeground}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>

@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <StaticResource x:Key="TDSwitchCheckedBackground" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDSwitchUncheckedBackground" ResourceKey="TDBgColorSecondarycontainerActive" />
+    <StaticResource x:Key="TDSwitchCheckedDisabledBackground" ResourceKey="TDBrandColorDisabled" />
+    <StaticResource x:Key="TDSwitchUncheckedDisabledBackground" ResourceKey="TDBgColorComponentDisabled" />
+    <StaticResource x:Key="TDSwitchKnobBackground" ResourceKey="TDFontWhite1" />
+    <StaticResource x:Key="TDSwitchKnobDisabledBackground" ResourceKey="TDFontWhite1" />
+    <StaticResource x:Key="TDSwitchKnobShadow" ResourceKey="TDShadow1"/>
+
+</ResourceDictionary>

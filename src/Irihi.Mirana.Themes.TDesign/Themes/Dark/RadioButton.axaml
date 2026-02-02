@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <StaticResource x:Key="TDRadioButtonBackground" ResourceKey="TDBgColorContainer" />
+    <StaticResource x:Key="TDRadioButtonBorderBrush" ResourceKey="TDBorderLevel1Color" />
+    <StaticResource x:Key="TDRadioButtonContentForeground" ResourceKey="TDTextColorPrimary" />
+
+    <SolidColorBrush x:Key="TDRadioButtonIconBackground" Color="Transparent" />
+    <StaticResource x:Key="TDRadioButtonIconBorderBrush" ResourceKey="TDComponentBorder" />
+    <StaticResource x:Key="TDRadioButtonIconCheckedForeground" ResourceKey="TDBrandColor" />
+
+    <StaticResource x:Key="TDRadioButtonIconDisabledBorderBrush" ResourceKey="TDComponentBorder" />
+    <StaticResource x:Key="TDRadioButtonIconDisabledForeground" ResourceKey="TDBrandColorDisabled" />
+    <StaticResource x:Key="TDRadioButtonContentDisabledForeground" ResourceKey="TDTextColorDisabled" />
+
+</ResourceDictionary>

@@ -19,6 +19,15 @@ The solution is organized into three main folders:
    - Package ID: Irihi.Mirana.Themes.TDesign
    - References: Irihi.Mirana
 
+   1. Controls - ControlTheme implementations
+   2. Converters - Value converters
+   3. Styles - Global Styles for themes
+   4. Themes - ResourceDictionaries for themes
+      - /Dark - Dark theme resources
+      - /Light - Light theme resources
+      - /Shared - Shared theme resources
+   5. Tokens - Design tokens
+
 ### test/ - Test Projects
 
 3. **Irihi.Mirana.UnitTest** - Unit test project

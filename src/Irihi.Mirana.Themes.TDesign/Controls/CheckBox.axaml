@@ -1,0 +1,103 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <StackPanel Width="400" Margin="20">
+            <CheckBox Content="多选标题" />
+            <CheckBox Content="多选标题" Classes="Justify" IsChecked="True" />
+            <CheckBox Content="多选标题" IsThreeState="True" IsChecked="{x:Null}" />
+            <CheckBox Content="选项禁用-已选" IsChecked="True" IsEnabled="False" />
+            <CheckBox Content="选项禁用-默认" IsEnabled="False" />
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type CheckBox}" TargetType="CheckBox">
+        <Setter Property="Padding" Value="{DynamicResource TDCheckBoxPadding}" />
+        <Setter Property="MinHeight" Value="{DynamicResource TDCheckBoxMinHeight}" />
+        <Setter Property="FontSize" Value="{DynamicResource TDCheckBoxTitleFontSize}" />
+        <Setter Property="Foreground" Value="{DynamicResource TDCheckBoxContentForeground}" />
+        <Setter Property="Background" Value="{DynamicResource TDCheckBoxBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TDCheckBoxBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TDCheckBoxBorderThickness}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="CheckBox">
+                <Border
+                    Name="PART_RootBorder"
+                    Padding="{TemplateBinding Padding}"
+                    MinHeight="{TemplateBinding MinHeight}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}">
+                    <Grid ColumnDefinitions="Auto,*,Auto"
+                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
+                        <Panel
+                            Name="PART_GlyphPanel"
+                            Grid.Column="0"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <Ellipse
+                                Name="PART_OuterEllipse"
+                                Width="{DynamicResource TDCheckBoxIconSize}"
+                                Height="{Binding $self.Width}"
+                                Fill="{DynamicResource TDCheckBoxIconBackground}"
+                                Stroke="{DynamicResource TDCheckBoxIconBorderBrush}"
+                                StrokeThickness="{DynamicResource TDCheckBoxIconBorderThickness}"
+                                UseLayoutRounding="False" />
+                            <PathIcon
+                                Name="PART_CheckedIcon"
+                                Width="{DynamicResource TDCheckBoxIconSize}"
+                                Height="{Binding $self.Width}"
+                                Data="{DynamicResource TempCheckCircleGlyph}"
+                                Foreground="{DynamicResource TDCheckBoxIconCheckedForeground}"
+                                UseLayoutRounding="False" />
+                        </Panel>
+                        <ContentPresenter
+                            Name="PART_ContentPresenter"
+                            Grid.Column="1"
+                            Margin="{DynamicResource TDCheckBoxContentMargin}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            IsVisible="{TemplateBinding Content,Converter={x:Static ObjectConverters.IsNotNull}}"
+                            TextElement.FontSize="{TemplateBinding FontSize}"
+                            TextElement.Foreground="{TemplateBinding Foreground}"
+                            TextWrapping="Wrap" />
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+
+        <Style Selector="^.Justify /template/ Panel#PART_GlyphPanel">
+            <Setter Property="Grid.Column" Value="2" />
+        </Style>
+
+        <Style Selector="^:unchecked /template/ PathIcon#PART_CheckedIcon">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:checked,^:indeterminate">
+            <Style Selector="^ /template/ PathIcon#PART_CheckedIcon">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:indeterminate /template/ PathIcon#PART_CheckedIcon">
+            <Setter Property="Data" Value="{DynamicResource TempIndeterminateCircleGlyph}" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Style Selector="^ /template/ Ellipse#PART_OuterEllipse">
+                <Setter Property="Stroke" Value="{DynamicResource TDCheckBoxIconDisabledBorderBrush}" />
+            </Style>
+            <Style Selector="^ /template/ PathIcon#PART_CheckedIcon">
+                <Setter Property="Foreground" Value="{DynamicResource TDCheckBoxIconDisabledForeground}" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource TDCheckBoxContentDisabledForeground}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>

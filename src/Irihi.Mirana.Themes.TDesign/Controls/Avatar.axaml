@@ -1,0 +1,78 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:m="https://irihi.tech/mirana"
+    xmlns:td="https://irihi.tech/td">
+    <Design.PreviewWith>
+        <StackPanel Margin="20" Orientation="Horizontal" Spacing="8">
+            <m:Avatar Source="/Assets/avatar1.png" />
+            <m:Avatar Classes="Square" Source="/Assets/avatar1.png" />
+            <m:Avatar Content="A" />
+            <m:Avatar Content="A" Classes="Square" />
+            <m:Avatar Content="{DynamicResource TempUserGlyph}" />
+            <m:Avatar Classes="Large Square" Content="{DynamicResource TempUserGlyph}" />
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type m:Avatar}" TargetType="{x:Type m:Avatar}">
+        <Setter Property="Foreground" Value="{DynamicResource TDBrandColor}" />
+        <Setter Property="Background" Value="{DynamicResource TDBrandColorLightActive}" />
+        <Setter Property="FontSize" Value="{DynamicResource TDFontSizeTitleMedium}" />
+        <Setter Property="Width" Value="48" />
+        <Setter Property="Height" Value="{Binding $self.Width}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TDRadiusRound}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="{x:Type m:Avatar}">
+                <Border
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    ClipToBounds="True">
+                    <Panel>
+                        <Border
+                            IsVisible="{TemplateBinding Source, Converter={x:Static ObjectConverters.IsNull}}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Background="{TemplateBinding Background}" />
+                        <Viewbox
+                            Margin="{TemplateBinding Padding}"
+                            StretchDirection="DownOnly">
+                            <ContentPresenter
+                                Name="PART_ContentPresenter"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center">
+                                <ContentPresenter.DataTemplates>
+                                    <DataTemplate DataType="Geometry">
+                                        <PathIcon
+                                            Width="{Binding $parent[m:Avatar].Width,Converter={td:MathConverter Multiply}, ConverterParameter=0.5}"
+                                            Height="{Binding $self.Width}"
+                                            Data="{Binding}" />
+                                    </DataTemplate>
+                                </ContentPresenter.DataTemplates>
+                            </ContentPresenter>
+                        </Viewbox>
+                        <Image Source="{TemplateBinding Source}" />
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^.Square">
+            <Setter Property="CornerRadius" Value="{DynamicResource TDRadiusMedium}" />
+        </Style>
+
+        <Style Selector="^.Small">
+            <Setter Property="Width" Value="40" />
+            <Setter Property="FontSize" Value="{DynamicResource TDFontSizeTitleSmall}" />
+        </Style>
+        <Style Selector="^.Medium">
+            <Setter Property="Width" Value="48" />
+            <Setter Property="FontSize" Value="{DynamicResource TDFontSizeTitleMedium}" />
+        </Style>
+        <Style Selector="^.Large">
+            <Setter Property="Width" Value="64" />
+            <Setter Property="FontSize" Value="{DynamicResource TDFontSizeTitleExtraLarge}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
