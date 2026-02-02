@@ -72,8 +72,8 @@
     <converters:StringFormatConverter x:Key="StringFormatConverter" />
 
     <ControlTheme x:Key="{x:Type ProgressBar}" TargetType="ProgressBar">
-        <Setter Property="FontSize" Value="16" />
-        <Setter Property="Foreground" Value="{DynamicResource TDBrandColor}" />
+        <Setter Property="FontSize" Value="{DynamicResource TDProgressLineFontSize}" />
+        <Setter Property="Foreground" Value="{DynamicResource TDProgressInnerBackground}" />
         <Setter Property="Background" Value="{DynamicResource TDProgressTrackBackground}" />
         <Setter Property="CornerRadius" Value="{DynamicResource TDProgressBorderRadius}" />
         <Setter Property="ShowProgressText" Value="True" />
@@ -87,7 +87,7 @@
                             Name="PART_ProgressText"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Foreground="{DynamicResource TDProgressPlumpTextForeground}">
+                            Foreground="{DynamicResource TDProgressInfoDarkColor}">
                             <TextBlock.Text>
                                 <MultiBinding Converter="{StaticResource StringFormatConverter}">
                                     <TemplateBinding Property="ProgressTextFormat" />
@@ -147,21 +147,21 @@
         </Style>
 
         <Style Selector="^.Success /template/ Border#PART_Indicator">
-            <Setter Property="Background" Value="{DynamicResource TDSuccessColor}" />
+            <Setter Property="Background" Value="{DynamicResource TDProgressInnerBackgroundSuccess}" />
         </Style>
         <Style Selector="^.Warning /template/ Border#PART_Indicator">
-            <Setter Property="Background" Value="{DynamicResource TDWarningColor}" />
+            <Setter Property="Background" Value="{DynamicResource TDProgressInnerBackgroundWarning}" />
         </Style>
         <Style Selector="^.Error /template/ Border#PART_Indicator">
-            <Setter Property="Background" Value="{DynamicResource TDErrorColor}" />
+            <Setter Property="Background" Value="{DynamicResource TDProgressInnerBackgroundError}" />
         </Style>
     </ControlTheme>
 
     <ControlTheme
         x:Key="PlumpProgressBar"
         TargetType="ProgressBar">
-        <Setter Property="TextBlock.LineHeight" Value="20" />
-        <Setter Property="Foreground" Value="{DynamicResource TDBrandColor}" />
+        <Setter Property="TextBlock.LineHeight" Value="{DynamicResource TDProgressPlumpHeight}" />
+        <Setter Property="Foreground" Value="{DynamicResource TDProgressInnerBackground}" />
         <Setter Property="Background" Value="{DynamicResource TDProgressTrackBackground}" />
         <Setter Property="CornerRadius" Value="{DynamicResource TDProgressBorderRadius}" />
         <Setter Property="ShowProgressText" Value="True" />
@@ -186,7 +186,7 @@
                             Opacity="{TemplateBinding ShowProgressText,Converter={td:BooleansToOpacityConverter}}">
                             <TextBlock
                                 Name="PART_ProgressText"
-                                Foreground="{DynamicResource TDProgressPlumpTextForeground}">
+                                Foreground="{DynamicResource TDProgressInfoDarkColor}">
                                 <TextBlock.Text>
                                     <MultiBinding Converter="{StaticResource StringFormatConverter}">
                                         <TemplateBinding Property="ProgressTextFormat" />
@@ -229,24 +229,24 @@
         </Style>
 
         <Style Selector="^.Success /template/ Border#PART_Indicator">
-            <Setter Property="Background" Value="{DynamicResource TDSuccessColor}" />
+            <Setter Property="Background" Value="{DynamicResource TDProgressInnerBackgroundSuccess}" />
         </Style>
         <Style Selector="^.Warning /template/ Border#PART_Indicator">
-            <Setter Property="Background" Value="{DynamicResource TDWarningColor}" />
+            <Setter Property="Background" Value="{DynamicResource TDProgressInnerBackgroundWarning}" />
         </Style>
         <Style Selector="^.Error /template/ Border#PART_Indicator">
-            <Setter Property="Background" Value="{DynamicResource TDErrorColor}" />
+            <Setter Property="Background" Value="{DynamicResource TDProgressInnerBackgroundError}" />
         </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="CircleProgressBar" TargetType="ProgressBar">
-        <Setter Property="MinWidth" Value="112" />
-        <Setter Property="MinHeight" Value="112" />
-        <Setter Property="FontSize" Value="20" />
-        <Setter Property="FontWeight" Value="600" />
-        <Setter Property="Foreground" Value="{DynamicResource TDBrandColor}" />
+        <Setter Property="MinWidth" Value="{DynamicResource TDProgressCircleDefaultSize}" />
+        <Setter Property="MinHeight" Value="{DynamicResource TDProgressCircleDefaultSize}" />
+        <Setter Property="FontSize" Value="{DynamicResource TDProgressCircleFontSize}" />
+        <Setter Property="FontWeight" Value="{DynamicResource TDProgressCircleFontWeight}" />
+        <Setter Property="Foreground" Value="{DynamicResource TDProgressInnerBackground}" />
         <Setter Property="Background" Value="{DynamicResource TDProgressTrackBackground}" />
-        <Setter Property="BorderThickness" Value="6" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TDProgressCircleDefaultStrokeWidth}" />
         <Setter Property="ShowProgressText" Value="True" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ProgressBar">
@@ -274,7 +274,7 @@
                         Name="PART_ProgressText"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Foreground="{DynamicResource TDProgressPlumpTextForeground}"
+                        Foreground="{DynamicResource TDProgressInfoDarkColor}"
                         IsVisible="{TemplateBinding ShowProgressText}">
                         <TextBlock.Text>
                             <MultiBinding Converter="{StaticResource StringFormatConverter}">
@@ -292,19 +292,19 @@
 
         <Style Selector="^.Micro">
             <Setter Property="ShowProgressText" Value="False" />
-            <Setter Property="MinWidth" Value="24" />
-            <Setter Property="MinHeight" Value="24" />
-            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="MinWidth" Value="{DynamicResource TDProgressCircleMicroSize}" />
+            <Setter Property="MinHeight" Value="{DynamicResource TDProgressCircleMicroSize}" />
+            <Setter Property="BorderThickness" Value="{DynamicResource TDProgressCircleMicroStrokeWidth}" />
         </Style>
 
         <Style Selector="^.Success /template/ Arc#Indicator">
-            <Setter Property="Stroke" Value="{DynamicResource TDSuccessColor}" />
+            <Setter Property="Stroke" Value="{DynamicResource TDProgressInnerBackgroundSuccess}" />
         </Style>
         <Style Selector="^.Warning /template/ Arc#Indicator">
-            <Setter Property="Stroke" Value="{DynamicResource TDWarningColor}" />
+            <Setter Property="Stroke" Value="{DynamicResource TDProgressInnerBackgroundWarning}" />
         </Style>
         <Style Selector="^.Error /template/ Arc#Indicator">
-            <Setter Property="Stroke" Value="{DynamicResource TDErrorColor}" />
+            <Setter Property="Stroke" Value="{DynamicResource TDProgressInnerBackgroundError}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

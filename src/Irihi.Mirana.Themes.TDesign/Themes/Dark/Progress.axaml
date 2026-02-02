@@ -1,13 +1,22 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
-    <!-- Progress Track (Background) -->
+    <!-- Progress Track Background (--td-progress-track-bg-color) -->
     <SolidColorBrush x:Key="TDProgressTrackBackground" Color="{StaticResource TDGrayColor12}" />
     
-    <!-- Plump Progress Text -->
-    <StaticResource x:Key="TDProgressPlumpTextForeground" ResourceKey="TDTextColorPrimary" />
+    <!-- Progress Inner Background (--td-progress-inner-bg-color) -->
+    <StaticResource x:Key="TDProgressInnerBackground" ResourceKey="TDBrandColor" />
     
-    <!-- Circle Progress Text -->
-    <StaticResource x:Key="TDProgressCircleTextForeground" ResourceKey="TDTextColorPrimary" />
+    <!-- Progress Status Colors -->
+    <!-- --td-progress-inner-bg-color-success -->
+    <StaticResource x:Key="TDProgressInnerBackgroundSuccess" ResourceKey="TDSuccessColor" />
+    <!-- --td-progress-inner-bg-color-warning -->
+    <StaticResource x:Key="TDProgressInnerBackgroundWarning" ResourceKey="TDWarningColor" />
+    <!-- --td-progress-inner-bg-color-error -->
+    <StaticResource x:Key="TDProgressInnerBackgroundError" ResourceKey="TDErrorColor" />
+    
+    <!-- Progress Text Colors -->
+    <!-- --td-progress-info-dark-color -->
+    <StaticResource x:Key="TDProgressInfoDarkColor" ResourceKey="TDTextColorPrimary" />
 
 </ResourceDictionary>

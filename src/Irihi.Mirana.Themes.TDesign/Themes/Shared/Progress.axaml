@@ -5,20 +5,20 @@
     <StaticResource x:Key="TDProgressBorderRadius" ResourceKey="TDRadiusRound" />
     
     <!-- Line Progress Heights -->
-    <x:Double x:Key="TDProgressSmallHeight">4</x:Double>
     <x:Double x:Key="TDProgressDefaultHeight">6</x:Double>
-    <x:Double x:Key="TDProgressLargeHeight">8</x:Double>
+    
+    <!-- Line Progress Font Size -->
+    <x:Double x:Key="TDProgressLineFontSize">16</x:Double>
     
     <!-- Plump Progress -->
-    <x:Double x:Key="TDProgressPlumpHeight">28</x:Double>
-    <StaticResource x:Key="TDProgressPlumpFontSize" ResourceKey="TDFontSizeBodyMedium" />
+    <x:Double x:Key="TDProgressPlumpHeight">20</x:Double>
     
     <!-- Circle Progress -->
-    <x:Double x:Key="TDProgressCircleSmallSize">56</x:Double>
-    <x:Double x:Key="TDProgressCircleSize">112</x:Double>
-    <x:Double x:Key="TDProgressCircleLargeSize">160</x:Double>
-    
-    <x:Double x:Key="TDProgressCircleStrokeWidth">6</x:Double>
-    <StaticResource x:Key="TDProgressCircleFontSize" ResourceKey="TDFontSizeBodyLarge" />
+    <x:Double x:Key="TDProgressCircleDefaultSize">112</x:Double>
+    <x:Double x:Key="TDProgressCircleMicroSize">24</x:Double>
+    <x:Double x:Key="TDProgressCircleDefaultStrokeWidth">6</x:Double>
+    <x:Double x:Key="TDProgressCircleMicroStrokeWidth">2</x:Double>
+    <x:Double x:Key="TDProgressCircleFontSize">20</x:Double>
+    <FontWeight x:Key="TDProgressCircleFontWeight">600</FontWeight>
 
 </ResourceDictionary>
