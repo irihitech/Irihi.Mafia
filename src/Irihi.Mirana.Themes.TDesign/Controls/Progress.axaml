@@ -1,0 +1,316 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:td="https://irihi.tech/td"
+                    xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls">
+    <Design.PreviewWith>
+        <StackPanel Margin="20" Width="400">
+            <ProgressBar ShowProgressText="False" />
+            <ProgressBar Value="20" ShowProgressText="False" />
+            <ProgressBar Value="50" Classes="Success" ShowProgressText="False" />
+            <ProgressBar Value="80" Classes="Warning" ShowProgressText="False" />
+            <ProgressBar Value="100" Classes="Error" ShowProgressText="False" />
+            <ProgressBar />
+            <ProgressBar Name="Bar" Value="20" />
+            <ProgressBar Value="50" Classes="Success" />
+            <ProgressBar Value="80" Classes="Warning" />
+            <ProgressBar Value="100" Classes="Error" />
+
+            <StackPanel Orientation="Horizontal" Height="200">
+                <ProgressBar Orientation="Vertical" ShowProgressText="False" />
+                <ProgressBar Orientation="Vertical" Value="20" ShowProgressText="False" />
+                <ProgressBar Orientation="Vertical" Value="50" Classes="Success" ShowProgressText="False" />
+                <ProgressBar Orientation="Vertical" Value="80" Classes="Warning" ShowProgressText="False" />
+                <ProgressBar Orientation="Vertical" Value="100" Classes="Error" ShowProgressText="False" />
+                <ProgressBar Orientation="Vertical" />
+                <ProgressBar Orientation="Vertical" Value="20" />
+                <ProgressBar Orientation="Vertical" Value="50" Classes="Success" />
+                <ProgressBar Orientation="Vertical" Value="80" Classes="Warning" />
+                <ProgressBar Orientation="Vertical" Value="100" Classes="Error" />
+            </StackPanel>
+
+            <ProgressBar Theme="{DynamicResource PlumpProgressBar}" ShowProgressText="False" />
+            <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Value="10" ShowProgressText="False" />
+            <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Value="20" ShowProgressText="False" />
+            <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Value="50" Classes="Success" ShowProgressText="False" />
+            <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Value="80" Classes="Warning" ShowProgressText="False" />
+            <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Value="100" Classes="Error" ShowProgressText="False" />
+            <ProgressBar Theme="{DynamicResource PlumpProgressBar}" />
+            <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Value="10" />
+            <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Value="20" />
+            <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Value="50" Classes="Success" />
+            <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Value="80" Classes="Warning" />
+            <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Value="100" Classes="Error" />
+
+            <StackPanel Orientation="Horizontal" Height="200">
+                <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Orientation="Vertical" ShowProgressText="False" />
+                <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Orientation="Vertical" Value="10" ShowProgressText="False" />
+                <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Orientation="Vertical" Value="20" ShowProgressText="False" />
+                <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Orientation="Vertical" Value="50" Classes="Success" ShowProgressText="False" />
+                <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Orientation="Vertical" Value="80" Classes="Warning" ShowProgressText="False" />
+                <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Orientation="Vertical" Value="100" Classes="Error" ShowProgressText="False" />
+                <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Orientation="Vertical" />
+                <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Orientation="Vertical" Value="10" />
+                <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Orientation="Vertical" Value="20" />
+                <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Orientation="Vertical" Value="50" Classes="Success" />
+                <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Orientation="Vertical" Value="80" Classes="Warning" />
+                <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Orientation="Vertical" Value="100" Classes="Error" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <ProgressBar Theme="{DynamicResource CircleProgressBar}" />
+                <ProgressBar Theme="{DynamicResource CircleProgressBar}" Value="50" Classes="Warning" />
+                <ProgressBar Theme="{DynamicResource CircleProgressBar}" Value="100" Classes="Error" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <ProgressBar Theme="{DynamicResource CircleProgressBar}" Classes="Micro" />
+                <ProgressBar Theme="{DynamicResource CircleProgressBar}" Value="80" Classes="Micro" />
+                <ProgressBar Theme="{DynamicResource CircleProgressBar}" Value="50" Classes="Warning Micro" />
+                <ProgressBar Theme="{DynamicResource CircleProgressBar}" Value="100" Classes="Error Micro" />
+            </StackPanel>
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <converters:StringFormatConverter x:Key="StringFormatConverter" />
+
+    <ControlTheme x:Key="{x:Type ProgressBar}" TargetType="ProgressBar">
+        <Setter Property="FontSize" Value="{DynamicResource TDProgressLineFontSize}" />
+        <Setter Property="Foreground" Value="{DynamicResource TDProgressInnerBackground}" />
+        <Setter Property="Background" Value="{DynamicResource TDProgressTrackBackground}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TDProgressBorderRadius}" />
+        <Setter Property="ShowProgressText" Value="True" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ProgressBar">
+                <DockPanel
+                    HorizontalSpacing="{DynamicResource TDProgressInfoSpacing}"
+                    VerticalSpacing="{DynamicResource TDProgressInfoSpacing}">
+                    <LayoutTransformControl
+                        Name="PART_LayoutTransformControl"
+                        IsVisible="{TemplateBinding ShowProgressText}">
+                        <TextBlock
+                            Name="PART_ProgressText"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="{DynamicResource TDProgressInfoDarkForeground}">
+                            <TextBlock.Text>
+                                <MultiBinding Converter="{StaticResource StringFormatConverter}">
+                                    <TemplateBinding Property="ProgressTextFormat" />
+                                    <TemplateBinding Property="Value" />
+                                    <TemplateBinding Property="Percentage" />
+                                    <TemplateBinding Property="Minimum" />
+                                    <TemplateBinding Property="Maximum" />
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                    </LayoutTransformControl>
+                    <Border
+                        Name="ProgressBarRoot"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        ClipToBounds="True">
+                        <Panel>
+                            <Border
+                                Name="PART_Indicator"
+                                Background="{TemplateBinding Foreground}"
+                                CornerRadius="{TemplateBinding CornerRadius}" />
+                        </Panel>
+                    </Border>
+                </DockPanel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:horizontal">
+            <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransformControl">
+                <Setter Property="DockPanel.Dock" Value="Right" />
+            </Style>
+            <Style Selector="^ /template/ Border#ProgressBarRoot">
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="MinHeight" Value="{DynamicResource TDProgressDefaultHeight}" />
+            </Style>
+            <Style Selector="^ /template/ Border#PART_Indicator">
+                <Setter Property="HorizontalAlignment" Value="Left" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:vertical">
+            <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransformControl">
+                <Setter Property="DockPanel.Dock" Value="Bottom" />
+                <Setter Property="LayoutTransform">
+                    <RotateTransform Angle="90" />
+                </Setter>
+            </Style>
+            <Style Selector="^ /template/ Border#ProgressBarRoot">
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="MinWidth" Value="{DynamicResource TDProgressDefaultHeight}" />
+            </Style>
+            <Style Selector="^ /template/ Border#PART_Indicator">
+                <Setter Property="VerticalAlignment" Value="Top" />
+            </Style>
+        </Style>
+
+        <Style Selector="^.Success /template/ Border#PART_Indicator">
+            <Setter Property="Background" Value="{DynamicResource TDProgressInnerBackgroundSuccess}" />
+        </Style>
+        <Style Selector="^.Warning /template/ Border#PART_Indicator">
+            <Setter Property="Background" Value="{DynamicResource TDProgressInnerBackgroundWarning}" />
+        </Style>
+        <Style Selector="^.Error /template/ Border#PART_Indicator">
+            <Setter Property="Background" Value="{DynamicResource TDProgressInnerBackgroundError}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        x:Key="PlumpProgressBar"
+        TargetType="ProgressBar">
+        <Setter Property="TextBlock.LineHeight" Value="{DynamicResource TDProgressPlumpHeight}" />
+        <Setter Property="Foreground" Value="{DynamicResource TDProgressInnerBackground}" />
+        <Setter Property="Background" Value="{DynamicResource TDProgressTrackBackground}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TDProgressBorderRadius}" />
+        <Setter Property="ShowProgressText" Value="True" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ProgressBar">
+                <Border
+                    Name="ProgressBarRoot"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    ClipToBounds="True">
+                    <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,*">
+                        <Border
+                            Grid.Row="0" Grid.Column="0"
+                            Name="PART_Indicator"
+                            Background="{TemplateBinding Foreground}"
+                            CornerRadius="{TemplateBinding CornerRadius}" />
+                        <LayoutTransformControl
+                            Grid.Row="0" Grid.Column="0"
+                            Name="PART_LayoutTransformControl"
+                            Opacity="{TemplateBinding ShowProgressText,Converter={td:BooleansToOpacityConverter}}">
+                            <TextBlock
+                                Name="PART_ProgressText"
+                                Foreground="{DynamicResource TDProgressInfoLightForeground}">
+                                <TextBlock.Text>
+                                    <MultiBinding Converter="{StaticResource StringFormatConverter}">
+                                        <TemplateBinding Property="ProgressTextFormat" />
+                                        <TemplateBinding Property="Value" />
+                                        <TemplateBinding Property="Percentage" />
+                                        <TemplateBinding Property="Minimum" />
+                                        <TemplateBinding Property="Maximum" />
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </LayoutTransformControl>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:horizontal">
+            <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransformControl">
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Margin" Value="{DynamicResource TDProgressPlumpHorizontalTextMargin}" />
+            </Style>
+            <Style Selector="^ /template/ Border#PART_Indicator">
+                <Setter Property="HorizontalAlignment" Value="Left" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:vertical">
+            <Style Selector="^ /template/ LayoutTransformControl#PART_LayoutTransformControl">
+                <Setter Property="LayoutTransform">
+                    <RotateTransform Angle="90" />
+                </Setter>
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="VerticalAlignment" Value="Bottom" />
+                <Setter Property="Margin" Value="{DynamicResource TDProgressPlumpVerticalTextMargin}" />
+            </Style>
+            <Style Selector="^ /template/ Border#PART_Indicator">
+                <Setter Property="VerticalAlignment" Value="Top" />
+            </Style>
+        </Style>
+
+        <Style Selector="^[Percentage=0] /template/ TextBlock#PART_ProgressText">
+            <Setter Property="Foreground" Value="{DynamicResource TDProgressInfoDarkForeground}" />
+        </Style>
+
+        <Style Selector="^.Success /template/ Border#PART_Indicator">
+            <Setter Property="Background" Value="{DynamicResource TDProgressInnerBackgroundSuccess}" />
+        </Style>
+        <Style Selector="^.Warning /template/ Border#PART_Indicator">
+            <Setter Property="Background" Value="{DynamicResource TDProgressInnerBackgroundWarning}" />
+        </Style>
+        <Style Selector="^.Error /template/ Border#PART_Indicator">
+            <Setter Property="Background" Value="{DynamicResource TDProgressInnerBackgroundError}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="CircleProgressBar" TargetType="ProgressBar">
+        <Setter Property="MinWidth" Value="{DynamicResource TDProgressCircleDefaultSize}" />
+        <Setter Property="MinHeight" Value="{DynamicResource TDProgressCircleDefaultSize}" />
+        <Setter Property="FontSize" Value="{DynamicResource TDProgressCircleFontSize}" />
+        <Setter Property="FontWeight" Value="{DynamicResource TDProgressCircleFontWeight}" />
+        <Setter Property="Foreground" Value="{DynamicResource TDProgressInnerBackground}" />
+        <Setter Property="Background" Value="{DynamicResource TDProgressTrackBackground}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TDProgressCircleDefaultStrokeWidth}" />
+        <Setter Property="ShowProgressText" Value="True" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ProgressBar">
+                <Panel>
+                    <Border Name="PART_Indicator" />
+                    <Arc
+                        Name="Background"
+                        RenderOptions.EdgeMode="Antialias"
+                        StartAngle="-90"
+                        Stroke="{TemplateBinding Background}"
+                        StrokeJoin="Round"
+                        StrokeLineCap="Round"
+                        StrokeThickness="{Binding BorderThickness.Left, RelativeSource={RelativeSource TemplatedParent}}"
+                        SweepAngle="360" />
+                    <Arc
+                        Name="Indicator"
+                        RenderOptions.EdgeMode="Antialias"
+                        StartAngle="-90"
+                        Stroke="{TemplateBinding Foreground}"
+                        StrokeJoin="Round"
+                        StrokeLineCap="Round"
+                        StrokeThickness="{Binding BorderThickness.Left, RelativeSource={RelativeSource TemplatedParent}}"
+                        SweepAngle="{TemplateBinding Percentage,Converter={td:PositionToAngleConverter}}" />
+                    <TextBlock
+                        Name="PART_ProgressText"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="{DynamicResource TDProgressInfoDarkForeground}"
+                        IsVisible="{TemplateBinding ShowProgressText}">
+                        <TextBlock.Text>
+                            <MultiBinding Converter="{StaticResource StringFormatConverter}">
+                                <TemplateBinding Property="ProgressTextFormat" />
+                                <TemplateBinding Property="Value" />
+                                <TemplateBinding Property="Percentage" />
+                                <TemplateBinding Property="Minimum" />
+                                <TemplateBinding Property="Maximum" />
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^.Micro">
+            <Setter Property="ShowProgressText" Value="False" />
+            <Setter Property="MinWidth" Value="{DynamicResource TDProgressCircleMicroSize}" />
+            <Setter Property="MinHeight" Value="{DynamicResource TDProgressCircleMicroSize}" />
+            <Setter Property="BorderThickness" Value="{DynamicResource TDProgressCircleMicroStrokeWidth}" />
+        </Style>
+
+        <Style Selector="^.Success /template/ Arc#Indicator">
+            <Setter Property="Stroke" Value="{DynamicResource TDProgressInnerBackgroundSuccess}" />
+        </Style>
+        <Style Selector="^.Warning /template/ Arc#Indicator">
+            <Setter Property="Stroke" Value="{DynamicResource TDProgressInnerBackgroundWarning}" />
+        </Style>
+        <Style Selector="^.Error /template/ Arc#Indicator">
+            <Setter Property="Stroke" Value="{DynamicResource TDProgressInnerBackgroundError}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
