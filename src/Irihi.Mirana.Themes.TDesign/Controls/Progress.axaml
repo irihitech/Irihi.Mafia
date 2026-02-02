@@ -55,6 +55,17 @@
                 <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Orientation="Vertical" Value="80" Classes="Warning" />
                 <ProgressBar Theme="{DynamicResource PlumpProgressBar}" Orientation="Vertical" Value="100" Classes="Error" />
             </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <ProgressBar Theme="{DynamicResource CircleProgressBar}" />
+                <ProgressBar Theme="{DynamicResource CircleProgressBar}" Value="50" Classes="Warning" />
+                <ProgressBar Theme="{DynamicResource CircleProgressBar}" Value="100" Classes="Error" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <ProgressBar Theme="{DynamicResource CircleProgressBar}" Classes="Micro" />
+                <ProgressBar Theme="{DynamicResource CircleProgressBar}" Value="80" Classes="Micro" />
+                <ProgressBar Theme="{DynamicResource CircleProgressBar}" Value="50" Classes="Warning Micro" />
+                <ProgressBar Theme="{DynamicResource CircleProgressBar}" Value="100" Classes="Error Micro" />
+            </StackPanel>
         </StackPanel>
     </Design.PreviewWith>
 
@@ -228,4 +239,72 @@
         </Style>
     </ControlTheme>
 
+    <ControlTheme x:Key="CircleProgressBar" TargetType="ProgressBar">
+        <Setter Property="MinWidth" Value="112" />
+        <Setter Property="MinHeight" Value="112" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontWeight" Value="600" />
+        <Setter Property="Foreground" Value="{DynamicResource TDBrandColor}" />
+        <Setter Property="Background" Value="{DynamicResource TDProgressTrackBackground}" />
+        <Setter Property="BorderThickness" Value="6" />
+        <Setter Property="ShowProgressText" Value="True" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ProgressBar">
+                <Panel>
+                    <Border Name="PART_Indicator" />
+                    <Arc
+                        Name="Background"
+                        RenderOptions.EdgeMode="Antialias"
+                        StartAngle="-90"
+                        Stroke="{TemplateBinding Background}"
+                        StrokeJoin="Round"
+                        StrokeLineCap="Round"
+                        StrokeThickness="{Binding BorderThickness.Left, RelativeSource={RelativeSource TemplatedParent}}"
+                        SweepAngle="360" />
+                    <Arc
+                        Name="Indicator"
+                        RenderOptions.EdgeMode="Antialias"
+                        StartAngle="-90"
+                        Stroke="{TemplateBinding Foreground}"
+                        StrokeJoin="Round"
+                        StrokeLineCap="Round"
+                        StrokeThickness="{Binding BorderThickness.Left, RelativeSource={RelativeSource TemplatedParent}}"
+                        SweepAngle="{TemplateBinding Percentage,Converter={td:PositionToAngleConverter}}" />
+                    <TextBlock
+                        Name="PART_ProgressText"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="{DynamicResource TDProgressPlumpTextForeground}"
+                        IsVisible="{TemplateBinding ShowProgressText}">
+                        <TextBlock.Text>
+                            <MultiBinding Converter="{StaticResource StringFormatConverter}">
+                                <TemplateBinding Property="ProgressTextFormat" />
+                                <TemplateBinding Property="Value" />
+                                <TemplateBinding Property="Percentage" />
+                                <TemplateBinding Property="Minimum" />
+                                <TemplateBinding Property="Maximum" />
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^.Micro">
+            <Setter Property="ShowProgressText" Value="False" />
+            <Setter Property="MinWidth" Value="24" />
+            <Setter Property="MinHeight" Value="24" />
+            <Setter Property="BorderThickness" Value="2" />
+        </Style>
+
+        <Style Selector="^.Success /template/ Arc#Indicator">
+            <Setter Property="Stroke" Value="{DynamicResource TDSuccessColor}" />
+        </Style>
+        <Style Selector="^.Warning /template/ Arc#Indicator">
+            <Setter Property="Stroke" Value="{DynamicResource TDWarningColor}" />
+        </Style>
+        <Style Selector="^.Error /template/ Arc#Indicator">
+            <Setter Property="Stroke" Value="{DynamicResource TDErrorColor}" />
+        </Style>
+    </ControlTheme>
 </ResourceDictionary>
