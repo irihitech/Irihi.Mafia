@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Irihi.Mirana\Irihi.Mirana.csproj" />
   </ItemGroup>
 

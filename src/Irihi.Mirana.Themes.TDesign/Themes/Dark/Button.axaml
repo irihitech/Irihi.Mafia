@@ -66,6 +66,7 @@
     <StaticResource x:Key="TDButtonOutlineLightDisabledForeground" ResourceKey="TDBrandColorDisabled" />
 
     <!-- Text -->
+    <StaticResource x:Key="TDButtonBaseTextForeground" ResourceKey="TDTextColorPrimary" />
     <StaticResource x:Key="TDButtonBaseTextPressedBackground" ResourceKey="TDBgColorContainerActive" />
     <StaticResource x:Key="TDButtonBaseTextDisabledForeground" ResourceKey="TDComponentBorder" />
 

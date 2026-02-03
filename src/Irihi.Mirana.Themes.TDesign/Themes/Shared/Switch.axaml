@@ -1,0 +1,30 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Thickness x:Key="TDSwitchKnobMargin">3</Thickness>
+
+    <!-- Medium (Default) Size -->
+    <x:Double x:Key="TDSwitchWidth">45</x:Double>
+    <x:Double x:Key="TDSwitchHeight">28</x:Double>
+    <CornerRadius x:Key="TDSwitchCornerRadius">14</CornerRadius>
+    <x:Double x:Key="TDSwitchKnobSize">22</x:Double>
+    <CornerRadius x:Key="TDSwitchKnobCornerRadius">11</CornerRadius>
+
+    <!-- Small Size -->
+    <x:Double x:Key="TDSwitchSmallWidth">39</x:Double>
+    <x:Double x:Key="TDSwitchSmallHeight">24</x:Double>
+    <CornerRadius x:Key="TDSwitchSmallCornerRadius">12</CornerRadius>
+    <x:Double x:Key="TDSwitchSmallKnobSize">18</x:Double>
+    <CornerRadius x:Key="TDSwitchSmallKnobCornerRadius">9</CornerRadius>
+
+    <!-- Large Size -->
+    <x:Double x:Key="TDSwitchLargeWidth">52</x:Double>
+    <x:Double x:Key="TDSwitchLargeHeight">32</x:Double>
+    <CornerRadius x:Key="TDSwitchLargeCornerRadius">16</CornerRadius>
+    <x:Double x:Key="TDSwitchLargeKnobSize">26</x:Double>
+    <CornerRadius x:Key="TDSwitchLargeKnobCornerRadius">13</CornerRadius>
+
+    <!-- Switch Text -->
+    <x:Double x:Key="TDSwitchFontSize">14</x:Double>
+    <x:Double x:Key="TDSwitchSmallFontSize">12</x:Double>
+    <x:Double x:Key="TDSwitchLargeFontSize">16</x:Double>
+</ResourceDictionary>

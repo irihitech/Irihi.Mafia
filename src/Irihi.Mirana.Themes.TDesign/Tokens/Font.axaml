@@ -4,8 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!-- Font Family -->
-    <FontFamily x:Key="TDFontFamily">PingFang SC,Microsoft YaHei,Arial</FontFamily>
-    <FontFamily x:Key="TDFontFamilyMedium">PingFang SC,Microsoft YaHei,Arial</FontFamily>
+    <FontFamily x:Key="TDFontFamily">PingFang SC,Microsoft YaHei,Arial Regular</FontFamily>
+    <FontFamily x:Key="TDFontFamilyMedium">PingFang SC,Microsoft YaHei,Arial Medium</FontFamily>
 
     <!-- Font Sizes -->
     <x:Double x:Key="TDFontSizeLinkSmall">12</x:Double>

@@ -104,8 +104,8 @@
     <SolidColorBrush x:Key="TDMaskActive" Opacity="0.6" Color="#000" />
     <SolidColorBrush x:Key="TDMaskDisabled" Opacity="0.6" Color="#FFF" />
     <SolidColorBrush x:Key="TDMaskBackground" Opacity="0.96" Color="#FFF" />
-
-    <SolidColorBrush x:Key="TDBgColorPage" Color="{StaticResource TDGrayColor2}" />
+    <!-- <SolidColorBrush x:Key="TDBgColorPage" Color="{StaticResource TDGrayColor2}" /> -->
+    <SolidColorBrush x:Key="TDBgColorPage" Color="#FFF" />
     <SolidColorBrush x:Key="TDBgColorContainer" Color="#FFF" />
     <SolidColorBrush x:Key="TDBgColorContainerHover" Color="{StaticResource TDGrayColor1}" />
     <SolidColorBrush x:Key="TDBgColorContainerActive" Color="{StaticResource TDGrayColor3}" />

@@ -1,5 +1,5 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <StaticResource x:Key="TDDividerBorderLineFill" ResourceKey="TDBgColorComponent" />
-    <StaticResource x:Key="TDDividerContentForeground" ResourceKey="TDFontGray3" />
+    <StaticResource x:Key="TDDividerContentForeground" ResourceKey="TDTextColorPlaceholder" />
 </ResourceDictionary>

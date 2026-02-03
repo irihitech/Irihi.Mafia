@@ -9,7 +9,14 @@
         <ResourceInclude Source="HyperlinkButton.axaml" />
         <ResourceInclude Source="IconButton.axaml" />
         <ResourceInclude Source="PathIcon.axaml" />
+        <ResourceInclude Source="Progress.axaml" />
         <ResourceInclude Source="RadioButton.axaml" />
         <ResourceInclude Source="Slider.axaml" />
+        <ResourceInclude Source="Switch.axaml" />
+
+        <ResourceInclude Source="EmbeddableControlRoot.axaml" />
+        <ResourceInclude Source="Popup.axaml" />
+        <ResourceInclude Source="ThemeVariantScope.axaml" />
+        <ResourceInclude Source="Window.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

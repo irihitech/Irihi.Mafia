@@ -3,21 +3,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:Irihi.Mirana.Demo.ViewModels"
-             xmlns:m="https://irihi.tech/mirana"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="1450"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Irihi.Mirana.Demo.Views.MainView"
              x:DataType="vm:MainViewModel">
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainViewModel />
-    </Design.DataContext>
-
-    <ScrollViewer>
-        <m:CellGroup Header="1">
-            <m:Cell Content="Basic Cell" />
-            <m:Cell Content="Cell with Description" Description="This is a description" />
-            <m:Cell Content="Cell with Note" Note="Note text" />
-        </m:CellGroup>
-    </ScrollViewer>
+    <StackPanel>
+        <TextBlock Text="Select Phone Resolution:" FontWeight="Bold" />
+        <ComboBox ItemsSource="{Binding PhoneResolutions}"
+                  SelectedItem="{Binding SelectedResolution}"
+                  MinWidth="250"
+                  HorizontalAlignment="Left" />
+    </StackPanel>
 </UserControl>
