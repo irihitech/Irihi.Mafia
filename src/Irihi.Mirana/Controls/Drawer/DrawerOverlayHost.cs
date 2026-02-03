@@ -19,7 +19,6 @@ namespace Irihi.Mirana.Controls;
 public class DrawerOverlayHost : ContentControl
 {
     private readonly DrawerOverlayLayer _overlayLayer;
-    private DrawerPlacement _placement = DrawerPlacement.Bottom;
     private Size _drawerSize;
     private bool _isAnimating;
     
@@ -96,7 +95,7 @@ public class DrawerOverlayHost : ContentControl
         _overlayLayer.Children.Add(this);
         
         // Force layout update to get the correct size
-        if (Content is Visual { IsAttachedToVisualTree: false })
+        if (Content is Visual visual)
         {
             UpdateLayout();
         }
@@ -258,7 +257,7 @@ public class DrawerOverlayHost : ContentControl
         });
     }
     
-    private Property GetTransformProperty()
+    private AvaloniaProperty GetTransformProperty()
     {
         return RenderTransformProperty;
     }
@@ -291,12 +290,16 @@ public class DrawerOverlayHost : ContentControl
         
         // Check if the click is outside the content area
         var point = e.GetPosition(this);
-        var contentBounds = Content?.Bounds;
         
-        if (contentBounds.HasValue && !contentBounds.Value.Contains(point))
+        if (Content is Control contentControl)
         {
-            e.Handled = true;
-            Hide();
+            var contentBounds = contentControl.Bounds;
+            
+            if (!contentBounds.Contains(point))
+            {
+                e.Handled = true;
+                Hide();
+            }
         }
     }
 }
