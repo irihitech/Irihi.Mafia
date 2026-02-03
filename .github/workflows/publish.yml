@@ -1,0 +1,33 @@
+name: Publish Demo
+
+on:
+  workflow_dispatch:
+    inputs:
+      android-arm64:
+        description: 'Android arm64'
+        default: false
+        type: boolean
+  workflow_call:
+    inputs:
+      android-arm64:
+        type: boolean
+        default: true
+
+jobs:
+  android-arm64:
+    if: ${{inputs.android-arm64}}
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Install Android workload
+        run: dotnet workload install android
+      - name: Restore Dependencies
+        run: dotnet restore demo/Irihi.Mirana.Demo.Android
+      - name: Publish Android
+        run: dotnet publish demo/Irihi.Mirana.Demo.Android -c Release -f net10.0-android --no-restore -o publish /p:RuntimeIdentifier=android-arm64
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: android-arm64
+          path: publish/*Signed.apk
