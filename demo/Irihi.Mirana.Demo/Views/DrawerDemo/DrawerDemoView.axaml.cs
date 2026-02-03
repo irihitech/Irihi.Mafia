@@ -83,8 +83,10 @@ public partial class DrawerDemoView : UserControl
         
         if (resetCustomButton != null)
         {
-            resetCustomButton.Click += (s, e) => {
-                // Reset logic would go here
+            resetCustomButton.Click += (s, e) => 
+            {
+                // Reset the filter values - in a real app, this would reset actual filter state
+                // For the demo, we're just showing the button handler structure
             };
         }
     }

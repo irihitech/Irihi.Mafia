@@ -1,3 +1,4 @@
+using System.Linq;
 using Xunit;
 using Irihi.Mirana.Controls;
 
@@ -46,12 +47,24 @@ public class DrawerTests
     }
     
     [Fact]
-    public void DrawerPlacement_HasCorrectValues()
+    public void DrawerPlacement_HasAllExpectedValues()
     {
-        // Assert all enum values exist
-        Assert.Equal(DrawerPlacement.Bottom, DrawerPlacement.Bottom);
-        Assert.Equal(DrawerPlacement.Top, DrawerPlacement.Top);
-        Assert.Equal(DrawerPlacement.Left, DrawerPlacement.Left);
-        Assert.Equal(DrawerPlacement.Right, DrawerPlacement.Right);
+        // Arrange
+        var expectedValues = new[] { 
+            DrawerPlacement.Bottom, 
+            DrawerPlacement.Top, 
+            DrawerPlacement.Left, 
+            DrawerPlacement.Right 
+        };
+        
+        // Act
+        var actualValues = Enum.GetValues(typeof(DrawerPlacement)).Cast<DrawerPlacement>().ToArray();
+        
+        // Assert
+        Assert.Equal(4, actualValues.Length);
+        Assert.Contains(DrawerPlacement.Bottom, actualValues);
+        Assert.Contains(DrawerPlacement.Top, actualValues);
+        Assert.Contains(DrawerPlacement.Left, actualValues);
+        Assert.Contains(DrawerPlacement.Right, actualValues);
     }
 }

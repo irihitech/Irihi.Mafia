@@ -8,6 +8,7 @@ using Avalonia.Interactivity;
 using Avalonia.Layout;
 using Avalonia.Media;
 using Avalonia.Styling;
+using Avalonia.Threading;
 
 namespace Irihi.Mirana.Controls;
 
@@ -209,7 +210,10 @@ public class DrawerOverlayHost : ContentControl
             }
         };
         
-        animation.RunAsync(this).ContinueWith(_ => _isAnimating = false);
+        animation.RunAsync(this).ContinueWith(_ => 
+        {
+            Dispatcher.UIThread.Post(() => _isAnimating = false);
+        });
     }
     
     private void AnimateOut(Action onComplete)
@@ -246,8 +250,11 @@ public class DrawerOverlayHost : ContentControl
         
         animation.RunAsync(this).ContinueWith(_ =>
         {
-            _isAnimating = false;
-            onComplete?.Invoke();
+            Dispatcher.UIThread.Post(() =>
+            {
+                _isAnimating = false;
+                onComplete?.Invoke();
+            });
         });
     }
     
