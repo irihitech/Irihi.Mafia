@@ -1,0 +1,155 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:m="https://irihi.tech/mirana">
+    <Design.PreviewWith>
+        <m:Collapse Width="400" Margin="20">
+            <m:CollapsePanel Header="标题1" Content="这是一段内容" IsExpanded="True" />
+            <m:CollapsePanel Header="标题2" Content="这是另一段内容" />
+            <m:CollapsePanel Header="标题3" Content="更多内容" />
+        </m:Collapse>
+    </Design.PreviewWith>
+
+    <!-- Collapse Container Theme -->
+    <ControlTheme x:Key="{x:Type m:Collapse}" TargetType="m:Collapse">
+        <Setter Property="BorderBrush" Value="{DynamicResource TDCollapseBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TDCollapseBorderThickness}" />
+        <Setter Property="Background" Value="{DynamicResource TDCollapseBackground}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="m:Collapse">
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}">
+                    <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <!-- CollapsePanel Theme -->
+    <ControlTheme x:Key="{x:Type m:CollapsePanel}" TargetType="m:CollapsePanel">
+        <Setter Property="Background" Value="{DynamicResource TDCollapsePanelBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TDCollapseBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TDCollapsePanelBorderThickness}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="m:CollapsePanel">
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}">
+                    <StackPanel>
+                        <!-- Header Section -->
+                        <Button
+                            Name="PART_HeaderButton"
+                            Padding="{DynamicResource TDCollapsePanelHeaderPadding}"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Stretch"
+                            Background="Transparent"
+                            BorderThickness="0">
+                            <Grid ColumnDefinitions="Auto,*,Auto">
+                                <!-- Left Icon -->
+                                <ContentPresenter
+                                    Grid.Column="0"
+                                    Name="PART_HeaderLeftContent"
+                                    Margin="{DynamicResource TDCollapsePanelHeaderLeftMargin}"
+                                    Content="{TemplateBinding HeaderLeftContent}"
+                                    ContentTemplate="{TemplateBinding HeaderLeftContentTemplate}"
+                                    IsVisible="{TemplateBinding HeaderLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                    <ContentPresenter.DataTemplates>
+                                        <DataTemplate DataType="Geometry">
+                                            <PathIcon Data="{Binding}" />
+                                        </DataTemplate>
+                                    </ContentPresenter.DataTemplates>
+                                </ContentPresenter>
+
+                                <!-- Header Content -->
+                                <ContentPresenter
+                                    Grid.Column="1"
+                                    Name="PART_HeaderPresenter"
+                                    Content="{TemplateBinding Header}"
+                                    ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                    FontSize="{DynamicResource TDCollapsePanelHeaderFontSize}"
+                                    Foreground="{DynamicResource TDCollapsePanelHeaderForeground}"
+                                    VerticalAlignment="Center" />
+
+                                <!-- Right Section (Icon + Content) -->
+                                <StackPanel
+                                    Grid.Column="2"
+                                    Orientation="Horizontal"
+                                    Spacing="{DynamicResource TDCollapsePanelHeaderRightSpacing}">
+                                    <ContentPresenter
+                                        Name="PART_HeaderRightContent"
+                                        Content="{TemplateBinding HeaderRightContent}"
+                                        ContentTemplate="{TemplateBinding HeaderRightContentTemplate}"
+                                        Foreground="{DynamicResource TDCollapsePanelHeaderRightForeground}"
+                                        VerticalAlignment="Center"
+                                        IsVisible="{TemplateBinding HeaderRightContent, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                        <ContentPresenter.DataTemplates>
+                                            <DataTemplate DataType="Geometry">
+                                                <PathIcon Data="{Binding}" />
+                                            </DataTemplate>
+                                        </ContentPresenter.DataTemplates>
+                                    </ContentPresenter>
+
+                                    <!-- Expand Icon -->
+                                    <PathIcon
+                                        Name="PART_ExpandIcon"
+                                        Width="16"
+                                        Height="16"
+                                        Data="{DynamicResource TDCollapseExpandIconData}"
+                                        Foreground="{DynamicResource TDCollapseExpandIconForeground}"
+                                        IsVisible="{TemplateBinding ShowExpandIcon}"
+                                        VerticalAlignment="Center">
+                                        <PathIcon.Transitions>
+                                            <Transitions>
+                                                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.2" />
+                                            </Transitions>
+                                        </PathIcon.Transitions>
+                                    </PathIcon>
+                                </StackPanel>
+                            </Grid>
+                        </Button>
+
+                        <!-- Content Section -->
+                        <Border
+                            Name="PART_ContentBorder"
+                            IsVisible="{TemplateBinding IsExpanded}">
+                            <ContentPresenter
+                                Name="PART_ContentPresenter"
+                                Padding="{DynamicResource TDCollapsePanelContentPadding}"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                FontSize="{DynamicResource TDCollapsePanelContentFontSize}"
+                                Foreground="{DynamicResource TDCollapsePanelContentForeground}" />
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <!-- Expanded state - rotate expand icon -->
+        <Style Selector="^:expanded /template/ PathIcon#PART_ExpandIcon">
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
+        </Style>
+
+        <!-- Hover state for header button -->
+        <Style Selector="^ /template/ Button#PART_HeaderButton:pointerover">
+            <Setter Property="Background" Value="{DynamicResource TDCollapsePanelHeaderHoverBackground}" />
+        </Style>
+
+        <!-- Pressed state for header button -->
+        <Style Selector="^ /template/ Button#PART_HeaderButton:pressed">
+            <Setter Property="Background" Value="{DynamicResource TDCollapsePanelHeaderPressedBackground}" />
+        </Style>
+
+        <!-- Disabled state -->
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_HeaderPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource TDCollapsePanelHeaderDisabledForeground}" />
+        </Style>
+
+        <Style Selector="^:disabled /template/ PathIcon#PART_ExpandIcon">
+            <Setter Property="Foreground" Value="{DynamicResource TDCollapseExpandIconDisabledForeground}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

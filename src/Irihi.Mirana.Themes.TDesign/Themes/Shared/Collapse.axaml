@@ -1,0 +1,13 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Thickness x:Key="TDCollapseBorderThickness">0</Thickness>
+    <Thickness x:Key="TDCollapsePanelBorderThickness">0,0,0,1</Thickness>
+    <Thickness x:Key="TDCollapsePanelHeaderPadding">16</Thickness>
+    <Thickness x:Key="TDCollapsePanelHeaderLeftMargin">0,0,8,0</Thickness>
+    <x:Double x:Key="TDCollapsePanelHeaderFontSize">16</x:Double>
+    <x:Double x:Key="TDCollapsePanelHeaderRightSpacing">8</x:Double>
+    <Thickness x:Key="TDCollapsePanelContentPadding">16</Thickness>
+    <x:Double x:Key="TDCollapsePanelContentFontSize">14</x:Double>
+    <StreamGeometry x:Key="TDCollapseExpandIconData">M16 10 L12 14 L8 10</StreamGeometry>
+</ResourceDictionary>

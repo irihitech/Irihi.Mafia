@@ -1,0 +1,15 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StaticResource x:Key="TDCollapseBorderBrush" ResourceKey="TDBorderLevel2Color" />
+    <StaticResource x:Key="TDCollapseBackground" ResourceKey="TDBgColorContainer" />
+    <StaticResource x:Key="TDCollapsePanelBackground" ResourceKey="TDBgColorContainer" />
+    <StaticResource x:Key="TDCollapsePanelHeaderForeground" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDCollapsePanelHeaderRightForeground" ResourceKey="TDTextColorSecondary" />
+    <StaticResource x:Key="TDCollapsePanelHeaderHoverBackground" ResourceKey="TDBgColorSecondarycontainer" />
+    <StaticResource x:Key="TDCollapsePanelHeaderPressedBackground" ResourceKey="TDBgColorSecondarycontainerActive" />
+    <StaticResource x:Key="TDCollapsePanelHeaderDisabledForeground" ResourceKey="TDTextColorDisabled" />
+    <StaticResource x:Key="TDCollapsePanelContentForeground" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDCollapseExpandIconForeground" ResourceKey="TDTextColorPlaceholder" />
+    <StaticResource x:Key="TDCollapseExpandIconDisabledForeground" ResourceKey="TDTextColorDisabled" />
+</ResourceDictionary>
