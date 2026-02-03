@@ -1,0 +1,201 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:m="https://irihi.tech/mirana"
+             mc:Ignorable="d" d:DesignWidth="375" d:DesignHeight="812"
+             x:Class="Irihi.Mirana.Demo.Views.DrawerDemo.DrawerDemoView">
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+    </Design.DataContext>
+
+    <Panel>
+        <!-- Main Content -->
+        <ScrollViewer>
+            <StackPanel Margin="20" Spacing="16">
+                <TextBlock Text="Drawer Demo" FontSize="24" FontWeight="Bold" />
+                <TextBlock Text="Click the buttons below to open drawers from different edges:" TextWrapping="Wrap" />
+                
+                <!-- Bottom Drawer -->
+                <Border
+                    Background="{DynamicResource TDBackgroundColor2}"
+                    BorderBrush="{DynamicResource TDComponentBorder}"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="16">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Bottom Drawer" FontWeight="SemiBold" />
+                        <TextBlock Text="The most common placement for mobile apps" TextWrapping="Wrap" Opacity="0.7" />
+                        <Button Name="BottomDrawerButton" Content="Open Bottom Drawer" />
+                    </StackPanel>
+                </Border>
+                
+                <!-- Top Drawer -->
+                <Border
+                    Background="{DynamicResource TDBackgroundColor2}"
+                    BorderBrush="{DynamicResource TDComponentBorder}"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="16">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Top Drawer" FontWeight="SemiBold" />
+                        <TextBlock Text="Slides in from the top of the screen" TextWrapping="Wrap" Opacity="0.7" />
+                        <Button Name="TopDrawerButton" Content="Open Top Drawer" />
+                    </StackPanel>
+                </Border>
+                
+                <!-- Left Drawer -->
+                <Border
+                    Background="{DynamicResource TDBackgroundColor2}"
+                    BorderBrush="{DynamicResource TDComponentBorder}"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="16">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Left Drawer" FontWeight="SemiBold" />
+                        <TextBlock Text="Navigation drawer style, slides from left" TextWrapping="Wrap" Opacity="0.7" />
+                        <Button Name="LeftDrawerButton" Content="Open Left Drawer" />
+                    </StackPanel>
+                </Border>
+                
+                <!-- Right Drawer -->
+                <Border
+                    Background="{DynamicResource TDBackgroundColor2}"
+                    BorderBrush="{DynamicResource TDComponentBorder}"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="16">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Right Drawer" FontWeight="SemiBold" />
+                        <TextBlock Text="Action drawer style, slides from right" TextWrapping="Wrap" Opacity="0.7" />
+                        <Button Name="RightDrawerButton" Content="Open Right Drawer" />
+                    </StackPanel>
+                </Border>
+                
+                <!-- Custom Content Drawer -->
+                <Border
+                    Background="{DynamicResource TDBackgroundColor2}"
+                    BorderBrush="{DynamicResource TDComponentBorder}"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="16">
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Custom Content Drawer" FontWeight="SemiBold" />
+                        <TextBlock Text="Drawer with rich content" TextWrapping="Wrap" Opacity="0.7" />
+                        <Button Name="CustomDrawerButton" Content="Open Custom Drawer" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+        
+        <!-- Drawer Overlay Layer - This hosts all drawers -->
+        <m:DrawerOverlayLayer Name="DrawerOverlay" />
+        
+        <!-- Bottom Drawer Definition -->
+        <m:Drawer Name="BottomDrawer" Placement="Bottom">
+            <Border
+                Background="{DynamicResource TDBackgroundColor1}"
+                Padding="24"
+                MaxHeight="400"
+                CornerRadius="16,16,0,0">
+                <StackPanel Spacing="16">
+                    <TextBlock Text="Bottom Drawer" FontSize="20" FontWeight="Bold" />
+                    <TextBlock Text="This drawer slides in from the bottom of the screen." TextWrapping="Wrap" />
+                    <TextBlock Text="It's commonly used in mobile apps for action sheets, filters, or additional options." TextWrapping="Wrap" />
+                    <Button Name="CloseBottomButton" Content="Close" HorizontalAlignment="Stretch" />
+                </StackPanel>
+            </Border>
+        </m:Drawer>
+        
+        <!-- Top Drawer Definition -->
+        <m:Drawer Name="TopDrawer" Placement="Top">
+            <Border
+                Background="{DynamicResource TDBackgroundColor1}"
+                Padding="24"
+                MaxHeight="300"
+                CornerRadius="0,0,16,16">
+                <StackPanel Spacing="16">
+                    <TextBlock Text="Top Drawer" FontSize="20" FontWeight="Bold" />
+                    <TextBlock Text="This drawer slides in from the top." TextWrapping="Wrap" />
+                    <Button Name="CloseTopButton" Content="Close" HorizontalAlignment="Stretch" />
+                </StackPanel>
+            </Border>
+        </m:Drawer>
+        
+        <!-- Left Drawer Definition -->
+        <m:Drawer Name="LeftDrawer" Placement="Left">
+            <Border
+                Background="{DynamicResource TDBackgroundColor1}"
+                Padding="24"
+                MaxWidth="300"
+                CornerRadius="0,16,16,0">
+                <StackPanel Spacing="16">
+                    <TextBlock Text="Left Drawer" FontSize="20" FontWeight="Bold" />
+                    <TextBlock Text="Navigation menu style drawer." TextWrapping="Wrap" />
+                    <Separator />
+                    <Button Content="Home" HorizontalAlignment="Stretch" />
+                    <Button Content="Profile" HorizontalAlignment="Stretch" />
+                    <Button Content="Settings" HorizontalAlignment="Stretch" />
+                    <Separator />
+                    <Button Name="CloseLeftButton" Content="Close" HorizontalAlignment="Stretch" />
+                </StackPanel>
+            </Border>
+        </m:Drawer>
+        
+        <!-- Right Drawer Definition -->
+        <m:Drawer Name="RightDrawer" Placement="Right">
+            <Border
+                Background="{DynamicResource TDBackgroundColor1}"
+                Padding="24"
+                MaxWidth="300"
+                CornerRadius="16,0,0,16">
+                <StackPanel Spacing="16">
+                    <TextBlock Text="Right Drawer" FontSize="20" FontWeight="Bold" />
+                    <TextBlock Text="Action drawer from the right side." TextWrapping="Wrap" />
+                    <Button Name="CloseRightButton" Content="Close" HorizontalAlignment="Stretch" />
+                </StackPanel>
+            </Border>
+        </m:Drawer>
+        
+        <!-- Custom Content Drawer -->
+        <m:Drawer Name="CustomDrawer" Placement="Bottom">
+            <Border
+                Background="{DynamicResource TDBackgroundColor1}"
+                Padding="24"
+                MaxHeight="500"
+                CornerRadius="16,16,0,0">
+                <StackPanel Spacing="16">
+                    <TextBlock Text="Filters" FontSize="20" FontWeight="Bold" />
+                    
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Category" FontWeight="SemiBold" />
+                        <ComboBox SelectedIndex="0" HorizontalAlignment="Stretch">
+                            <ComboBoxItem Content="All" />
+                            <ComboBoxItem Content="Electronics" />
+                            <ComboBoxItem Content="Clothing" />
+                            <ComboBoxItem Content="Books" />
+                        </ComboBox>
+                    </StackPanel>
+                    
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Price Range" FontWeight="SemiBold" />
+                        <Slider Minimum="0" Maximum="1000" Value="500" />
+                    </StackPanel>
+                    
+                    <StackPanel Spacing="8">
+                        <TextBlock Text="Options" FontWeight="SemiBold" />
+                        <CheckBox Content="Free Shipping" />
+                        <CheckBox Content="On Sale" />
+                        <CheckBox Content="In Stock" />
+                    </StackPanel>
+                    
+                    <Grid ColumnDefinitions="*,*" Margin="0,8,0,0">
+                        <Button Name="ResetCustomButton" Content="Reset" HorizontalAlignment="Stretch" Margin="0,0,4,0" />
+                        <Button Name="ApplyCustomButton" Content="Apply Filters" HorizontalAlignment="Stretch" Margin="4,0,0,0" Grid.Column="1" />
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </m:Drawer>
+    </Panel>
+</UserControl>

@@ -3,14 +3,22 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:Irihi.Mirana.Demo.ViewModels"
+             xmlns:drawerDemo="using:Irihi.Mirana.Demo.Views.DrawerDemo"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Irihi.Mirana.Demo.Views.MainView"
              x:DataType="vm:MainViewModel">
-    <StackPanel>
+    <StackPanel Spacing="16" Margin="20">
         <TextBlock Text="Select Phone Resolution:" FontWeight="Bold" />
         <ComboBox ItemsSource="{Binding PhoneResolutions}"
                   SelectedItem="{Binding SelectedResolution}"
                   MinWidth="250"
                   HorizontalAlignment="Left" />
+        
+        <Separator Margin="0,16" />
+        
+        <TextBlock Text="Component Demos:" FontWeight="Bold" FontSize="16" />
+        <Button Name="DrawerDemoButton" Content="Drawer Demo" HorizontalAlignment="Left" />
+        
+        <ContentControl Name="DemoContent" />
     </StackPanel>
 </UserControl>

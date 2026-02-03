@@ -1,0 +1,61 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:m="https://irihi.tech/mirana">
+    
+    <!-- DrawerOverlayLayer - Simple canvas for hosting drawers -->
+    <ControlTheme x:Key="{x:Type m:DrawerOverlayLayer}" TargetType="{x:Type m:DrawerOverlayLayer}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="IsHitTestVisible" Value="True" />
+    </ControlTheme>
+    
+    <!-- DrawerOverlayHost - The host that contains the drawer content with backdrop -->
+    <ControlTheme x:Key="{x:Type m:DrawerOverlayHost}" TargetType="{x:Type m:DrawerOverlayHost}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="{x:Type m:DrawerOverlayHost}">
+                <Panel>
+                    <!-- Backdrop/Scrim -->
+                    <Border
+                        Name="PART_Backdrop"
+                        Background="#80000000"
+                        IsHitTestVisible="{TemplateBinding IsLightDismissEnabled}"
+                        Opacity="0">
+                        <Border.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.25" />
+                            </Transitions>
+                        </Border.Transitions>
+                    </Border>
+                    
+                    <!-- Drawer Content Container -->
+                    <Border
+                        Name="PART_ContentBorder"
+                        Background="{DynamicResource TDBackgroundColor1}"
+                        BorderBrush="{DynamicResource TDComponentBorder}"
+                        BorderThickness="1"
+                        CornerRadius="{DynamicResource TDRadiusLarge}"
+                        BoxShadow="{DynamicResource TDShadow3}"
+                        ClipToBounds="True">
+                        <ContentPresenter
+                            Name="PART_ContentPresenter"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+        
+        <!-- Show backdrop when drawer is shown -->
+        <Style Selector="^:pointerover /template/ Border#PART_Backdrop">
+            <Setter Property="Opacity" Value="1" />
+        </Style>
+    </ControlTheme>
+    
+    <!-- Drawer - The main control users interact with -->
+    <ControlTheme x:Key="{x:Type m:Drawer}" TargetType="{x:Type m:Drawer}">
+        <Setter Property="IsHitTestVisible" Value="False" />
+    </ControlTheme>
+</ResourceDictionary>
