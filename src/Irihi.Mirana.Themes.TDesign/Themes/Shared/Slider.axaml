@@ -8,6 +8,6 @@
     <!-- Thumb Dimensions -->
     <x:Double x:Key="TDSliderThumbSize">20</x:Double>
     <StaticResource x:Key="TDSliderThumbCornerRadius" ResourceKey="TDRadiusRound" />
-    <Thickness x:Key="TDSliderThumbBorderThickness">4</Thickness>
+    <Thickness x:Key="TDSliderThumbBorderThickness">1</Thickness>
 
 </ResourceDictionary>

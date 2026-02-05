@@ -1,24 +1,22 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
-        <StackPanel Margin="20" Spacing="30">
-            <StackPanel Spacing="16">
-                <TextBlock Text="Horizontal Slider" />
-                <Slider Width="300" Minimum="0" Maximum="100" Value="50" />
-                <Slider Width="300" Minimum="0" Maximum="100" Value="30" IsEnabled="False" />
-            </StackPanel>
-            <StackPanel Spacing="16">
-                <TextBlock Text="Vertical Slider" />
-                <Slider Height="200" Minimum="0" Maximum="100" Value="50" Orientation="Vertical" />
+        <StackPanel Width="200" Height="300" Margin="20">
+            <Slider Width="200" Value="50" TickPlacement="Outside" />
+            <Slider Width="200" Value="50" IsDirectionReversed="True" />
+            <Slider Width="200" Value="30" IsEnabled="False" />
+            <StackPanel Orientation="Horizontal">
+                <Slider Height="200" Value="50" Orientation="Vertical" />
+                <Slider Height="200" Value="50" Orientation="Vertical" IsDirectionReversed="True" />
+                <Slider Height="200" Value="30" Orientation="Vertical" IsEnabled="False" />
             </StackPanel>
         </StackPanel>
     </Design.PreviewWith>
 
-    <!-- Horizontal RepeatButton Theme -->
     <ControlTheme x:Key="SliderHorizontalRepeatButton" TargetType="RepeatButton">
         <Setter Property="Template">
             <ControlTemplate TargetType="RepeatButton">
-                <Grid>
+                <Panel>
                     <Border
                         Name="FocusTarget"
                         Margin="0,-10"
@@ -30,16 +28,15 @@
                         VerticalAlignment="Center"
                         Background="{TemplateBinding Background}"
                         CornerRadius="{DynamicResource TDSliderTrackCornerRadius}" />
-                </Grid>
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
 
-    <!-- Vertical RepeatButton Theme -->
     <ControlTheme x:Key="SliderVerticalRepeatButton" TargetType="RepeatButton">
         <Setter Property="Template">
             <ControlTemplate TargetType="RepeatButton">
-                <Grid>
+                <Panel>
                     <Border
                         Name="FocusTarget"
                         Margin="-10,0"
@@ -51,45 +48,43 @@
                         HorizontalAlignment="Center"
                         Background="{TemplateBinding Background}"
                         CornerRadius="{DynamicResource TDSliderTrackCornerRadius}" />
-                </Grid>
+                </Panel>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
 
-    <!-- Thumb Theme -->
+    <x:Double x:Key="test">20</x:Double>
+
     <ControlTheme x:Key="SliderThumbTheme" TargetType="Thumb">
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Background" Value="{DynamicResource TDSliderThumbBackground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource TDSliderThumbBorderBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TDComponentBorder}" />
         <Setter Property="BorderThickness" Value="{DynamicResource TDSliderThumbBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TDSliderThumbCornerRadius}" />
+        <Setter Property="ClipToBounds" Value="True" />
         <Setter Property="Template">
             <ControlTemplate TargetType="Thumb">
                 <Border
-                    Width="{TemplateBinding Width}"
-                    Height="{TemplateBinding Height}"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{DynamicResource TDSliderThumbCornerRadius}" />
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    ClipToBounds="{TemplateBinding ClipToBounds}">
+                    <Border
+                        Width="{DynamicResource test}"
+                        Height="{DynamicResource test}"
+                        Margin="1"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        BoxShadow="{DynamicResource TDShadow1}" />
+                </Border>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource TDSliderThumbPointeroverBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TDSliderThumbPointeroverBorderBrush}" />
-        </Style>
-        <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource TDSliderThumbPressedBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TDSliderThumbPressedBorderBrush}" />
-        </Style>
     </ControlTheme>
 
-    <!-- Main Slider Theme -->
     <ControlTheme x:Key="{x:Type Slider}" TargetType="Slider">
-        <Setter Property="Background" Value="{DynamicResource TDSliderTrackBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource TDSliderTrackForeground}" />
-        <Setter Property="BorderThickness" Value="0" />
-        
-        <!-- Horizontal Orientation -->
+        <Setter Property="Background" Value="{DynamicResource TDSliderTrackBackground}" />
+
         <Style Selector="^:horizontal">
             <Setter Property="Template">
                 <ControlTemplate TargetType="Slider">
@@ -110,20 +105,18 @@
                                         Name="PART_DecreaseButton"
                                         Background="{TemplateBinding Foreground}"
                                         Focusable="False"
-                                        Theme="{StaticResource SliderHorizontalRepeatButton}" />
+                                        Theme="{DynamicResource SliderHorizontalRepeatButton}" />
                                 </Track.DecreaseButton>
                                 <Track.IncreaseButton>
                                     <RepeatButton
                                         Name="PART_IncreaseButton"
                                         Background="{TemplateBinding Background}"
                                         Focusable="False"
-                                        Theme="{StaticResource SliderHorizontalRepeatButton}" />
+                                        Theme="{DynamicResource SliderHorizontalRepeatButton}" />
                                 </Track.IncreaseButton>
                                 <Thumb
                                     Name="thumb"
-                                    Width="{DynamicResource TDSliderThumbSize}"
-                                    Height="{DynamicResource TDSliderThumbSize}"
-                                    Theme="{StaticResource SliderThumbTheme}" />
+                                    Theme="{DynamicResource SliderThumbTheme}" />
                             </Track>
                         </Grid>
                     </DataValidationErrors>
@@ -131,7 +124,6 @@
             </Setter>
         </Style>
 
-        <!-- Vertical Orientation -->
         <Style Selector="^:vertical">
             <Setter Property="Template">
                 <ControlTemplate TargetType="Slider">
@@ -173,7 +165,6 @@
             </Setter>
         </Style>
 
-        <!-- Disabled State -->
         <Style Selector="^:disabled">
             <Style Selector="^ /template/ RepeatButton#PART_DecreaseButton">
                 <Setter Property="Background" Value="{DynamicResource TDSliderTrackDisabledForeground}" />
