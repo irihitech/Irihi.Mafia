@@ -10,13 +10,14 @@ The implementation follows Avalonia's overlay popup architecture pattern:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  Application Window / TopLevel                              │
+│  Application Window / TopLevel (with VisualLayerManager)   │
 │                                                               │
 │  ┌───────────────────────────────────────────────────────┐  │
 │  │  Main Content Area                                     │  │
 │  │                                                         │  │
 │  │  ┌─────────────────────────────────────────────────┐  │  │
-│  │  │  DrawerOverlayLayer (Canvas)                     │  │  │
+│  │  │  OverlayLayer (via VisualLayerManager)          │  │  │
+│  │  │  (Avalonia built-in, automatic)                  │  │  │
 │  │  │                                                   │  │  │
 │  │  │  ┌─────────────────────────────────────────┐    │  │  │
 │  │  │  │ DrawerOverlayHost (ContentControl)      │    │  │  │
@@ -47,6 +48,7 @@ The implementation follows Avalonia's overlay popup architecture pattern:
   - Manages `IsOpen` property
   - Provides placement options via `DrawerPlacement`
   - Creates and manages `DrawerOverlayHost` lifecycle
+  - Finds Avalonia's OverlayLayer via `OverlayLayer.GetOverlayLayer()`
   - Handles logical tree attachment/detachment
   - Raises `Opened` and `Closed` events
 
@@ -59,13 +61,14 @@ The implementation follows Avalonia's overlay popup architecture pattern:
   - Renders backdrop/scrim overlay
   - Manages content layout and sizing
 
-### 3. DrawerOverlayLayer
-- **Purpose**: Canvas-based container for hosting drawers
-- **Responsibilities**:
+### 3. OverlayLayer (Avalonia Built-in)
+- **Purpose**: Canvas-based container for hosting overlays
+- **How It Works**:
+  - Automatically available in all Avalonia windows via `VisualLayerManager`
+  - Accessed using `OverlayLayer.GetOverlayLayer(visual)`
+  - No manual setup required
   - Provides the overlay surface for drawers
   - Manages available size for positioning
-  - Discovered via visual tree traversal
-  - Supports multiple drawers (though typically one at a time)
 
 ### 4. DrawerPlacement
 - **Purpose**: Enum defining placement options
@@ -125,11 +128,12 @@ Right:
 |---------|----------------|---------------|
 | Base Class | Control | Control |
 | Host Class | OverlayPopupHost | DrawerOverlayHost |
-| Overlay Layer | OverlayLayer | DrawerOverlayLayer |
+| Overlay Layer | OverlayLayer (built-in) | OverlayLayer (built-in) |
 | Positioning | Relative to target | Fixed to screen edge |
 | Animation | Optional | Built-in slide animation |
 | Placement | Complex anchor/gravity | Simple edge-based |
 | Use Case | Context menus, tooltips | Mobile-style drawers |
+| Setup Required | None | None |
 
 ## Usage Pattern
 
@@ -139,8 +143,7 @@ Right:
     <!-- Main content -->
     <YourContent />
     
-    <!-- Required: Overlay layer -->
-    <m:DrawerOverlayLayer />
+    <!-- No overlay layer needed - uses Avalonia's built-in! -->
     
     <!-- Drawer definitions -->
     <m:Drawer Placement="Bottom">
@@ -182,9 +185,9 @@ The TDesign theme provides:
 ### File Structure
 ```
 src/Irihi.Mirana/Controls/Drawer/
-├── Drawer.cs                 # Main control (219 lines)
-├── DrawerOverlayHost.cs      # Host with animation (291 lines)
-├── DrawerOverlayLayer.cs     # Canvas overlay (63 lines)
+├── Drawer.cs                 # Main control (uses OverlayLayer)
+├── DrawerOverlayHost.cs      # Host with animation (uses OverlayLayer)
+├── DrawerOverlayLayer.cs     # Obsolete (extends OverlayLayer for compatibility)
 ├── DrawerPlacement.cs        # Enum (28 lines)
 └── README.md                 # Documentation
 
@@ -192,7 +195,7 @@ src/Irihi.Mirana.Themes.TDesign/Controls/
 └── Drawer.axaml              # Theme styles
 
 demo/Irihi.Mirana.Demo/Views/DrawerDemo/
-├── DrawerDemoView.axaml      # Demo UI
+├── DrawerDemoView.axaml      # Demo UI (no manual overlay needed)
 └── DrawerDemoView.axaml.cs   # Demo code-behind
 
 test/Irihi.Mirana.UnitTest/Controls/
@@ -200,7 +203,7 @@ test/Irihi.Mirana.UnitTest/Controls/
 ```
 
 ### Dependencies
-- Avalonia 12.0.999-cibuild0061243-alpha (nightly)
+- Avalonia 12.0.999-cibuild0061905-alpha (nightly)
 - Irihi.Avalonia.Shared 0.3.1
 
 ## Known Limitations
@@ -209,7 +212,7 @@ test/Irihi.Mirana.UnitTest/Controls/
 2. **Single Drawer**: Only one drawer per overlay layer at a time
 3. **Fixed Animation**: Animation timing is hardcoded
 4. **No Gestures**: Swipe-to-dismiss not implemented
-5. **Overlay Layer Required**: Must manually add `DrawerOverlayLayer` to UI
+5. **VisualLayerManager Required**: Needs standard Avalonia window infrastructure (always present)
 
 ## Future Enhancements
 
@@ -221,7 +224,6 @@ Potential improvements:
 5. ✨ Partial drawer states (peek, half-open, full-open)
 6. ✨ Custom backdrop styles and blur effects
 7. ✨ Resize handle for adjustable drawer height
-8. ✨ Auto-discovery of overlay layer (create if missing)
 
 ## Testing
 
@@ -231,7 +233,7 @@ Unit tests cover:
 - Enum value integrity
 - Basic open/close behavior
 
-**Note**: Full integration tests require Avalonia.Headless and are currently blocked by the nightly feed access issue.
+**Note**: Full integration tests require Avalonia.Headless.
 
 ## References
 
@@ -239,5 +241,6 @@ This implementation is inspired by:
 - [Avalonia OverlayPopupHost.cs](https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Controls/Primitives/OverlayPopupHost.cs)
 - [Avalonia OverlayLayer.cs](https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Controls/Primitives/OverlayLayer.cs)
 - [Avalonia Popup.cs](https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Controls/Primitives/Popup.cs)
+- [Avalonia VisualLayerManager](https://github.com/AvaloniaUI/Avalonia/blob/master/src/Avalonia.Controls/Primitives/VisualLayerManager.cs)
 - Material Design Bottom Sheets
 - iOS Action Sheets and Side Drawers
