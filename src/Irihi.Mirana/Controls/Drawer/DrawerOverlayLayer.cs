@@ -1,71 +1,16 @@
-using Avalonia;
-using Avalonia.Controls;
-using Avalonia.VisualTree;
+using System;
+using Avalonia.Controls.Primitives;
 
 namespace Irihi.Mirana.Controls;
 
 /// <summary>
 /// A canvas-based overlay layer that hosts drawer controls.
-/// Similar to Avalonia's OverlayLayer but specifically designed for drawers.
+/// This class is provided for backward compatibility. 
+/// Drawers now use Avalonia's built-in OverlayLayer automatically.
 /// </summary>
-public class DrawerOverlayLayer : Canvas
+[Obsolete("DrawerOverlayLayer is no longer needed. Drawers automatically use Avalonia's built-in OverlayLayer.")]
+public class DrawerOverlayLayer : OverlayLayer
 {
-    /// <summary>
-    /// Gets the available size for drawer placement.
-    /// </summary>
-    public Size AvailableSize { get; private set; }
-    
-    /// <summary>
-    /// Gets the DrawerOverlayLayer for the specified visual element by traversing the visual tree.
-    /// </summary>
-    /// <param name="visual">The visual element to start searching from.</param>
-    /// <returns>The DrawerOverlayLayer if found; otherwise, null.</returns>
-    public static DrawerOverlayLayer? GetDrawerOverlayLayer(Visual visual)
-    {
-        // First, try to find it in visual ancestors
-        foreach (var ancestor in visual.GetVisualAncestors())
-        {
-            if (ancestor is DrawerOverlayLayer layer)
-            {
-                return layer;
-            }
-        }
-        
-        // If not found in ancestors, check the TopLevel's visual descendants
-        if (TopLevel.GetTopLevel(visual) is { } topLevel)
-        {
-            var descendants = topLevel.GetVisualDescendants();
-            foreach (var descendant in descendants)
-            {
-                if (descendant is DrawerOverlayLayer layer)
-                {
-                    return layer;
-                }
-            }
-        }
-        
-        return null;
-    }
-    
-    /// <summary>
-    /// Measures all child drawers with the available size.
-    /// </summary>
-    protected override Size MeasureOverride(Size availableSize)
-    {
-        foreach (Control child in Children)
-        {
-            child.Measure(availableSize);
-        }
-        return availableSize;
-    }
-    
-    /// <summary>
-    /// Arranges all child drawers and saves the available size.
-    /// </summary>
-    protected override Size ArrangeOverride(Size finalSize)
-    {
-        // Save the available size for child controls to reference
-        AvailableSize = finalSize;
-        return base.ArrangeOverride(finalSize);
-    }
+    // This class now simply extends Avalonia's OverlayLayer for backward compatibility
+    // No additional functionality is needed as drawers use the built-in overlay system
 }

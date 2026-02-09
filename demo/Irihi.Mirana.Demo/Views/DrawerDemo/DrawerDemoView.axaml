@@ -89,9 +89,6 @@
             </StackPanel>
         </ScrollViewer>
         
-        <!-- Drawer Overlay Layer - This hosts all drawers -->
-        <m:DrawerOverlayLayer Name="DrawerOverlay" />
-        
         <!-- Bottom Drawer Definition -->
         <m:Drawer Name="BottomDrawer" Placement="Bottom">
             <Border

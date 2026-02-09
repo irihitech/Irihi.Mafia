@@ -3,6 +3,7 @@ using Avalonia;
 using Avalonia.Animation;
 using Avalonia.Animation.Easings;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Layout;
@@ -18,7 +19,7 @@ namespace Irihi.Mirana.Controls;
 /// </summary>
 public class DrawerOverlayHost : ContentControl
 {
-    private readonly DrawerOverlayLayer _overlayLayer;
+    private readonly OverlayLayer _overlayLayer;
     private Size _drawerSize;
     private bool _isAnimating;
     
@@ -65,7 +66,7 @@ public class DrawerOverlayHost : ContentControl
     /// Initializes a new instance of the <see cref="DrawerOverlayHost"/> class.
     /// </summary>
     /// <param name="overlayLayer">The overlay layer that hosts this drawer.</param>
-    public DrawerOverlayHost(DrawerOverlayLayer overlayLayer)
+    public DrawerOverlayHost(OverlayLayer overlayLayer)
     {
         _overlayLayer = overlayLayer ?? throw new ArgumentNullException(nameof(overlayLayer));
         

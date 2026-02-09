@@ -1,6 +1,7 @@
 using System;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
 using Avalonia.Interactivity;
 using Avalonia.LogicalTree;
 using Avalonia.Metadata;
@@ -225,14 +226,14 @@ public class Drawer : Control
         Closed?.Invoke(this, EventArgs.Empty);
     }
     
-    private DrawerOverlayLayer? FindOverlayLayer()
+    private OverlayLayer? FindOverlayLayer()
     {
-        // Try to find overlay layer from this control
+        // Try to find Avalonia's built-in overlay layer from this control
         if (this.FindLogicalAncestorOfType<Control>() is { } parent)
         {
             if (TopLevel.GetTopLevel(parent) is { } topLevel)
             {
-                return DrawerOverlayLayer.GetDrawerOverlayLayer(topLevel);
+                return OverlayLayer.GetOverlayLayer(topLevel);
             }
         }
         

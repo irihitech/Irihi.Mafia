@@ -4,9 +4,9 @@ A drawer control that displays content in an overlay layer, sliding in from a sc
 
 ## Overview
 
-The drawer system consists of three main components:
+The drawer system uses Avalonia's built-in overlay infrastructure:
 
-1. **DrawerOverlayLayer** - A canvas-based container that hosts drawer overlays
+1. **OverlayLayer** (Avalonia's built-in) - Automatically available in all Avalonia windows via VisualLayerManager
 2. **DrawerOverlayHost** - The host control that manages drawer position, animation, and lifecycle
 3. **Drawer** - The main control that users interact with
 
@@ -18,6 +18,7 @@ The drawer system consists of three main components:
 - **Modal Support**: Blocks interaction with content behind the drawer
 - **Customizable Content**: Any Avalonia control can be placed inside
 - **Backdrop/Scrim**: Semi-transparent overlay when drawer is open
+- **Automatic Integration**: Uses Avalonia's built-in OverlayLayer (no manual setup required)
 
 ## Usage
 
@@ -30,10 +31,7 @@ The drawer system consists of three main components:
         <Button Name="OpenButton" Content="Open Drawer" />
     </StackPanel>
     
-    <!-- Drawer Overlay Layer - Required to host drawers -->
-    <m:DrawerOverlayLayer Name="DrawerOverlay" />
-    
-    <!-- Drawer Definition -->
+    <!-- Drawer Definition - No overlay layer needed! -->
     <m:Drawer Name="MyDrawer" Placement="Bottom">
         <Border
             Background="White"
@@ -179,7 +177,7 @@ You can override these by applying styles to the drawer content:
 
 ## Best Practices
 
-1. **Always include a DrawerOverlayLayer** in your view to host drawers
+1. **No setup required** - Drawers automatically use Avalonia's built-in OverlayLayer
 2. **Provide a way to close** the drawer (button or light dismiss)
 3. **Limit drawer height/width** to ensure usability (use MaxHeight/MaxWidth)
 4. **Use appropriate corner radius** based on placement:
@@ -194,11 +192,12 @@ You can override these by applying styles to the drawer content:
 
 The drawer implementation is based on Avalonia's overlay popup architecture:
 
-- **DrawerOverlayLayer** is similar to `OverlayLayer` - provides the canvas for hosting
+- Uses Avalonia's built-in **OverlayLayer** (via VisualLayerManager) - no manual setup needed
 - **DrawerOverlayHost** is similar to `OverlayPopupHost` - manages lifecycle and positioning
 - **Drawer** is similar to `Popup` - the public API users interact with
 
 The drawer system uses:
+- Avalonia's OverlayLayer infrastructure for proper integration
 - Canvas positioning for precise placement
 - Avalonia Animations for smooth transitions
 - Event routing for light dismiss behavior
@@ -207,7 +206,7 @@ The drawer system uses:
 ## Known Limitations
 
 - Requires Avalonia 11.3+ or 12.0+ (nightly builds)
-- DrawerOverlayLayer must be present in the visual tree
+- Requires VisualLayerManager to be present (standard in all Avalonia windows)
 - Only one drawer can be open at a time per overlay layer
 - Animations use fixed durations (250ms in, 200ms out)
 
