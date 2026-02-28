@@ -1,14 +1,14 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
-        <StackPanel Width="200" Height="300" Margin="20">
-            <Slider Width="200" Value="50" IsSnapToTickEnabled="True" TickFrequency="10" TickPlacement="TopLeft" />
-            <Slider Width="200" Value="50" IsDirectionReversed="True" />
-            <Slider Width="200" Value="30" IsEnabled="False" />
-            <StackPanel Orientation="Horizontal">
-                <Slider Height="200" Value="50" Orientation="Vertical" IsSnapToTickEnabled="True" TickFrequency="10" TickPlacement="Outside" />
-                <Slider Height="200" Value="50" Orientation="Vertical" IsDirectionReversed="True" />
-                <Slider Height="200" Value="30" Orientation="Vertical" IsEnabled="False" />
+        <StackPanel Width="200" Margin="20">
+            <Slider Value="50" IsSnapToTickEnabled="True" TickFrequency="10" TickPlacement="TopLeft" />
+            <Slider Value="50" IsDirectionReversed="True" />
+            <Slider Value="30" IsEnabled="False" />
+            <StackPanel Height="200" Orientation="Horizontal">
+                <Slider Value="50" Orientation="Vertical" IsSnapToTickEnabled="True" TickFrequency="10" TickPlacement="Outside" />
+                <Slider Value="50" Orientation="Vertical" IsDirectionReversed="True" />
+                <Slider Value="30" Orientation="Vertical" IsEnabled="False" />
             </StackPanel>
         </StackPanel>
     </Design.PreviewWith>
@@ -55,7 +55,7 @@
 
     <ControlTheme x:Key="SliderThumbTheme" TargetType="Thumb">
         <Setter Property="Background" Value="{DynamicResource TDSliderThumbBackground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource TDComponentBorder}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TDSliderThumbBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource TDSliderThumbBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource TDSliderThumbCornerRadius}" />
         <Setter Property="Cursor" Value="Hand" />
@@ -64,7 +64,6 @@
                 <Border
                     Width="{DynamicResource TDSliderThumbSize}"
                     Height="{DynamicResource TDSliderThumbSize}"
-                    Margin="{DynamicResource TDSliderThumbMargin}"
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
@@ -94,10 +93,10 @@
                             <TickBar
                                 Name="TopTickBar"
                                 Grid.Row="0"
-                                Height="4"
+                                Height="{DynamicResource TDSliderTickBarLength}"
                                 Margin="0,0,0,2"
                                 VerticalAlignment="Bottom"
-                                Fill="{DynamicResource TDBgColorComponentActive}"
+                                Fill="{DynamicResource TDSliderTickBarFill}"
                                 IsVisible="False"
                                 Maximum="{TemplateBinding Maximum}"
                                 Minimum="{TemplateBinding Minimum}"
@@ -109,9 +108,10 @@
                             <TickBar
                                 Name="BottomTickBar"
                                 Grid.Row="2"
-                                Height="4"
+                                Height="{DynamicResource TDSliderTickBarLength}"
+                                Margin="0,2,0,0"
                                 VerticalAlignment="Top"
-                                Fill="{DynamicResource TDBgColorComponentActive}"
+                                Fill="{DynamicResource TDSliderTickBarFill}"
                                 IsVisible="False"
                                 Maximum="{TemplateBinding Maximum}"
                                 Minimum="{TemplateBinding Minimum}"
@@ -168,9 +168,10 @@
                             <TickBar
                                 Name="LeftTickBar"
                                 Grid.Column="0"
-                                Width="4"
+                                Width="{DynamicResource TDSliderTickBarLength}"
+                                Margin="0,0,2,0"
                                 HorizontalAlignment="Right"
-                                Fill="{DynamicResource TDBgColorComponentActive}"
+                                Fill="{DynamicResource TDSliderTickBarFill}"
                                 IsVisible="False"
                                 Maximum="{TemplateBinding Maximum}"
                                 Minimum="{TemplateBinding Minimum}"
@@ -182,9 +183,10 @@
                             <TickBar
                                 Name="RightTickBar"
                                 Grid.Column="2"
-                                Width="4"
+                                Width="{DynamicResource TDSliderTickBarLength}"
+                                Margin="2,0,0,0"
                                 HorizontalAlignment="Left"
-                                Fill="{DynamicResource TDBgColorComponentActive}"
+                                Fill="{DynamicResource TDSliderTickBarFill}"
                                 IsVisible="False"
                                 Maximum="{TemplateBinding Maximum}"
                                 Minimum="{TemplateBinding Minimum}"
