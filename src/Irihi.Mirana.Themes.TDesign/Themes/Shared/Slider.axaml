@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Track Dimensions -->
+    <x:Double x:Key="TDSliderTrackHeight">4</x:Double>
+    <StaticResource x:Key="TDSliderTrackCornerRadius" ResourceKey="TDRadiusRound" />
+
+    <!-- Thumb Dimensions -->
+    <x:Double x:Key="TDSliderThumbSize">20</x:Double>
+    <StaticResource x:Key="TDSliderThumbCornerRadius" ResourceKey="TDRadiusRound" />
+    <Thickness x:Key="TDSliderThumbBorderThickness">2</Thickness>
+
+    <!-- TickBar Dimensions -->
+    <x:Double x:Key="TDSliderTickBarLength">4</x:Double>
+</ResourceDictionary>
