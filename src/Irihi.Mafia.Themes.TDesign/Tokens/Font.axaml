@@ -1,0 +1,48 @@
+<ResourceDictionary
+    x:Class="Irihi.Mafia.Themes.TDesign.Tokens.Font"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Font Family -->
+    <FontFamily x:Key="TDFontFamily">PingFang SC,Microsoft YaHei,Arial Regular</FontFamily>
+    <FontFamily x:Key="TDFontFamilyMedium">PingFang SC,Microsoft YaHei,Arial Medium</FontFamily>
+
+    <!-- Font Sizes -->
+    <x:Double x:Key="TDFontSizeLinkSmall">12</x:Double>
+    <x:Double x:Key="TDFontSizeLinkMedium">14</x:Double>
+    <x:Double x:Key="TDFontSizeLinkLarge">16</x:Double>
+    <x:Double x:Key="TDFontSizeMarkSmall">12</x:Double>
+    <x:Double x:Key="TDFontSizeMarkMedium">14</x:Double>
+    <x:Double x:Key="TDFontSizeBodySmall">12</x:Double>
+    <x:Double x:Key="TDFontSizeBodyMedium">14</x:Double>
+    <x:Double x:Key="TDFontSizeBodyLarge">16</x:Double>
+    <x:Double x:Key="TDFontSizeTitleSmall">14</x:Double>
+    <x:Double x:Key="TDFontSizeTitleMedium">16</x:Double>
+    <x:Double x:Key="TDFontSizeTitleLarge">18</x:Double>
+    <x:Double x:Key="TDFontSizeTitleExtraLarge">20</x:Double>
+    <x:Double x:Key="TDFontSizeHeadlineSmall">24</x:Double>
+    <x:Double x:Key="TDFontSizeHeadlineMedium">28</x:Double>
+    <x:Double x:Key="TDFontSizeHeadlineLarge">36</x:Double>
+    <x:Double x:Key="TDFontSizeDisplayMedium">48</x:Double>
+    <x:Double x:Key="TDFontSizeDisplayLarge">64</x:Double>
+
+    <!-- Line Heights -->
+    <x:Double x:Key="TDLineHeightLinkSmall">20</x:Double>
+    <x:Double x:Key="TDLineHeightLinkMedium">22</x:Double>
+    <x:Double x:Key="TDLineHeightLinkLarge">24</x:Double>
+    <x:Double x:Key="TDLineHeightMarkSmall">20</x:Double>
+    <x:Double x:Key="TDLineHeightMarkMedium">22</x:Double>
+    <x:Double x:Key="TDLineHeightBodySmall">20</x:Double>
+    <x:Double x:Key="TDLineHeightBodyMedium">22</x:Double>
+    <x:Double x:Key="TDLineHeightBodyLarge">24</x:Double>
+    <x:Double x:Key="TDLineHeightTitleSmall">22</x:Double>
+    <x:Double x:Key="TDLineHeightTitleMedium">24</x:Double>
+    <x:Double x:Key="TDLineHeightTitleLarge">26</x:Double>
+    <x:Double x:Key="TDLineHeightTitleExtraLarge">28</x:Double>
+    <x:Double x:Key="TDLineHeightHeadlineSmall">32</x:Double>
+    <x:Double x:Key="TDLineHeightHeadlineMedium">36</x:Double>
+    <x:Double x:Key="TDLineHeightHeadlineLarge">44</x:Double>
+    <x:Double x:Key="TDLineHeightDisplayMedium">56</x:Double>
+    <x:Double x:Key="TDLineHeightDisplayLarge">72</x:Double>
+
+</ResourceDictionary>

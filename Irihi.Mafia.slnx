@@ -1,0 +1,26 @@
+<Solution> 
+  <Folder Name="/benchmark/" />
+  <Folder Name="/build/">
+  <File Path="Directory.Packages.props" />
+  <File Path="Nuget.Config" />
+</Folder>
+  <Folder Name="/build/demo/">
+    <File Path="demo/Directory.Packages.props" />
+  </Folder>
+  <Folder Name="/ci/" />
+  <Folder Name="/src/">
+    <Project Path="src/Irihi.Mafia/Irihi.Mafia.csproj" />
+    <Project Path="src/Irihi.Mafia.Themes.TDesign/Irihi.Mafia.Themes.TDesign.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/Irihi.Mafia.UnitTest/Irihi.Mafia.UnitTest.csproj" />
+    <Project Path="test/Irihi.Mafia.HeadlessTest/Irihi.Mafia.HeadlessTest.csproj" />
+  </Folder>
+  <Folder Name="/demo/">
+    <Project Path="demo/Irihi.Mafia.Demo/Irihi.Mafia.Demo.csproj" />
+    <Project Path="demo/Irihi.Mafia.Demo.Android/Irihi.Mafia.Demo.Android.csproj" />
+    <Project Path="demo/Irihi.Mafia.Demo.Browser/Irihi.Mafia.Demo.Browser.csproj" />
+    <Project Path="demo/Irihi.Mafia.Demo.Desktop/Irihi.Mafia.Demo.Desktop.csproj" />
+    <Project Path="demo/Irihi.Mafia.Demo.iOS/Irihi.Mafia.Demo.iOS.csproj" />
+  </Folder>
+</Solution>

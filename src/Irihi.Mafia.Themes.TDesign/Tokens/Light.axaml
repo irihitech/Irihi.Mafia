@@ -1,0 +1,155 @@
+<ResourceDictionary
+    x:Class="Irihi.Mafia.Themes.TDesign.Tokens.Light"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="TDBrandColor1">#F2F3FF</Color>
+    <Color x:Key="TDBrandColor2">#D9E1FF</Color>
+    <Color x:Key="TDBrandColor3">#B5C7FF</Color>
+    <Color x:Key="TDBrandColor4">#8EABFF</Color>
+    <Color x:Key="TDBrandColor5">#618DFF</Color>
+    <Color x:Key="TDBrandColor6">#366EF4</Color>
+    <Color x:Key="TDBrandColor7">#0052D9</Color>
+    <Color x:Key="TDBrandColor8">#003CAB</Color>
+    <Color x:Key="TDBrandColor9">#002A7C</Color>
+    <Color x:Key="TDBrandColor10">#001A57</Color>
+    <Color x:Key="TDWarningColor1">#FFF1E9</Color>
+    <Color x:Key="TDWarningColor2">#FFD9C2</Color>
+    <Color x:Key="TDWarningColor3">#FFB98C</Color>
+    <Color x:Key="TDWarningColor4">#FA9550</Color>
+    <Color x:Key="TDWarningColor5">#E37318</Color>
+    <Color x:Key="TDWarningColor6">#BE5A00</Color>
+    <Color x:Key="TDWarningColor7">#954500</Color>
+    <Color x:Key="TDWarningColor8">#713300</Color>
+    <Color x:Key="TDWarningColor9">#532300</Color>
+    <Color x:Key="TDWarningColor10">#3B1700</Color>
+    <Color x:Key="TDErrorColor1">#FFF0ED</Color>
+    <Color x:Key="TDErrorColor2">#FFD8D2</Color>
+    <Color x:Key="TDErrorColor3">#FFB9B0</Color>
+    <Color x:Key="TDErrorColor4">#FF9285</Color>
+    <Color x:Key="TDErrorColor5">#F6685D</Color>
+    <Color x:Key="TDErrorColor6">#D54941</Color>
+    <Color x:Key="TDErrorColor7">#AD352F</Color>
+    <Color x:Key="TDErrorColor8">#881F1C</Color>
+    <Color x:Key="TDErrorColor9">#68070A</Color>
+    <Color x:Key="TDErrorColor10">#490002</Color>
+    <Color x:Key="TDSuccessColor1">#E3F9E9</Color>
+    <Color x:Key="TDSuccessColor2">#C6F3D7</Color>
+    <Color x:Key="TDSuccessColor3">#92DAB2</Color>
+    <Color x:Key="TDSuccessColor4">#56C08D</Color>
+    <Color x:Key="TDSuccessColor5">#2BA471</Color>
+    <Color x:Key="TDSuccessColor6">#008858</Color>
+    <Color x:Key="TDSuccessColor7">#006C45</Color>
+    <Color x:Key="TDSuccessColor8">#005334</Color>
+    <Color x:Key="TDSuccessColor9">#003B23</Color>
+    <Color x:Key="TDSuccessColor10">#002515</Color>
+    <Color x:Key="TDGrayColor1">#F3F3F3</Color>
+    <Color x:Key="TDGrayColor2">#EEE</Color>
+    <Color x:Key="TDGrayColor3">#E8E8E8</Color>
+    <Color x:Key="TDGrayColor4">#DDD</Color>
+    <Color x:Key="TDGrayColor5">#C6C6C6</Color>
+    <Color x:Key="TDGrayColor6">#A6A6A6</Color>
+    <Color x:Key="TDGrayColor7">#8B8B8B</Color>
+    <Color x:Key="TDGrayColor8">#777</Color>
+    <Color x:Key="TDGrayColor9">#5E5E5E</Color>
+    <Color x:Key="TDGrayColor10">#4B4B4B</Color>
+    <Color x:Key="TDGrayColor11">#393939</Color>
+    <Color x:Key="TDGrayColor12">#2C2C2C</Color>
+    <Color x:Key="TDGrayColor13">#242424</Color>
+    <Color x:Key="TDGrayColor14">#181818</Color>
+
+    <SolidColorBrush x:Key="TDFontWhite1" Opacity="1.0" Color="#FFF" />
+    <SolidColorBrush x:Key="TDFontWhite2" Opacity="0.55" Color="#FFF" />
+    <SolidColorBrush x:Key="TDFontWhite3" Opacity="0.35" Color="#FFF" />
+    <SolidColorBrush x:Key="TDFontWhite4" Opacity="0.22" Color="#FFF" />
+    <SolidColorBrush x:Key="TDFontGray1" Opacity="0.9" Color="#000" />
+    <SolidColorBrush x:Key="TDFontGray2" Opacity="0.6" Color="#000" />
+    <SolidColorBrush x:Key="TDFontGray3" Opacity="0.4" Color="#000" />
+    <SolidColorBrush x:Key="TDFontGray4" Opacity="0.26" Color="#000" />
+
+    <SolidColorBrush x:Key="TDBrandColor" Color="{StaticResource TDBrandColor7}" />
+    <SolidColorBrush x:Key="TDWarningColor" Color="{StaticResource TDWarningColor5}" />
+    <SolidColorBrush x:Key="TDErrorColor" Color="{StaticResource TDErrorColor6}" />
+    <SolidColorBrush x:Key="TDSuccessColor" Color="{StaticResource TDSuccessColor5}" />
+
+    <SolidColorBrush x:Key="TDBrandColorHover" Color="{StaticResource TDBrandColor6}" />
+    <SolidColorBrush x:Key="TDBrandColorFocus" Color="{StaticResource TDBrandColor2}" />
+    <SolidColorBrush x:Key="TDBrandColorActive" Color="{StaticResource TDBrandColor8}" />
+    <SolidColorBrush x:Key="TDBrandColorDisabled" Color="{StaticResource TDBrandColor3}" />
+    <SolidColorBrush x:Key="TDBrandColorLight" Color="{StaticResource TDBrandColor1}" />
+    <SolidColorBrush x:Key="TDBrandColorLightHover" Color="{StaticResource TDBrandColor2}" />
+    <SolidColorBrush x:Key="TDBrandColorLightActive" Color="{StaticResource TDBrandColor2}" />
+
+    <SolidColorBrush x:Key="TDWarningColorHover" Color="{StaticResource TDWarningColor4}" />
+    <SolidColorBrush x:Key="TDWarningColorFocus" Color="{StaticResource TDWarningColor2}" />
+    <SolidColorBrush x:Key="TDWarningColorActive" Color="{StaticResource TDWarningColor6}" />
+    <SolidColorBrush x:Key="TDWarningColorDisabled" Color="{StaticResource TDWarningColor3}" />
+    <SolidColorBrush x:Key="TDWarningColorLight" Color="{StaticResource TDWarningColor1}" />
+    <SolidColorBrush x:Key="TDWarningColorLightHover" Color="{StaticResource TDWarningColor2}" />
+
+    <SolidColorBrush x:Key="TDErrorColorHover" Color="{StaticResource TDErrorColor5}" />
+    <SolidColorBrush x:Key="TDErrorColorFocus" Color="{StaticResource TDErrorColor2}" />
+    <SolidColorBrush x:Key="TDErrorColorActive" Color="{StaticResource TDErrorColor7}" />
+    <SolidColorBrush x:Key="TDErrorColorDisabled" Color="{StaticResource TDErrorColor3}" />
+    <SolidColorBrush x:Key="TDErrorColorLight" Color="{StaticResource TDErrorColor1}" />
+    <SolidColorBrush x:Key="TDErrorColorLightHover" Color="{StaticResource TDErrorColor2}" />
+
+    <SolidColorBrush x:Key="TDSuccessColorHover" Color="{StaticResource TDSuccessColor4}" />
+    <SolidColorBrush x:Key="TDSuccessColorFocus" Color="{StaticResource TDSuccessColor2}" />
+    <SolidColorBrush x:Key="TDSuccessColorActive" Color="{StaticResource TDSuccessColor6}" />
+    <SolidColorBrush x:Key="TDSuccessColorDisabled" Color="{StaticResource TDSuccessColor3}" />
+    <SolidColorBrush x:Key="TDSuccessColorLight" Color="{StaticResource TDSuccessColor1}" />
+    <SolidColorBrush x:Key="TDSuccessColorLightHover" Color="{StaticResource TDSuccessColor2}" />
+
+    <SolidColorBrush x:Key="TDMaskActive" Opacity="0.6" Color="#000" />
+    <SolidColorBrush x:Key="TDMaskDisabled" Opacity="0.6" Color="#FFF" />
+    <SolidColorBrush x:Key="TDMaskBackground" Opacity="0.96" Color="#FFF" />
+    <!-- <SolidColorBrush x:Key="TDBgColorPage" Color="{StaticResource TDGrayColor2}" /> -->
+    <SolidColorBrush x:Key="TDBgColorPage" Color="#FFF" />
+    <SolidColorBrush x:Key="TDBgColorContainer" Color="#FFF" />
+    <SolidColorBrush x:Key="TDBgColorContainerHover" Color="{StaticResource TDGrayColor1}" />
+    <SolidColorBrush x:Key="TDBgColorContainerActive" Color="{StaticResource TDGrayColor3}" />
+    <SolidColorBrush x:Key="TDBgColorContainerSelect" Color="#FFF" />
+    <SolidColorBrush x:Key="TDBgColorSecondarycontainer" Color="{StaticResource TDGrayColor1}" />
+    <SolidColorBrush x:Key="TDBgColorSecondarycontainerHover" Color="{StaticResource TDGrayColor2}" />
+    <SolidColorBrush x:Key="TDBgColorSecondarycontainerActive" Color="{StaticResource TDGrayColor4}" />
+    <SolidColorBrush x:Key="TDBgColorComponent" Color="{StaticResource TDGrayColor3}" />
+    <SolidColorBrush x:Key="TDBgColorComponentHover" Color="{StaticResource TDGrayColor4}" />
+    <SolidColorBrush x:Key="TDBgColorComponentActive" Color="{StaticResource TDGrayColor6}" />
+    <SolidColorBrush x:Key="TDBgColorSecondarycomponent" Color="{StaticResource TDGrayColor4}" />
+    <SolidColorBrush x:Key="TDBgColorSecondarycomponentHover" Color="{StaticResource TDGrayColor5}" />
+    <SolidColorBrush x:Key="TDBgColorSecondarycomponentActive" Color="{StaticResource TDGrayColor6}" />
+    <SolidColorBrush x:Key="TDBgColorComponentDisabled" Color="{StaticResource TDGrayColor2}" />
+
+    <SolidColorBrush x:Key="TDBgColorSpecialcomponent" Color="#FFF" />
+
+    <StaticResource x:Key="TDTextColorPrimary" ResourceKey="TDFontGray1" />
+    <StaticResource x:Key="TDTextColorSecondary" ResourceKey="TDFontGray2" />
+    <StaticResource x:Key="TDTextColorPlaceholder" ResourceKey="TDFontGray3" />
+    <StaticResource x:Key="TDTextColorDisabled" ResourceKey="TDFontGray4" />
+    <SolidColorBrush x:Key="TDTextColorAnti" Color="#FFF" />
+    <SolidColorBrush x:Key="TDTextColorBrand" Color="{StaticResource TDBrandColor7}" />
+    <SolidColorBrush x:Key="TDTextColorLink" Color="{StaticResource TDBrandColor8}" />
+    <SolidColorBrush x:Key="TDTextColorWatermark" Opacity="0.1" Color="#000" />
+
+    <SolidColorBrush x:Key="TDBorderLevel1Color" Color="{StaticResource TDGrayColor3}" />
+    <SolidColorBrush x:Key="TDComponentStroke" Color="{StaticResource TDGrayColor3}" />
+
+    <SolidColorBrush x:Key="TDBorderLevel2Color" Color="{StaticResource TDGrayColor4}" />
+    <SolidColorBrush x:Key="TDComponentBorder" Color="{StaticResource TDGrayColor4}" />
+
+    <BoxShadows x:Key="TDShadow1">0 1 10 #0D000000,0 4 5 #14000000,0 2 4 -1 #1F000000</BoxShadows>
+    <BoxShadows x:Key="TDShadow2">0 3 14 2 #0D000000,0 8 10 1 #0F000000,0 5 5 -3 #1A000000</BoxShadows>
+    <BoxShadows x:Key="TDShadow3">0 6 30 5 #0D000000,0 16 24 2 #0A000000,0 8 10 -5 #14000000</BoxShadows>
+    <BoxShadows x:Key="TDShadowInsetTop">inset 0 0.5 0 #DCDCDC</BoxShadows>
+    <BoxShadows x:Key="TDShadowInsetRight">inset 0.5 0 0 #DCDCDC</BoxShadows>
+    <BoxShadows x:Key="TDShadowInsetBottom">inset 0 -0.5 0 #DCDCDC</BoxShadows>
+    <BoxShadows x:Key="TDShadowInsetLeft">inset -0.5 0 0 #DCDCDC</BoxShadows>
+
+    <SolidColorBrush x:Key="TDTableShadowColor" Opacity="0.08" Color="#000" />
+
+    <SolidColorBrush x:Key="TDScrollbarColor" Opacity="0.1" Color="#000" />
+    <SolidColorBrush x:Key="TDScrollbarHoverColor" Opacity="0.3" Color="#000" />
+    <SolidColorBrush x:Key="TDScrollTrackColor" Color="#FFF" />
+
+</ResourceDictionary>

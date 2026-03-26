@@ -1,0 +1,73 @@
+<ResourceDictionary
+    x:Class="Irihi.Mafia.Themes.TDesign.Tokens.Size"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Base Sizes -->
+    <x:Double x:Key="TDSize1">2</x:Double>
+    <x:Double x:Key="TDSize2">4</x:Double>
+    <x:Double x:Key="TDSize3">6</x:Double>
+    <x:Double x:Key="TDSize4">8</x:Double>
+    <x:Double x:Key="TDSize5">12</x:Double>
+    <x:Double x:Key="TDSize6">16</x:Double>
+    <x:Double x:Key="TDSize7">20</x:Double>
+    <x:Double x:Key="TDSize8">24</x:Double>
+    <x:Double x:Key="TDSize9">28</x:Double>
+    <x:Double x:Key="TDSize10">32</x:Double>
+    <x:Double x:Key="TDSize11">36</x:Double>
+    <x:Double x:Key="TDSize12">40</x:Double>
+    <x:Double x:Key="TDSize13">48</x:Double>
+    <x:Double x:Key="TDSize14">56</x:Double>
+    <x:Double x:Key="TDSize15">64</x:Double>
+    <x:Double x:Key="TDSize16">72</x:Double>
+
+    <!-- Component Sizes (Height) -->
+    <x:Double x:Key="TDCompSizeXXXS">16</x:Double>
+    <x:Double x:Key="TDCompSizeXXS">20</x:Double>
+    <x:Double x:Key="TDCompSizeXS">24</x:Double>
+    <x:Double x:Key="TDCompSizeS">28</x:Double>
+    <x:Double x:Key="TDCompSizeM">32</x:Double>
+    <x:Double x:Key="TDCompSizeL">36</x:Double>
+    <x:Double x:Key="TDCompSizeXL">40</x:Double>
+    <x:Double x:Key="TDCompSizeXXL">48</x:Double>
+    <x:Double x:Key="TDCompSizeXXXL">56</x:Double>
+    <x:Double x:Key="TDCompSizeXXXXL">64</x:Double>
+    <x:Double x:Key="TDCompSizeXXXXXL">72</x:Double>
+
+    <!-- Popup Padding -->
+    <Thickness x:Key="TDPopPaddingS">4</Thickness>
+    <Thickness x:Key="TDPopPaddingM">6</Thickness>
+    <Thickness x:Key="TDPopPaddingL">8</Thickness>
+    <Thickness x:Key="TDPopPaddingXL">12</Thickness>
+    <Thickness x:Key="TDPopPaddingXXL">16</Thickness>
+
+    <!-- Component Horizontal Padding -->
+    <Thickness x:Key="TDCompPaddingLRXXS">2,0</Thickness>
+    <Thickness x:Key="TDCompPaddingLRXS">4,0</Thickness>
+    <Thickness x:Key="TDCompPaddingLRS">8,0</Thickness>
+    <Thickness x:Key="TDCompPaddingLRM">12,0</Thickness>
+    <Thickness x:Key="TDCompPaddingLRL">16,0</Thickness>
+    <Thickness x:Key="TDCompPaddingLRXL">24,0</Thickness>
+    <Thickness x:Key="TDCompPaddingLRXXL">32,0</Thickness>
+
+    <!-- Component Vertical Padding -->
+    <Thickness x:Key="TDCompPaddingTBXXS">0,2</Thickness>
+    <Thickness x:Key="TDCompPaddingTBXS">0,4</Thickness>
+    <Thickness x:Key="TDCompPaddingTBS">0,8</Thickness>
+    <Thickness x:Key="TDCompPaddingTBM">0,12</Thickness>
+    <Thickness x:Key="TDCompPaddingTBL">0,16</Thickness>
+    <Thickness x:Key="TDCompPaddingTBXL">0,24</Thickness>
+    <Thickness x:Key="TDCompPaddingTBXXL">0,32</Thickness>
+
+    <!-- Component Margins -->
+    <Thickness x:Key="TDCompMarginXXS">2</Thickness>
+    <Thickness x:Key="TDCompMarginXS">4</Thickness>
+    <Thickness x:Key="TDCompMarginS">8</Thickness>
+    <Thickness x:Key="TDCompMarginM">12</Thickness>
+    <Thickness x:Key="TDCompMarginL">16</Thickness>
+    <Thickness x:Key="TDCompMarginXL">20</Thickness>
+    <Thickness x:Key="TDCompMarginXXL">24</Thickness>
+    <Thickness x:Key="TDCompMarginXXXL">32</Thickness>
+    <Thickness x:Key="TDCompMarginXXXXL">40</Thickness>
+
+</ResourceDictionary>
