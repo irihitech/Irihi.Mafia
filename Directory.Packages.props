@@ -1,18 +1,18 @@
 <Project>
     <PropertyGroup>
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-        <AvaloniaVersion>12.0.0-preview2</AvaloniaVersion>
+        <AvaloniaVersion>12.0.0-rc1</AvaloniaVersion>
     </PropertyGroup>
     <ItemGroup>
         <PackageVersion Include="Avalonia" Version="$(AvaloniaVersion)"/>
 
         <PackageVersion Include="Avalonia.HarfBuzz" Version="$(AvaloniaVersion)"/>
         <PackageVersion Include="Avalonia.Headless" Version="$(AvaloniaVersion)"/>
-        <PackageVersion Include="coverlet.collector" Version="6.0.0"/>
-        <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.8.0"/>
-        <PackageVersion Include="xunit" Version="2.5.3"/>
-        <PackageVersion Include="xunit.runner.visualstudio" Version="2.5.3"/>
+        <PackageVersion Include="coverlet.collector" Version="8.0.1"/>
+        <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.3.0"/>
+        <PackageVersion Include="xunit.v3" Version="3.2.2"/>
+        <PackageVersion Include="xunit.v3.runner.msbuild" Version="3.2.2"/>
 
-        <PackageVersion Include="Irihi.Avalonia.Shared" Version="0.3.1"/>
+        <PackageVersion Include="Irihi.Avalonia.Shared" Version="0.4.0-rc1"/>
     </ItemGroup>
 </Project>
