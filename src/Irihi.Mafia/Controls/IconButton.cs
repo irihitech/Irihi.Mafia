@@ -69,7 +69,6 @@ public class IconButton : Button
 
     static IconButton()
     {
-        ReversibleStackPanelUtils.EnsureBugFixed();
         IconPlacementProperty.Changed.AddClassHandler<ContentControl, Position>((o, e) => { UpdateIconPseudoClasses(o, e.NewValue.Value, GetIcon(o)); });
         IconProperty.Changed.AddClassHandler<ContentControl, object?>((o, e) => { UpdateIconPseudoClasses(o, GetIconPlacement(o), e.NewValue.Value); });
         ContentProperty.Changed.AddClassHandler<ContentControl, object?>((o, _) => { UpdateEmptyContentPseudoClass(o); });
