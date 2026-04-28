@@ -1,6 +1,6 @@
-# Irihi.Mirana Project Structure
+# Irihi.Mafia Project Structure
 
-This document describes the structure of the Irihi.Mirana project, following the pattern of [Ursa.Avalonia](https://github.com/irihitech/Ursa.Avalonia).
+This document describes the structure of the Irihi.Mafia project, following the pattern of [Ursa.Avalonia](https://github.com/irihitech/Ursa.Avalonia).
 
 ## Solution Structure
 
@@ -8,16 +8,16 @@ The solution is organized into three main folders:
 
 ### src/ - Source Code Projects
 
-1. **Irihi.Mirana** - Core library project
+1. **Irihi.Mafia** - Core library project
    - Target Framework: net8.0
    - Contains the main library code
-   - Package ID: Irihi.Mirana
+   - Package ID: Irihi.Mafia
 
-2. **Irihi.Mirana.Themes.TDesign** - Theme library project
+2. **Irihi.Mafia.Themes.TDesign** - Theme library project
    - Target Framework: net8.0
    - Contains TDesign theme implementation
-   - Package ID: Irihi.Mirana.Themes.TDesign
-   - References: Irihi.Mirana
+   - Package ID: Irihi.Mafia.Themes.TDesign
+   - References: Irihi.Mafia
 
    1. Controls - ControlTheme implementations
    2. Converters - Value converters
@@ -30,41 +30,41 @@ The solution is organized into three main folders:
 
 ### test/ - Test Projects
 
-3. **Irihi.Mirana.UnitTest** - Unit test project
+3. **Irihi.Mafia.UnitTest** - Unit test project
    - Target Framework: net8.0
    - Test Framework: xUnit
-   - References: Irihi.Mirana, Irihi.Mirana.Themes.TDesign
+   - References: Irihi.Mafia, Irihi.Mafia.Themes.TDesign
 
-4. **Irihi.Mirana.HeadlessTest** - Headless UI test project
+4. **Irihi.Mafia.HeadlessTest** - Headless UI test project
    - Target Framework: net8.0
    - Test Framework: xUnit
    - Uses: Avalonia.Headless for UI testing
-   - References: Irihi.Mirana, Irihi.Mirana.Themes.TDesign
+   - References: Irihi.Mafia, Irihi.Mafia.Themes.TDesign
 
 ### demo/ - Demo Applications
 
-5. **Irihi.Mirana.Demo** - Core demo project (shared code)
+5. **Irihi.Mafia.Demo** - Core demo project (shared code)
    - Target Framework: net10.0
    - Contains the main UI and application logic
    - Used by all platform-specific entry points
 
-6. **Irihi.Mirana.Demo.Android** - Android entry point
+6. **Irihi.Mafia.Demo.Android** - Android entry point
    - Target Framework: net10.0-android
-   - Application ID: tech.irihi.Mirana.Demo
-   - References: Irihi.Mirana.Demo
+   - Application ID: tech.Irihi.Mafia.Demo
+   - References: Irihi.Mafia.Demo
 
-7. **Irihi.Mirana.Demo.Desktop** - Desktop entry point
+7. **Irihi.Mafia.Demo.Desktop** - Desktop entry point
    - Target Framework: net10.0
    - Supports Windows, macOS, and Linux
-   - References: Irihi.Mirana.Demo
+   - References: Irihi.Mafia.Demo
 
-8. **Irihi.Mirana.Demo.Browser** - Browser/WebAssembly entry point
+8. **Irihi.Mafia.Demo.Browser** - Browser/WebAssembly entry point
    - Target Framework: net10.0-browser
-   - References: Irihi.Mirana.Demo
+   - References: Irihi.Mafia.Demo
 
-9. **Irihi.Mirana.Demo.iOS** - iOS entry point
+9. **Irihi.Mafia.Demo.iOS** - iOS entry point
    - Target Framework: net10.0-ios
-   - References: Irihi.Mirana.Demo
+   - References: Irihi.Mafia.Demo
 
 ## Package Management
 
@@ -79,28 +79,28 @@ Key packages:
 
 ### Build all projects (except Android which requires workload):
 ```bash
-dotnet build Irihi.Mirana.slnx
+dotnet build Irihi.Mafia.slnx
 ```
 
 ### Build specific projects:
 ```bash
-dotnet build src/Irihi.Mirana/Irihi.Mirana.csproj
-dotnet build src/Irihi.Mirana.Themes.TDesign/Irihi.Mirana.Themes.TDesign.csproj
+dotnet build src/Irihi.Mafia/Irihi.Mafia.csproj
+dotnet build src/Irihi.Mafia.Themes.TDesign/Irihi.Mafia.Themes.TDesign.csproj
 ```
 
 ### Run tests:
 ```bash
-dotnet test test/Irihi.Mirana.UnitTest/Irihi.Mirana.UnitTest.csproj
-dotnet test test/Irihi.Mirana.HeadlessTest/Irihi.Mirana.HeadlessTest.csproj
+dotnet test test/Irihi.Mafia.UnitTest/Irihi.Mafia.UnitTest.csproj
+dotnet test test/Irihi.Mafia.HeadlessTest/Irihi.Mafia.HeadlessTest.csproj
 ```
 
 ### Run demo:
 ```bash
-dotnet run --project demo/Irihi.Mirana.Demo.Desktop/Irihi.Mirana.Demo.Desktop.csproj
+dotnet run --project demo/Irihi.Mafia.Demo.Desktop/Irihi.Mafia.Demo.Desktop.csproj
 ```
 
 ## Notes
 
 - Android and iOS projects require the respective workloads to be installed
 - The Browser project can be run with `dotnet run` or published for static hosting
-- All projects follow the naming convention: Irihi.Mirana.*
+- All projects follow the naming convention: Irihi.Mafia.*
