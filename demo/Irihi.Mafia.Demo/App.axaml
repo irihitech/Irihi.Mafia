@@ -4,7 +4,7 @@
              xmlns:td="https://irihi.tech/td"
              xmlns:semi="https://irihi.tech/semi"
              x:Class="Irihi.Mafia.Demo.App"
-             RequestedThemeVariant="Light">
+             RequestedThemeVariant="Default">
 
     <Application.DataTemplates>
         <local:ViewLocator />

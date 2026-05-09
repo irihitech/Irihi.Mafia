@@ -1,0 +1,10 @@
+<Project>
+  <PropertyGroup>
+    <AvaloniaVersion>12.0.2</AvaloniaVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Update="Avalonia" VersionOverride="$(AvaloniaVersion)"/>
+    <PackageReference Update="Avalonia.HarfBuzz" VersionOverride="$(AvaloniaVersion)"/>
+    <PackageReference Update="Avalonia.Headless" VersionOverride="$(AvaloniaVersion)"/>
+  </ItemGroup>
+</Project>

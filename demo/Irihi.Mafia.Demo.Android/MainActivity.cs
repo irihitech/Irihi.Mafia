@@ -1,6 +1,5 @@
 ﻿using Android.App;
 using Android.Content.PM;
-using Avalonia;
 using Avalonia.Android;
 
 namespace Irihi.Mafia.Demo.Android;
@@ -11,10 +10,4 @@ namespace Irihi.Mafia.Demo.Android;
     Icon = "@drawable/icon",
     MainLauncher = true,
     ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize | ConfigChanges.UiMode)]
-public class MainActivity : AvaloniaMainActivity
-{
-    protected override AppBuilder CustomizeAppBuilder(AppBuilder builder)
-    {
-        return base.CustomizeAppBuilder(builder);
-    }
-}
+public class MainActivity : AvaloniaMainActivity;

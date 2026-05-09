@@ -2,10 +2,14 @@
   <Folder Name="/build/">
   <File Path="Directory.Packages.props" />
   <File Path="Nuget.Config" />
+  <File Path=".editorconfig" />
 </Folder>
   <Folder Name="/build/ci/" />
   <Folder Name="/build/demo/">
-    <File Path="demo/Directory.Packages.props" />
+    <File Path="demo/Directory.Build.targets" />
+  </Folder>
+  <Folder Name="/build/test/">
+    <File Path="test/Directory.Build.targets" />
   </Folder>
   <Folder Name="/src/">
     <Project Path="src/Irihi.Mafia/Irihi.Mafia.csproj" />
