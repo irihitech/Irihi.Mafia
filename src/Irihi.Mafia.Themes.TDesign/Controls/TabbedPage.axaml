@@ -1,0 +1,177 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:td="https://irihi.tech/td"
+    xmlns:iri="https://irihi.tech/shared">
+    <Design.PreviewWith>
+        <TabbedPage Classes="Tag" Width="360" Height="640" Margin="10" TabPlacement="Bottom">
+            <ContentPage Header="首页" Icon="{StaticResource TempHomeGlyph}" Content="首页内容" />
+            <ContentPage Header="应用" Icon="{StaticResource TempAppGlyph}" Content="应用内容" />
+            <ContentPage Header="聊天" Icon="{StaticResource TempChatGlyph}" Content="聊天内容" />
+            <ContentPage Header="我的" Icon="{StaticResource TempUserGlyph}" Content="我的内容" />
+        </TabbedPage>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type TabbedPage}" TargetType="TabbedPage">
+        <Setter Property="Background" Value="{DynamicResource TDTabbedPageBackground}" />
+        <Setter Property="TabPlacement" Value="Bottom" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="TabbedPage">
+                <Panel Background="{TemplateBinding Background}">
+                    <TabControl
+                        Name="PART_TabControl"
+                        Theme="{StaticResource TDTabbedPageTabControlTheme}"
+                        ItemContainerTheme="{StaticResource TDTabbedPageTabItemTheme}" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="TDTabbedPageTabControlTheme" TargetType="TabControl">
+        <Setter Property="Padding" Value="{DynamicResource TDTabbedPageTabStripPadding}" />
+        <Setter Property="Background" Value="{DynamicResource TDTabbedPageTabStripBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TDTabbedPageTabStripBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TDTabbedPageTabStripBorderThickness}" />
+        <Setter Property="iri:ClassHelper.ClassSource" Value="{Binding $parent[TabbedPage]}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="TabControl">
+                <DockPanel>
+                    <Border
+                        Name="PART_TabStrip"
+                        DockPanel.Dock="{TemplateBinding TabStripPlacement}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Padding="{TemplateBinding Padding}">
+                        <Border.BorderThickness>
+                            <MultiBinding Converter="{td:TabStripBorderThicknessConverter}">
+                                <TemplateBinding Property="TabStripPlacement" />
+                                <TemplateBinding Property="BorderThickness" />
+                            </MultiBinding>
+                        </Border.BorderThickness>
+                        <ItemsPresenter
+                            Name="PART_ItemsPresenter"
+                            ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    </Border>
+                    <Panel ClipToBounds="True">
+                        <ContentPresenter
+                            Name="PART_SelectedContentHost2"
+                            IsVisible="False" />
+                        <ContentPresenter
+                            Name="PART_SelectedContentHost" />
+                    </Panel>
+                </DockPanel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^[TabStripPlacement=Top],^[TabStripPlacement=Bottom]">
+            <Setter Property="TabControl.ItemsPanel">
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="1" />
+                </ItemsPanelTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="^[TabStripPlacement=Left],^[TabStripPlacement=Right]">
+            <Setter Property="TabControl.ItemsPanel">
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="1" />
+                </ItemsPanelTemplate>
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="TDTabbedPageTabItemTheme" TargetType="TabItem">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="MinHeight" Value="{DynamicResource TDTabbedPageTabItemMinHeight}" />
+        <Setter Property="Padding" Value="{DynamicResource TDTabbedPageTabItemPadding}" />
+        <Setter Property="Foreground" Value="{DynamicResource TDTabbedPageTabItemForeground}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TDTabbedPageTabItemCornerRadius}" />
+        <Setter Property="FontSize" Value="{DynamicResource TDTabbedPageTabItemFontSize}" />
+        <Setter Property="FontWeight" Value="{DynamicResource TDTabbedPageTabItemFontWeight}" />
+        <Setter Property="iri:ClassHelper.ClassSource" Value="{Binding $parent[TabControl]}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="TabItem">
+                <Panel>
+                    <Border
+                        Name="PART_LayoutRoot"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Padding="{TemplateBinding Padding}">
+                        <StackPanel
+                            Spacing="{DynamicResource TDTabbedPageTabItemSpacing}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <ContentPresenter
+                                Name="PART_IconPresenter"
+                                Content="{TemplateBinding Icon}"
+                                ContentTemplate="{TemplateBinding IconTemplate}"
+                                Foreground="{TemplateBinding Foreground}"
+                                HorizontalAlignment="Center"
+                                IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                <ContentPresenter.DataTemplates>
+                                    <DataTemplate DataType="Geometry">
+                                        <PathIcon
+                                            Width="{DynamicResource TDTabbedPageTabItemIconSize}"
+                                            Height="{DynamicResource TDTabbedPageTabItemIconSize}"
+                                            Data="{Binding}" />
+                                    </DataTemplate>
+                                </ContentPresenter.DataTemplates>
+                            </ContentPresenter>
+                            <ContentPresenter
+                                Name="PART_ContentPresenter"
+                                Content="{TemplateBinding Header}"
+                                ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                Foreground="{TemplateBinding Foreground}"
+                                FontWeight="{TemplateBinding FontWeight}">
+                                <ContentPresenter.FontSize>
+                                    <MultiBinding Converter="{td:TabbedPageTabItemFontSizeConverter}">
+                                        <Binding Path="#PART_IconPresenter.Content" />
+                                        <TemplateBinding Property="FontSize" />
+                                        <DynamicResource ResourceKey="TDTabbedPageTabItemWithIconFontSize" />
+                                    </MultiBinding>
+                                </ContentPresenter.FontSize>
+                            </ContentPresenter>
+                        </StackPanel>
+                    </Border>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ Border#PART_LayoutRoot">
+            <Setter Property="Background" Value="{DynamicResource TDTabbedPageTabItemPressedBackground}" />
+        </Style>
+        <Style Selector="^:selected">
+            <Setter Property="Foreground" Value="{DynamicResource TDTabbedPageTabItemSelectedForeground}" />
+            <Setter Property="FontWeight" Value="{DynamicResource TDTabbedPageTabItemSelectedFontWeight}" />
+            <Style Selector="^:pressed /template/ Border#PART_LayoutRoot">
+                <Setter Property="Background" Value="{DynamicResource TDTabbedPageTabItemSelectedPressedBackground}" />
+            </Style>
+        </Style>
+        <Style Selector="^:disabled">
+            <Style
+                Selector="^ /template/ ContentPresenter#PART_ContentPresenter, ^ /template/ ContentPresenter#PART_IconPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource TDTabbedPageTabItemDisabledForeground}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^.Tag">
+            <Style Selector="^:pressed /template/ Border#PART_LayoutRoot">
+                <Setter Property="Background" Value="{DynamicResource TDTabbedPageTagTabItemPressedBackground}" />
+            </Style>
+            <Style Selector="^:selected">
+                <Setter Property="Background" Value="{DynamicResource TDTabbedPageTagTabItemSelectedBackground}" />
+                <Style Selector="^:pressed /template/ Border#PART_LayoutRoot">
+                    <Setter Property="Background"
+                            Value="{DynamicResource TDTabbedPageTagTabItemSelectedPressedBackground}" />
+                </Style>
+            </Style>
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>

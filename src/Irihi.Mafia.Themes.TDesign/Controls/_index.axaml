@@ -13,6 +13,8 @@
         <ResourceInclude Source="RadioButton.axaml" />
         <ResourceInclude Source="Slider.axaml" />
         <ResourceInclude Source="Switch.axaml" />
+        <ResourceInclude Source="TabControl.axaml" />
+        <ResourceInclude Source="TabbedPage.axaml" />
 
         <ResourceInclude Source="EmbeddableControlRoot.axaml" />
         <ResourceInclude Source="Popup.axaml" />

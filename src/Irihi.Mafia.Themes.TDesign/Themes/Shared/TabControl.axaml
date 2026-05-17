@@ -1,0 +1,17 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Thickness x:Key="TDTabControlStripBorderThickness">1</Thickness>
+
+    <StaticResource x:Key="TDTabItemFontSize" ResourceKey="TDFontSizeBodyMedium" />
+    <StaticResource x:Key="TDTabItemLargeFontSize" ResourceKey="TDFontSizeBodyLarge" />
+    <FontWeight x:Key="TDTabItemFontWeight">400</FontWeight>
+    <FontWeight x:Key="TDTabItemSelectedFontWeight">600</FontWeight>
+    <Thickness x:Key="TDTabItemPadding">8,0</Thickness>
+    <Thickness x:Key="TDTabItemIconMargin">0,0,3,0</Thickness>
+    <StaticResource x:Key="TDTabItemIndicatorCornerRadius" ResourceKey="TDRadiusRound" />
+    <x:Double x:Key="TDTabItemMinHeight">48</x:Double>
+    <x:Double x:Key="TDTabItemIconSize">18</x:Double>
+    <x:Double x:Key="TDTabItemIndicatorThickness">3</x:Double>
+    <x:Double x:Key="TDTabItemIndicatorLength">16</x:Double>
+</ResourceDictionary>

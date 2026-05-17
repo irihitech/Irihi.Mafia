@@ -1,0 +1,201 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:td="https://irihi.tech/td"
+    xmlns:iri="https://irihi.tech/shared">
+    <Design.PreviewWith>
+        <TabControl Classes="Large" Width="360" Margin="10" TabStripPlacement="Top">
+            <TabItem Header="推荐" Icon="{StaticResource TempAppGlyph}" Content="推荐内容" />
+            <TabItem Header="关注" Content="关注内容" />
+            <TabItem Header="消息" Icon="{StaticResource TempChatGlyph}" IsEnabled="False" />
+            <TabItem Header="我的" Content="我的内容" />
+        </TabControl>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type TabControl}" TargetType="TabControl">
+        <Setter Property="Background" Value="{DynamicResource TDTabControlBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TDTabControlSeparatorBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TDTabControlStripBorderThickness}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="TabControl">
+                <Border
+                    Background="{TemplateBinding Background}"
+                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                    <DockPanel>
+                        <Border
+                            Name="PART_TabStrip"
+                            DockPanel.Dock="{TemplateBinding TabStripPlacement}"
+                            Background="{DynamicResource TDTabControlStripBackground}"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                            <Border.BorderThickness>
+                                <MultiBinding Converter="{td:TabStripBorderThicknessConverter}">
+                                    <TemplateBinding Property="TabStripPlacement" />
+                                    <TemplateBinding Property="BorderThickness" />
+                                </MultiBinding>
+                            </Border.BorderThickness>
+                            <ItemsPresenter
+                                Name="PART_ItemsPresenter"
+                                ItemsPanel="{TemplateBinding ItemsPanel}" />
+                        </Border>
+                        <Panel ClipToBounds="True">
+                            <ContentPresenter
+                                Name="PART_SelectedContentHost2"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                IsVisible="False" />
+                            <ContentPresenter
+                                Name="PART_SelectedContentHost"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Panel>
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^[TabStripPlacement=Top],^[TabStripPlacement=Bottom]">
+            <Setter Property="TabControl.ItemsPanel">
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="1" />
+                </ItemsPanelTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="^[TabStripPlacement=Left],^[TabStripPlacement=Right]">
+            <Setter Property="TabControl.ItemsPanel">
+                <ItemsPanelTemplate>
+                    <StackPanel />
+                </ItemsPanelTemplate>
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type TabItem}" TargetType="TabItem">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="MinHeight" Value="{DynamicResource TDTabItemMinHeight}" />
+        <Setter Property="Padding" Value="{DynamicResource TDTabItemPadding}" />
+        <Setter Property="FontSize" Value="{DynamicResource TDTabItemFontSize}" />
+        <Setter Property="FontWeight" Value="{DynamicResource TDTabItemFontWeight}" />
+        <Setter Property="Foreground" Value="{DynamicResource TDTabItemForeground}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="iri:ClassHelper.ClassSource" Value="{Binding $parent[TabControl]}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="TabItem">
+                <Panel>
+                    <Border
+                        Name="PART_LayoutRoot"
+                        Background="{TemplateBinding Background}"
+                        Padding="{TemplateBinding Padding}">
+                        <DockPanel
+                            Name="PART_HeaderPanel"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            LastChildFill="False">
+                            <ContentPresenter
+                                Name="PART_IconPresenter"
+                                DockPanel.Dock="Left"
+                                Content="{TemplateBinding Icon}"
+                                ContentTemplate="{TemplateBinding IconTemplate}"
+                                Foreground="{TemplateBinding Foreground}"
+                                IsVisible="{Binding $self.Content,Converter={x:Static ObjectConverters.IsNotNull}}"
+                                Margin="{DynamicResource TDTabItemIconMargin}">
+                                <ContentPresenter.DataTemplates>
+                                    <DataTemplate DataType="Geometry">
+                                        <PathIcon
+                                            Width="{DynamicResource TDTabItemIconSize}"
+                                            Height="{DynamicResource TDTabItemIconSize}"
+                                            Data="{Binding}" />
+                                    </DataTemplate>
+                                </ContentPresenter.DataTemplates>
+                            </ContentPresenter>
+                            <ContentPresenter
+                                Name="PART_ContentPresenter"
+                                Content="{TemplateBinding Header}"
+                                ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                Foreground="{TemplateBinding Foreground}"
+                                FontSize="{TemplateBinding FontSize}"
+                                FontWeight="{TemplateBinding FontWeight}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </DockPanel>
+                    </Border>
+                    <ContentPresenter
+                        Name="PART_SelectedIndicator"
+                        Content="{TemplateBinding DataContext}"
+                        ContentTemplate="{TemplateBinding IndicatorTemplate}"
+                        IsVisible="False" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Top],^[TabStripPlacement=Bottom]">
+            <Setter Property="TabItem.IndicatorTemplate">
+                <DataTemplate>
+                    <Border
+                        Width="{DynamicResource TDTabItemIndicatorLength}"
+                        Height="{DynamicResource TDTabItemIndicatorThickness}"
+                        Background="{Binding $parent[TabItem].Foreground}"
+                        CornerRadius="{DynamicResource TDTabItemIndicatorCornerRadius}" />
+                </DataTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="^[TabStripPlacement=Left],^[TabStripPlacement=Right]">
+            <Setter Property="TabItem.IndicatorTemplate">
+                <DataTemplate>
+                    <Border
+                        Width="{DynamicResource TDTabItemIndicatorThickness}"
+                        Height="{DynamicResource TDTabItemIndicatorLength}"
+                        Background="{Binding $parent[TabItem].Foreground}"
+                        CornerRadius="{DynamicResource TDTabItemIndicatorCornerRadius}" />
+                </DataTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="^[TabStripPlacement=Top]">
+            <Style Selector="^ /template/ ContentPresenter#PART_SelectedIndicator">
+                <Setter Property="VerticalAlignment" Value="Bottom" />
+            </Style>
+        </Style>
+        <Style Selector="^[TabStripPlacement=Bottom]">
+            <Style Selector="^ /template/ ContentPresenter#PART_SelectedIndicator">
+                <Setter Property="VerticalAlignment" Value="Top" />
+            </Style>
+        </Style>
+        <Style Selector="^[TabStripPlacement=Left]">
+            <Style Selector="^ /template/ ContentPresenter#PART_SelectedIndicator">
+                <Setter Property="HorizontalAlignment" Value="Right" />
+            </Style>
+        </Style>
+        <Style Selector="^[TabStripPlacement=Right]">
+            <Style Selector="^ /template/ ContentPresenter#PART_SelectedIndicator">
+                <Setter Property="HorizontalAlignment" Value="Left" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:selected">
+            <Setter Property="Foreground" Value="{DynamicResource TDTabItemSelectedForeground}" />
+            <Setter Property="FontWeight" Value="{DynamicResource TDTabItemSelectedFontWeight}" />
+            <Style Selector="^ /template/ ContentPresenter#PART_SelectedIndicator">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Style
+                Selector="^ /template/ ContentPresenter#PART_ContentPresenter, ^ /template/ ContentPresenter#PART_IconPresenter">
+                <Setter Property="TabItem.Foreground" Value="{DynamicResource TDTabItemDisabledForeground}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^.Large">
+            <Setter Property="FontSize" Value="{DynamicResource TDTabItemLargeFontSize}" />
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>

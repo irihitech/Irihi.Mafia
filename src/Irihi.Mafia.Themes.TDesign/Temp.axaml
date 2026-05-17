@@ -32,4 +32,11 @@
     <StreamGeometry x:Key="TempCheckGlyph">
         M19.5708 7.37842L10.3785 16.5708L5.42871 11.6211
     </StreamGeometry>
+    <StreamGeometry x:Key="TempHomeGlyph">
+        M9 14H15V21H9V14Z
+        M3 10L12 2.5L21 10V21H3V10Z
+    </StreamGeometry>
+    <StreamGeometry x:Key="TempChatGlyph">
+        M2.5 3H21.5V17H6.5L2.5 20.5V3Z
+    </StreamGeometry>
 </ResourceDictionary>

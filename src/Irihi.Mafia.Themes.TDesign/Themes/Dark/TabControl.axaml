@@ -1,0 +1,11 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StaticResource x:Key="TDTabControlBackground" ResourceKey="TDBgColorPage" />
+    <StaticResource x:Key="TDTabControlStripBackground" ResourceKey="TDBgColorContainer" />
+    <StaticResource x:Key="TDTabControlSeparatorBrush" ResourceKey="TDComponentStroke" />
+
+    <StaticResource x:Key="TDTabItemForeground" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDTabItemSelectedForeground" ResourceKey="TDTextColorBrand" />
+    <StaticResource x:Key="TDTabItemDisabledForeground" ResourceKey="TDTextColorDisabled" />
+</ResourceDictionary>

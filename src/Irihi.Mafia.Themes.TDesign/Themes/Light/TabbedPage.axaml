@@ -1,0 +1,17 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StaticResource x:Key="TDTabbedPageBackground" ResourceKey="TDBgColorPage" />
+    <StaticResource x:Key="TDTabbedPageTabStripBackground" ResourceKey="TDBgColorContainer" />
+    <StaticResource x:Key="TDTabbedPageTabStripBorderBrush" ResourceKey="TDComponentStroke" />
+
+    <StaticResource x:Key="TDTabbedPageTabItemForeground" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDTabbedPageTabItemSelectedForeground" ResourceKey="TDTextColorBrand" />
+    <StaticResource x:Key="TDTabbedPageTabItemDisabledForeground" ResourceKey="TDTextColorDisabled" />
+    <StaticResource x:Key="TDTabbedPageTabItemPressedBackground" ResourceKey="TDBgColorContainerHover" />
+    <StaticResource x:Key="TDTabbedPageTabItemSelectedPressedBackground" ResourceKey="TDBgColorContainerHover" />
+
+    <StaticResource x:Key="TDTabbedPageTagTabItemSelectedBackground" ResourceKey="TDBrandColorLight" />
+    <StaticResource x:Key="TDTabbedPageTagTabItemPressedBackground" ResourceKey="TDBgColorContainerHover" />
+    <StaticResource x:Key="TDTabbedPageTagTabItemSelectedPressedBackground" ResourceKey="TDBrandColorLightActive" />
+</ResourceDictionary>
