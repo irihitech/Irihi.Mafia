@@ -97,7 +97,9 @@ Rules:
 4. Keep shared structure in `Themes/Shared`, and light/dark differences in `Themes/Light` and `Themes/Dark`
 5. Put shared metrics and layout resources such as font size, font weight, spacing, padding, margin, sizing, radius, and indicator thickness in `Themes/Shared/<Component>.axaml`
 6. Put theme-variant visual aliases such as foreground, background, border brush, and selected / pressed / disabled color resources in `Themes/Light/<Component>.axaml` and `Themes/Dark/<Component>.axaml`
-7. Prefer touch-oriented size and spacing aliases over desktop-sized measurements
+7. Use leading-uppercase class names in `Classes` and avoid lowercase variant names; prefer `Primary`, `Large`, `Tag`, and `Round`
+8. When a component uses Avalonia `Classes` for variants, merge related selectors under one outer `Style` block per class instead of spreading many flat sibling `Style` nodes
+9. Prefer touch-oriented size and spacing aliases over desktop-sized measurements
 
 ## 7. Files Expected for a New Component
 

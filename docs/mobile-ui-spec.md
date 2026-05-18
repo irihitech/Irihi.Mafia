@@ -76,6 +76,8 @@ For component theme files, keep the resource split explicit:
 
 1. `Themes/Shared/<Component>.axaml` holds shared metrics and structure-oriented aliases such as typography, spacing, padding, margin, sizing, radius, and indicator dimensions
 2. `Themes/Light/<Component>.axaml` and `Themes/Dark/<Component>.axaml` hold theme-variant visual aliases such as foreground, background, border brush, and state-specific color resources
+3. Use leading-uppercase class names in `Classes` and avoid lowercase variant names; prefer `Primary`, `Large`, `Tag`, and `Round`
+4. When variant styling is driven by Avalonia `Classes`, group each class under a single outer `Style` block and nest the related selectors inside it for readability
 
 Do not put shared sizing rules into light/dark files, and do not put theme-specific color aliases into shared files.
 

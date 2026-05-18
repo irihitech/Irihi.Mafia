@@ -121,6 +121,8 @@ Do not implement a component only in the demo or only in theme files if it needs
 - Put shared metrics and structure resources such as typography, spacing, sizing, padding, margin, corner radius, and layout-oriented aliases in `Themes/Shared`
 - Keep light/dark value differences in `Themes/Light` and `Themes/Dark`
 - Put theme-variant visual resources such as foregrounds, backgrounds, border brushes, and state-specific color aliases in `Themes/Light` and `Themes/Dark`
+- Use leading-uppercase class names in `Classes` and avoid lowercase variant names; prefer forms like `Primary`, `Large`, `Tag`, and `Round`
+- When styling `Classes`, prefer merging related class-based selectors under one outer `Style` such as `^.Tag` or `^.Round` instead of scattering many flat sibling `Style` blocks
 - Reuse existing tokens before adding new ones
 - Add component-level tokens only when semantic tokens are not enough
 
