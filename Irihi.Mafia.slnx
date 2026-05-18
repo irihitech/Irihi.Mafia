@@ -25,5 +25,6 @@
     <Project Path="demo/Irihi.Mafia.Demo.Browser/Irihi.Mafia.Demo.Browser.csproj" />
     <Project Path="demo/Irihi.Mafia.Demo.Desktop/Irihi.Mafia.Demo.Desktop.csproj" />
     <Project Path="demo/Irihi.Mafia.Demo.iOS/Irihi.Mafia.Demo.iOS.csproj" />
+    <Project Path="demo/Sandbox/Sandbox.csproj" />
   </Folder>
 </Solution>
