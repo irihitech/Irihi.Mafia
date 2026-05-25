@@ -1,0 +1,20 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <x:Double x:Key="TDDrawerPageDrawerLength">280</x:Double>
+    <x:Double x:Key="TDDrawerPageCompactDrawerLength">48</x:Double>
+    <x:Double x:Key="TDDrawerPageTopBarMinHeight">48</x:Double>
+    <x:Double x:Key="TDDrawerPagePaneButtonSize">40</x:Double>
+    <x:Double x:Key="TDDrawerPagePaneButtonIconSize">20</x:Double>
+
+    <Thickness x:Key="TDDrawerPageTopBarPadding">8,4</Thickness>
+    <Thickness x:Key="TDDrawerPageTitleMargin">8,0,0,0</Thickness>
+    <Thickness x:Key="TDDrawerPageTopBarBorderThickness">0,0,0,1</Thickness>
+    <Thickness x:Key="TDDrawerPageBottomBarBorderThickness">0,1,0,0</Thickness>
+
+    <StaticResource x:Key="TDDrawerPagePaneButtonCornerRadius" ResourceKey="TDRadiusDefault" />
+    <StaticResource x:Key="TDDrawerPageTitleFontSize" ResourceKey="TDFontSizeTitleMedium" />
+    <FontWeight x:Key="TDDrawerPageTitleFontWeight">600</FontWeight>
+
+    <StaticResource x:Key="TDDrawerPageMenuGlyph" ResourceKey="TempMenuGlyph" />
+</ResourceDictionary>

@@ -5,6 +5,7 @@
         <ResourceInclude Source="Cell.axaml" />
         <ResourceInclude Source="CheckBox.axaml" />
         <ResourceInclude Source="Divider.axaml" />
+        <ResourceInclude Source="DrawerPage.axaml" />
         <ResourceInclude Source="HyperlinkButton.axaml" />
         <ResourceInclude Source="Popup.axaml" />
         <ResourceInclude Source="Progress.axaml" />
