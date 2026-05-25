@@ -6,11 +6,4 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Irihi.Mafia.Demo.Views.MainView"
              x:DataType="vm:MainViewModel">
-    <StackPanel>
-        <TextBlock Text="Select Phone Resolution:" FontWeight="Bold" />
-        <ComboBox ItemsSource="{Binding PhoneResolutions}"
-                  SelectedItem="{Binding SelectedResolution}"
-                  MinWidth="250"
-                  HorizontalAlignment="Left" />
-    </StackPanel>
 </UserControl>
