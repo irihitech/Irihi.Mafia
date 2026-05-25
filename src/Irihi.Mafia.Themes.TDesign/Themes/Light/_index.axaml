@@ -4,9 +4,11 @@
         <ResourceInclude Source="Button.axaml" />
         <ResourceInclude Source="Cell.axaml" />
         <ResourceInclude Source="CheckBox.axaml" />
+        <ResourceInclude Source="ContentPage.axaml" />
         <ResourceInclude Source="Divider.axaml" />
         <ResourceInclude Source="DrawerPage.axaml" />
         <ResourceInclude Source="HyperlinkButton.axaml" />
+        <ResourceInclude Source="NavigationPage.axaml" />
         <ResourceInclude Source="Popup.axaml" />
         <ResourceInclude Source="Progress.axaml" />
         <ResourceInclude Source="RadioButton.axaml" />
@@ -14,8 +16,6 @@
         <ResourceInclude Source="SplitView.axaml" />
         <ResourceInclude Source="Switch.axaml" />
         <ResourceInclude Source="TabControl.axaml" />
-        <ResourceInclude Source="ContentPage.axaml" />
-        <ResourceInclude Source="NavigationPage.axaml" />
         <ResourceInclude Source="TabbedPage.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

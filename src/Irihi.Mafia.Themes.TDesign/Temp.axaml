@@ -39,6 +39,15 @@
     <StreamGeometry x:Key="TempChatGlyph">
         M2.5 3H21.5V17H6.5L2.5 20.5V3Z
     </StreamGeometry>
+    <!-- <StreamGeometry x:Key="TempChevronLeftGlyph"> -->
+    <!--     M14.5 17.5L9 12L14.5 6.5 -->
+    <!-- </StreamGeometry> -->
+    <StreamGeometry x:Key="TempChevronLeftGlyph">
+        M16.28 4.24a1.5 1.5 0 0 1 0 2.12l-5.66 5.66 5.66 5.65a1.5 1.5 0 1 1-2.12 2.13l-6.72-6.72a1.5 1.5 0 0 1 0-2.12l6.72-6.72a1.5 1.5 0 0 1 2.12 0Z
+    </StreamGeometry>
+    <StreamGeometry x:Key="TempGridViewGlyph">
+        M10 3H3V10H10V3ZM14 3H21V10H14V3ZM21 14H14V21H21V14ZM10 14H3V21H10V14Z
+    </StreamGeometry>
     <StreamGeometry x:Key="TempMenuGlyph">
         M3 17h18a1 1 0 0 1 .117 1.993L21 19H3a1 1 0 0 1-.117-1.993L3 17h18H3Zm0-6 18-.002a1 1 0 0 1 .117 1.993l-.117.007L3 13a1 1 0 0 1-.117-1.993L3 11l18-.002L3 11Zm0-6h18a1 1 0 0 1 .117 1.993L21 7H3a1 1 0 0 1-.117-1.993L3 5h18H3Z
     </StreamGeometry>

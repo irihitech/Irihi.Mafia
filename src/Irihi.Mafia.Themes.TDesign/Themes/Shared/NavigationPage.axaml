@@ -1,11 +1,29 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <!--  NavigationPage  -->
-    <x:Double x:Key="NavigationPageBarMinHeight">48</x:Double>
-    <x:Double x:Key="NavigationPageBarLargeMinHeight">56</x:Double>
-    <Thickness x:Key="NavigationPageBarPadding">8,0</Thickness>
-    <Thickness x:Key="NavigationPageBarBorderThickness">0 0 0 1</Thickness>
-    <x:Double x:Key="NavigationPageHeaderFontSize">18</x:Double>
-    <FontWeight x:Key="NavigationPageHeaderFontWeight">SemiBold</FontWeight>
-    <StreamGeometry x:Key="NavigationPageBackButtonGlyph">M16.28 4.24a1.5 1.5 0 0 1 0 2.12l-5.66 5.66 5.66 5.65a1.5 1.5 0 1 1-2.12 2.13l-6.72-6.72a1.5 1.5 0 0 1 0-2.12l6.72-6.72a1.5 1.5 0 0 1 2.12 0Z</StreamGeometry>
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StaticResource x:Key="TDNavigationPageBarMinHeight" ResourceKey="TDCompSizeXXL" />
+    <Thickness x:Key="TDNavigationPageBarBorderThickness">0,0,0,1</Thickness>
+    <Thickness x:Key="TDNavigationPageBackButtonPadding">0</Thickness>
+
+    <StaticResource x:Key="TDNavigationPageHeaderMargin" ResourceKey="TDCompPaddingLRM" />
+    <StaticResource x:Key="TDNavigationPageHeaderFontSize" ResourceKey="TDFontSizeTitleLarge" />
+    <FontWeight x:Key="TDNavigationPageHeaderFontWeight">600</FontWeight>
+    <StaticResource x:Key="TDNavigationPageNavBarShadowHeight" ResourceKey="TDSize2" />
+
+    <PageSlide x:Key="TDNavigationPagePageTransition" Duration="0:0:0.3" Orientation="Horizontal" FillMode="Forward">
+        <PageSlide.SlideInEasing>
+            <SplineEasing X1="0.16" Y1="1" X2="0.3" Y2="1" />
+        </PageSlide.SlideInEasing>
+        <PageSlide.SlideOutEasing>
+            <SplineEasing X1="0.2" Y1="0.85" X2="0.3" Y2="1" />
+        </PageSlide.SlideOutEasing>
+    </PageSlide>
+    <PageSlide x:Key="TDNavigationPageModalTransition" Duration="0:0:0.25" Orientation="Vertical" FillMode="Forward">
+        <PageSlide.SlideInEasing>
+            <SplineEasing X1="0.16" Y1="1" X2="0.3" Y2="1" />
+        </PageSlide.SlideInEasing>
+        <PageSlide.SlideOutEasing>
+            <SplineEasing X1="0.2" Y1="0.85" X2="0.3" Y2="1" />
+        </PageSlide.SlideOutEasing>
+    </PageSlide>
 </ResourceDictionary>

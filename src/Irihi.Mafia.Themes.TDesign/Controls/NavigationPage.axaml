@@ -2,95 +2,16 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
-        <NavigationPage Width="400" Height="300" />
+        <NavigationPage Width="400" Height="300">
+            <ContentPage Header="标题" Content="内容" />
+        </NavigationPage>
     </Design.PreviewWith>
 
-    <!-- InnerPathIcon: PathIcon theme for navigation bar icons -->
-    <ControlTheme x:Key="InnerPathIcon" TargetType="PathIcon">
-        <Setter Property="Width" Value="{StaticResource TDSize8}" />
-        <Setter Property="Height" Value="{StaticResource TDSize8}" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Template">
-            <ControlTemplate TargetType="PathIcon">
-                <Border Background="{TemplateBinding Background}">
-                    <Viewbox
-                        Width="{TemplateBinding Width}"
-                        Height="{TemplateBinding Height}">
-                        <Path
-                            Name="PART_Path"
-                            Width="24"
-                            Height="24"
-                            Data="{TemplateBinding Data}"
-                            Fill="{TemplateBinding Foreground}" />
-                    </Viewbox>
-                </Border>
-            </ControlTemplate>
-        </Setter>
-    </ControlTheme>
-
-    <!-- BorderlessButton: button without border/background for nav bar -->
-    <ControlTheme x:Key="BorderlessButton" TargetType="Button">
-        <Setter Property="Foreground" Value="{DynamicResource TDTextColorPrimary}" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="BorderThickness" Value="0" />
-        <Setter Property="Padding" Value="0" />
-        <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Template">
-            <ControlTemplate TargetType="Button">
-                <ContentPresenter
-                    Name="PART_ContentPresenter"
-                    Padding="{TemplateBinding Padding}"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch"
-                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    Content="{TemplateBinding Content}"
-                    ContentTemplate="{TemplateBinding ContentTemplate}" />
-            </ControlTemplate>
-        </Setter>
-        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Background" Value="{DynamicResource TDBgColorContainerHover}" />
-        </Style>
-        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Background" Value="{DynamicResource TDBgColorContainerActive}" />
-        </Style>
-        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource TDTextColorDisabled}" />
-        </Style>
-    </ControlTheme>
-
     <ControlTheme x:Key="{x:Type NavigationPage}" TargetType="NavigationPage">
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BarHeight" Value="{DynamicResource NavigationPageBarMinHeight}" />
-        <Setter Property="PageTransition">
-            <PageSlide Duration="0:0:0.3" Orientation="Horizontal" FillMode="Forward">
-                <PageSlide.SlideInEasing>
-                    <SplineEasing X1="0.16" Y1="1" X2="0.3" Y2="1" />
-                </PageSlide.SlideInEasing>
-                <PageSlide.SlideOutEasing>
-                    <SplineEasing X1="0.2" Y1="0.85" X2="0.3" Y2="1" />
-                </PageSlide.SlideOutEasing>
-            </PageSlide>
-        </Setter>
-        <Setter Property="ModalTransition">
-            <PageSlide Duration="0:0:0.25" Orientation="Vertical" FillMode="Forward">
-                <PageSlide.SlideInEasing>
-                    <SplineEasing X1="0.16" Y1="1" X2="0.3" Y2="1" />
-                </PageSlide.SlideInEasing>
-                <PageSlide.SlideOutEasing>
-                    <SplineEasing X1="0.2" Y1="0.85" X2="0.3" Y2="1" />
-                </PageSlide.SlideOutEasing>
-            </PageSlide>
-        </Setter>
+        <Setter Property="Background" Value="{DynamicResource TDNavigationPageBackground}" />
+        <Setter Property="BarHeight" Value="{DynamicResource TDNavigationPageBarMinHeight}" />
+        <Setter Property="PageTransition" Value="{DynamicResource TDNavigationPagePageTransition}"/>
+        <Setter Property="ModalTransition" Value="{DynamicResource TDNavigationPageModalTransition}"/>
         <Setter Property="Template">
             <ControlTemplate TargetType="NavigationPage">
                 <Panel ClipToBounds="True">
@@ -118,40 +39,40 @@
                         Name="PART_NavigationBar"
                         VerticalAlignment="Top"
                         MinHeight="{TemplateBinding EffectiveBarHeight}"
-                        Padding="{DynamicResource NavigationPageBarPadding}"
-                        Background="{DynamicResource NavigationPageBarBackground}"
-                        BorderBrush="{DynamicResource NavigationPageBarBorderBrush}"
-                        BorderThickness="{DynamicResource NavigationPageBarBorderThickness}">
+                        Background="{DynamicResource TDNavigationPageBarBackground}"
+                        BorderBrush="{DynamicResource TDNavigationPageBarBorderBrush}"
+                        BorderThickness="{DynamicResource TDNavigationPageBarBorderThickness}">
                         <Grid ColumnDefinitions="Auto,*,Auto">
                             <Button
                                 Name="PART_BackButton"
                                 Grid.Column="0"
-                                Classes="Tertiary"
-                                Height="{TemplateBinding BarHeight}"
-                                Width="{TemplateBinding BarHeight}"
-                                Padding="8"
+                                MinHeight="{TemplateBinding EffectiveBarHeight}"
+                                MinWidth="{TemplateBinding EffectiveBarHeight}"
+                                Padding="{DynamicResource TDNavigationPageBackButtonPadding}"
                                 IsVisible="{TemplateBinding IsBackButtonEffectivelyVisible}"
-                                Theme="{StaticResource BorderlessButton}">
+                                Theme="{StaticResource TextButton}">
                                 <Panel Background="Transparent">
                                     <PathIcon
                                         Name="PART_BackButtonDefaultIcon"
-                                        Theme="{StaticResource InnerPathIcon}"
-                                        Data="{DynamicResource NavigationPageBackButtonGlyph}" />
+                                        Foreground="{DynamicResource TDNavigationPageBackButtonForeground}"
+                                        Data="{DynamicResource TempChevronLeftGlyph}" />
                                     <ContentPresenter
                                         Name="PART_BackButtonContentPresenter"
                                         VerticalAlignment="Center"
-                                        HorizontalAlignment="Center" />
+                                        HorizontalAlignment="Center"
+                                        Foreground="{DynamicResource TDNavigationPageBackButtonForeground}" />
                                 </Panel>
                             </Button>
                             <ContentPresenter
                                 Name="PART_Header"
                                 Grid.Column="1"
-                                FontSize="{DynamicResource NavigationPageHeaderFontSize}"
-                                FontWeight="{DynamicResource NavigationPageHeaderFontWeight}"
+                                Foreground="{DynamicResource TDNavigationPageHeaderForeground}"
+                                FontWeight="{DynamicResource TDNavigationPageHeaderFontWeight}"
+                                FontSize="{DynamicResource TDNavigationPageHeaderFontSize}"
                                 Content="{Binding CurrentPage?.Header, RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}"
                                 ContentTemplate="{Binding CurrentPage?.HeaderTemplate, RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}"
                                 VerticalAlignment="Center"
-                                Margin="12,0" />
+                                Margin="{DynamicResource TDNavigationPageHeaderMargin}" />
                             <ContentPresenter
                                 Name="PART_TopCommandBar"
                                 Grid.Column="2"
@@ -165,14 +86,9 @@
                         ZIndex="1"
                         VerticalAlignment="Top"
                         IsVisible="False"
-                        Height="4"
+                        Height="{DynamicResource TDNavigationPageNavBarShadowHeight}"
+                        Background="{DynamicResource TDNavigationPageNavBarShadowBackground}"
                         IsHitTestVisible="False">
-                        <Border.Background>
-                            <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
-                                <GradientStop Color="#0C000000" Offset="0" />
-                                <GradientStop Color="#00000000" Offset="1" />
-                            </LinearGradientBrush>
-                        </Border.Background>
                     </Border>
                     <ContentPresenter
                         Name="PART_ModalBackPresenter"
@@ -189,7 +105,7 @@
         </Setter>
 
         <Style Selector="^ /template/ Border#PART_NavigationBar">
-            <Setter Property="Background" Value="{DynamicResource NavigationBarBackground}" />
+            <Setter Property="Background" Value="{DynamicResource TDNavigationBarBackground}" />
         </Style>
 
         <Style Selector="^:nav-bar-inset /template/ Border#PART_NavBarSpacer">
@@ -198,10 +114,6 @@
 
         <Style Selector="^:nav-bar-compact /template/ ContentPresenter#PART_TopCommandBar CommandBar">
             <Setter Property="DefaultLabelPosition" Value="Collapsed" />
-        </Style>
-
-        <Style Selector="^.Large">
-            <Setter Property="BarHeight" Value="{DynamicResource NavigationPageBarLargeMinHeight}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

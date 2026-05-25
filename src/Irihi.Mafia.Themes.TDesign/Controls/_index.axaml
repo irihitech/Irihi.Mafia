@@ -5,10 +5,12 @@
         <ResourceInclude Source="Button.axaml" />
         <ResourceInclude Source="Cell.axaml" />
         <ResourceInclude Source="CheckBox.axaml" />
+        <ResourceInclude Source="ContentPage.axaml" />
         <ResourceInclude Source="Divider.axaml" />
         <ResourceInclude Source="DrawerPage.axaml" />
         <ResourceInclude Source="HyperlinkButton.axaml" />
         <ResourceInclude Source="IconButton.axaml" />
+        <ResourceInclude Source="NavigationPage.axaml" />
         <ResourceInclude Source="PathIcon.axaml" />
         <ResourceInclude Source="Progress.axaml" />
         <ResourceInclude Source="RadioButton.axaml" />
