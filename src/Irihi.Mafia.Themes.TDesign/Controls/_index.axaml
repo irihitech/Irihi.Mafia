@@ -12,6 +12,7 @@
         <ResourceInclude Source="Progress.axaml" />
         <ResourceInclude Source="RadioButton.axaml" />
         <ResourceInclude Source="Slider.axaml" />
+        <ResourceInclude Source="SplitView.axaml" />
         <ResourceInclude Source="Switch.axaml" />
         <ResourceInclude Source="TabControl.axaml" />
         <ResourceInclude Source="ContentPage.axaml" />

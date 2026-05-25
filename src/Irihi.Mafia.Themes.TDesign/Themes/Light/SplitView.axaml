@@ -1,0 +1,8 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StaticResource x:Key="TDSplitViewBackground" ResourceKey="TDBgColorPage" />
+    <StaticResource x:Key="TDSplitViewPaneBackground" ResourceKey="TDBgColorContainer" />
+    <StaticResource x:Key="TDSplitViewSeparatorBrush" ResourceKey="TDComponentStroke" />
+    <StaticResource x:Key="TDSplitViewLightDismissOverlayBackground" ResourceKey="TDMaskActive" />
+</ResourceDictionary>
