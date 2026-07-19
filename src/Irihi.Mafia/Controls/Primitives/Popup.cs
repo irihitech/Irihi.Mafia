@@ -103,7 +103,7 @@ public class Popup : Control
         {
             Content = Child,
             [~IsModalProperty] = this[~IsModalProperty],
-            [~MaskBrushProperty] = this[~MaskBrushProperty],
+            MaskBrush = IsModal ? MaskBrush : global::Avalonia.Media.Brushes.Transparent,
             [~OverlayPopupHost.PlacementProperty] = this[~PlacementProperty],
         };
 
@@ -204,6 +204,7 @@ public class Popup : Control
         if (_host is null) return;
 
         _host.MaskPointerPressed -= OnMaskPointerPressed;
+        _host.Content = null;
         _sizeSubscription?.Dispose();
         _sizeSubscription = null;
         if (_overlayLayer is not null)

@@ -36,9 +36,7 @@
                 <Panel>
                     <Border
                         Name="PART_MaskBorder"
-                        IsHitTestVisible="{TemplateBinding IsModal}"
-                        Background="{TemplateBinding MaskBrush}"
-                        IsVisible="{TemplateBinding IsModal}" />
+                        Background="{TemplateBinding MaskBrush}" />
                     <ContentPresenter
                         Name="PART_ContentPresenter"
                         Content="{TemplateBinding Content}"
