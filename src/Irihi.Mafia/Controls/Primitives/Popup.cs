@@ -13,7 +13,7 @@ namespace Irihi.Mafia.Controls.Primitives;
 public class Popup : Control
 {
     public static readonly StyledProperty<bool> IsOpenProperty =
-        AvaloniaProperty.Register<Popup, bool>(nameof(IsOpen));
+        AvaloniaProperty.Register<Popup, bool>(nameof(IsOpen), defaultBindingMode: global::Avalonia.Data.BindingMode.TwoWay);
 
     public bool IsOpen
     {
@@ -103,9 +103,13 @@ public class Popup : Control
         {
             Content = Child,
             [~IsModalProperty] = this[~IsModalProperty],
-            MaskBrush = IsModal ? MaskBrush : global::Avalonia.Media.Brushes.Transparent,
             [~OverlayPopupHost.PlacementProperty] = this[~PlacementProperty],
         };
+
+        if (!IsModal)
+            host.MaskBrush = global::Avalonia.Media.Brushes.Transparent;
+        else if (IsSet(MaskBrushProperty))
+            host.MaskBrush = MaskBrush;
 
         host.MaskPointerPressed += OnMaskPointerPressed;
         _host = host;
