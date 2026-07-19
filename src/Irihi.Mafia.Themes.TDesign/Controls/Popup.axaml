@@ -40,10 +40,28 @@
                     <ContentPresenter
                         Name="PART_ContentPresenter"
                         Content="{TemplateBinding Content}"
-                        ContentTemplate="{TemplateBinding ContentTemplate}" />
+                        ContentTemplate="{TemplateBinding ContentTemplate}">
+                        <ContentPresenter.RenderTransform>
+                            <TranslateTransform
+                                X="{Binding ContentOffsetX, RelativeSource={RelativeSource TemplatedParent}}"
+                                Y="{Binding ContentOffsetY, RelativeSource={RelativeSource TemplatedParent}}" />
+                        </ContentPresenter.RenderTransform>
+                    </ContentPresenter>
                 </Panel>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition Property="Opacity" Duration="0:0:0.2" />
+                    <DoubleTransition Property="m:OverlayPopupHost.ContentOffsetX" Duration="0:0:0.25"
+                                      Easing="0.4,0,0.2,1" />
+                    <DoubleTransition Property="m:OverlayPopupHost.ContentOffsetY" Duration="0:0:0.25"
+                                      Easing="0.4,0,0.2,1" />
+                </Transitions>
+            </Setter>
+        </Style>
 
         <Style Selector="^:bottom /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="VerticalAlignment" Value="Bottom" />

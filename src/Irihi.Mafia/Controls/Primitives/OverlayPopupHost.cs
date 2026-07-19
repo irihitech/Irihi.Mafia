@@ -20,6 +20,24 @@ public class OverlayPopupHost : ContentControl
     public const string PC_FullScreen = ":fullscreen";
     public const string PART_MaskBorder = "PART_MaskBorder";
 
+    public static readonly StyledProperty<double> ContentOffsetXProperty =
+        AvaloniaProperty.Register<OverlayPopupHost, double>(nameof(ContentOffsetX));
+
+    public double ContentOffsetX
+    {
+        get => GetValue(ContentOffsetXProperty);
+        set => SetValue(ContentOffsetXProperty, value);
+    }
+
+    public static readonly StyledProperty<double> ContentOffsetYProperty =
+        AvaloniaProperty.Register<OverlayPopupHost, double>(nameof(ContentOffsetY));
+
+    public double ContentOffsetY
+    {
+        get => GetValue(ContentOffsetYProperty);
+        set => SetValue(ContentOffsetYProperty, value);
+    }
+
     public static readonly StyledProperty<PopupPlacement> PlacementProperty =
         AvaloniaProperty.Register<OverlayPopupHost, PopupPlacement>(nameof(Placement), defaultValue: PopupPlacement.Bottom);
 
