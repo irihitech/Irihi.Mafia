@@ -6,6 +6,7 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.LogicalTree;
 using Avalonia.Media;
+using Avalonia.Metadata;
 using Avalonia.Threading;
 using Avalonia.VisualTree;
 using Irihi.Mafia.Common;
@@ -26,6 +27,7 @@ public class Popup : Control
     public static readonly StyledProperty<Control?> ChildProperty =
         AvaloniaProperty.Register<Popup, Control?>(nameof(Child));
 
+    [Content]
     public Control? Child
     {
         get => GetValue(ChildProperty);

@@ -35,40 +35,36 @@
                  IsModal="{Binding IsModal}"
                  IsLightDismissEnabled="{Binding IsLightDismiss}"
                  Placement="{Binding PopupPlacement}">
-            <m:Popup.Child>
-                <Border Background="{DynamicResource TDBgColorContainer}"
-                        CornerRadius="12"
-                        Padding="24"
-                        MinHeight="200">
-                    <StackPanel Spacing="12">
-                        <TextBlock Text="{Binding PopupTitle}" FontSize="20" FontWeight="Bold" />
-                        <TextBlock Text="Click outside or press close to dismiss." TextWrapping="Wrap" />
-                        <Button Content="Close"
-                                Command="{Binding ClosePopupCommand}"
-                                HorizontalAlignment="Center" />
-                    </StackPanel>
-                </Border>
-            </m:Popup.Child>
+            <Border Background="{DynamicResource TDBgColorContainer}"
+                    CornerRadius="12"
+                    Padding="24"
+                    MinHeight="200">
+                <StackPanel Spacing="12">
+                    <TextBlock Text="{Binding PopupTitle}" FontSize="20" FontWeight="Bold" />
+                    <TextBlock Text="Click outside or press close to dismiss." TextWrapping="Wrap" />
+                    <Button Content="Close"
+                            Command="{Binding ClosePopupCommand}"
+                            HorizontalAlignment="Center" />
+                </StackPanel>
+            </Border>
         </m:Popup>
 
         <Panel m:Popup.Placement="Bottom">
             <m:Popup IsOpen="{Binding IsInheritedPopupOpen}"
                      IsModal="True"
                      IsLightDismissEnabled="True">
-                <m:Popup.Child>
-                    <Border Background="{DynamicResource TDBgColorContainer}"
-                            CornerRadius="12"
-                            Padding="24"
-                            MinHeight="150">
-                        <StackPanel Spacing="12">
-                            <TextBlock Text="Inherited: Bottom" FontSize="20" FontWeight="Bold" />
-                            <TextBlock Text="Placement inherited from parent Panel via m:Popup.Placement." TextWrapping="Wrap" />
-                            <Button Content="Close"
-                                    Command="{Binding CloseInheritedPopupCommand}"
-                                    HorizontalAlignment="Center" />
-                        </StackPanel>
-                    </Border>
-                </m:Popup.Child>
+                <Border Background="{DynamicResource TDBgColorContainer}"
+                        CornerRadius="12"
+                        Padding="24"
+                        MinHeight="150">
+                    <StackPanel Spacing="12">
+                        <TextBlock Text="Inherited: Bottom" FontSize="20" FontWeight="Bold" />
+                        <TextBlock Text="Placement inherited from parent Panel via m:Popup.Placement." TextWrapping="Wrap" />
+                        <Button Content="Close"
+                                Command="{Binding CloseInheritedPopupCommand}"
+                                HorizontalAlignment="Center" />
+                    </StackPanel>
+                </Border>
             </m:Popup>
         </Panel>
     </Panel>
