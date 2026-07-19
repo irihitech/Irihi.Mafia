@@ -1,6 +1,7 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:m="https://irihi.tech/mafia">
     <ControlTheme x:Key="{x:Type PopupRoot}" TargetType="PopupRoot">
         <Setter Property="Background" Value="{x:Null}" />
         <Setter Property="TransparencyLevelHint" Value="Transparent" />
@@ -28,25 +29,47 @@
         </Setter>
     </ControlTheme>
 
-    <ControlTheme x:Key="{x:Type OverlayPopupHost}" TargetType="OverlayPopupHost">
-        <Setter Property="FontSize" Value="{DynamicResource TDFontBodyMedium}" />
-        <Setter Property="FontFamily" Value="{DynamicResource TDFontFamily}" />
-        <Setter Property="Inline.TextDecorations" Value="" />
+    <ControlTheme x:Key="{x:Type m:OverlayPopupHost}" TargetType="m:OverlayPopupHost">
+        <Setter Property="MaskBrush" Value="{DynamicResource TDPopupMaskBrush}" />
         <Setter Property="Template">
-            <ControlTemplate>
-                <LayoutTransformControl LayoutTransform="{TemplateBinding Transform}">
-                    <VisualLayerManager Name="PART_VisualLayerManager">
-                        <LayoutTransformControl Name="PART_LayoutTransform">
-                            <ContentPresenter
-                                Name="PART_ContentPresenter"
-                                Padding="{TemplateBinding Padding}"
-                                Background="{TemplateBinding Background}"
-                                Content="{TemplateBinding Content}"
-                                ContentTemplate="{TemplateBinding ContentTemplate}" />
-                        </LayoutTransformControl>
-                    </VisualLayerManager>
-                </LayoutTransformControl>
+            <ControlTemplate TargetType="m:OverlayPopupHost">
+                <Panel>
+                    <Border
+                        Name="PART_MaskBorder"
+                        IsHitTestVisible="{TemplateBinding IsModal}"
+                        Background="{TemplateBinding MaskBrush}"
+                        IsVisible="{TemplateBinding IsModal}" />
+                    <ContentPresenter
+                        Name="PART_ContentPresenter"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}" />
+                </Panel>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^:bottom /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+        </Style>
+        <Style Selector="^:top /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+        </Style>
+        <Style Selector="^:center /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+        <Style Selector="^:left /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+        <Style Selector="^:right /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+        </Style>
+        <Style Selector="^:fullscreen /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+        </Style>
     </ControlTheme>
 </ResourceDictionary>
