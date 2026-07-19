@@ -50,14 +50,18 @@ public class Popup : Control
         set => SetValue(MaskBrushProperty, value);
     }
 
-    public static readonly StyledProperty<PopupPlacement> PlacementProperty =
-        AvaloniaProperty.Register<Popup, PopupPlacement>(nameof(Placement), defaultValue: PopupPlacement.Bottom);
+    public static readonly AttachedProperty<PopupPlacement> PlacementProperty =
+        AvaloniaProperty.RegisterAttached<Popup, Control, PopupPlacement>(
+            "Placement", defaultValue: PopupPlacement.Bottom, inherits: true);
 
     public PopupPlacement Placement
     {
         get => GetValue(PlacementProperty);
         set => SetValue(PlacementProperty, value);
     }
+
+    public static PopupPlacement GetPlacement(Control control) => control.GetValue(PlacementProperty);
+    public static void SetPlacement(Control control, PopupPlacement value) => control.SetValue(PlacementProperty, value);
 
     public static readonly StyledProperty<bool> IsLightDismissEnabledProperty =
         AvaloniaProperty.Register<Popup, bool>(nameof(IsLightDismissEnabled), defaultValue: true);

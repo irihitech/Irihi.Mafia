@@ -24,6 +24,10 @@
                 <TextBlock Text="Options" FontSize="18" FontWeight="Bold" Margin="0,8,0,0" />
                 <CheckBox Content="IsModal" IsChecked="{Binding IsModal}" />
                 <CheckBox Content="Light Dismiss" IsChecked="{Binding IsLightDismiss}" />
+
+                <TextBlock Text="Attached Placement Demo" FontSize="18" FontWeight="Bold" Margin="0,8,0,0" />
+                <TextBlock Text="This popup inherits Placement=Bottom from its parent via m:Popup.Placement." TextWrapping="Wrap" />
+                <Button Content="Open Inherited Popup" Command="{Binding OpenInheritedPopupCommand}" />
             </StackPanel>
         </ScrollViewer>
 
@@ -46,5 +50,26 @@
                 </Border>
             </m:Popup.Child>
         </m:Popup>
+
+        <Panel m:Popup.Placement="Bottom">
+            <m:Popup IsOpen="{Binding IsInheritedPopupOpen}"
+                     IsModal="True"
+                     IsLightDismissEnabled="True">
+                <m:Popup.Child>
+                    <Border Background="{DynamicResource TDBgColorContainer}"
+                            CornerRadius="12"
+                            Padding="24"
+                            MinHeight="150">
+                        <StackPanel Spacing="12">
+                            <TextBlock Text="Inherited: Bottom" FontSize="20" FontWeight="Bold" />
+                            <TextBlock Text="Placement inherited from parent Panel via m:Popup.Placement." TextWrapping="Wrap" />
+                            <Button Content="Close"
+                                    Command="{Binding CloseInheritedPopupCommand}"
+                                    HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+                </m:Popup.Child>
+            </m:Popup>
+        </Panel>
     </Panel>
 </UserControl>

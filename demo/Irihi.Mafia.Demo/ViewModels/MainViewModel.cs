@@ -21,6 +21,9 @@ public partial class MainViewModel : ViewModelBase
     [ObservableProperty]
     private string _popupTitle = "";
 
+    [ObservableProperty]
+    private bool _isInheritedPopupOpen;
+
     [RelayCommand]
     private void OpenPopup(string placement)
     {
@@ -42,5 +45,17 @@ public partial class MainViewModel : ViewModelBase
     private void ClosePopup()
     {
         IsPopupOpen = false;
+    }
+
+    [RelayCommand]
+    private void OpenInheritedPopup()
+    {
+        IsInheritedPopupOpen = true;
+    }
+
+    [RelayCommand]
+    private void CloseInheritedPopup()
+    {
+        IsInheritedPopupOpen = false;
     }
 }
