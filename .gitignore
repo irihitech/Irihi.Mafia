@@ -360,6 +360,11 @@ MigrationBackup/
 .vscode/
 
 #################
+## Reasonix
+#################
+.reasonix/
+
+#################
 ## Cake
 #################
 tools/*
