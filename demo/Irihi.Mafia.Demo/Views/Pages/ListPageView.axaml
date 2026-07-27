@@ -1,0 +1,49 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Irihi.Mafia.Demo.ViewModels"
+             xmlns:m="https://irihi.tech/mafia"
+             mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
+             x:Class="Irihi.Mafia.Demo.Views.Pages.ListPageView"
+             x:DataType="vm:ListPageViewModel">
+    <ScrollViewer>
+        <StackPanel Spacing="0" Margin="0,0,0,24">
+            <Border Background="{DynamicResource TDBgColorContainer}" Padding="16,24,16,20">
+                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                    <Border Grid.Column="0" Background="{DynamicResource TDPrimaryColor}"
+                            Width="64" Height="64" CornerRadius="32">
+                        <m:Avatar Content="M" />
+                    </Border>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="4">
+                        <TextBlock Text="Mafia Demo" FontSize="20" FontWeight="Bold" />
+                        <TextBlock Text="在线" FontSize="14"
+                                   Foreground="{DynamicResource TDSuccessColor}" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <m:Divider />
+
+            <m:CellGroup Header="显示">
+                <m:Cell Content="深色模式" Description="切换深色/浅色主题">
+                    <m:Cell.InnerRightContent>
+                        <ToggleSwitch IsChecked="{Binding IsDarkMode}" Classes="Small" />
+                    </m:Cell.InnerRightContent>
+                </m:Cell>
+                <m:Cell Content="语言" Note="简体中文" Classes="Arrow" />
+                <m:Cell Content="字体大小" Note="标准" Classes="Arrow" />
+            </m:CellGroup>
+
+            <m:Divider />
+
+            <m:CellGroup Header="关于">
+                <m:Cell Content="版本号" Note="0.0.1" />
+                <m:Cell Content="开源许可" Note="MIT" Classes="Arrow" />
+                <m:Cell Content="项目地址" Note="GitHub" Classes="Arrow" />
+                <m:Cell Content="技术栈" Description="Avalonia 12 · .NET 10"
+                        InnerLeftContent="{StaticResource TempAppGlyph}" />
+            </m:CellGroup>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

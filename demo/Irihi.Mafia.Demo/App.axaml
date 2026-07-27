@@ -1,15 +1,9 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="using:Irihi.Mafia.Demo"
              xmlns:td="https://irihi.tech/td"
              xmlns:semi="https://irihi.tech/semi"
              x:Class="Irihi.Mafia.Demo.App"
              RequestedThemeVariant="Default">
-
-    <Application.DataTemplates>
-        <local:ViewLocator />
-    </Application.DataTemplates>
-
     <Application.Styles>
         <semi:SemiTheme />
         <td:TDesignTheme />

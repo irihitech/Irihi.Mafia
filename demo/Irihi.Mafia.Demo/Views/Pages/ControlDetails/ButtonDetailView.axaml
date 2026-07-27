@@ -1,0 +1,64 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:m="https://irihi.tech/mafia"
+             mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
+             x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.ButtonDetailView">
+    <ScrollViewer>
+        <StackPanel Spacing="12" Margin="16,16,16,24">
+            <TextBlock Text="Button 按钮" FontSize="24" FontWeight="Bold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="支持填充、描边、文字三种样式，五种语义颜色（默认/主要/危险/成功/警告/浅色），四种尺寸（大/中/小/极小），三种形状（方形/圆形/圆角）。"
+                       TextWrapping="Wrap" FontSize="14"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+
+            <m:Divider />
+
+            <TextBlock Text="填充按钮" FontSize="16" FontWeight="SemiBold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <WrapPanel ItemSpacing="8" LineSpacing="8">
+                <Button Content="默认" />
+                <Button Content="主要" Classes="Primary" />
+                <Button Content="危险" Classes="Danger" />
+                <Button Content="成功" Classes="Success" />
+                <Button Content="警告" Classes="Warning" />
+                <Button Content="浅色" Classes="Light" />
+            </WrapPanel>
+
+            <TextBlock Text="描边按钮" FontSize="16" FontWeight="SemiBold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <WrapPanel ItemSpacing="8" LineSpacing="8">
+                <Button Content="默认" Theme="{DynamicResource OutlineButton}" />
+                <Button Content="主要" Theme="{DynamicResource OutlineButton}" Classes="Primary" />
+                <Button Content="危险" Theme="{DynamicResource OutlineButton}" Classes="Danger" />
+                <Button Content="成功" Theme="{DynamicResource OutlineButton}" Classes="Success" />
+            </WrapPanel>
+
+            <TextBlock Text="文字按钮" FontSize="16" FontWeight="SemiBold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <WrapPanel ItemSpacing="8" LineSpacing="8">
+                <Button Content="默认" Theme="{DynamicResource TextButton}" />
+                <Button Content="主要" Theme="{DynamicResource TextButton}" Classes="Primary" />
+                <Button Content="危险" Theme="{DynamicResource TextButton}" Classes="Danger" />
+            </WrapPanel>
+
+            <TextBlock Text="尺寸变体" FontSize="16" FontWeight="SemiBold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <WrapPanel ItemSpacing="8" LineSpacing="8">
+                <Button Content="大" Classes="Primary Large" />
+                <Button Content="中" Classes="Primary Medium" />
+                <Button Content="小" Classes="Primary Small" />
+                <Button Content="极小" Classes="Primary ExtraSmall" />
+            </WrapPanel>
+
+            <TextBlock Text="形状变体" FontSize="16" FontWeight="SemiBold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <WrapPanel ItemSpacing="8" LineSpacing="8">
+                <Button Classes="Primary Square" Content="方" />
+                <Button Classes="Primary Circle" Content="圆" />
+                <Button Classes="Primary Round" Content="圆角" />
+            </WrapPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

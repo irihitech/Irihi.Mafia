@@ -5,8 +5,10 @@
         xmlns:views="using:Irihi.Mafia.Demo.Views"
         mc:Ignorable="d" d:DesignWidth="375" d:DesignHeight="812"
         Width="375" Height="812"
+        MinWidth="300" MinHeight="700"
+        WindowStartupLocation="CenterScreen"
         x:Class="Irihi.Mafia.Demo.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="Irihi.Mafia.Demo">
-        <views:MainView />
+    <views:MainView />
 </Window>

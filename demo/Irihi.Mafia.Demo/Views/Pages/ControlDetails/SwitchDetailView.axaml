@@ -1,0 +1,47 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:m="https://irihi.tech/mafia"
+             x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.SwitchDetailView">
+    <ScrollViewer>
+        <StackPanel Spacing="12" Margin="16,16,16,24">
+            <TextBlock Text="ToggleSwitch 开关" FontSize="24" FontWeight="Bold" />
+            <TextBlock Text="开关切换控件，支持默认、小、大三种尺寸。可用于设置项的开关控制。" 
+                       TextWrapping="Wrap" FontSize="14"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+
+            <m:Divider />
+
+            <TextBlock Text="尺寸变体" FontSize="16" FontWeight="SemiBold" />
+            <StackPanel Spacing="12">
+                <StackPanel Spacing="4">
+                    <TextBlock Text="默认尺寸" FontSize="13" Foreground="{DynamicResource TDFontGyColor}" />
+                    <ToggleSwitch IsChecked="True" />
+                </StackPanel>
+                <StackPanel Spacing="4">
+                    <TextBlock Text="小尺寸 (Small)" FontSize="13" Foreground="{DynamicResource TDFontGyColor}" />
+                    <ToggleSwitch Classes="Small" />
+                </StackPanel>
+                <StackPanel Spacing="4">
+                    <TextBlock Text="大尺寸 (Large)" FontSize="13" Foreground="{DynamicResource TDFontGyColor}" />
+                    <ToggleSwitch Classes="Large" IsChecked="True" />
+                </StackPanel>
+            </StackPanel>
+
+            <m:Divider />
+
+            <TextBlock Text="状态展示" FontSize="16" FontWeight="SemiBold" />
+            <StackPanel Spacing="8">
+                <WrapPanel>
+                    <StackPanel Margin="0,0,16,0" Spacing="4">
+                        <TextBlock Text="关闭" FontSize="13" Foreground="{DynamicResource TDFontGyColor}" />
+                        <ToggleSwitch />
+                    </StackPanel>
+                    <StackPanel Spacing="4">
+                        <TextBlock Text="开启" FontSize="13" Foreground="{DynamicResource TDFontGyColor}" />
+                        <ToggleSwitch IsChecked="True" />
+                    </StackPanel>
+                </WrapPanel>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
