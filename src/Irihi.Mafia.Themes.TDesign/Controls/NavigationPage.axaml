@@ -146,7 +146,8 @@
                             <ContentPresenter
                                 Name="PART_Header"
                                 Grid.Column="1"
-                                FontWeight="SemiBold"
+                                FontSize="{DynamicResource NavigationPageHeaderFontSize}"
+                                FontWeight="{DynamicResource NavigationPageHeaderFontWeight}"
                                 Content="{Binding CurrentPage?.Header, RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}"
                                 ContentTemplate="{Binding CurrentPage?.HeaderTemplate, RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}"
                                 VerticalAlignment="Center"

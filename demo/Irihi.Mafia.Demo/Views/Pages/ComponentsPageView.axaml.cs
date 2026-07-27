@@ -1,5 +1,4 @@
 using Avalonia.Controls;
-using Avalonia.Interactivity;
 using Irihi.Mafia.Demo.ViewModels.ControlDetails;
 using Irihi.Mafia.Demo.Views.Pages.ControlDetails;
 
@@ -12,12 +11,13 @@ public partial class ComponentsPageView : UserControl
         InitializeComponent();
     }
 
-    protected override void OnLoaded(RoutedEventArgs e)
+    protected override void OnInitialized()
     {
-        base.OnLoaded(e);
+        base.OnInitialized();
         MainNavigation.PushAsync(new ContentPage()
         {
             Content = new ControlGalleryView(),
+            Header = "Control Gallery",
             DataContext = new ControlGalleryViewModel() { NavigationRoot = MainNavigation, }
         });
     }

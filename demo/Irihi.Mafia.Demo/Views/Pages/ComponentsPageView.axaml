@@ -6,9 +6,5 @@
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
              x:Class="Irihi.Mafia.Demo.Views.Pages.ComponentsPageView"
              x:DataType="vm:ComponentsPageViewModel">
-    <Panel>
-        <NavigationPage Name="MainNavigation">
-            
-        </NavigationPage>
-    </Panel>
+    <NavigationPage Name="MainNavigation" />
 </UserControl>
