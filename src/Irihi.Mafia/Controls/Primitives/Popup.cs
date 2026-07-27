@@ -115,6 +115,7 @@ public class Popup : Control
             Content = Child,
             [~IsModalProperty] = this[~IsModalProperty],
             [~OverlayPopupHost.PlacementProperty] = this[~PlacementProperty],
+            [~DataContextProperty] = this[~DataContextProperty]
         };
 
         if (!IsModal)
