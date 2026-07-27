@@ -6,6 +6,12 @@
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
              x:Class="Irihi.Mafia.Demo.Views.MainView">
     <TabbedPage TabPlacement="Bottom" Classes="Tag">
+        <TabbedPage.PageTransition>
+            <CompositePageTransition>
+                <CrossFade Duration="0:0:0.15" />
+                <PageSlide Orientation="Horizontal" Duration="0:0:0.2" />
+            </CompositePageTransition>
+        </TabbedPage.PageTransition>
         <ContentPage Header="控件" Icon="{StaticResource TempAppGlyph}">
             <pages:ComponentsPageView Name="ComponentsPageContent" />
         </ContentPage>
