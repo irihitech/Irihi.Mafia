@@ -14,6 +14,9 @@
         <ResourceInclude Source="Slider.axaml" />
         <ResourceInclude Source="Switch.axaml" />
         <ResourceInclude Source="TabControl.axaml" />
+        <ResourceInclude Source="ContentPage.axaml" />
+        <ResourceInclude Source="NavigationPage.axaml" />
+        <ResourceInclude Source="ScrollViewer.axaml" />
         <ResourceInclude Source="TabbedPage.axaml" />
 
         <ResourceInclude Source="EmbeddableControlRoot.axaml" />

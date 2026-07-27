@@ -1,0 +1,9 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--  NavigationPage  -->
+    <x:Double x:Key="NavigationPageBarMinHeight">32</x:Double>
+    <x:Double x:Key="NavigationPageBarLargeMinHeight">48</x:Double>
+    <Thickness x:Key="NavigationPageBarPadding">4 0</Thickness>
+    <Thickness x:Key="NavigationPageBarBorderThickness">0 0 0 1</Thickness>
+    <StreamGeometry x:Key="NavigationPageBackButtonGlyph">M14.5 17.5L9 12L14.5 6.5</StreamGeometry>
+</ResourceDictionary>

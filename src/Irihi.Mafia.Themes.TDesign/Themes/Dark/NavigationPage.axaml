@@ -1,0 +1,7 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--  Navigation bar  -->
+    <StaticResource x:Key="NavigationPageBarBackground" ResourceKey="TDBgColorContainer" />
+    <StaticResource x:Key="NavigationPageBarBorderBrush" ResourceKey="TDComponentBorder" />
+    <StaticResource x:Key="NavigationBarBackground" ResourceKey="TDBgColorContainer" />
+</ResourceDictionary>
