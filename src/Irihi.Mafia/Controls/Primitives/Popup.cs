@@ -1,5 +1,4 @@
 using System.ComponentModel;
-using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
@@ -8,7 +7,6 @@ using Avalonia.LogicalTree;
 using Avalonia.Media;
 using Avalonia.Metadata;
 using Avalonia.Threading;
-using Avalonia.VisualTree;
 using Irihi.Mafia.Common;
 
 namespace Irihi.Mafia.Controls.Primitives;
@@ -115,10 +113,11 @@ public class Popup : Control
             Content = Child,
             [~IsModalProperty] = this[~IsModalProperty],
             [~OverlayPopupHost.PlacementProperty] = this[~PlacementProperty],
+            [~DataContextProperty] = this[~DataContextProperty]
         };
 
         if (!IsModal)
-            host.MaskBrush = global::Avalonia.Media.Brushes.Transparent;
+            host.MaskBrush = Brushes.Transparent;
         else if (IsSet(MaskBrushProperty))
             host.MaskBrush = MaskBrush;
 
@@ -141,7 +140,7 @@ public class Popup : Control
         _overlayLayer.PropertyChanged += OnOverlayLayerBoundsChanged;
 
         // Trigger animation to final state on next layout
-        global::Avalonia.Threading.Dispatcher.UIThread.Post(() =>
+        Dispatcher.UIThread.Post(() =>
         {
             if (_host == host && !_isClosing)
             {
@@ -149,7 +148,7 @@ public class Popup : Control
                 host.ContentOffsetX = 0;
                 host.ContentOffsetY = 0;
             }
-        }, global::Avalonia.Threading.DispatcherPriority.Render);
+        }, DispatcherPriority.Render);
 
         _isOpenRequested = true;
 
@@ -193,7 +192,7 @@ public class Popup : Control
         var capturedOverlay = _overlayLayer;
         Task.Delay(AnimationDuration).ContinueWith(_ =>
         {
-            global::Avalonia.Threading.Dispatcher.UIThread.Post(() =>
+            Dispatcher.UIThread.Post(() =>
             {
                 capturedHost.MaskPointerPressed -= OnMaskPointerPressed;
                 capturedHost.Content = null;
@@ -261,7 +260,7 @@ public class Popup : Control
         if (newValue.HasValue && newValue.Value is { } newChild)
         {
             ((ISetLogicalParent)newChild).SetParent(this);
-            LogicalChildren.Add((ILogical)newChild);
+            LogicalChildren.Add(newChild);
         }
 
         if (_host is not null)
@@ -275,33 +274,16 @@ public class Popup : Control
         if (IsLightDismissEnabled) Close();
     }
 
-    private void CleanupHost()
-    {
-        // Kept for backward compatibility — not used in normal flow.
-        // Normal close goes through Close() with animation; detach goes through OnDetachedFromVisualTree.
-        if (_host is null) return;
-        _host.MaskPointerPressed -= OnMaskPointerPressed;
-        _host.Content = null;
-        _sizeSubscription?.Dispose();
-        _sizeSubscription = null;
-        if (_overlayLayer is not null)
-            _overlayLayer.PropertyChanged -= OnOverlayLayerBoundsChanged;
-        _overlayLayer?.Children.Remove(_host);
-        _host = null;
-        _overlayLayer = null;
-        _isClosing = false;
-    }
-
-    private static global::Avalonia.Vector GetContentOffsetForPlacement(PopupPlacement placement)
+    private static Vector GetContentOffsetForPlacement(PopupPlacement placement)
     {
         // Returns the initial/exit offset for content based on placement.
         const double large = 5000;
         return placement switch
         {
-            PopupPlacement.Bottom => new global::Avalonia.Vector(0, large),
-            PopupPlacement.Top => new global::Avalonia.Vector(0, -large),
-            PopupPlacement.Left => new global::Avalonia.Vector(-large, 0),
-            PopupPlacement.Right => new global::Avalonia.Vector(large, 0),
+            PopupPlacement.Bottom => new Vector(0, large),
+            PopupPlacement.Top => new Vector(0, -large),
+            PopupPlacement.Left => new Vector(-large, 0),
+            PopupPlacement.Right => new Vector(large, 0),
             _ => default,
         };
     }

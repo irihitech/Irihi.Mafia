@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:m="https://irihi.tech/mafia"
+             x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.SliderDetailView">
+    <ScrollViewer>
+        <StackPanel Spacing="12" Margin="16,16,16,24">
+            <TextBlock Text="Slider 滑块" FontSize="24" FontWeight="Bold" />
+            <TextBlock Text="数值范围选择器，支持自定义最小值、最大值和步长。" 
+                       TextWrapping="Wrap" FontSize="14"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+
+            <m:Divider />
+
+            <Slider Minimum="0" Maximum="100" Value="50" />
+            <Slider Minimum="0" Maximum="100" Value="75" />
+            <Slider Minimum="0" Maximum="100" Value="25" />
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

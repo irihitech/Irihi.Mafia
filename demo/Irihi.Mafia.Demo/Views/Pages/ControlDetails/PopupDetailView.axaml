@@ -1,0 +1,93 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Irihi.Mafia.Demo.ViewModels"
+             xmlns:m="https://irihi.tech/mafia"
+             mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
+             x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.PopupDetailView"
+             x:DataType="vm:ComponentsPageViewModel">
+    <Panel>
+        <ScrollViewer>
+            <StackPanel Spacing="12" Margin="16,16,16,24">
+                <TextBlock Text="Popup 弹出层" FontSize="24" FontWeight="Bold"
+                           Foreground="{DynamicResource TDFontGyColor}" />
+                <TextBlock Text="支持六种定位方式：Bottom（底部）、Center（居中）、Top（顶部）、Left（左侧）、Right（右侧）、FullScreen（全屏）。支持模态/非模态模式和轻触关闭。" 
+                           TextWrapping="Wrap" FontSize="14"
+                           Foreground="{DynamicResource TDFontGyColor}" />
+
+                <m:Divider />
+
+                <TextBlock Text="Placement 位置" FontSize="18" FontWeight="SemiBold"
+                           Foreground="{DynamicResource TDFontGyColor}" />
+                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto"
+                      ColumnSpacing="8" RowSpacing="8">
+                    <Button Grid.Row="0" Grid.Column="0" Content="Bottom"
+                            Command="{Binding OpenPopupCommand}" CommandParameter="Bottom" />
+                    <Button Grid.Row="0" Grid.Column="1" Content="Center"
+                            Command="{Binding OpenPopupCommand}" CommandParameter="Center" />
+                    <Button Grid.Row="1" Grid.Column="0" Content="Top"
+                            Command="{Binding OpenPopupCommand}" CommandParameter="Top" />
+                    <Button Grid.Row="1" Grid.Column="1" Content="Left"
+                            Command="{Binding OpenPopupCommand}" CommandParameter="Left" />
+                    <Button Grid.Row="2" Grid.Column="0" Content="Right"
+                            Command="{Binding OpenPopupCommand}" CommandParameter="Right" />
+                    <Button Grid.Row="2" Grid.Column="1" Content="FullScreen"
+                            Command="{Binding OpenPopupCommand}" CommandParameter="FullScreen" />
+                </Grid>
+
+                <TextBlock Text="Options 选项" FontSize="18" FontWeight="SemiBold"
+                           Foreground="{DynamicResource TDFontGyColor}" />
+                <CheckBox Content="IsModal 模态" IsChecked="{Binding IsModal}" />
+                <CheckBox Content="Light Dismiss 轻触关闭" IsChecked="{Binding IsLightDismiss}" />
+
+                <TextBlock Text="附加 Placement 继承" FontSize="18" FontWeight="SemiBold"
+                           Foreground="{DynamicResource TDFontGyColor}" />
+                <TextBlock Text="Popup 通过 m:Popup.Placement 从父级继承 Placement=Bottom"
+                           TextWrapping="Wrap" FontSize="14"
+                           Foreground="{DynamicResource TDFontGyColor}" />
+                <Button Content="打开继承 Popup"
+                        Command="{Binding OpenInheritedPopupCommand}"
+                        Classes="Primary" />
+            </StackPanel>
+        </ScrollViewer>
+
+        <m:Popup IsOpen="{Binding IsPopupOpen}"
+                 IsModal="{Binding IsModal}"
+                 IsLightDismissEnabled="{Binding IsLightDismiss}"
+                 Placement="{Binding PopupPlacement}">
+            <Border Background="{DynamicResource TDBgColorContainer}"
+                    CornerRadius="12"
+                    Padding="24"
+                    MinHeight="200">
+                <StackPanel Spacing="12">
+                    <TextBlock Text="{Binding PopupTitle}" FontSize="20" FontWeight="Bold" />
+                    <TextBlock Text="点击外部或按关闭按钮关闭。" TextWrapping="Wrap" />
+                    <Button Content="关闭"
+                            Command="{Binding ClosePopupCommand}"
+                            HorizontalAlignment="Center" />
+                </StackPanel>
+            </Border>
+        </m:Popup>
+
+        <Panel m:Popup.Placement="Bottom">
+            <m:Popup IsOpen="{Binding IsInheritedPopupOpen}"
+                     IsModal="True"
+                     IsLightDismissEnabled="True">
+                <Border Background="{DynamicResource TDBgColorContainer}"
+                        CornerRadius="12"
+                        Padding="24"
+                        MinHeight="150">
+                    <StackPanel Spacing="12">
+                        <TextBlock Text="Inherited: Bottom" FontSize="20" FontWeight="Bold" />
+                        <TextBlock Text="Placement inherited from parent Panel via m:Popup.Placement."
+                                   TextWrapping="Wrap" />
+                        <Button Content="关闭"
+                                Command="{Binding CloseInheritedPopupCommand}"
+                                HorizontalAlignment="Center" />
+                    </StackPanel>
+                </Border>
+            </m:Popup>
+        </Panel>
+    </Panel>
+</UserControl>

@@ -1,0 +1,127 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Irihi.Mafia.Demo.ViewModels"
+             xmlns:m="https://irihi.tech/mafia"
+             mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
+             x:Class="Irihi.Mafia.Demo.Views.Pages.ComponentsPageView"
+             x:DataType="vm:ComponentsPageViewModel">
+    <Panel>
+        <ScrollViewer IsVisible="{Binding !IsDetailOpen}">
+            <StackPanel Spacing="0">
+                <Border Background="{DynamicResource TDBgColorContainer}" Padding="12,10">
+                    <Border Background="{DynamicResource TDBgColorPage}"
+                            CornerRadius="10" Padding="12,8">
+                        <TextBlock Text="搜索控件..." FontSize="14"
+                                   Foreground="{DynamicResource TDFontGyColor}"
+                                   Opacity="0.6" />
+                    </Border>
+                </Border>
+
+                <m:CellGroup Header="交互控件">
+                    <m:Cell Content="Popup 弹出层" Description="六种定位、模态/轻触关闭"
+                            Classes="Arrow"
+                            Command="{Binding ShowControlCommand}" CommandParameter="Popup" />
+                    <m:Cell Content="Button 按钮" Description="填充/描边/文字，多色多尺寸"
+                            Classes="Arrow"
+                            Command="{Binding ShowControlCommand}" CommandParameter="Button" />
+                    <m:Cell Content="ToggleSwitch 开关" Description="三档尺寸开关"
+                            Classes="Arrow"
+                            Command="{Binding ShowControlCommand}" CommandParameter="Switch" />
+                    <m:Cell Content="Slider 滑块" Description="数值范围选择"
+                            Classes="Arrow"
+                            Command="{Binding ShowControlCommand}" CommandParameter="Slider" />
+                    <m:Cell Content="Progress 进度条" Description="线形/圆形进度指示"
+                            Classes="Arrow"
+                            Command="{Binding ShowControlCommand}" CommandParameter="Progress" />
+                    <m:Cell Content="CheckBox 复选框" Description="多选选项框"
+                            Classes="Arrow"
+                            Command="{Binding ShowControlCommand}" CommandParameter="CheckBox" />
+                    <m:Cell Content="RadioButton 单选框" Description="单选按钮组"
+                            Classes="Arrow"
+                            Command="{Binding ShowControlCommand}" CommandParameter="RadioButton" />
+                </m:CellGroup>
+
+                <m:Divider Margin="16,0" />
+
+                <m:CellGroup Header="展示控件">
+                    <m:Cell Content="Cell 列表项" Description="多功能列表条目"
+                            Classes="Arrow"
+                            Command="{Binding ShowControlCommand}" CommandParameter="Cell" />
+                    <m:Cell Content="Avatar 头像" Description="图片/文字头像"
+                            Classes="Arrow"
+                            Command="{Binding ShowControlCommand}" CommandParameter="Avatar" />
+                    <m:Cell Content="IconButton 图标按钮" Description="图文组合按钮"
+                            Classes="Arrow"
+                            Command="{Binding ShowControlCommand}" CommandParameter="IconButton" />
+                    <m:Cell Content="Divider 分割线" Description="水平/垂直分割"
+                            Classes="Arrow"
+                            Command="{Binding ShowControlCommand}" CommandParameter="Divider" />
+                    <m:Cell Content="TabControl 标签页" Description="标签切换容器"
+                            Classes="Arrow"
+                            Command="{Binding ShowControlCommand}" CommandParameter="TabControl" />
+                    <m:Cell Content="TabbedPage 底部导航" Description="本页正在使用的导航"
+                            Classes="Arrow"
+                            Command="{Binding ShowControlCommand}" CommandParameter="TabbedPage" />
+                </m:CellGroup>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Grid IsVisible="{Binding IsDetailOpen}">
+            <Grid RowDefinitions="Auto,*">
+                <Border Grid.Row="0"
+                        Background="{DynamicResource TDBgColorContainer}"
+                        Padding="8,4">
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <Button Grid.Column="0"
+                                Content="← 返回"
+                                Command="{Binding GoBackCommand}"
+                                Classes="Small TextButton" />
+                        <TextBlock Grid.Column="1"
+                                   Text="{Binding SelectedControlName}"
+                                   FontSize="17" FontWeight="SemiBold"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center" />
+                    </Grid>
+                </Border>
+
+                <ContentControl Grid.Row="1"
+                                Content="{Binding DetailContent}" />
+            </Grid>
+        </Grid>
+
+        <m:Popup IsOpen="{Binding IsPopupOpen}"
+                 IsModal="{Binding IsModal}"
+                 IsLightDismissEnabled="{Binding IsLightDismiss}"
+                 Placement="{Binding PopupPlacement}">
+            <Border Background="{DynamicResource TDBgColorContainer}"
+                    CornerRadius="12" Padding="24" MinHeight="200">
+                <StackPanel Spacing="12">
+                    <TextBlock Text="{Binding PopupTitle}" FontSize="20" FontWeight="Bold" />
+                    <TextBlock Text="点击外部或按关闭按钮关闭。" TextWrapping="Wrap" />
+                    <Button Content="关闭"
+                            Command="{Binding ClosePopupCommand}"
+                            HorizontalAlignment="Center" />
+                </StackPanel>
+            </Border>
+        </m:Popup>
+
+        <Panel m:Popup.Placement="Bottom">
+            <m:Popup IsOpen="{Binding IsInheritedPopupOpen}"
+                     IsModal="True" IsLightDismissEnabled="True">
+                <Border Background="{DynamicResource TDBgColorContainer}"
+                        CornerRadius="12" Padding="24" MinHeight="150">
+                    <StackPanel Spacing="12">
+                        <TextBlock Text="Inherited: Bottom" FontSize="20" FontWeight="Bold" />
+                        <TextBlock Text="Placement inherited from parent Panel via m:Popup.Placement."
+                                   TextWrapping="Wrap" />
+                        <Button Content="关闭"
+                                Command="{Binding CloseInheritedPopupCommand}"
+                                HorizontalAlignment="Center" />
+                    </StackPanel>
+                </Border>
+            </m:Popup>
+        </Panel>
+    </Panel>
+</UserControl>

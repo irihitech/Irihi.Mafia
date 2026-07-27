@@ -1,0 +1,175 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Irihi.Mafia.Demo.ViewModels"
+             xmlns:m="https://irihi.tech/mafia"
+             mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
+             x:Class="Irihi.Mafia.Demo.Views.Pages.HomePageView"
+             x:DataType="vm:HomePageViewModel">
+    <ScrollViewer>
+        <StackPanel>
+            <Border Background="{DynamicResource TDBgColorContainer}" Padding="12,10,12,6">
+                <Border Background="{DynamicResource TDBgColorPage}"
+                        CornerRadius="10" Padding="12,8">
+                    <Grid ColumnDefinitions="Auto,*,Auto">
+                        <TextBlock Grid.Column="0" Text="🔍" FontSize="14"
+                                   VerticalAlignment="Center" Margin="0,0,8,0" />
+                        <TextBlock Grid.Column="1" Text="搜索消息和功能..."
+                                   FontSize="14"
+                                   Foreground="{DynamicResource TDFontGyColor}"
+                                   VerticalAlignment="Center"
+                                   Opacity="0.6" />
+                    </Grid>
+                </Border>
+            </Border>
+
+            <Border Background="{DynamicResource TDBgColorContainer}" Padding="16,12">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                    <Border Grid.Column="0" Background="{DynamicResource TDPrimaryColor}"
+                            Width="48" Height="48" CornerRadius="24"
+                            VerticalAlignment="Top">
+                        <TextBlock Text="M" FontSize="22" FontWeight="Bold"
+                                   Foreground="{DynamicResource TDTextColorPrimary}"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" />
+                    </Border>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="2">
+                        <TextBlock Text="Mafia 控件库" FontSize="16" FontWeight="SemiBold" />
+                        <TextBlock Text="欢迎使用 Mafia！这是一个专为移动端设计的 Avalonia 控件库，提供 Popup、Cell 等一系列移动端友好的控件。"
+                                   TextWrapping="Wrap" FontSize="13"
+                                   Foreground="{DynamicResource TDFontGyColor}"
+                                   MaxHeight="36" />
+                    </StackPanel>
+                    <TextBlock Grid.Column="2" Text="现在" FontSize="12"
+                               Foreground="{DynamicResource TDFontGyColor}"
+                               VerticalAlignment="Top" />
+                </Grid>
+            </Border>
+
+            <m:Divider Margin="72,0,0,0" />
+
+            <Border Background="{DynamicResource TDBgColorContainer}" Padding="16,12">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                    <Border Grid.Column="0" Background="{DynamicResource TDWarningColor}"
+                            Width="48" Height="48" CornerRadius="24"
+                            VerticalAlignment="Top">
+                        <TextBlock Text="∞" FontSize="24" FontWeight="Bold"
+                                   Foreground="{DynamicResource TDTextColorAnti}"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" />
+                    </Border>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="2">
+                        <TextBlock Text="丰富的自定义控件" FontSize="16" FontWeight="SemiBold" />
+                        <TextBlock Text="Popup, Cell, Avatar, IconButton, Divider, Button, Switch, Slider, Progress, CheckBox, RadioButton, TabControl……"
+                                   TextWrapping="Wrap" FontSize="13"
+                                   Foreground="{DynamicResource TDFontGyColor}"
+                                   MaxHeight="36" />
+                    </StackPanel>
+                    <TextBlock Grid.Column="2" Text="昨天" FontSize="12"
+                               Foreground="{DynamicResource TDFontGyColor}"
+                               VerticalAlignment="Top" />
+                </Grid>
+            </Border>
+
+            <m:Divider Margin="72,0,0,0" />
+
+            <Border Background="{DynamicResource TDBgColorContainer}" Padding="16,12">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                    <Border Grid.Column="0" Background="{DynamicResource TDSuccessColor}"
+                            Width="48" Height="48" CornerRadius="24"
+                            VerticalAlignment="Top">
+                        <TextBlock Text="🎨" FontSize="22"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" />
+                    </Border>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="2">
+                        <TextBlock Text="TDesign 主题" FontSize="16" FontWeight="SemiBold" />
+                        <TextBlock Text="内置完整的 TDesign 风格的 Light/Dark 主题，支持全局一键切换深色模式。"
+                                   TextWrapping="Wrap" FontSize="13"
+                                   Foreground="{DynamicResource TDFontGyColor}"
+                                   MaxHeight="36" />
+                    </StackPanel>
+                    <TextBlock Grid.Column="2" Text="昨天" FontSize="12"
+                               Foreground="{DynamicResource TDFontGyColor}"
+                               VerticalAlignment="Top" />
+                </Grid>
+            </Border>
+
+            <m:Divider Margin="72,0,0,0" />
+
+            <Border Background="{DynamicResource TDBgColorContainer}" Padding="16,12">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                    <Border Grid.Column="0" Background="{DynamicResource TDDangerColor}"
+                            Width="48" Height="48" CornerRadius="24"
+                            VerticalAlignment="Top">
+                        <TextBlock Text="⬆" FontSize="22"
+                                   Foreground="{DynamicResource TDTextColorPrimary}"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" />
+                    </Border>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="2">
+                        <TextBlock Text="Popup 弹出层系统" FontSize="16" FontWeight="SemiBold" />
+                        <TextBlock Text="支持 Bottom/Center/Top/Left/Right/FullScreen 六种定位，模态和非模态模式，轻触关闭。"
+                                   TextWrapping="Wrap" FontSize="13"
+                                   Foreground="{DynamicResource TDFontGyColor}"
+                                   MaxHeight="36" />
+                    </StackPanel>
+                    <TextBlock Grid.Column="2" Text="周三" FontSize="12"
+                               Foreground="{DynamicResource TDFontGyColor}"
+                               VerticalAlignment="Top" />
+                </Grid>
+            </Border>
+
+            <m:Divider Margin="72,0,0,0" />
+
+            <Border Background="{DynamicResource TDBgColorContainer}" Padding="16,12">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                    <Border Grid.Column="0" Background="{DynamicResource TDPrimaryColor}"
+                            Width="48" Height="48" CornerRadius="24"
+                            VerticalAlignment="Top">
+                        <TextBlock Text="📱" FontSize="22"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" />
+                    </Border>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="2">
+                        <TextBlock Text="跨平台支持" FontSize="16" FontWeight="SemiBold" />
+                        <TextBlock Text="支持 Desktop (Windows/macOS/Linux)、Android、iOS、Browser (WASM) 等多平台。"
+                                   TextWrapping="Wrap" FontSize="13"
+                                   Foreground="{DynamicResource TDFontGyColor}"
+                                   MaxHeight="36" />
+                    </StackPanel>
+                    <TextBlock Grid.Column="2" Text="周一" FontSize="12"
+                               Foreground="{DynamicResource TDFontGyColor}"
+                               VerticalAlignment="Top" />
+                </Grid>
+            </Border>
+
+            <m:Divider Margin="72,0,0,0" />
+
+            <Border Background="{DynamicResource TDBgColorContainer}" Padding="16,12"
+                    Margin="0,0,0,24">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                    <Border Grid.Column="0" Background="{DynamicResource TDFontGyColor}"
+                            Width="48" Height="48" CornerRadius="24"
+                            VerticalAlignment="Top"
+                            Opacity="0.3">
+                        <TextBlock Text="ℹ" FontSize="22"
+                                   Foreground="{DynamicResource TDTextColorPrimary}"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" />
+                    </Border>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="2">
+                        <TextBlock Text="关于" FontSize="16" FontWeight="SemiBold" />
+                        <TextBlock Text="Irihi.Mafia Demo · 基于 Avalonia · TDesign 主题"
+                                   TextWrapping="Wrap" FontSize="13"
+                                   Foreground="{DynamicResource TDFontGyColor}"
+                                   MaxHeight="36" />
+                    </StackPanel>
+                    <TextBlock Grid.Column="2" Text="" FontSize="12"
+                               VerticalAlignment="Top" />
+                </Grid>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
