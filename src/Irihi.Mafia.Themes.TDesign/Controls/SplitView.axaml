@@ -1,0 +1,430 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme x:Key="{x:Type SplitView}" TargetType="SplitView">
+        <Setter Property="Background" Value="{DynamicResource TDSplitViewBackground}" />
+        <Setter Property="OpenPaneLength" Value="{DynamicResource TDSplitViewOpenPaneLength}" />
+        <Setter Property="CompactPaneLength" Value="{DynamicResource TDSplitViewCompactPaneLength}" />
+        <Setter Property="PaneBackground" Value="{DynamicResource TDSplitViewPaneBackground}" />
+
+        <Style Selector="^:left">
+            <Setter Property="Template">
+                <ControlTemplate TargetType="SplitView">
+                    <Grid Name="Container" Background="{TemplateBinding Background}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition
+                                Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.PaneColumnGridLength}" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Panel
+                            Name="PART_PaneRoot"
+                            Background="{TemplateBinding PaneBackground}"
+                            ClipToBounds="True"
+                            HorizontalAlignment="Left"
+                            ZIndex="100">
+                            <ContentPresenter
+                                Name="PART_PanePresenter"
+                                Content="{TemplateBinding Pane}"
+                                ContentTemplate="{TemplateBinding PaneTemplate}" />
+                            <Rectangle
+                                Name="PaneSeparator"
+                                Fill="{DynamicResource TDSplitViewSeparatorBrush}"
+                                HorizontalAlignment="Right"
+                                IsVisible="True"
+                                Width="{DynamicResource TDSplitViewSeparatorThickness}" />
+                        </Panel>
+
+                        <Panel Name="ContentRoot" Grid.Column="1">
+                            <ContentPresenter
+                                Name="PART_ContentPresenter"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            <Rectangle
+                                Name="LightDismissLayer"
+                                Fill="Transparent"
+                                IsVisible="False" />
+                        </Panel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter>
+
+            <Style Selector="^:overlay">
+                <Style Selector="^ /template/ Panel#PART_PaneRoot">
+                    <Setter Property="Grid.Column" Value="0" />
+                    <Setter Property="Grid.ColumnSpan" Value="2" />
+                    <Setter Property="Width" Value="{Binding $parent[SplitView].TemplateSettings.ClosedPaneWidth}" />
+                </Style>
+                <Style Selector="^ /template/ Panel#ContentRoot">
+                    <Setter Property="Grid.Column" Value="1" />
+                    <Setter Property="Grid.ColumnSpan" Value="2" />
+                </Style>
+            </Style>
+
+            <Style Selector="^:compactoverlay">
+                <Style Selector="^ /template/ Panel#PART_PaneRoot">
+                    <Setter Property="Grid.Column" Value="0" />
+                    <Setter Property="Grid.ColumnSpan" Value="2" />
+                    <Setter Property="Width" Value="{Binding $parent[SplitView].TemplateSettings.ClosedPaneWidth}" />
+                </Style>
+                <Style Selector="^ /template/ Panel#ContentRoot">
+                    <Setter Property="Grid.Column" Value="1" />
+                    <Setter Property="Grid.ColumnSpan" Value="1" />
+                </Style>
+            </Style>
+
+            <Style Selector="^:inline">
+                <Style Selector="^ /template/ Panel#PART_PaneRoot">
+                    <Setter Property="Grid.Column" Value="0" />
+                    <Setter Property="Grid.ColumnSpan" Value="1" />
+                    <Setter Property="Width" Value="{Binding $parent[SplitView].TemplateSettings.ClosedPaneWidth}" />
+                </Style>
+                <Style Selector="^ /template/ Panel#ContentRoot">
+                    <Setter Property="Grid.Column" Value="1" />
+                    <Setter Property="Grid.ColumnSpan" Value="1" />
+                </Style>
+            </Style>
+
+            <Style Selector="^:compactinline">
+                <Style Selector="^ /template/ Panel#PART_PaneRoot">
+                    <Setter Property="Grid.Column" Value="0" />
+                    <Setter Property="Grid.ColumnSpan" Value="1" />
+                    <Setter Property="Width" Value="{Binding $parent[SplitView].TemplateSettings.ClosedPaneWidth}" />
+                </Style>
+                <Style Selector="^ /template/ Panel#ContentRoot">
+                    <Setter Property="Grid.Column" Value="1" />
+                    <Setter Property="Grid.ColumnSpan" Value="1" />
+                </Style>
+            </Style>
+        </Style>
+
+        <Style Selector="^:right">
+            <Setter Property="Template">
+                <ControlTemplate TargetType="SplitView">
+                    <Grid Name="Container" Background="{TemplateBinding Background}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition
+                                Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.PaneColumnGridLength}" />
+                        </Grid.ColumnDefinitions>
+
+                        <Panel
+                            Name="PART_PaneRoot"
+                            Background="{TemplateBinding PaneBackground}"
+                            ClipToBounds="True"
+                            HorizontalAlignment="Right"
+                            ZIndex="100">
+                            <ContentPresenter
+                                Name="PART_PanePresenter"
+                                Content="{TemplateBinding Pane}"
+                                ContentTemplate="{TemplateBinding PaneTemplate}" />
+                            <Rectangle
+                                Name="PaneSeparator"
+                                Fill="{DynamicResource TDSplitViewSeparatorBrush}"
+                                HorizontalAlignment="Left"
+                                IsVisible="True"
+                                Width="{DynamicResource TDSplitViewSeparatorThickness}" />
+                        </Panel>
+
+                        <Panel Name="ContentRoot" Grid.Column="0">
+                            <ContentPresenter
+                                Name="PART_ContentPresenter"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            <Rectangle
+                                Name="LightDismissLayer"
+                                Fill="Transparent"
+                                IsVisible="False" />
+                        </Panel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter>
+
+            <Style Selector="^:overlay">
+                <Style Selector="^ /template/ Panel#PART_PaneRoot">
+                    <Setter Property="Grid.Column" Value="1" />
+                    <Setter Property="Grid.ColumnSpan" Value="2" />
+                    <Setter Property="Width" Value="{Binding $parent[SplitView].TemplateSettings.ClosedPaneWidth}" />
+                </Style>
+                <Style Selector="^ /template/ Panel#ContentRoot">
+                    <Setter Property="Grid.Column" Value="0" />
+                    <Setter Property="Grid.ColumnSpan" Value="2" />
+                </Style>
+            </Style>
+
+            <Style Selector="^:compactoverlay">
+                <Style Selector="^ /template/ Panel#PART_PaneRoot">
+                    <Setter Property="Grid.Column" Value="1" />
+                    <Setter Property="Grid.ColumnSpan" Value="2" />
+                    <Setter Property="Width" Value="{Binding $parent[SplitView].TemplateSettings.ClosedPaneWidth}" />
+                </Style>
+                <Style Selector="^ /template/ Panel#ContentRoot">
+                    <Setter Property="Grid.Column" Value="0" />
+                    <Setter Property="Grid.ColumnSpan" Value="1" />
+                </Style>
+            </Style>
+
+            <Style Selector="^:inline">
+                <Style Selector="^ /template/ Panel#PART_PaneRoot">
+                    <Setter Property="Grid.Column" Value="1" />
+                    <Setter Property="Grid.ColumnSpan" Value="1" />
+                    <Setter Property="Width" Value="{Binding $parent[SplitView].TemplateSettings.ClosedPaneWidth}" />
+                </Style>
+                <Style Selector="^ /template/ Panel#ContentRoot">
+                    <Setter Property="Grid.Column" Value="0" />
+                    <Setter Property="Grid.ColumnSpan" Value="1" />
+                </Style>
+            </Style>
+
+            <Style Selector="^:compactinline">
+                <Style Selector="^ /template/ Panel#PART_PaneRoot">
+                    <Setter Property="Grid.Column" Value="1" />
+                    <Setter Property="Grid.ColumnSpan" Value="1" />
+                    <Setter Property="Width" Value="{Binding $parent[SplitView].TemplateSettings.ClosedPaneWidth}" />
+                </Style>
+                <Style Selector="^ /template/ Panel#ContentRoot">
+                    <Setter Property="Grid.Column" Value="0" />
+                    <Setter Property="Grid.ColumnSpan" Value="1" />
+                </Style>
+            </Style>
+        </Style>
+
+        <Style Selector="^:top">
+            <Setter Property="Template">
+                <ControlTemplate TargetType="SplitView">
+                    <Grid Name="Container" Background="{TemplateBinding Background}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition
+                                Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.PaneRowGridLength}" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Panel
+                            Name="PART_PaneRoot"
+                            Background="{TemplateBinding PaneBackground}"
+                            ClipToBounds="True"
+                            VerticalAlignment="Top"
+                            ZIndex="100">
+                            <ContentPresenter
+                                Name="PART_PanePresenter"
+                                Content="{TemplateBinding Pane}"
+                                ContentTemplate="{TemplateBinding PaneTemplate}" />
+                            <Rectangle
+                                Name="PaneSeparator"
+                                Fill="{DynamicResource TDSplitViewSeparatorBrush}"
+                                Height="{DynamicResource TDSplitViewSeparatorThickness}"
+                                IsVisible="True"
+                                VerticalAlignment="Bottom" />
+                        </Panel>
+
+                        <Panel Name="ContentRoot" Grid.Row="1">
+                            <ContentPresenter
+                                Name="PART_ContentPresenter"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            <Rectangle
+                                Name="LightDismissLayer"
+                                Fill="Transparent"
+                                IsVisible="False" />
+                        </Panel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter>
+
+            <Style Selector="^:overlay">
+                <Style Selector="^ /template/ Panel#PART_PaneRoot">
+                    <Setter Property="Grid.Row" Value="0" />
+                    <Setter Property="Grid.RowSpan" Value="1" />
+                    <Setter Property="Height" Value="{Binding $parent[SplitView].TemplateSettings.ClosedPaneHeight}" />
+                </Style>
+                <Style Selector="^ /template/ Panel#ContentRoot">
+                    <Setter Property="Grid.Row" Value="1" />
+                    <Setter Property="Grid.RowSpan" Value="2" />
+                </Style>
+            </Style>
+
+            <Style Selector="^:compactoverlay">
+                <Style Selector="^ /template/ Panel#PART_PaneRoot">
+                    <Setter Property="Grid.Row" Value="0" />
+                    <Setter Property="Grid.RowSpan" Value="1" />
+                    <Setter Property="Height" Value="{Binding $parent[SplitView].TemplateSettings.ClosedPaneHeight}" />
+                </Style>
+                <Style Selector="^ /template/ Panel#ContentRoot">
+                    <Setter Property="Grid.Row" Value="1" />
+                    <Setter Property="Grid.RowSpan" Value="1" />
+                </Style>
+            </Style>
+
+            <Style Selector="^:inline">
+                <Style Selector="^ /template/ Panel#PART_PaneRoot">
+                    <Setter Property="Grid.Row" Value="0" />
+                    <Setter Property="Grid.RowSpan" Value="1" />
+                    <Setter Property="Height" Value="{Binding $parent[SplitView].TemplateSettings.ClosedPaneHeight}" />
+                </Style>
+                <Style Selector="^ /template/ Panel#ContentRoot">
+                    <Setter Property="Grid.Row" Value="1" />
+                    <Setter Property="Grid.RowSpan" Value="1" />
+                </Style>
+            </Style>
+            <Style Selector="^:compactinline">
+                <Style Selector="^ /template/ Panel#PART_PaneRoot">
+                    <Setter Property="Grid.Row" Value="0" />
+                    <Setter Property="Grid.RowSpan" Value="1" />
+                    <Setter Property="Height" Value="{Binding $parent[SplitView].TemplateSettings.ClosedPaneHeight}" />
+                </Style>
+                <Style Selector="^ /template/ Panel#ContentRoot">
+                    <Setter Property="Grid.Row" Value="1" />
+                    <Setter Property="Grid.RowSpan" Value="1" />
+                </Style>
+            </Style>
+
+        </Style>
+
+        <Style Selector="^:bottom">
+            <Setter Property="Template">
+                <ControlTemplate TargetType="SplitView">
+                    <Grid Name="Container" Background="{TemplateBinding Background}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition
+                                Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.PaneRowGridLength}" />
+                        </Grid.RowDefinitions>
+
+                        <Panel
+                            Name="PART_PaneRoot"
+                            Background="{TemplateBinding PaneBackground}"
+                            ClipToBounds="True"
+                            VerticalAlignment="Bottom"
+                            ZIndex="100">
+                            <ContentPresenter
+                                Name="PART_PanePresenter"
+                                Content="{TemplateBinding Pane}"
+                                ContentTemplate="{TemplateBinding PaneTemplate}" />
+                            <Rectangle
+                                Name="PaneSeparator"
+                                Fill="{DynamicResource TDSplitViewSeparatorBrush}"
+                                Height="{DynamicResource TDSplitViewSeparatorThickness}"
+                                IsVisible="True"
+                                VerticalAlignment="Top" />
+                        </Panel>
+
+                        <Panel Name="ContentRoot" Grid.Row="0">
+                            <ContentPresenter
+                                Name="PART_ContentPresenter"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+                            <Rectangle
+                                Name="LightDismissLayer"
+                                Fill="Transparent"
+                                IsVisible="False" />
+                        </Panel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter>
+
+            <Style Selector="^:overlay">
+                <Style Selector="^ /template/ Panel#PART_PaneRoot">
+                    <Setter Property="Grid.Row" Value="1" />
+                    <Setter Property="Grid.RowSpan" Value="2" />
+                    <Setter Property="Height" Value="{Binding $parent[SplitView].TemplateSettings.ClosedPaneHeight}" />
+                </Style>
+                <Style Selector="^ /template/ Panel#ContentRoot">
+                    <Setter Property="Grid.Row" Value="0" />
+                    <Setter Property="Grid.RowSpan" Value="2" />
+                </Style>
+            </Style>
+
+            <Style Selector="^:compactoverlay">
+                <Style Selector="^ /template/ Panel#PART_PaneRoot">
+                    <Setter Property="Grid.Row" Value="1" />
+                    <Setter Property="Grid.RowSpan" Value="2" />
+                    <Setter Property="Height" Value="{Binding $parent[SplitView].TemplateSettings.ClosedPaneHeight}" />
+                </Style>
+                <Style Selector="^ /template/ Panel#ContentRoot">
+                    <Setter Property="Grid.Row" Value="0" />
+                    <Setter Property="Grid.RowSpan" Value="1" />
+                </Style>
+            </Style>
+
+            <Style Selector="^:inline">
+                <Style Selector="^ /template/ Panel#PART_PaneRoot">
+                    <Setter Property="Grid.Row" Value="1" />
+                    <Setter Property="Grid.RowSpan" Value="1" />
+                    <Setter Property="Height" Value="{Binding $parent[SplitView].TemplateSettings.ClosedPaneHeight}" />
+                </Style>
+                <Style Selector="^ /template/ Panel#ContentRoot">
+                    <Setter Property="Grid.Row" Value="0" />
+                    <Setter Property="Grid.RowSpan" Value="1" />
+                </Style>
+            </Style>
+
+            <Style Selector="^:compactinline">
+                <Style Selector="^ /template/ Panel#PART_PaneRoot">
+                    <Setter Property="Grid.Row" Value="1" />
+                    <Setter Property="Grid.RowSpan" Value="1" />
+                    <Setter Property="Height" Value="{Binding $parent[SplitView].TemplateSettings.ClosedPaneHeight}" />
+                </Style>
+                <Style Selector="^ /template/ Panel#ContentRoot">
+                    <Setter Property="Grid.Row" Value="0" />
+                    <Setter Property="Grid.RowSpan" Value="1" />
+                </Style>
+            </Style>
+        </Style>
+
+        <Style Selector="^:left:open /template/ Panel#PART_PaneRoot, ^:right:open /template/ Panel#PART_PaneRoot">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition
+                        Duration="{DynamicResource TDSplitViewPaneAnimationOpenDuration}"
+                        Easing="{DynamicResource TDSplitViewPaneAnimationEasing}"
+                        Property="Width" />
+                </Transitions>
+            </Setter>
+            <Setter Property="Width" Value="{Binding $parent[SplitView].OpenPaneLength}" />
+        </Style>
+
+        <Style Selector="^:left:closed /template/ Panel#PART_PaneRoot, ^:right:closed /template/ Panel#PART_PaneRoot">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition
+                        Duration="{DynamicResource TDSplitViewPaneAnimationCloseDuration}"
+                        Easing="{DynamicResource TDSplitViewPaneAnimationEasing}"
+                        Property="Width" />
+                </Transitions>
+            </Setter>
+            <Setter Property="Width" Value="{Binding $parent[SplitView].TemplateSettings.ClosedPaneWidth}" />
+        </Style>
+
+        <Style Selector="^:top:open /template/ Panel#PART_PaneRoot, ^:bottom:open /template/ Panel#PART_PaneRoot">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition
+                        Duration="{DynamicResource TDSplitViewPaneAnimationOpenDuration}"
+                        Easing="{DynamicResource TDSplitViewPaneAnimationEasing}"
+                        Property="Height" />
+                </Transitions>
+            </Setter>
+            <Setter Property="Height" Value="{Binding $parent[SplitView].OpenPaneLength}" />
+        </Style>
+
+        <Style Selector="^:top:closed /template/ Panel#PART_PaneRoot, ^:bottom:closed /template/ Panel#PART_PaneRoot">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition
+                        Duration="{DynamicResource TDSplitViewPaneAnimationCloseDuration}"
+                        Easing="{DynamicResource TDSplitViewPaneAnimationEasing}"
+                        Property="Height" />
+                </Transitions>
+            </Setter>
+            <Setter Property="Height" Value="{Binding $parent[SplitView].TemplateSettings.ClosedPaneHeight}" />
+        </Style>
+
+        <Style Selector="^:lightDismiss /template/ Rectangle#LightDismissLayer">
+            <Setter Property="Fill" Value="{DynamicResource TDSplitViewLightDismissOverlayBackground}" />
+        </Style>
+        <Style
+            Selector="^:overlay:open /template/ Rectangle#LightDismissLayer, ^:compactoverlay:open /template/ Rectangle#LightDismissLayer">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

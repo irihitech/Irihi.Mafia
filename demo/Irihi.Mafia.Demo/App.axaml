@@ -5,7 +5,7 @@
              x:Class="Irihi.Mafia.Demo.App"
              RequestedThemeVariant="Default">
     <Application.Styles>
-        <semi:SemiTheme />
+        <!-- <semi:SemiTheme /> -->
         <td:TDesignTheme />
     </Application.Styles>
 </Application>

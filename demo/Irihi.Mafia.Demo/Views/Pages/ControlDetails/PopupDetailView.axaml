@@ -2,11 +2,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="using:Irihi.Mafia.Demo.ViewModels"
              xmlns:m="https://irihi.tech/mafia"
+             xmlns:controlDetails="clr-namespace:Irihi.Mafia.Demo.ViewModels.ControlDetails"
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
              x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.PopupDetailView"
-             x:DataType="vm:ComponentsPageViewModel">
+             x:DataType="controlDetails:PopupDetailViewModel">
     <Panel>
         <ScrollViewer>
             <StackPanel Spacing="12" Margin="16,16,16,24">

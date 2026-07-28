@@ -1,0 +1,119 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <NavigationPage Width="400" Height="300">
+            <ContentPage Header="标题" Content="内容" />
+        </NavigationPage>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type NavigationPage}" TargetType="NavigationPage">
+        <Setter Property="Background" Value="{DynamicResource TDNavigationPageBackground}" />
+        <Setter Property="BarHeight" Value="{DynamicResource TDNavigationPageBarMinHeight}" />
+        <Setter Property="PageTransition" Value="{DynamicResource TDNavigationPagePageTransition}"/>
+        <Setter Property="ModalTransition" Value="{DynamicResource TDNavigationPageModalTransition}"/>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="NavigationPage">
+                <Panel ClipToBounds="True">
+                    <DockPanel>
+                        <Border
+                            Name="PART_NavBarSpacer"
+                            Height="{TemplateBinding EffectiveBarHeight}"
+                            IsVisible="False"
+                            DockPanel.Dock="Top" />
+                        <ContentPresenter
+                            Name="PART_BottomCommandBar"
+                            DockPanel.Dock="Bottom"
+                            Background="{TemplateBinding Background}"
+                            Content="{Binding CurrentPage.(NavigationPage.BottomCommandBar), RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}" />
+                        <Panel
+                            Name="PART_ContentHost"
+                            Background="{TemplateBinding Background}"
+                            ClipToBounds="True">
+                            <ContentPresenter Name="PART_PageBackPresenter" />
+                            <ContentPresenter Name="PART_PagePresenter" />
+                        </Panel>
+                    </DockPanel>
+
+                    <Border
+                        Name="PART_NavigationBar"
+                        VerticalAlignment="Top"
+                        MinHeight="{TemplateBinding EffectiveBarHeight}"
+                        Background="{DynamicResource TDNavigationPageBarBackground}"
+                        BorderBrush="{DynamicResource TDNavigationPageBarBorderBrush}"
+                        BorderThickness="{DynamicResource TDNavigationPageBarBorderThickness}">
+                        <Grid ColumnDefinitions="Auto,*,Auto">
+                            <Button
+                                Name="PART_BackButton"
+                                Grid.Column="0"
+                                MinHeight="{TemplateBinding EffectiveBarHeight}"
+                                MinWidth="{TemplateBinding EffectiveBarHeight}"
+                                Padding="{DynamicResource TDNavigationPageBackButtonPadding}"
+                                IsVisible="{TemplateBinding IsBackButtonEffectivelyVisible}"
+                                Theme="{StaticResource TextButton}">
+                                <Panel Background="Transparent">
+                                    <PathIcon
+                                        Name="PART_BackButtonDefaultIcon"
+                                        Foreground="{DynamicResource TDNavigationPageBackButtonForeground}"
+                                        Data="{DynamicResource TempChevronLeftGlyph}" />
+                                    <ContentPresenter
+                                        Name="PART_BackButtonContentPresenter"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Foreground="{DynamicResource TDNavigationPageBackButtonForeground}" />
+                                </Panel>
+                            </Button>
+                            <ContentPresenter
+                                Name="PART_Header"
+                                Grid.Column="1"
+                                Foreground="{DynamicResource TDNavigationPageHeaderForeground}"
+                                FontWeight="{DynamicResource TDNavigationPageHeaderFontWeight}"
+                                FontSize="{DynamicResource TDNavigationPageHeaderFontSize}"
+                                Content="{Binding CurrentPage?.Header, RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}"
+                                ContentTemplate="{Binding CurrentPage?.HeaderTemplate, RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}"
+                                VerticalAlignment="Center"
+                                Margin="{DynamicResource TDNavigationPageHeaderMargin}" />
+                            <ContentPresenter
+                                Name="PART_TopCommandBar"
+                                Grid.Column="2"
+                                HorizontalAlignment="Right"
+                                Content="{Binding CurrentPage?.(NavigationPage.TopCommandBar), RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}" />
+                        </Grid>
+                    </Border>
+
+                    <Border
+                        Name="PART_NavBarShadow"
+                        ZIndex="1"
+                        VerticalAlignment="Top"
+                        IsVisible="False"
+                        Height="{DynamicResource TDNavigationPageNavBarShadowHeight}"
+                        Background="{DynamicResource TDNavigationPageNavBarShadowBackground}"
+                        IsHitTestVisible="False">
+                    </Border>
+                    <ContentPresenter
+                        Name="PART_ModalBackPresenter"
+                        ZIndex="99"
+                        IsVisible="False"
+                        Background="{TemplateBinding Background}" />
+                    <ContentPresenter
+                        Name="PART_ModalPresenter"
+                        ZIndex="100"
+                        IsVisible="False"
+                        Background="{TemplateBinding Background}" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ Border#PART_NavigationBar">
+            <Setter Property="Background" Value="{DynamicResource TDNavigationBarBackground}" />
+        </Style>
+
+        <Style Selector="^:nav-bar-inset /template/ Border#PART_NavBarSpacer">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+
+        <Style Selector="^:nav-bar-compact /template/ ContentPresenter#PART_TopCommandBar CommandBar">
+            <Setter Property="DefaultLabelPosition" Value="Collapsed" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

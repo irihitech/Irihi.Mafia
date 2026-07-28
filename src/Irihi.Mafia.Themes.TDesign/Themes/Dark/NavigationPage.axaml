@@ -1,0 +1,14 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StaticResource x:Key="TDNavigationPageBackground" ResourceKey="TDBgColorPage" />
+    <StaticResource x:Key="TDNavigationPageBarBackground" ResourceKey="TDBgColorContainer" />
+    <StaticResource x:Key="TDNavigationBarBackground" ResourceKey="TDBgColorContainer" />
+    <StaticResource x:Key="TDNavigationPageBarBorderBrush" ResourceKey="TDComponentStroke" />
+    <StaticResource x:Key="TDNavigationPageBackButtonForeground" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDNavigationPageHeaderForeground" ResourceKey="TDTextColorPrimary" />
+    <LinearGradientBrush x:Key="TDNavigationPageNavBarShadowBackground" StartPoint="0%,0%" EndPoint="0%,100%">
+        <GradientStop Color="#0C000000" Offset="0" />
+        <GradientStop Color="#00000000" Offset="1" />
+    </LinearGradientBrush>
+</ResourceDictionary>

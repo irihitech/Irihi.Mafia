@@ -1,0 +1,15 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StaticResource x:Key="TDDrawerPageBackground" ResourceKey="TDBgColorPage" />
+    <StaticResource x:Key="TDDrawerPageForeground" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDDrawerPageDrawerBackground" ResourceKey="TDBgColorContainer" />
+    <StaticResource x:Key="TDDrawerPageDrawerSectionBackground" ResourceKey="TDBgColorContainer" />
+    <StaticResource x:Key="TDDrawerPageTopBarBackground" ResourceKey="TDBgColorContainer" />
+    <StaticResource x:Key="TDDrawerPageTopBarBorderBrush" ResourceKey="TDComponentStroke" />
+    <StaticResource x:Key="TDDrawerPageTitleForeground" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDDrawerPagePaneButtonForeground" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDDrawerPagePaneButtonPressedBackground" ResourceKey="TDBgColorContainerHover" />
+    <StaticResource x:Key="TDDrawerPagePaneButtonCheckedBackground" ResourceKey="TDBgColorContainerActive" />
+    <StaticResource x:Key="TDDrawerPageBackdropBrush" ResourceKey="TDMaskActive" />
+</ResourceDictionary>
