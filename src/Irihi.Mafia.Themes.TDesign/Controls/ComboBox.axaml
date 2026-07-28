@@ -135,41 +135,6 @@
                 </Panel>
             </ControlTemplate>
         </Setter>
-
-        <!--  Pointerover State  -->
-        <Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource TDComboBoxBackgroundPointerover}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TDComboBoxBorderBrushPointerover}" />
-            <Style Selector="^ /template/ PathIcon#DropDownGlyph">
-                <Setter Property="Foreground" Value="{DynamicResource TDComboBoxIconForegroundPointerover}" />
-            </Style>
-        </Style>
-
-        <!--  Pressed State  -->
-        <Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource TDComboBoxBackgroundPressed}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TDComboBoxBorderBrushPressed}" />
-            <Style Selector="^ /template/ PathIcon#DropDownGlyph">
-                <Setter Property="Foreground" Value="{DynamicResource TDComboBoxIconForegroundPressed}" />
-            </Style>
-        </Style>
-
-        <!--  Dropdown Open State  -->
-        <Style Selector="^:dropdownopen">
-            <Setter Property="BorderBrush" Value="{DynamicResource TDComboBoxBorderBrushPressed}" />
-        </Style>
-
-        <!--  Disabled State  -->
-        <Style Selector="^:disabled">
-            <Setter Property="Opacity" Value="{DynamicResource TDComboBoxDisabledOpacity}" />
-            <Style Selector="^ /template/ Border#BackgroundBorder">
-                <Setter Property="Background" Value="{DynamicResource TDComboBoxBackgroundDisabled}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource TDComboBoxBorderBrushDisabled}" />
-            </Style>
-            <Style Selector="^ /template/ PathIcon#DropDownGlyph">
-                <Setter Property="Foreground" Value="{DynamicResource TDComboBoxIconForegroundDisabled}" />
-            </Style>
-        </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type m:ComboBoxItem}" TargetType="m:ComboBoxItem">

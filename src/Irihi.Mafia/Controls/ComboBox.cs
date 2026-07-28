@@ -20,11 +20,8 @@ namespace Irihi.Mafia.Controls;
 /// Uses Mafia's <see cref="Popup"/> for the dropdown overlay.
 /// </summary>
 [TemplatePart("PART_Popup", typeof(Popup), IsRequired = true)]
-[PseudoClasses(pcDropdownOpen, pcPressed)]
 public class ComboBox : SelectingItemsControl, ICell
 {
-    internal const string pcDropdownOpen = ":dropdownopen";
-    internal const string pcPressed = ":pressed";
 
     private static readonly FuncTemplate<Panel?> DefaultPanel =
         new(() => new StackPanel());
@@ -321,22 +318,17 @@ public class ComboBox : SelectingItemsControl, ICell
             SetCurrentValue(IsDropDownOpenProperty, false);
             e.Handled = true;
         }
-        else
-        {
-            PseudoClasses.Set(pcPressed, true);
-        }
     }
 
     /// <inheritdoc/>
     protected override void OnPointerReleased(PointerReleasedEventArgs e)
     {
-        if (!e.Handled && PseudoClasses.Contains(pcPressed))
+        if (!e.Handled && !IsDropDownOpen)
         {
-            SetCurrentValue(IsDropDownOpenProperty, !IsDropDownOpen);
+            SetCurrentValue(IsDropDownOpenProperty, true);
             e.Handled = true;
         }
 
-        PseudoClasses.Set(pcPressed, false);
         base.OnPointerReleased(e);
     }
 
@@ -372,10 +364,6 @@ public class ComboBox : SelectingItemsControl, ICell
         if (change.Property == SelectedItemProperty)
         {
             UpdateSelectionBoxItem(change.NewValue);
-        }
-        else if (change.Property == IsDropDownOpenProperty)
-        {
-            PseudoClasses.Set(pcDropdownOpen, change.GetNewValue<bool>());
         }
 
         base.OnPropertyChanged(change);
