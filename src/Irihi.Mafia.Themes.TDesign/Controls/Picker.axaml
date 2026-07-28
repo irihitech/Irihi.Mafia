@@ -130,7 +130,8 @@
                                     Grid.Row="0"
                                     Name="PART_ConfirmButton"
                                     Content="确认"
-                                    HorizontalAlignment="Stretch"
+                                    Theme="{DynamicResource TextButton}"
+                                    HorizontalAlignment="Right"
                                     Margin="16,8"
                                     IsVisible="{TemplateBinding IsConfirmable}" />
                                 <ScrollViewer

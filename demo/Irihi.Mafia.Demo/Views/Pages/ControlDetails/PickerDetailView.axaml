@@ -14,51 +14,22 @@
             <TextBlock Text="触控优化的下拉选择控件。使用 Mafia Popup 实现底部弹出面板，支持占位文本、禁用态等。"
                        TextWrapping="Wrap" FontSize="14"
                        Foreground="{DynamicResource TDFontGyColor}" />
-
-            <m:Divider />
-
-            <TextBlock Text="基础用法" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
-            <m:Picker SelectedIndex="0">
-                <m:PickerItem>选项一</m:PickerItem>
-                <m:PickerItem>选项二</m:PickerItem>
-                <m:PickerItem>选项三</m:PickerItem>
-                <m:PickerItem>选项四</m:PickerItem>
-                <m:PickerItem>选项五</m:PickerItem>
-            </m:Picker>
-
-            <TextBlock Text="带占位文本" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
-            <m:Picker PlaceholderText="请选择城市">
-                <m:PickerItem>北京</m:PickerItem>
-                <m:PickerItem>上海</m:PickerItem>
-                <m:PickerItem>广州</m:PickerItem>
-                <m:PickerItem>深圳</m:PickerItem>
-                <m:PickerItem>杭州</m:PickerItem>
-            </m:Picker>
-
-            <TextBlock Text="默认选中" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
-            <m:Picker SelectedIndex="2">
-                <m:PickerItem>小号</m:PickerItem>
-                <m:PickerItem>中号</m:PickerItem>
-                <m:PickerItem>大号</m:PickerItem>
-                <m:PickerItem>加大号</m:PickerItem>
-            </m:Picker>
-
-            <TextBlock Text="禁用态" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
-            <m:Picker SelectedIndex="0" IsEnabled="False">
-                <m:PickerItem>不可选</m:PickerItem>
-                <m:PickerItem>不可选</m:PickerItem>
-            </m:Picker>
-
-            <TextBlock Text="禁用态 + 占位文本" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
-            <m:Picker PlaceholderText="已禁用" IsEnabled="False">
-                <m:PickerItem>选项一</m:PickerItem>
-                <m:PickerItem>选项二</m:PickerItem>
-            </m:Picker>
+            <m:CellGroup Header="基础用法示例">
+                <m:Picker SelectedIndex="0">
+                    <m:PickerItem>选项一</m:PickerItem>
+                    <m:PickerItem>选项二</m:PickerItem>
+                    <m:PickerItem>选项三</m:PickerItem>
+                    <m:PickerItem>选项四</m:PickerItem>
+                    <m:PickerItem>选项五</m:PickerItem>
+                </m:Picker>
+                <m:Picker PlaceholderText="请选择城市">
+                    <m:PickerItem>北京</m:PickerItem>
+                    <m:PickerItem>上海</m:PickerItem>
+                    <m:PickerItem>广州</m:PickerItem>
+                    <m:PickerItem>深圳</m:PickerItem>
+                    <m:PickerItem>杭州</m:PickerItem>
+                </m:Picker>
+            </m:CellGroup>
 
             <TextBlock Text="多项长列表" FontSize="16" FontWeight="SemiBold"
                        Foreground="{DynamicResource TDFontGyColor}" />
@@ -90,18 +61,6 @@
                 <m:PickerItem>青海省</m:PickerItem>
             </m:Picker>
 
-            <TextBlock Text="Cell 风格（Description + Note + InnerLeftContent）" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
-            <m:Picker SelectedIndex="1"
-                        Description="用于设置首选语言"
-                        Note="辅助信息">
-                <m:PickerItem>简体中文</m:PickerItem>
-                <m:PickerItem>English</m:PickerItem>
-                <m:PickerItem>日本語</m:PickerItem>
-            </m:Picker>
-
-            <m:Divider />
-
             <TextBlock Text="MVVM 数据绑定" FontSize="16" FontWeight="SemiBold"
                        Foreground="{DynamicResource TDFontGyColor}" />
 
@@ -125,8 +84,6 @@
             <TextBlock Text="{Binding SelectedIndex, StringFormat='SelectedIndex: {0}'}"
                        FontSize="14"
                        Foreground="{DynamicResource TDFontGyColor}" />
-
-            <m:Divider />
 
             <TextBlock Text="可确认模式（IsConfirmable=True）" FontSize="16" FontWeight="SemiBold"
                        Foreground="{DynamicResource TDFontGyColor}" />
