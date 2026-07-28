@@ -358,7 +358,8 @@ public class ComboBox : SelectingItemsControl, ICell
     {
         if (base.UpdateSelectionFromEvent(container, eventArgs))
         {
-            _popup?.Close();
+            if (!IsConfirmable)
+                _popup?.Close();
             return true;
         }
 
