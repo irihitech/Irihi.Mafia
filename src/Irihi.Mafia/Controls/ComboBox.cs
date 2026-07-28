@@ -274,6 +274,19 @@ public class ComboBox : SelectingItemsControl
 
     private void UpdateSelectionBoxItem(object? item)
     {
-        SelectionBoxItem = item;
+        // ComboBoxItem/ContentControl must not be reused directly as SelectionBoxItem,
+        // because they already have a visual parent in the ItemsPresenter tree.
+        if (item is ComboBoxItem comboBoxItem)
+        {
+            SelectionBoxItem = comboBoxItem.Content;
+        }
+        else if (item is ContentControl { Content: not null } cc)
+        {
+            SelectionBoxItem = cc.Content;
+        }
+        else
+        {
+            SelectionBoxItem = item;
+        }
     }
 }
