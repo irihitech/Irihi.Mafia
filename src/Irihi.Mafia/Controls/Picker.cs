@@ -20,7 +20,7 @@ namespace Irihi.Mafia.Controls;
 /// Uses Mafia's <see cref="Popup"/> for the dropdown overlay.
 /// </summary>
 [TemplatePart("PART_Popup", typeof(Popup), IsRequired = true)]
-public class ComboBox : SelectingItemsControl, ICell
+public class Picker : SelectingItemsControl, ICell
 {
 
     private static readonly FuncTemplate<Panel?> DefaultPanel =
@@ -32,103 +32,103 @@ public class ComboBox : SelectingItemsControl, ICell
     /// the selection; closing without confirming restores the previous value.
     /// </summary>
     public static readonly StyledProperty<bool> IsConfirmableProperty =
-        AvaloniaProperty.Register<ComboBox, bool>(nameof(IsConfirmable));
+        AvaloniaProperty.Register<Picker, bool>(nameof(IsConfirmable));
 
     /// <summary>
     /// Defines the <see cref="IsDropDownOpen"/> property.
     /// </summary>
     public static readonly StyledProperty<bool> IsDropDownOpenProperty =
-        AvaloniaProperty.Register<ComboBox, bool>(nameof(IsDropDownOpen));
+        AvaloniaProperty.Register<Picker, bool>(nameof(IsDropDownOpen));
 
     /// <summary>
     /// Defines the <see cref="MaxDropDownHeight"/> property.
     /// </summary>
     public static readonly StyledProperty<double> MaxDropDownHeightProperty =
-        AvaloniaProperty.Register<ComboBox, double>(nameof(MaxDropDownHeight), 200);
+        AvaloniaProperty.Register<Picker, double>(nameof(MaxDropDownHeight), 200);
 
     /// <summary>
     /// Defines the <see cref="SelectionBoxItem"/> property.
     /// </summary>
-    public static readonly DirectProperty<ComboBox, object?> SelectionBoxItemProperty =
-        AvaloniaProperty.RegisterDirect<ComboBox, object?>(nameof(SelectionBoxItem), o => o.SelectionBoxItem);
+    public static readonly DirectProperty<Picker, object?> SelectionBoxItemProperty =
+        AvaloniaProperty.RegisterDirect<Picker, object?>(nameof(SelectionBoxItem), o => o.SelectionBoxItem);
 
     /// <summary>
     /// Defines the <see cref="PlaceholderText"/> property.
     /// </summary>
     public static readonly StyledProperty<string?> PlaceholderTextProperty =
-        AvaloniaProperty.Register<ComboBox, string?>(nameof(PlaceholderText));
+        AvaloniaProperty.Register<Picker, string?>(nameof(PlaceholderText));
 
     /// <summary>
     /// Defines the <see cref="PlaceholderForeground"/> property.
     /// </summary>
     public static readonly StyledProperty<IBrush?> PlaceholderForegroundProperty =
-        AvaloniaProperty.Register<ComboBox, IBrush?>(nameof(PlaceholderForeground));
+        AvaloniaProperty.Register<Picker, IBrush?>(nameof(PlaceholderForeground));
 
     /// <summary>
     /// Defines the <see cref="HorizontalContentAlignment"/> property.
     /// </summary>
     public static readonly StyledProperty<HorizontalAlignment> HorizontalContentAlignmentProperty =
-        ContentControl.HorizontalContentAlignmentProperty.AddOwner<ComboBox>();
+        ContentControl.HorizontalContentAlignmentProperty.AddOwner<Picker>();
 
     /// <summary>
     /// Defines the <see cref="VerticalContentAlignment"/> property.
     /// </summary>
     public static readonly StyledProperty<VerticalAlignment> VerticalContentAlignmentProperty =
-        ContentControl.VerticalContentAlignmentProperty.AddOwner<ComboBox>();
+        ContentControl.VerticalContentAlignmentProperty.AddOwner<Picker>();
 
     /// <summary>
     /// Defines the <see cref="SelectionBoxItemTemplate"/> property.
     /// </summary>
     public static readonly StyledProperty<IDataTemplate?> SelectionBoxItemTemplateProperty =
-        AvaloniaProperty.Register<ComboBox, IDataTemplate?>(nameof(SelectionBoxItemTemplate));
+        AvaloniaProperty.Register<Picker, IDataTemplate?>(nameof(SelectionBoxItemTemplate));
 
     /// <summary>
     /// Defines the <see cref="Description"/> property.
     /// </summary>
     public static readonly StyledProperty<object?> DescriptionProperty =
-        AvaloniaProperty.Register<ComboBox, object?>(nameof(Description));
+        AvaloniaProperty.Register<Picker, object?>(nameof(Description));
 
     /// <summary>
     /// Defines the <see cref="DescriptionTemplate"/> property.
     /// </summary>
     public static readonly StyledProperty<IDataTemplate?> DescriptionTemplateProperty =
-        AvaloniaProperty.Register<ComboBox, IDataTemplate?>(nameof(DescriptionTemplate));
+        AvaloniaProperty.Register<Picker, IDataTemplate?>(nameof(DescriptionTemplate));
 
     /// <summary>
     /// Defines the <see cref="Note"/> property.
     /// </summary>
     public static readonly StyledProperty<object?> NoteProperty =
-        AvaloniaProperty.Register<ComboBox, object?>(nameof(Note));
+        AvaloniaProperty.Register<Picker, object?>(nameof(Note));
 
     /// <summary>
     /// Defines the <see cref="NoteTemplate"/> property.
     /// </summary>
     public static readonly StyledProperty<IDataTemplate?> NoteTemplateProperty =
-        AvaloniaProperty.Register<ComboBox, IDataTemplate?>(nameof(NoteTemplate));
+        AvaloniaProperty.Register<Picker, IDataTemplate?>(nameof(NoteTemplate));
 
     /// <summary>
     /// Defines the <see cref="InnerLeftContent"/> property.
     /// </summary>
     public static readonly StyledProperty<object?> InnerLeftContentProperty =
-        AvaloniaProperty.Register<ComboBox, object?>(nameof(InnerLeftContent));
+        AvaloniaProperty.Register<Picker, object?>(nameof(InnerLeftContent));
 
     /// <summary>
     /// Defines the <see cref="InnerLeftContentTemplate"/> property.
     /// </summary>
     public static readonly StyledProperty<IDataTemplate?> InnerLeftContentTemplateProperty =
-        AvaloniaProperty.Register<ComboBox, IDataTemplate?>(nameof(InnerLeftContentTemplate));
+        AvaloniaProperty.Register<Picker, IDataTemplate?>(nameof(InnerLeftContentTemplate));
 
     /// <summary>
     /// Defines the <see cref="InnerRightContent"/> property.
     /// </summary>
     public static readonly StyledProperty<object?> InnerRightContentProperty =
-        AvaloniaProperty.Register<ComboBox, object?>(nameof(InnerRightContent));
+        AvaloniaProperty.Register<Picker, object?>(nameof(InnerRightContent));
 
     /// <summary>
     /// Defines the <see cref="InnerRightContentTemplate"/> property.
     /// </summary>
     public static readonly StyledProperty<IDataTemplate?> InnerRightContentTemplateProperty =
-        AvaloniaProperty.Register<ComboBox, IDataTemplate?>(nameof(InnerRightContentTemplate));
+        AvaloniaProperty.Register<Picker, IDataTemplate?>(nameof(InnerRightContentTemplate));
 
     private Popup? _popup;
     private object? _selectionBoxItem;
@@ -137,21 +137,21 @@ public class ComboBox : SelectingItemsControl, ICell
     private bool _isConfirmed;
 
     /// <summary>
-    /// Initializes static members of the <see cref="ComboBox"/> class.
+    /// Initializes static members of the <see cref="Picker"/> class.
     /// </summary>
-    static ComboBox()
+    static Picker()
     {
-        ItemsPanelProperty.OverrideDefaultValue<ComboBox>(DefaultPanel);
-        FocusableProperty.OverrideDefaultValue<ComboBox>(true);
+        ItemsPanelProperty.OverrideDefaultValue<Picker>(DefaultPanel);
+        FocusableProperty.OverrideDefaultValue<Picker>(true);
     }
 
     /// <summary>
-    /// Occurs after the drop-down list of the <see cref="ComboBox"/> closes.
+    /// Occurs after the drop-down list of the <see cref="Picker"/> closes.
     /// </summary>
     public event EventHandler? DropDownClosed;
 
     /// <summary>
-    /// Occurs after the drop-down list of the <see cref="ComboBox"/> opens.
+    /// Occurs after the drop-down list of the <see cref="Picker"/> opens.
     /// </summary>
     public event EventHandler? DropDownOpened;
 
@@ -320,13 +320,13 @@ public class ComboBox : SelectingItemsControl, ICell
     /// <inheritdoc/>
     protected override Control CreateContainerForItemOverride(object? item, int index, object? recycleKey)
     {
-        return new ComboBoxItem();
+        return new PickerItem();
     }
 
     /// <inheritdoc/>
     protected override bool NeedsContainerOverride(object? item, int index, out object? recycleKey)
     {
-        return NeedsContainer<ComboBoxItem>(item, out recycleKey);
+        return NeedsContainer<PickerItem>(item, out recycleKey);
     }
 
     /// <inheritdoc/>
@@ -428,9 +428,9 @@ public class ComboBox : SelectingItemsControl, ICell
 
     private void UpdateSelectionBoxItem(object? item)
     {
-        // ComboBoxItem/ContentControl must not be reused directly as SelectionBoxItem,
+        // PickerItem/ContentControl must not be reused directly as SelectionBoxItem,
         // because they already have a visual parent in the ItemsPresenter tree.
-        if (item is ComboBoxItem comboBoxItem)
+        if (item is PickerItem comboBoxItem)
         {
             SelectionBoxItem = comboBoxItem.Content;
         }

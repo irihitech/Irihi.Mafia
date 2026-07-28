@@ -33,11 +33,11 @@
                         Classes="Arrow"
                         Command="{Binding ShowControlCommand}"
                         CommandParameter="Button" />
-                <m:Cell Content="ComboBox 下拉选择"
+                <m:Cell Content="Picker 下拉选择"
                         Description="触控优化的下拉选择控件"
                         Classes="Arrow"
                         Command="{Binding ShowControlCommand}"
-                        CommandParameter="ComboBox" />
+                        CommandParameter="Picker" />
                 <m:Cell Content="ToggleSwitch 开关"
                         Description="三档尺寸开关"
                         Classes="Arrow"

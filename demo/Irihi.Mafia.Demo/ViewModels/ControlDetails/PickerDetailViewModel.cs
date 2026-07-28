@@ -3,7 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Irihi.Mafia.Demo.ViewModels.ControlDetails;
 
-public partial class ComboBoxDetailViewModel : NavigationViewModelBase
+public partial class PickerDetailViewModel : NavigationViewModelBase
 {
     public ObservableCollection<string> Languages { get; } =
     [

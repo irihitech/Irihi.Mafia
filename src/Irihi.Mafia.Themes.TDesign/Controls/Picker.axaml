@@ -3,23 +3,23 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:m="https://irihi.tech/mafia">
 
-    <ControlTheme x:Key="{x:Type m:ComboBox}" TargetType="m:ComboBox">
-        <Setter Property="Padding" Value="{DynamicResource TDComboBoxPadding}" />
-        <Setter Property="MaxDropDownHeight" Value="{DynamicResource TDComboBoxMaxDropDownHeight}" />
-        <Setter Property="Background" Value="{DynamicResource TDComboBoxBackground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource TDComboBoxBorderBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource TDComboBoxBorderThickness}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource TDComboBoxCornerRadius}" />
+    <ControlTheme x:Key="{x:Type m:Picker}" TargetType="m:Picker">
+        <Setter Property="Padding" Value="{DynamicResource TDPickerPadding}" />
+        <Setter Property="MaxDropDownHeight" Value="{DynamicResource TDPickerMaxDropDownHeight}" />
+        <Setter Property="Background" Value="{DynamicResource TDPickerBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TDPickerBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TDPickerBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TDPickerCornerRadius}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="MinHeight" Value="{DynamicResource TDComboBoxMinHeight}" />
-        <Setter Property="FontSize" Value="{DynamicResource TDComboBoxFontSize}" />
-        <Setter Property="PlaceholderForeground" Value="{DynamicResource TDComboBoxPlaceholderForeground}" />
-        <Setter Property="Foreground" Value="{DynamicResource TDComboBoxForeground}" />
+        <Setter Property="MinHeight" Value="{DynamicResource TDPickerMinHeight}" />
+        <Setter Property="FontSize" Value="{DynamicResource TDPickerFontSize}" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource TDPickerPlaceholderForeground}" />
+        <Setter Property="Foreground" Value="{DynamicResource TDPickerForeground}" />
         <Setter Property="Template">
-            <ControlTemplate TargetType="m:ComboBox">
+            <ControlTemplate TargetType="m:Picker">
                 <Panel>
                     <Border
                         Name="BackgroundBorder"
@@ -35,8 +35,8 @@
                             <ContentPresenter
                                 Grid.Column="0"
                                 Name="PART_InnerLeftContent"
-                                Margin="{DynamicResource TDComboBoxLeftContentMargin}"
-                                Foreground="{DynamicResource TDComboBoxLeftContentForeground}"
+                                Margin="{DynamicResource TDPickerLeftContentMargin}"
+                                Foreground="{DynamicResource TDPickerLeftContentForeground}"
                                 Content="{TemplateBinding InnerLeftContent}"
                                 ContentTemplate="{TemplateBinding InnerLeftContentTemplate}"
                                 IsVisible="{TemplateBinding InnerLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}">
@@ -49,8 +49,8 @@
 
                             <StackPanel
                                 Grid.Column="1"
-                                Margin="{DynamicResource TDComboBoxContentMargin}"
-                                Spacing="{DynamicResource TDComboBoxContentSpacing}"
+                                Margin="{DynamicResource TDPickerContentMargin}"
+                                Spacing="{DynamicResource TDPickerContentSpacing}"
                                 VerticalAlignment="Center">
 
                                 <TextBlock
@@ -73,35 +73,35 @@
                                     Name="PART_Description"
                                     Content="{TemplateBinding Description}"
                                     ContentTemplate="{TemplateBinding DescriptionTemplate}"
-                                    FontSize="{DynamicResource TDComboBoxDescriptionFontSize}"
-                                    Foreground="{DynamicResource TDComboBoxDescriptionForeground}"
+                                    FontSize="{DynamicResource TDPickerDescriptionFontSize}"
+                                    Foreground="{DynamicResource TDPickerDescriptionForeground}"
                                     IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}" />
                             </StackPanel>
 
                             <StackPanel
                                 Grid.Column="2"
                                 Orientation="Horizontal"
-                                Spacing="{DynamicResource TDComboBoxRightPanelSpacing}"
+                                Spacing="{DynamicResource TDPickerRightPanelSpacing}"
                                 VerticalAlignment="Center">
                                 <ContentPresenter
                                     Name="PART_Note"
                                     Content="{TemplateBinding Note}"
                                     ContentTemplate="{TemplateBinding NoteTemplate}"
-                                    FontSize="{DynamicResource TDComboBoxNoteFontSize}"
-                                    Foreground="{DynamicResource TDComboBoxNoteForeground}"
+                                    FontSize="{DynamicResource TDPickerNoteFontSize}"
+                                    Foreground="{DynamicResource TDPickerNoteForeground}"
                                     IsVisible="{TemplateBinding Note, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                 <ContentPresenter
                                     Name="PART_InnerRightContent"
-                                    Foreground="{DynamicResource TDComboBoxRightContentForeground}"
+                                    Foreground="{DynamicResource TDPickerRightContentForeground}"
                                     Content="{TemplateBinding InnerRightContent}"
                                     ContentTemplate="{TemplateBinding InnerRightContentTemplate}"
                                     IsVisible="{TemplateBinding InnerRightContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                 <Path
                                     Name="DropDownGlyph"
-                                    Width="{DynamicResource TDComboBoxIconSize}"
-                                    Height="{DynamicResource TDComboBoxIconSize}"
-                                    Data="{DynamicResource TDComboBoxIconData}"
-                                    Stroke="{DynamicResource TDComboBoxIconForeground}"
+                                    Width="{DynamicResource TDPickerIconSize}"
+                                    Height="{DynamicResource TDPickerIconSize}"
+                                    Data="{DynamicResource TDPickerIconData}"
+                                    Stroke="{DynamicResource TDPickerIconForeground}"
                                     StrokeThickness="2"
                                     Stretch="Uniform"
                                     IsHitTestVisible="False"
@@ -118,13 +118,13 @@
                         Placement="Bottom">
                         <Border
                             Name="PopupBorder"
-                            MinHeight="{DynamicResource TDComboBoxPopupMinHeight}"
+                            MinHeight="{DynamicResource TDPickerPopupMinHeight}"
                             MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                            Padding="{DynamicResource TDComboBoxPopupPadding}"
-                            Background="{DynamicResource TDComboBoxPopupBackground}"
-                            BorderBrush="{DynamicResource TDComboBoxPopupBorderBrush}"
-                            BorderThickness="{DynamicResource TDComboBoxPopupBorderThickness}"
-                            CornerRadius="{DynamicResource TDComboBoxPopupCornerRadius}">
+                            Padding="{DynamicResource TDPickerPopupPadding}"
+                            Background="{DynamicResource TDPickerPopupBackground}"
+                            BorderBrush="{DynamicResource TDPickerPopupBorderBrush}"
+                            BorderThickness="{DynamicResource TDPickerPopupBorderThickness}"
+                            CornerRadius="{DynamicResource TDPickerPopupCornerRadius}">
                             <Grid RowDefinitions="Auto,*">
                                 <Button
                                     Grid.Row="0"
@@ -149,13 +149,13 @@
         </Setter>
     </ControlTheme>
 
-    <ControlTheme x:Key="{x:Type m:ComboBoxItem}" TargetType="m:ComboBoxItem">
-        <Setter Property="Foreground" Value="{DynamicResource TDComboBoxItemForeground}" />
-        <Setter Property="Background" Value="{DynamicResource TDComboBoxItemBackground}" />
-        <Setter Property="Padding" Value="{DynamicResource TDComboBoxItemPadding}" />
+    <ControlTheme x:Key="{x:Type m:PickerItem}" TargetType="m:PickerItem">
+        <Setter Property="Foreground" Value="{DynamicResource TDPickerItemForeground}" />
+        <Setter Property="Background" Value="{DynamicResource TDPickerItemBackground}" />
+        <Setter Property="Padding" Value="{DynamicResource TDPickerItemPadding}" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="Template">
-            <ControlTemplate TargetType="m:ComboBoxItem">
+            <ControlTemplate TargetType="m:PickerItem">
                 <ContentPresenter
                     Name="PART_ContentPresenter"
                     Padding="{TemplateBinding Padding}"
@@ -170,31 +170,31 @@
         </Setter>
 
         <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource TDComboBoxItemForegroundPointerover}" />
-            <Setter Property="Background" Value="{DynamicResource TDComboBoxItemBackgroundPointerover}" />
+            <Setter Property="Foreground" Value="{DynamicResource TDPickerItemForegroundPointerover}" />
+            <Setter Property="Background" Value="{DynamicResource TDPickerItemBackgroundPointerover}" />
         </Style>
 
         <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource TDComboBoxItemForegroundPressed}" />
-            <Setter Property="Background" Value="{DynamicResource TDComboBoxItemBackgroundPressed}" />
+            <Setter Property="Foreground" Value="{DynamicResource TDPickerItemForegroundPressed}" />
+            <Setter Property="Background" Value="{DynamicResource TDPickerItemBackgroundPressed}" />
         </Style>
 
         <Style Selector="^:selected">
-            <Setter Property="Foreground" Value="{DynamicResource TDComboBoxItemForegroundSelected}" />
+            <Setter Property="Foreground" Value="{DynamicResource TDPickerItemForegroundSelected}" />
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="{DynamicResource TDComboBoxItemBackgroundSelected}" />
+                <Setter Property="Background" Value="{DynamicResource TDPickerItemBackgroundSelected}" />
             </Style>
             <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource TDComboBoxItemForegroundSelected}" />
-                <Setter Property="Background" Value="{DynamicResource TDComboBoxItemBackgroundSelectedPointerover}" />
+                <Setter Property="Foreground" Value="{DynamicResource TDPickerItemForegroundSelected}" />
+                <Setter Property="Background" Value="{DynamicResource TDPickerItemBackgroundSelectedPointerover}" />
             </Style>
             <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="{DynamicResource TDComboBoxItemBackgroundSelectedDisabled}" />
+                <Setter Property="Background" Value="{DynamicResource TDPickerItemBackgroundSelectedDisabled}" />
             </Style>
         </Style>
 
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Background" Value="{DynamicResource TDComboBoxItemBackgroundDisabled}" />
+            <Setter Property="Background" Value="{DynamicResource TDPickerItemBackgroundDisabled}" />
         </Style>
     </ControlTheme>
 

@@ -2,9 +2,9 @@ using Avalonia.Controls;
 
 namespace Irihi.Mafia.Demo.Views.Pages.ControlDetails;
 
-public partial class ComboBoxDetailView : UserControl
+public partial class PickerDetailView : UserControl
 {
-    public ComboBoxDetailView()
+    public PickerDetailView()
     {
         InitializeComponent();
     }
