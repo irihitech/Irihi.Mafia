@@ -3,7 +3,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:m="https://irihi.tech/mafia"
+             xmlns:vm="clr-namespace:Irihi.Mafia.Demo.ViewModels.ControlDetails"
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
+             x:DataType="vm:ComboBoxDetailViewModel"
              x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.ComboBoxDetailView">
     <ScrollViewer>
         <StackPanel Spacing="4">
@@ -97,6 +99,32 @@
                 <m:ComboBoxItem>English</m:ComboBoxItem>
                 <m:ComboBoxItem>日本語</m:ComboBoxItem>
             </m:ComboBox>
+
+            <m:Divider />
+
+            <TextBlock Text="MVVM 数据绑定" FontSize="16" FontWeight="SemiBold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+
+            <TextBlock Text="语言选择（ItemsSource + SelectedItem）" FontSize="14"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <m:ComboBox ItemsSource="{Binding Languages}"
+                        SelectedItem="{Binding SelectedLanguage}"
+                        Description="数据驱动的下拉选择"
+                        Note="双向绑定">
+            </m:ComboBox>
+            <TextBlock Text="{Binding SelectedLanguage, StringFormat='已选: {0}'}"
+                       FontSize="14"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+
+            <TextBlock Text="尺码选择（ItemsSource + SelectedIndex）" FontSize="14"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <m:ComboBox ItemsSource="{Binding Sizes}"
+                        SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
+                        PlaceholderText="请选择尺码">
+            </m:ComboBox>
+            <TextBlock Text="{Binding SelectedIndex, StringFormat='SelectedIndex: {0}'}"
+                       FontSize="14"
+                       Foreground="{DynamicResource TDFontGyColor}" />
         </StackPanel>
     </ScrollViewer>
 </UserControl>
