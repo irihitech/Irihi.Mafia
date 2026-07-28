@@ -1,5 +1,4 @@
 using System;
-using System;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
@@ -28,7 +27,7 @@ public class ComboBox : SelectingItemsControl
     internal const string pcPressed = ":pressed";
 
     private static readonly FuncTemplate<Panel?> DefaultPanel =
-        new(() => new VirtualizingStackPanel());
+        new(() => new StackPanel());
 
     /// <summary>
     /// Defines the <see cref="IsDropDownOpen"/> property.
