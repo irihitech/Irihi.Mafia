@@ -6,7 +6,7 @@
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
              x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.ComboBoxDetailView">
     <ScrollViewer>
-        <StackPanel Spacing="12" Margin="16,16,16,24">
+        <StackPanel Spacing="4">
             <TextBlock Text="ComboBox 下拉选择" FontSize="24" FontWeight="Bold"
                        Foreground="{DynamicResource TDFontGyColor}" />
             <TextBlock Text="触控优化的下拉选择控件。使用 Mafia Popup 实现底部弹出面板，支持占位文本、禁用态等。"

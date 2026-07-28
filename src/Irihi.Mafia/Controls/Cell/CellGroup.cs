@@ -8,7 +8,7 @@ public class CellGroup : HeaderedItemsControl
     protected override bool NeedsContainerOverride(object? item, int index, out object? recycleKey)
     {
         recycleKey = null;
-        return item is not Cell;
+        return item is not ICell;
     }
 
     protected override Control CreateContainerForItemOverride(object? item, int index, object? recycleKey) => new Cell();

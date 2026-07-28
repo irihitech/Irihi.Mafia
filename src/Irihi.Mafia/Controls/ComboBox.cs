@@ -21,7 +21,7 @@ namespace Irihi.Mafia.Controls;
 /// </summary>
 [TemplatePart("PART_Popup", typeof(Popup), IsRequired = true)]
 [PseudoClasses(pcDropdownOpen, pcPressed)]
-public class ComboBox : SelectingItemsControl
+public class ComboBox : SelectingItemsControl, ICell
 {
     internal const string pcDropdownOpen = ":dropdownopen";
     internal const string pcPressed = ":pressed";
