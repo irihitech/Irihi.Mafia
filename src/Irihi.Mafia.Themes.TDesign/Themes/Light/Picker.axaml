@@ -2,48 +2,48 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!-- ComboBox -->
-    <StaticResource x:Key="TDComboBoxBackground" ResourceKey="TDBgColorContainer" />
-    <StaticResource x:Key="TDComboBoxBorderBrush" ResourceKey="TDBorderLevel1Color" />
-    <StaticResource x:Key="TDComboBoxForeground" ResourceKey="TDTextColorPrimary" />
-    <StaticResource x:Key="TDComboBoxPlaceholderForeground" ResourceKey="TDTextColorPlaceholder" />
-    <StaticResource x:Key="TDComboBoxIconForeground" ResourceKey="TDTextColorSecondary" />
+    <StaticResource x:Key="TDPickerBackground" ResourceKey="TDBgColorContainer" />
+    <StaticResource x:Key="TDPickerBorderBrush" ResourceKey="TDBorderLevel1Color" />
+    <StaticResource x:Key="TDPickerForeground" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDPickerPlaceholderForeground" ResourceKey="TDTextColorPlaceholder" />
+    <StaticResource x:Key="TDPickerIconForeground" ResourceKey="TDTextColorSecondary" />
 
-    <StaticResource x:Key="TDComboBoxBackgroundPointerover" ResourceKey="TDBgColorContainerHover" />
-    <StaticResource x:Key="TDComboBoxBorderBrushPointerover" ResourceKey="TDBorderLevel1Color" />
-    <StaticResource x:Key="TDComboBoxIconForegroundPointerover" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDPickerBackgroundPointerover" ResourceKey="TDBgColorContainerHover" />
+    <StaticResource x:Key="TDPickerBorderBrushPointerover" ResourceKey="TDBorderLevel1Color" />
+    <StaticResource x:Key="TDPickerIconForegroundPointerover" ResourceKey="TDTextColorPrimary" />
 
-    <StaticResource x:Key="TDComboBoxBackgroundPressed" ResourceKey="TDBgColorContainerActive" />
-    <StaticResource x:Key="TDComboBoxBorderBrushPressed" ResourceKey="TDBrandColor" />
-    <StaticResource x:Key="TDComboBoxIconForegroundPressed" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDPickerBackgroundPressed" ResourceKey="TDBgColorContainerActive" />
+    <StaticResource x:Key="TDPickerBorderBrushPressed" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDPickerIconForegroundPressed" ResourceKey="TDBrandColor" />
 
-    <StaticResource x:Key="TDComboBoxBackgroundDisabled" ResourceKey="TDBgColorComponentDisabled" />
-    <StaticResource x:Key="TDComboBoxBorderBrushDisabled" ResourceKey="TDBorderLevel1Color" />
-    <StaticResource x:Key="TDComboBoxIconForegroundDisabled" ResourceKey="TDTextColorDisabled" />
+    <StaticResource x:Key="TDPickerBackgroundDisabled" ResourceKey="TDBgColorComponentDisabled" />
+    <StaticResource x:Key="TDPickerBorderBrushDisabled" ResourceKey="TDBorderLevel1Color" />
+    <StaticResource x:Key="TDPickerIconForegroundDisabled" ResourceKey="TDTextColorDisabled" />
 
     <!-- ComboBox Cell-like extras -->
-    <StaticResource x:Key="TDComboBoxLeftContentForeground" ResourceKey="TDBrandColor" />
-    <StaticResource x:Key="TDComboBoxDescriptionForeground" ResourceKey="TDTextColorSecondary" />
-    <StaticResource x:Key="TDComboBoxNoteForeground" ResourceKey="TDTextColorPlaceholder" />
-    <StaticResource x:Key="TDComboBoxRightContentForeground" ResourceKey="TDTextColorPlaceholder" />
+    <StaticResource x:Key="TDPickerLeftContentForeground" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDPickerDescriptionForeground" ResourceKey="TDTextColorSecondary" />
+    <StaticResource x:Key="TDPickerNoteForeground" ResourceKey="TDTextColorPlaceholder" />
+    <StaticResource x:Key="TDPickerRightContentForeground" ResourceKey="TDTextColorPlaceholder" />
 
     <!-- ComboBox Popup -->
-    <StaticResource x:Key="TDComboBoxPopupBackground" ResourceKey="TDBgColorContainer" />
-    <SolidColorBrush x:Key="TDComboBoxPopupBorderBrush" Color="Transparent" />
+    <StaticResource x:Key="TDPickerPopupBackground" ResourceKey="TDBgColorContainer" />
+    <SolidColorBrush x:Key="TDPickerPopupBorderBrush" Color="Transparent" />
 
     <!-- ComboBoxItem -->
-    <SolidColorBrush x:Key="TDComboBoxItemForeground" Color="{StaticResource TDGrayColor11}" />
-    <SolidColorBrush x:Key="TDComboBoxItemBackground" Color="Transparent" />
+    <SolidColorBrush x:Key="TDPickerItemForeground" Color="{StaticResource TDGrayColor11}" />
+    <SolidColorBrush x:Key="TDPickerItemBackground" Color="Transparent" />
 
-    <StaticResource x:Key="TDComboBoxItemForegroundPointerover" ResourceKey="TDTextColorPrimary" />
-    <StaticResource x:Key="TDComboBoxItemBackgroundPointerover" ResourceKey="TDBgColorContainerHover" />
+    <StaticResource x:Key="TDPickerItemForegroundPointerover" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDPickerItemBackgroundPointerover" ResourceKey="TDBgColorContainerHover" />
 
-    <StaticResource x:Key="TDComboBoxItemForegroundPressed" ResourceKey="TDTextColorPrimary" />
-    <StaticResource x:Key="TDComboBoxItemBackgroundPressed" ResourceKey="TDBgColorContainerActive" />
+    <StaticResource x:Key="TDPickerItemForegroundPressed" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDPickerItemBackgroundPressed" ResourceKey="TDBgColorContainerActive" />
 
-    <StaticResource x:Key="TDComboBoxItemForegroundSelected" ResourceKey="TDBrandColor" />
-    <StaticResource x:Key="TDComboBoxItemBackgroundSelected" ResourceKey="TDBrandColorLight" />
-    <StaticResource x:Key="TDComboBoxItemBackgroundSelectedPointerover" ResourceKey="TDBrandColorLightHover" />
-    <StaticResource x:Key="TDComboBoxItemBackgroundSelectedDisabled" ResourceKey="TDBrandColorLight" />
-    <StaticResource x:Key="TDComboBoxItemBackgroundDisabled" ResourceKey="TDBgColorComponentDisabled" />
+    <StaticResource x:Key="TDPickerItemForegroundSelected" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDPickerItemBackgroundSelected" ResourceKey="TDBrandColorLight" />
+    <StaticResource x:Key="TDPickerItemBackgroundSelectedPointerover" ResourceKey="TDBrandColorLightHover" />
+    <StaticResource x:Key="TDPickerItemBackgroundSelectedDisabled" ResourceKey="TDBrandColorLight" />
+    <StaticResource x:Key="TDPickerItemBackgroundDisabled" ResourceKey="TDBgColorComponentDisabled" />
 
 </ResourceDictionary>
