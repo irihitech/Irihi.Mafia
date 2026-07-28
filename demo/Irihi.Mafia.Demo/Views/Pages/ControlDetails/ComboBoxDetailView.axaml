@@ -125,6 +125,22 @@
             <TextBlock Text="{Binding SelectedIndex, StringFormat='SelectedIndex: {0}'}"
                        FontSize="14"
                        Foreground="{DynamicResource TDFontGyColor}" />
+
+            <m:Divider />
+
+            <TextBlock Text="可确认模式（IsConfirmable=True）" FontSize="16" FontWeight="SemiBold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="选择后需点击「确认」按钮才生效，点击遮罩取消恢复原值。"
+                       TextWrapping="Wrap" FontSize="14"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <m:ComboBox PlaceholderText="请选择" IsConfirmable="True"
+                        Description="带确认按钮的 Picker 风格">
+                <m:ComboBoxItem>选项 A</m:ComboBoxItem>
+                <m:ComboBoxItem>选项 B</m:ComboBoxItem>
+                <m:ComboBoxItem>选项 C</m:ComboBoxItem>
+                <m:ComboBoxItem>选项 D</m:ComboBoxItem>
+                <m:ComboBoxItem>选项 E</m:ComboBoxItem>
+            </m:ComboBox>
         </StackPanel>
     </ScrollViewer>
 </UserControl>

@@ -27,6 +27,14 @@ public class ComboBox : SelectingItemsControl, ICell
         new(() => new StackPanel());
 
     /// <summary>
+    /// Defines the <see cref="IsConfirmable"/> property.
+    /// When true, the user must press a confirm button in the dropdown to commit
+    /// the selection; closing without confirming restores the previous value.
+    /// </summary>
+    public static readonly StyledProperty<bool> IsConfirmableProperty =
+        AvaloniaProperty.Register<ComboBox, bool>(nameof(IsConfirmable));
+
+    /// <summary>
     /// Defines the <see cref="IsDropDownOpen"/> property.
     /// </summary>
     public static readonly StyledProperty<bool> IsDropDownOpenProperty =
@@ -124,6 +132,9 @@ public class ComboBox : SelectingItemsControl, ICell
 
     private Popup? _popup;
     private object? _selectionBoxItem;
+    private Button? _confirmButton;
+    private int _savedSelectedIndex;
+    private bool _isConfirmed;
 
     /// <summary>
     /// Initializes static members of the <see cref="ComboBox"/> class.
@@ -143,6 +154,16 @@ public class ComboBox : SelectingItemsControl, ICell
     /// Occurs after the drop-down list of the <see cref="ComboBox"/> opens.
     /// </summary>
     public event EventHandler? DropDownOpened;
+
+    /// <summary>
+    /// Gets or sets a value indicating whether a confirm button is shown in the dropdown.
+    /// When true, selection changes are only committed when the user presses confirm.
+    /// </summary>
+    public bool IsConfirmable
+    {
+        get => GetValue(IsConfirmableProperty);
+        set => SetValue(IsConfirmableProperty, value);
+    }
 
     /// <summary>
     /// Gets or sets a value indicating whether the dropdown is currently open.
@@ -353,9 +374,16 @@ public class ComboBox : SelectingItemsControl, ICell
             _popup.Closed -= PopupClosed;
         }
 
+        if (_confirmButton != null)
+            _confirmButton.Click -= OnConfirmClick;
+
         _popup = e.NameScope.Get<Popup>("PART_Popup");
         _popup.Opened += PopupOpened;
         _popup.Closed += PopupClosed;
+
+        _confirmButton = e.NameScope.Find<Button>("PART_ConfirmButton");
+        if (_confirmButton != null)
+            _confirmButton.Click += OnConfirmClick;
     }
 
     /// <inheritdoc/>
@@ -371,12 +399,30 @@ public class ComboBox : SelectingItemsControl, ICell
 
     private void PopupClosed(object? sender, EventArgs e)
     {
+        if (IsConfirmable && !_isConfirmed)
+        {
+            var saved = _savedSelectedIndex;
+            if (saved != -1)
+                SelectedIndex = saved;
+            else
+                SelectedItem = null;
+        }
+
         DropDownClosed?.Invoke(this, EventArgs.Empty);
     }
 
     private void PopupOpened(object? sender, EventArgs e)
     {
+        _savedSelectedIndex = SelectedIndex;
+        _isConfirmed = false;
+
         DropDownOpened?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void OnConfirmClick(object? sender, RoutedEventArgs e)
+    {
+        _isConfirmed = true;
+        _popup?.Close();
     }
 
     private void UpdateSelectionBoxItem(object? item)

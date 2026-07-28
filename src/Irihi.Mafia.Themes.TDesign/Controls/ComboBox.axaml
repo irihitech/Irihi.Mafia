@@ -125,13 +125,23 @@
                             BorderBrush="{DynamicResource TDComboBoxPopupBorderBrush}"
                             BorderThickness="{DynamicResource TDComboBoxPopupBorderThickness}"
                             CornerRadius="{DynamicResource TDComboBoxPopupCornerRadius}">
-                            <ScrollViewer
-                                HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
-                                VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                                <ItemsPresenter
-                                    Name="PART_ItemsPresenter"
-                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
-                            </ScrollViewer>
+                            <Grid RowDefinitions="Auto,*">
+                                <Button
+                                    Grid.Row="0"
+                                    Name="PART_ConfirmButton"
+                                    Content="确认"
+                                    HorizontalAlignment="Stretch"
+                                    Margin="16,8"
+                                    IsVisible="{TemplateBinding IsConfirmable}" />
+                                <ScrollViewer
+                                    Grid.Row="1"
+                                    HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                    VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                    <ItemsPresenter
+                                        Name="PART_ItemsPresenter"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                </ScrollViewer>
+                            </Grid>
                         </Border>
                     </m:Popup>
                 </Panel>
