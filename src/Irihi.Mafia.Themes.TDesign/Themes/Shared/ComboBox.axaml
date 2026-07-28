@@ -1,0 +1,25 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ComboBox Layout -->
+    <x:Double x:Key="TDComboBoxMinHeight">48</x:Double>
+    <Thickness x:Key="TDComboBoxPadding">16,0</Thickness>
+    <Thickness x:Key="TDComboBoxBorderThickness">0,0,0,1</Thickness>
+    <CornerRadius x:Key="TDComboBoxCornerRadius">0</CornerRadius>
+    <x:Double x:Key="TDComboBoxMaxDropDownHeight">280</x:Double>
+    <x:Double x:Key="TDComboBoxDisabledOpacity">0.4</x:Double>
+
+    <!-- ComboBox Icon -->
+    <x:Double x:Key="TDComboBoxIconSize">20</x:Double>
+    <StreamGeometry x:Key="TDComboBoxIconData">M7.41 8.58L12 13.17L16.59 8.58L18 10L12 16L6 10L7.41 8.58Z</StreamGeometry>
+
+    <!-- ComboBox Popup -->
+    <x:Double x:Key="TDComboBoxPopupMinHeight">48</x:Double>
+    <Thickness x:Key="TDComboBoxPopupPadding">0,8</Thickness>
+    <Thickness x:Key="TDComboBoxPopupBorderThickness">0</Thickness>
+    <CornerRadius x:Key="TDComboBoxPopupCornerRadius">12,12,0,0</CornerRadius>
+
+    <!-- ComboBoxItem Layout -->
+    <Thickness x:Key="TDComboBoxItemPadding">16,12</Thickness>
+
+</ResourceDictionary>

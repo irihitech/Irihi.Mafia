@@ -4,6 +4,7 @@
         <ResourceInclude Source="Button.axaml" />
         <ResourceInclude Source="Cell.axaml" />
         <ResourceInclude Source="CheckBox.axaml" />
+        <ResourceInclude Source="ComboBox.axaml" />
         <ResourceInclude Source="ContentPage.axaml" />
         <ResourceInclude Source="Divider.axaml" />
         <ResourceInclude Source="DrawerPage.axaml" />

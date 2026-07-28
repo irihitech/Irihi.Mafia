@@ -1,0 +1,43 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ComboBox -->
+    <StaticResource x:Key="TDComboBoxBackground" ResourceKey="TDBgColorContainer" />
+    <StaticResource x:Key="TDComboBoxBorderBrush" ResourceKey="TDBorderLevel1Color" />
+    <StaticResource x:Key="TDComboBoxForeground" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDComboBoxPlaceholderForeground" ResourceKey="TDTextColorPlaceholder" />
+    <StaticResource x:Key="TDComboBoxIconForeground" ResourceKey="TDTextColorSecondary" />
+
+    <StaticResource x:Key="TDComboBoxBackgroundPointerover" ResourceKey="TDBgColorContainerHover" />
+    <StaticResource x:Key="TDComboBoxBorderBrushPointerover" ResourceKey="TDBorderLevel1Color" />
+    <StaticResource x:Key="TDComboBoxIconForegroundPointerover" ResourceKey="TDTextColorPrimary" />
+
+    <StaticResource x:Key="TDComboBoxBackgroundPressed" ResourceKey="TDBgColorContainerActive" />
+    <StaticResource x:Key="TDComboBoxBorderBrushPressed" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDComboBoxIconForegroundPressed" ResourceKey="TDBrandColor" />
+
+    <StaticResource x:Key="TDComboBoxBackgroundDisabled" ResourceKey="TDBgColorComponentDisabled" />
+    <StaticResource x:Key="TDComboBoxBorderBrushDisabled" ResourceKey="TDBorderLevel1Color" />
+    <StaticResource x:Key="TDComboBoxIconForegroundDisabled" ResourceKey="TDTextColorDisabled" />
+
+    <!-- ComboBox Popup -->
+    <StaticResource x:Key="TDComboBoxPopupBackground" ResourceKey="TDBgColorContainer" />
+    <SolidColorBrush x:Key="TDComboBoxPopupBorderBrush" Color="Transparent" />
+
+    <!-- ComboBoxItem -->
+    <SolidColorBrush x:Key="TDComboBoxItemForeground" Color="{StaticResource TDGrayColor11}" />
+    <SolidColorBrush x:Key="TDComboBoxItemBackground" Color="Transparent" />
+
+    <StaticResource x:Key="TDComboBoxItemForegroundPointerover" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDComboBoxItemBackgroundPointerover" ResourceKey="TDBgColorContainerHover" />
+
+    <StaticResource x:Key="TDComboBoxItemForegroundPressed" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDComboBoxItemBackgroundPressed" ResourceKey="TDBgColorContainerActive" />
+
+    <StaticResource x:Key="TDComboBoxItemForegroundSelected" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDComboBoxItemBackgroundSelected" ResourceKey="TDBrandColorLight" />
+    <StaticResource x:Key="TDComboBoxItemBackgroundSelectedPointerover" ResourceKey="TDBrandColorLightHover" />
+    <StaticResource x:Key="TDComboBoxItemBackgroundSelectedDisabled" ResourceKey="TDBrandColorLight" />
+    <StaticResource x:Key="TDComboBoxItemBackgroundDisabled" ResourceKey="TDBgColorComponentDisabled" />
+
+</ResourceDictionary>
