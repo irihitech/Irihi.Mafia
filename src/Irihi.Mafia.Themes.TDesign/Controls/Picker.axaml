@@ -129,10 +129,10 @@
                                 <Button
                                     Grid.Row="0"
                                     Name="PART_ConfirmButton"
+                                    Classes="Primary"
                                     Content="确认"
                                     Theme="{DynamicResource TextButton}"
                                     HorizontalAlignment="Right"
-                                    Margin="16,8"
                                     IsVisible="{TemplateBinding IsConfirmable}" />
                                 <ScrollViewer
                                     Grid.Row="1"
