@@ -96,12 +96,14 @@
                                     Content="{TemplateBinding InnerRightContent}"
                                     ContentTemplate="{TemplateBinding InnerRightContentTemplate}"
                                     IsVisible="{TemplateBinding InnerRightContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
-                                <PathIcon
+                                <Path
                                     Name="DropDownGlyph"
                                     Width="{DynamicResource TDComboBoxIconSize}"
                                     Height="{DynamicResource TDComboBoxIconSize}"
                                     Data="{DynamicResource TDComboBoxIconData}"
-                                    Foreground="{DynamicResource TDComboBoxIconForeground}"
+                                    Stroke="{DynamicResource TDComboBoxIconForeground}"
+                                    StrokeThickness="2"
+                                    Stretch="Uniform"
                                     IsHitTestVisible="False"
                                     UseLayoutRounding="False" />
                             </StackPanel>
