@@ -15,6 +15,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="MinHeight" Value="{DynamicResource TDComboBoxMinHeight}" />
+        <Setter Property="FontSize" Value="{DynamicResource TDComboBoxFontSize}" />
         <Setter Property="PlaceholderForeground" Value="{DynamicResource TDComboBoxPlaceholderForeground}" />
         <Setter Property="Foreground" Value="{DynamicResource TDComboBoxForeground}" />
         <Setter Property="Template">

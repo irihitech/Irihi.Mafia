@@ -3,11 +3,12 @@
 
     <!-- ComboBox Layout -->
     <x:Double x:Key="TDComboBoxMinHeight">48</x:Double>
-    <Thickness x:Key="TDComboBoxPadding">16,0</Thickness>
+    <Thickness x:Key="TDComboBoxPadding">16</Thickness>
     <Thickness x:Key="TDComboBoxBorderThickness">0,0,0,1</Thickness>
     <CornerRadius x:Key="TDComboBoxCornerRadius">0</CornerRadius>
     <x:Double x:Key="TDComboBoxMaxDropDownHeight">280</x:Double>
     <x:Double x:Key="TDComboBoxDisabledOpacity">0.4</x:Double>
+    <StaticResource x:Key="TDComboBoxFontSize" ResourceKey="TDFontSizeBodyLarge" />
 
     <!-- ComboBox Icon -->
     <x:Double x:Key="TDComboBoxIconSize">20</x:Double>
