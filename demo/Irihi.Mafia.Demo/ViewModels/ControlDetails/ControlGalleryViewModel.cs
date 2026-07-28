@@ -14,6 +14,7 @@ public partial class ControlGalleryViewModel: NavigationViewModelBase
         {
             "Popup" => new PopupDetailView(),
             "Button" => new ButtonDetailView(),
+            "ComboBox" => new ComboBoxDetailView(),
             "Switch" => new SwitchDetailView(),
             "Slider" => new SliderDetailView(),
             "Progress" => new ProgressDetailView(),
@@ -23,6 +24,7 @@ public partial class ControlGalleryViewModel: NavigationViewModelBase
         {
             "Popup" => new PopupDetailViewModel() { NavigationRoot = NavigationRoot },
             "Button" => new ButtonDetailViewModel() { NavigationRoot = NavigationRoot },
+            "ComboBox" => new ComboBoxDetailViewModel() { NavigationRoot = NavigationRoot },
             _ => null,
         };
         NavigationRoot?.PushAsync(new ContentPage()
