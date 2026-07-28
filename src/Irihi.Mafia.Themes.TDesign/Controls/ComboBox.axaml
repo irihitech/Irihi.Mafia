@@ -23,42 +23,91 @@
                 <Panel>
                     <Border
                         Name="BackgroundBorder"
+                        Padding="{TemplateBinding Padding}"
+                        MinHeight="{TemplateBinding MinHeight}"
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}"
-                        MinHeight="{TemplateBinding MinHeight}" />
+                        CornerRadius="{TemplateBinding CornerRadius}">
 
-                    <Grid ColumnDefinitions="*, Auto" Margin="{TemplateBinding Padding}">
-                        <TextBlock
-                            Name="PlaceholderTextBlock"
-                            Grid.Column="0"
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            TextTrimming="CharacterEllipsis"
-                            Foreground="{TemplateBinding PlaceholderForeground}"
-                            Text="{TemplateBinding PlaceholderText}"
-                            IsVisible="{TemplateBinding SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}" />
+                        <Grid ColumnDefinitions="Auto,*,Auto">
 
-                        <ContentPresenter
-                            Name="ContentPresenter"
-                            Grid.Column="0"
-                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                            Content="{TemplateBinding SelectionBoxItem}"
-                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
-                            IsVisible="{TemplateBinding SelectionBoxItem, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                            <ContentPresenter
+                                Grid.Column="0"
+                                Name="PART_InnerLeftContent"
+                                Margin="{DynamicResource TDComboBoxLeftContentMargin}"
+                                Foreground="{DynamicResource TDComboBoxLeftContentForeground}"
+                                Content="{TemplateBinding InnerLeftContent}"
+                                ContentTemplate="{TemplateBinding InnerLeftContentTemplate}"
+                                IsVisible="{TemplateBinding InnerLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                <ContentPresenter.DataTemplates>
+                                    <DataTemplate DataType="Geometry">
+                                        <PathIcon Data="{Binding}" />
+                                    </DataTemplate>
+                                </ContentPresenter.DataTemplates>
+                            </ContentPresenter>
 
-                        <PathIcon
-                            Name="DropDownGlyph"
-                            Grid.Column="1"
-                            Width="{DynamicResource TDComboBoxIconSize}"
-                            Height="{DynamicResource TDComboBoxIconSize}"
-                            Data="{DynamicResource TDComboBoxIconData}"
-                            Foreground="{DynamicResource TDComboBoxIconForeground}"
-                            IsHitTestVisible="False"
-                            UseLayoutRounding="False" />
-                    </Grid>
+                            <StackPanel
+                                Grid.Column="1"
+                                Margin="{DynamicResource TDComboBoxContentMargin}"
+                                Spacing="{DynamicResource TDComboBoxContentSpacing}"
+                                VerticalAlignment="Center">
+
+                                <TextBlock
+                                    Name="PlaceholderTextBlock"
+                                    FontSize="{TemplateBinding FontSize}"
+                                    Foreground="{TemplateBinding PlaceholderForeground}"
+                                    Text="{TemplateBinding PlaceholderText}"
+                                    TextTrimming="CharacterEllipsis"
+                                    IsVisible="{TemplateBinding SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}" />
+
+                                <ContentPresenter
+                                    Name="ContentPresenter"
+                                    FontSize="{TemplateBinding FontSize}"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    Content="{TemplateBinding SelectionBoxItem}"
+                                    ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                    IsVisible="{TemplateBinding SelectionBoxItem, Converter={x:Static ObjectConverters.IsNotNull}}" />
+
+                                <ContentPresenter
+                                    Name="PART_Description"
+                                    Content="{TemplateBinding Description}"
+                                    ContentTemplate="{TemplateBinding DescriptionTemplate}"
+                                    FontSize="{DynamicResource TDComboBoxDescriptionFontSize}"
+                                    Foreground="{DynamicResource TDComboBoxDescriptionForeground}"
+                                    IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                            </StackPanel>
+
+                            <StackPanel
+                                Grid.Column="2"
+                                Orientation="Horizontal"
+                                Spacing="{DynamicResource TDComboBoxRightPanelSpacing}"
+                                VerticalAlignment="Center">
+                                <ContentPresenter
+                                    Name="PART_Note"
+                                    Content="{TemplateBinding Note}"
+                                    ContentTemplate="{TemplateBinding NoteTemplate}"
+                                    FontSize="{DynamicResource TDComboBoxNoteFontSize}"
+                                    Foreground="{DynamicResource TDComboBoxNoteForeground}"
+                                    IsVisible="{TemplateBinding Note, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                <ContentPresenter
+                                    Name="PART_InnerRightContent"
+                                    Foreground="{DynamicResource TDComboBoxRightContentForeground}"
+                                    Content="{TemplateBinding InnerRightContent}"
+                                    ContentTemplate="{TemplateBinding InnerRightContentTemplate}"
+                                    IsVisible="{TemplateBinding InnerRightContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                <PathIcon
+                                    Name="DropDownGlyph"
+                                    Width="{DynamicResource TDComboBoxIconSize}"
+                                    Height="{DynamicResource TDComboBoxIconSize}"
+                                    Data="{DynamicResource TDComboBoxIconData}"
+                                    Foreground="{DynamicResource TDComboBoxIconForeground}"
+                                    IsHitTestVisible="False"
+                                    UseLayoutRounding="False" />
+                            </StackPanel>
+
+                        </Grid>
+                    </Border>
 
                     <m:Popup
                         Name="PART_Popup"

@@ -77,6 +77,54 @@ public class ComboBox : SelectingItemsControl
     public static readonly StyledProperty<IDataTemplate?> SelectionBoxItemTemplateProperty =
         AvaloniaProperty.Register<ComboBox, IDataTemplate?>(nameof(SelectionBoxItemTemplate));
 
+    /// <summary>
+    /// Defines the <see cref="Description"/> property.
+    /// </summary>
+    public static readonly StyledProperty<object?> DescriptionProperty =
+        AvaloniaProperty.Register<ComboBox, object?>(nameof(Description));
+
+    /// <summary>
+    /// Defines the <see cref="DescriptionTemplate"/> property.
+    /// </summary>
+    public static readonly StyledProperty<IDataTemplate?> DescriptionTemplateProperty =
+        AvaloniaProperty.Register<ComboBox, IDataTemplate?>(nameof(DescriptionTemplate));
+
+    /// <summary>
+    /// Defines the <see cref="Note"/> property.
+    /// </summary>
+    public static readonly StyledProperty<object?> NoteProperty =
+        AvaloniaProperty.Register<ComboBox, object?>(nameof(Note));
+
+    /// <summary>
+    /// Defines the <see cref="NoteTemplate"/> property.
+    /// </summary>
+    public static readonly StyledProperty<IDataTemplate?> NoteTemplateProperty =
+        AvaloniaProperty.Register<ComboBox, IDataTemplate?>(nameof(NoteTemplate));
+
+    /// <summary>
+    /// Defines the <see cref="InnerLeftContent"/> property.
+    /// </summary>
+    public static readonly StyledProperty<object?> InnerLeftContentProperty =
+        AvaloniaProperty.Register<ComboBox, object?>(nameof(InnerLeftContent));
+
+    /// <summary>
+    /// Defines the <see cref="InnerLeftContentTemplate"/> property.
+    /// </summary>
+    public static readonly StyledProperty<IDataTemplate?> InnerLeftContentTemplateProperty =
+        AvaloniaProperty.Register<ComboBox, IDataTemplate?>(nameof(InnerLeftContentTemplate));
+
+    /// <summary>
+    /// Defines the <see cref="InnerRightContent"/> property.
+    /// </summary>
+    public static readonly StyledProperty<object?> InnerRightContentProperty =
+        AvaloniaProperty.Register<ComboBox, object?>(nameof(InnerRightContent));
+
+    /// <summary>
+    /// Defines the <see cref="InnerRightContentTemplate"/> property.
+    /// </summary>
+    public static readonly StyledProperty<IDataTemplate?> InnerRightContentTemplateProperty =
+        AvaloniaProperty.Register<ComboBox, IDataTemplate?>(nameof(InnerRightContentTemplate));
+
     private Popup? _popup;
     private object? _selectionBoxItem;
 
@@ -170,6 +218,78 @@ public class ComboBox : SelectingItemsControl
     {
         get => GetValue(SelectionBoxItemTemplateProperty);
         set => SetValue(SelectionBoxItemTemplateProperty, value);
+    }
+
+    /// <summary>
+    /// Gets or sets the description text displayed below the selection box.
+    /// </summary>
+    public object? Description
+    {
+        get => GetValue(DescriptionProperty);
+        set => SetValue(DescriptionProperty, value);
+    }
+
+    /// <summary>
+    /// Gets or sets the data template used to display the description.
+    /// </summary>
+    public IDataTemplate? DescriptionTemplate
+    {
+        get => GetValue(DescriptionTemplateProperty);
+        set => SetValue(DescriptionTemplateProperty, value);
+    }
+
+    /// <summary>
+    /// Gets or sets the note text displayed on the right side.
+    /// </summary>
+    public object? Note
+    {
+        get => GetValue(NoteProperty);
+        set => SetValue(NoteProperty, value);
+    }
+
+    /// <summary>
+    /// Gets or sets the data template used to display the note.
+    /// </summary>
+    public IDataTemplate? NoteTemplate
+    {
+        get => GetValue(NoteTemplateProperty);
+        set => SetValue(NoteTemplateProperty, value);
+    }
+
+    /// <summary>
+    /// Gets or sets the content displayed on the inner left side.
+    /// </summary>
+    public object? InnerLeftContent
+    {
+        get => GetValue(InnerLeftContentProperty);
+        set => SetValue(InnerLeftContentProperty, value);
+    }
+
+    /// <summary>
+    /// Gets or sets the data template used to display the inner left content.
+    /// </summary>
+    public IDataTemplate? InnerLeftContentTemplate
+    {
+        get => GetValue(InnerLeftContentTemplateProperty);
+        set => SetValue(InnerLeftContentTemplateProperty, value);
+    }
+
+    /// <summary>
+    /// Gets or sets the content displayed on the inner right side.
+    /// </summary>
+    public object? InnerRightContent
+    {
+        get => GetValue(InnerRightContentProperty);
+        set => SetValue(InnerRightContentProperty, value);
+    }
+
+    /// <summary>
+    /// Gets or sets the data template used to display the inner right content.
+    /// </summary>
+    public IDataTemplate? InnerRightContentTemplate
+    {
+        get => GetValue(InnerRightContentTemplateProperty);
+        set => SetValue(InnerRightContentTemplateProperty, value);
     }
 
     /// <inheritdoc/>

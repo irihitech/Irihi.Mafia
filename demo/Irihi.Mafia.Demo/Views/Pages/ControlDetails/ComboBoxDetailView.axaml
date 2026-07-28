@@ -87,6 +87,16 @@
                 <m:ComboBoxItem>甘肃省</m:ComboBoxItem>
                 <m:ComboBoxItem>青海省</m:ComboBoxItem>
             </m:ComboBox>
+
+            <TextBlock Text="Cell 风格（Description + Note + InnerLeftContent）" FontSize="16" FontWeight="SemiBold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <m:ComboBox SelectedIndex="1"
+                        Description="用于设置首选语言"
+                        Note="辅助信息">
+                <m:ComboBoxItem>简体中文</m:ComboBoxItem>
+                <m:ComboBoxItem>English</m:ComboBoxItem>
+                <m:ComboBoxItem>日本語</m:ComboBoxItem>
+            </m:ComboBox>
         </StackPanel>
     </ScrollViewer>
 </UserControl>

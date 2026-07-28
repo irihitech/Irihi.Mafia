@@ -20,6 +20,12 @@
     <StaticResource x:Key="TDComboBoxBorderBrushDisabled" ResourceKey="TDBorderLevel1Color" />
     <StaticResource x:Key="TDComboBoxIconForegroundDisabled" ResourceKey="TDTextColorDisabled" />
 
+    <!-- ComboBox Cell-like extras -->
+    <StaticResource x:Key="TDComboBoxLeftContentForeground" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDComboBoxDescriptionForeground" ResourceKey="TDTextColorSecondary" />
+    <StaticResource x:Key="TDComboBoxNoteForeground" ResourceKey="TDTextColorPlaceholder" />
+    <StaticResource x:Key="TDComboBoxRightContentForeground" ResourceKey="TDTextColorPlaceholder" />
+
     <!-- ComboBox Popup -->
     <StaticResource x:Key="TDComboBoxPopupBackground" ResourceKey="TDBgColorContainer" />
     <SolidColorBrush x:Key="TDComboBoxPopupBorderBrush" Color="Transparent" />
