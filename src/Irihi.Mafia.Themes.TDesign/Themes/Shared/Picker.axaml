@@ -1,7 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <!-- ComboBox Layout -->
+    <!-- Picker Layout -->
     <x:Double x:Key="TDPickerMinHeight">48</x:Double>
     <Thickness x:Key="TDPickerPadding">16</Thickness>
     <Thickness x:Key="TDPickerBorderThickness">0,0,0,1</Thickness>
@@ -16,17 +16,20 @@
     <StaticResource x:Key="TDPickerDescriptionFontSize" ResourceKey="TDFontSizeBodyMedium" />
     <StaticResource x:Key="TDPickerNoteFontSize" ResourceKey="TDFontSizeBodyMedium" />
 
-    <!-- ComboBox Icon -->
+    <!-- Picker Title Bar -->
+    <StaticResource x:Key="TDPickerTitleFontSize" ResourceKey="TDFontSizeBodyLarge" />
+
+    <!-- Picker Icon -->
     <x:Double x:Key="TDPickerIconSize">16</x:Double>
     <StreamGeometry x:Key="TDPickerIconData">M9.5 17.5L15 12L9.5 6.5</StreamGeometry>
 
-    <!-- ComboBox Popup -->
+    <!-- Picker Popup -->
     <x:Double x:Key="TDPickerPopupMinHeight">48</x:Double>
     <Thickness x:Key="TDPickerPopupPadding">0,8</Thickness>
     <Thickness x:Key="TDPickerPopupBorderThickness">0</Thickness>
     <CornerRadius x:Key="TDPickerPopupCornerRadius">12,12,0,0</CornerRadius>
 
-    <!-- ComboBoxItem Layout -->
+    <!-- PickerItem Layout -->
     <Thickness x:Key="TDPickerItemPadding">16,12</Thickness>
 
 </ResourceDictionary>

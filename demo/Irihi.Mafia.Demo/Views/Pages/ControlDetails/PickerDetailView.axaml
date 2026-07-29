@@ -91,7 +91,8 @@
                        TextWrapping="Wrap" FontSize="14"
                        Foreground="{DynamicResource TDFontGyColor}" />
             <m:Picker PlaceholderText="请选择" IsConfirmable="True"
-                        Description="带确认按钮的 Picker 风格">
+                        PopupTitle="选择选项"
+                        Description="左取消 | 中标题 | 右确认">
                 <m:PickerItem>选项 A</m:PickerItem>
                 <m:PickerItem>选项 B</m:PickerItem>
                 <m:PickerItem>选项 C</m:PickerItem>

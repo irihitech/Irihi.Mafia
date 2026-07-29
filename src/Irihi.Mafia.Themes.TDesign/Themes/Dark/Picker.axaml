@@ -46,4 +46,8 @@
     <StaticResource x:Key="TDPickerItemBackgroundSelectedDisabled" ResourceKey="TDBrandColorLight" />
     <StaticResource x:Key="TDPickerItemBackgroundDisabled" ResourceKey="TDBgColorComponentDisabled" />
 
+    <!-- Picker Title Bar -->
+    <StaticResource x:Key="TDPickerTitleBarBorderBrush" ResourceKey="TDComponentStroke" />
+    <StaticResource x:Key="TDPickerTitleForeground" ResourceKey="TDTextColorPrimary" />
+
 </ResourceDictionary>

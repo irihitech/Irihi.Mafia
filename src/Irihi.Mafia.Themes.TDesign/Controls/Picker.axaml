@@ -126,14 +126,34 @@
                             BorderThickness="{DynamicResource TDPickerPopupBorderThickness}"
                             CornerRadius="{DynamicResource TDPickerPopupCornerRadius}">
                             <Grid RowDefinitions="Auto,*">
-                                <Button
+                                <Border
                                     Grid.Row="0"
-                                    Name="PART_ConfirmButton"
-                                    Classes="Primary"
-                                    Content="确认"
-                                    Theme="{DynamicResource TextButton}"
-                                    HorizontalAlignment="Right"
-                                    IsVisible="{TemplateBinding IsConfirmable}" />
+                                    Padding="16,8"
+                                    IsVisible="{TemplateBinding IsConfirmable}"
+                                    BorderBrush="{DynamicResource TDPickerTitleBarBorderBrush}"
+                                    BorderThickness="0,0,0,1">
+                                    <Grid ColumnDefinitions="Auto,*,Auto">
+                                        <Button
+                                            Grid.Column="0"
+                                            Name="PART_CancelButton"
+                                            Content="取消"
+                                            Theme="{DynamicResource TextButton}" />
+                                        <TextBlock
+                                            Grid.Column="1"
+                                            Text="{TemplateBinding PopupTitle}"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="{DynamicResource TDPickerTitleFontSize}"
+                                            Foreground="{DynamicResource TDPickerTitleForeground}"
+                                            IsVisible="{TemplateBinding PopupTitle, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                        <Button
+                                            Grid.Column="2"
+                                            Name="PART_ConfirmButton"
+                                            Classes="Primary"
+                                            Content="确认"
+                                            Theme="{DynamicResource TextButton}" />
+                                    </Grid>
+                                </Border>
                                 <ScrollViewer
                                     Grid.Row="1"
                                     HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"

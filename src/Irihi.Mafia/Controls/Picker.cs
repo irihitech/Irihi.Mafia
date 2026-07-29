@@ -20,6 +20,8 @@ namespace Irihi.Mafia.Controls;
 /// Uses Mafia's <see cref="Popup"/> for the dropdown overlay.
 /// </summary>
 [TemplatePart("PART_Popup", typeof(Popup), IsRequired = true)]
+[TemplatePart("PART_ConfirmButton", typeof(Button), IsRequired = false)]
+[TemplatePart("PART_CancelButton", typeof(Button), IsRequired = false)]
 public class Picker : SelectingItemsControl, ICell
 {
 
@@ -33,6 +35,12 @@ public class Picker : SelectingItemsControl, ICell
     /// </summary>
     public static readonly StyledProperty<bool> IsConfirmableProperty =
         AvaloniaProperty.Register<Picker, bool>(nameof(IsConfirmable));
+
+    /// <summary>
+    /// Defines the <see cref="PopupTitle"/> property.
+    /// </summary>
+    public static readonly StyledProperty<string?> PopupTitleProperty =
+        AvaloniaProperty.Register<Picker, string?>(nameof(PopupTitle));
 
     /// <summary>
     /// Defines the <see cref="IsDropDownOpen"/> property.
@@ -133,6 +141,7 @@ public class Picker : SelectingItemsControl, ICell
     private Popup? _popup;
     private object? _selectionBoxItem;
     private Button? _confirmButton;
+    private Button? _cancelButton;
     private int _savedSelectedIndex;
     private bool _isConfirmed;
 
@@ -163,6 +172,15 @@ public class Picker : SelectingItemsControl, ICell
     {
         get => GetValue(IsConfirmableProperty);
         set => SetValue(IsConfirmableProperty, value);
+    }
+
+    /// <summary>
+    /// Gets or sets the title text shown at the top of the dropdown popup.
+    /// </summary>
+    public string? PopupTitle
+    {
+        get => GetValue(PopupTitleProperty);
+        set => SetValue(PopupTitleProperty, value);
     }
 
     /// <summary>
@@ -378,6 +396,9 @@ public class Picker : SelectingItemsControl, ICell
         if (_confirmButton != null)
             _confirmButton.Click -= OnConfirmClick;
 
+        if (_cancelButton != null)
+            _cancelButton.Click -= OnCancelClick;
+
         _popup = e.NameScope.Get<Popup>("PART_Popup");
         _popup.Opened += PopupOpened;
         _popup.Closed += PopupClosed;
@@ -385,6 +406,10 @@ public class Picker : SelectingItemsControl, ICell
         _confirmButton = e.NameScope.Find<Button>("PART_ConfirmButton");
         if (_confirmButton != null)
             _confirmButton.Click += OnConfirmClick;
+
+        _cancelButton = e.NameScope.Find<Button>("PART_CancelButton");
+        if (_cancelButton != null)
+            _cancelButton.Click += OnCancelClick;
     }
 
     /// <inheritdoc/>
@@ -423,6 +448,12 @@ public class Picker : SelectingItemsControl, ICell
     private void OnConfirmClick(object? sender, RoutedEventArgs e)
     {
         _isConfirmed = true;
+        _popup?.Close();
+    }
+
+    private void OnCancelClick(object? sender, RoutedEventArgs e)
+    {
+        _isConfirmed = false;
         _popup?.Close();
     }
 
