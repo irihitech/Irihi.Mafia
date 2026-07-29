@@ -120,7 +120,6 @@
                             Name="PopupBorder"
                             MinHeight="{DynamicResource TDPickerPopupMinHeight}"
                             MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                            Padding="{DynamicResource TDPickerPopupPadding}"
                             Background="{DynamicResource TDPickerPopupBackground}"
                             BorderBrush="{DynamicResource TDPickerPopupBorderBrush}"
                             BorderThickness="{DynamicResource TDPickerPopupBorderThickness}"
@@ -128,10 +127,8 @@
                             <Grid RowDefinitions="Auto,*">
                                 <Border
                                     Grid.Row="0"
-                                    Padding="16,8"
                                     IsVisible="{TemplateBinding IsConfirmable}"
-                                    BorderBrush="{DynamicResource TDPickerTitleBarBorderBrush}"
-                                    BorderThickness="0,0,0,1">
+                                    BorderBrush="{DynamicResource TDPickerTitleBarBorderBrush}" >
                                     <Grid ColumnDefinitions="Auto,*,Auto">
                                         <Button
                                             Grid.Column="0"
