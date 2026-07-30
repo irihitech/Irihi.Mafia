@@ -2,7 +2,9 @@ using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Globalization;
+using System.Threading.Tasks;
 using Avalonia;
+using Avalonia.Platform.Storage;
 using Avalonia.Styling;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -11,6 +13,7 @@ namespace Irihi.Mafia.Demo.ViewModels;
 
 public partial class ListPageViewModel : ViewModelBase
 {
+    public ILauncher? Launcher { get; set; }
     public ObservableCollection<IObservable<string?>> ThemeOptions { get; } =
     [
         LanguageManager.Instance.Theme_Light, LanguageManager.Instance.Theme_Dark, LanguageManager.Instance.Theme_System
@@ -65,11 +68,9 @@ public partial class ListPageViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private void OpenProjectUrl()
+    private async Task OpenProjectUrlAsync()
     {
-        Process.Start(new ProcessStartInfo("https://github.com/irihitech/Irihi.Mafia")
-        {
-            UseShellExecute = true
-        });
+        if (Launcher is null) return;
+        await Launcher.LaunchUriAsync(new Uri("https://github.com/irihitech/Irihi.Mafia"));
     }
 }
