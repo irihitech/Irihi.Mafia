@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- MainView Tabs -->
+  <data name="MainView_Tab_Components" xml:space="preserve"><value>Components</value></data>
+  <data name="MainView_Tab_Home" xml:space="preserve"><value>Home</value></data>
+  <data name="MainView_Tab_Settings" xml:space="preserve"><value>Settings</value></data>
+
+  <!-- ListPage -->
+  <data name="List_Online" xml:space="preserve"><value>Online</value></data>
+  <data name="List_Section_Display" xml:space="preserve"><value>Display</value></data>
+  <data name="List_Theme_Description" xml:space="preserve"><value>Switch theme</value></data>
+  <data name="List_Language_Description" xml:space="preserve"><value>Select language</value></data>
+  <data name="List_Section_About" xml:space="preserve"><value>About</value></data>
+  <data name="List_Version" xml:space="preserve"><value>Version</value></data>
+  <data name="List_License" xml:space="preserve"><value>License</value></data>
+  <data name="List_Project" xml:space="preserve"><value>Project</value></data>
+  <data name="List_TechStack" xml:space="preserve"><value>Tech Stack</value></data>
+
+  <!-- HomePage -->
+  <data name="Home_SearchPlaceholder" xml:space="preserve"><value>Search messages and features...</value></data>
+  <data name="Home_Title_Mafia" xml:space="preserve"><value>Mafia Control Library</value></data>
+  <data name="Home_Subtitle_Welcome" xml:space="preserve"><value>Welcome to Mafia! A mobile-first Avalonia control library featuring Popup, Cell and more mobile-friendly controls.</value></data>
+  <data name="Home_Timestamp_Now" xml:space="preserve"><value>Now</value></data>
+  <data name="Home_Title_CustomControls" xml:space="preserve"><value>Rich Custom Controls</value></data>
+  <data name="Home_Subtitle_Controls" xml:space="preserve"><value>Popup, Cell, Avatar, IconButton, Divider, Button, Switch, Slider, Progress, CheckBox, RadioButton, TabControl…</value></data>
+  <data name="Home_Timestamp_Yesterday" xml:space="preserve"><value>Yesterday</value></data>
+  <data name="Home_Title_TDesign" xml:space="preserve"><value>TDesign Theme</value></data>
+  <data name="Home_Subtitle_TDesign" xml:space="preserve"><value>Built-in TDesign Light/Dark theme with one-tap global switching.</value></data>
+  <data name="Home_Title_Popup" xml:space="preserve"><value>Popup Overlay System</value></data>
+  <data name="Home_Subtitle_Popup" xml:space="preserve"><value>Six placements: Bottom/Center/Top/Left/Right/FullScreen. Modal/non-modal with light dismiss.</value></data>
+  <data name="Home_Timestamp_Wednesday" xml:space="preserve"><value>Wednesday</value></data>
+  <data name="Home_Title_CrossPlatform" xml:space="preserve"><value>Cross-platform</value></data>
+  <data name="Home_Subtitle_CrossPlatform" xml:space="preserve"><value>Desktop (Windows/macOS/Linux), Android, iOS, Browser (WASM) and more.</value></data>
+  <data name="Home_Timestamp_Monday" xml:space="preserve"><value>Monday</value></data>
+  <data name="Home_Title_About" xml:space="preserve"><value>About</value></data>
+  <data name="Home_Subtitle_About" xml:space="preserve"><value>Irihi.Mafia Demo · Powered by Avalonia · TDesign Theme</value></data>
+
+  <!-- ControlGallery -->
+  <data name="Gallery_SearchPlaceholder" xml:space="preserve"><value>Search controls...</value></data>
+  <data name="Gallery_Section_Interactive" xml:space="preserve"><value>Interactive Controls</value></data>
+  <data name="Gallery_Section_Display" xml:space="preserve"><value>Display Controls</value></data>
+  <data name="Gallery_Popup" xml:space="preserve"><value>Popup</value></data>
+  <data name="Gallery_Popup_Desc" xml:space="preserve"><value>Six placements, modal/light dismiss</value></data>
+  <data name="Gallery_Button" xml:space="preserve"><value>Button</value></data>
+  <data name="Gallery_Button_Desc" xml:space="preserve"><value>Fill/outline/text, multi-color multi-size</value></data>
+  <data name="Gallery_Picker" xml:space="preserve"><value>Picker</value></data>
+  <data name="Gallery_Picker_Desc" xml:space="preserve"><value>Touch-optimized dropdown</value></data>
+  <data name="Gallery_Switch" xml:space="preserve"><value>ToggleSwitch</value></data>
+  <data name="Gallery_Switch_Desc" xml:space="preserve"><value>Three-size switch</value></data>
+  <data name="Gallery_Slider" xml:space="preserve"><value>Slider</value></data>
+  <data name="Gallery_Slider_Desc" xml:space="preserve"><value>Value range selector</value></data>
+  <data name="Gallery_Progress" xml:space="preserve"><value>Progress</value></data>
+  <data name="Gallery_Progress_Desc" xml:space="preserve"><value>Linear/circular indicator</value></data>
+  <data name="Gallery_CheckBox" xml:space="preserve"><value>CheckBox</value></data>
+  <data name="Gallery_CheckBox_Desc" xml:space="preserve"><value>Multi-select checkbox</value></data>
+  <data name="Gallery_RadioButton" xml:space="preserve"><value>RadioButton</value></data>
+  <data name="Gallery_RadioButton_Desc" xml:space="preserve"><value>Radio button group</value></data>
+  <data name="Gallery_Cell" xml:space="preserve"><value>Cell</value></data>
+  <data name="Gallery_Cell_Desc" xml:space="preserve"><value>Versatile list item</value></data>
+  <data name="Gallery_Avatar" xml:space="preserve"><value>Avatar</value></data>
+  <data name="Gallery_Avatar_Desc" xml:space="preserve"><value>Image/text avatar</value></data>
+  <data name="Gallery_IconButton" xml:space="preserve"><value>IconButton</value></data>
+  <data name="Gallery_IconButton_Desc" xml:space="preserve"><value>Icon+text button</value></data>
+  <data name="Gallery_Divider" xml:space="preserve"><value>Divider</value></data>
+  <data name="Gallery_Divider_Desc" xml:space="preserve"><value>Horizontal/vertical divider</value></data>
+  <data name="Gallery_TabControl" xml:space="preserve"><value>TabControl</value></data>
+  <data name="Gallery_TabControl_Desc" xml:space="preserve"><value>Tab switching container</value></data>
+  <data name="Gallery_TabbedPage" xml:space="preserve"><value>TabbedPage</value></data>
+  <data name="Gallery_TabbedPage_Desc" xml:space="preserve"><value>Navigation used on this page</value></data>
+
+  <!-- Button Detail -->
+  <data name="Button_Title" xml:space="preserve"><value>Button</value></data>
+  <data name="Button_Desc" xml:space="preserve"><value>Fill, outline, and text styles with five semantic colors (Default/Primary/Danger/Success/Warning/Light), four sizes (Large/Medium/Small/ExtraSmall), and three shapes (Square/Circle/Round).</value></data>
+  <data name="Button_Fill" xml:space="preserve"><value>Fill Button</value></data>
+  <data name="Button_Outline" xml:space="preserve"><value>Outline Button</value></data>
+  <data name="Button_Text" xml:space="preserve"><value>Text Button</value></data>
+  <data name="Button_Sizes" xml:space="preserve"><value>Size Variants</value></data>
+  <data name="Button_Shapes" xml:space="preserve"><value>Shape Variants</value></data>
+  <data name="Button_Default" xml:space="preserve"><value>Default</value></data>
+  <data name="Button_Primary" xml:space="preserve"><value>Primary</value></data>
+  <data name="Button_Danger" xml:space="preserve"><value>Danger</value></data>
+  <data name="Button_Success" xml:space="preserve"><value>Success</value></data>
+  <data name="Button_Warning" xml:space="preserve"><value>Warning</value></data>
+  <data name="Button_Light" xml:space="preserve"><value>Light</value></data>
+  <data name="Button_Large" xml:space="preserve"><value>Large</value></data>
+  <data name="Button_Medium" xml:space="preserve"><value>Medium</value></data>
+  <data name="Button_Small" xml:space="preserve"><value>Small</value></data>
+  <data name="Button_ExtraSmall" xml:space="preserve"><value>Extra Small</value></data>
+  <data name="Button_Square" xml:space="preserve"><value>Square</value></data>
+  <data name="Button_Circle" xml:space="preserve"><value>Circle</value></data>
+  <data name="Button_Round" xml:space="preserve"><value>Round</value></data>
+
+  <!-- Picker Detail -->
+  <data name="Picker_Title" xml:space="preserve"><value>Picker</value></data>
+  <data name="Picker_Desc" xml:space="preserve"><value>Touch-optimized dropdown using Mafia Popup with bottom panel, placeholder text, and disabled state.</value></data>
+  <data name="Picker_BasicUsage" xml:space="preserve"><value>Basic Usage</value></data>
+  <data name="Picker_Placeholder_City" xml:space="preserve"><value>Select a city</value></data>
+  <data name="Picker_LongList" xml:space="preserve"><value>Long List</value></data>
+  <data name="Picker_Placeholder_Province" xml:space="preserve"><value>Select province</value></data>
+  <data name="Picker_Mvvm" xml:space="preserve"><value>MVVM Data Binding</value></data>
+  <data name="Picker_LanguageBinding" xml:space="preserve"><value>Language (ItemsSource + SelectedItem)</value></data>
+  <data name="Picker_SizeBinding" xml:space="preserve"><value>Size (ItemsSource + SelectedIndex)</value></data>
+  <data name="Picker_Placeholder_Size" xml:space="preserve"><value>Select size</value></data>
+  <data name="Picker_Confirmable" xml:space="preserve"><value>Confirmable Mode (IsConfirmable=True)</value></data>
+  <data name="Picker_Confirmable_Desc" xml:space="preserve"><value>Must tap "Confirm" to apply. Tap overlay to cancel and restore.</value></data>
+  <data name="Picker_Placeholder_Select" xml:space="preserve"><value>Select</value></data>
+  <data name="Picker_PopupTitle" xml:space="preserve"><value>Select option</value></data>
+
+  <!-- Picker Items (shared) -->
+  <data name="Picker_Option1" xml:space="preserve"><value>Option 1</value></data>
+  <data name="Picker_Option2" xml:space="preserve"><value>Option 2</value></data>
+  <data name="Picker_Option3" xml:space="preserve"><value>Option 3</value></data>
+  <data name="Picker_Option4" xml:space="preserve"><value>Option 4</value></data>
+  <data name="Picker_Option5" xml:space="preserve"><value>Option 5</value></data>
+  <data name="Picker_OptionA" xml:space="preserve"><value>Option A</value></data>
+  <data name="Picker_OptionB" xml:space="preserve"><value>Option B</value></data>
+  <data name="Picker_OptionC" xml:space="preserve"><value>Option C</value></data>
+  <data name="Picker_OptionD" xml:space="preserve"><value>Option D</value></data>
+  <data name="Picker_OptionE" xml:space="preserve"><value>Option E</value></data>
+
+  <!-- Popup Detail -->
+  <data name="Popup_Title" xml:space="preserve"><value>Popup</value></data>
+  <data name="Popup_Desc" xml:space="preserve"><value>Six placement modes: Bottom, Center, Top, Left, Right, FullScreen. Supports modal/non-modal with light dismiss.</value></data>
+  <data name="Popup_Placement" xml:space="preserve"><value>Placement</value></data>
+  <data name="Popup_Options" xml:space="preserve"><value>Options</value></data>
+  <data name="Popup_Modal" xml:space="preserve"><value>Modal</value></data>
+  <data name="Popup_LightDismiss" xml:space="preserve"><value>Light Dismiss</value></data>
+  <data name="Popup_Inheritance" xml:space="preserve"><value>Placement Inheritance</value></data>
+  <data name="Popup_Inheritance_Desc" xml:space="preserve"><value>Popup inherits Placement from parent via m:Popup.Placement</value></data>
+  <data name="Popup_InheritedButton" xml:space="preserve"><value>Open Inherited Popup</value></data>
+  <data name="Popup_DismissHint" xml:space="preserve"><value>Click outside or press close button.</value></data>
+  <data name="Popup_Close" xml:space="preserve"><value>Close</value></data>
+
+  <!-- Switch Detail -->
+  <data name="Switch_Title" xml:space="preserve"><value>ToggleSwitch</value></data>
+  <data name="Switch_Desc" xml:space="preserve"><value>Toggle switch with default, small, and large sizes. Ideal for settings toggles.</value></data>
+  <data name="Switch_Sizes" xml:space="preserve"><value>Size Variants</value></data>
+  <data name="Switch_Default" xml:space="preserve"><value>Default Size</value></data>
+  <data name="Switch_Small" xml:space="preserve"><value>Small Size</value></data>
+  <data name="Switch_Large" xml:space="preserve"><value>Large Size</value></data>
+  <data name="Switch_States" xml:space="preserve"><value>States</value></data>
+  <data name="Switch_Off" xml:space="preserve"><value>Off</value></data>
+  <data name="Switch_On" xml:space="preserve"><value>On</value></data>
+
+  <!-- Slider Detail -->
+  <data name="Slider_Title" xml:space="preserve"><value>Slider</value></data>
+  <data name="Slider_Desc" xml:space="preserve"><value>Value range selector with customizable minimum, maximum, and step values.</value></data>
+
+  <!-- Progress Detail -->
+  <data name="Progress_Title" xml:space="preserve"><value>Progress</value></data>
+  <data name="Progress_Desc" xml:space="preserve"><value>Linear and circular progress bars with semantic colors: default, success, warning, error.</value></data>
+  <data name="Progress_Linear" xml:space="preserve"><value>Linear Progress</value></data>
+  <data name="Progress_Circular" xml:space="preserve"><value>Circular Progress</value></data>
+
+  <!-- Placeholder -->
+  <data name="Placeholder_Title" xml:space="preserve"><value>Coming Soon</value></data>
+  <data name="Placeholder_Desc" xml:space="preserve"><value>Detailed demo page is under development.</value></data>
+
+  <!-- Components Page Header -->
+  <data name="Components_Header" xml:space="preserve"><value>Control Gallery</value></data>
+
+  <!-- Theme Options (for Picker items) -->
+  <data name="Theme_Light" xml:space="preserve"><value>Light</value></data>
+  <data name="Theme_Dark" xml:space="preserve"><value>Dark</value></data>
+  <data name="Theme_System" xml:space="preserve"><value>Follow System</value></data>
+
+  <!-- Language Options -->
+  <data name="Lang_Chinese" xml:space="preserve"><value>中文</value></data>
+  <data name="Lang_English" xml:space="preserve"><value>English</value></data>
+</root>

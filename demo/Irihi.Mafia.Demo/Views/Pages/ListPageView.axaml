@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="using:Irihi.Mafia.Demo"
              xmlns:vm="using:Irihi.Mafia.Demo.ViewModels"
              xmlns:m="https://irihi.tech/mafia"
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
@@ -17,7 +18,7 @@
                     </Border>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="4">
                         <TextBlock Text="Mafia Demo" FontSize="20" FontWeight="Bold" />
-                        <TextBlock Text="在线" FontSize="14"
+                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.List_Online}}" FontSize="14"
                                    Foreground="{DynamicResource TDSuccessColor}" />
                     </StackPanel>
                 </Grid>
@@ -25,23 +26,35 @@
 
             <m:Divider />
 
-            <m:CellGroup Header="显示">
-                <m:Cell Content="深色模式" Description="切换深色/浅色主题">
-                    <m:Cell.InnerRightContent>
-                        <ToggleSwitch IsChecked="{Binding IsDarkMode}" Classes="Small" />
-                    </m:Cell.InnerRightContent>
-                </m:Cell>
-                <m:Cell Content="语言" Note="简体中文" Classes="Arrow" />
-                <m:Cell Content="字体大小" Note="标准" Classes="Arrow" />
+            <m:CellGroup Header="{Translate {x:Static local:LanguageManager+Keys.List_Section_Display}}">
+                <m:Picker ItemsSource="{Binding ThemeOptions}"
+                          SelectedIndex="{Binding SelectedThemeIndex, Mode=TwoWay}"
+                          Description="{Translate {x:Static local:LanguageManager+Keys.List_Theme_Description}}">
+                    <m:Picker.SelectionBoxItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding .^}" />
+                        </DataTemplate>
+                    </m:Picker.SelectionBoxItemTemplate>
+                    <m:Picker.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding .^}" />
+                        </DataTemplate>
+                    </m:Picker.ItemTemplate>
+                </m:Picker>
+                <m:Picker ItemsSource="{Binding LanguageOptions}"
+                          SelectedIndex="{Binding SelectedLanguageIndex, Mode=TwoWay}"
+                          Description="{Translate {x:Static local:LanguageManager+Keys.List_Language_Description}}" />
+                <!--<m:Cell Content="字体大小" Note="标准" Classes="Arrow" /> -->
             </m:CellGroup>
 
             <m:Divider />
 
-            <m:CellGroup Header="关于">
-                <m:Cell Content="版本号" Note="0.0.1" />
-                <m:Cell Content="开源许可" Note="MIT" Classes="Arrow" />
-                <m:Cell Content="项目地址" Note="GitHub" Classes="Arrow" />
-                <m:Cell Content="技术栈" Description="Avalonia 12 · .NET 10"
+            <m:CellGroup Header="{Translate {x:Static local:LanguageManager+Keys.List_Section_About}}">
+                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.List_Version}}" Note="0.0.1" />
+                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.List_License}}" Note="MIT" />
+                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.List_Project}}" Note="GitHub" Classes="Arrow"
+                        Command="{Binding OpenProjectUrlCommand}" />
+                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.List_TechStack}}" Description="Avalonia 12 · .NET 10"
                         InnerLeftContent="{StaticResource TempAppGlyph}" />
             </m:CellGroup>
         </StackPanel>

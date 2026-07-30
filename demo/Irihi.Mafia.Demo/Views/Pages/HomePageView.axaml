@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="using:Irihi.Mafia.Demo"
              xmlns:vm="using:Irihi.Mafia.Demo.ViewModels"
              xmlns:m="https://irihi.tech/mafia"
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
@@ -15,7 +16,7 @@
                     <Grid ColumnDefinitions="Auto,*,Auto">
                         <TextBlock Grid.Column="0" Text="🔍" FontSize="14"
                                    VerticalAlignment="Center" Margin="0,0,8,0" />
-                        <TextBlock Grid.Column="1" Text="搜索消息和功能..."
+                        <TextBlock Grid.Column="1" Text="{Translate {x:Static local:LanguageManager+Keys.Home_SearchPlaceholder}}"
                                    FontSize="14"
                                    Foreground="{DynamicResource TDFontGyColor}"
                                    VerticalAlignment="Center"
@@ -35,13 +36,13 @@
                                    VerticalAlignment="Center" />
                     </Border>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="2">
-                        <TextBlock Text="Mafia 控件库" FontSize="16" FontWeight="SemiBold" />
-                        <TextBlock Text="欢迎使用 Mafia！这是一个专为移动端设计的 Avalonia 控件库，提供 Popup、Cell 等一系列移动端友好的控件。"
+                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Title_Mafia}}" FontSize="16" FontWeight="SemiBold" />
+                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Subtitle_Welcome}}"
                                    TextWrapping="Wrap" FontSize="13"
                                    Foreground="{DynamicResource TDFontGyColor}"
                                    MaxHeight="36" />
                     </StackPanel>
-                    <TextBlock Grid.Column="2" Text="现在" FontSize="12"
+                    <TextBlock Grid.Column="2" Text="{Translate {x:Static local:LanguageManager+Keys.Home_Timestamp_Now}}" FontSize="12"
                                Foreground="{DynamicResource TDFontGyColor}"
                                VerticalAlignment="Top" />
                 </Grid>
@@ -60,13 +61,13 @@
                                    VerticalAlignment="Center" />
                     </Border>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="2">
-                        <TextBlock Text="丰富的自定义控件" FontSize="16" FontWeight="SemiBold" />
-                        <TextBlock Text="Popup, Cell, Avatar, IconButton, Divider, Button, Switch, Slider, Progress, CheckBox, RadioButton, TabControl……"
+                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Title_CustomControls}}" FontSize="16" FontWeight="SemiBold" />
+                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Subtitle_Controls}}"
                                    TextWrapping="Wrap" FontSize="13"
                                    Foreground="{DynamicResource TDFontGyColor}"
                                    MaxHeight="36" />
                     </StackPanel>
-                    <TextBlock Grid.Column="2" Text="昨天" FontSize="12"
+                    <TextBlock Grid.Column="2" Text="{Translate {x:Static local:LanguageManager+Keys.Home_Timestamp_Yesterday}}" FontSize="12"
                                Foreground="{DynamicResource TDFontGyColor}"
                                VerticalAlignment="Top" />
                 </Grid>
@@ -84,8 +85,8 @@
                                    VerticalAlignment="Center" />
                     </Border>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="2">
-                        <TextBlock Text="TDesign 主题" FontSize="16" FontWeight="SemiBold" />
-                        <TextBlock Text="内置完整的 TDesign 风格的 Light/Dark 主题，支持全局一键切换深色模式。"
+                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Title_TDesign}}" FontSize="16" FontWeight="SemiBold" />
+                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Subtitle_TDesign}}"
                                    TextWrapping="Wrap" FontSize="13"
                                    Foreground="{DynamicResource TDFontGyColor}"
                                    MaxHeight="36" />
@@ -109,13 +110,13 @@
                                    VerticalAlignment="Center" />
                     </Border>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="2">
-                        <TextBlock Text="Popup 弹出层系统" FontSize="16" FontWeight="SemiBold" />
-                        <TextBlock Text="支持 Bottom/Center/Top/Left/Right/FullScreen 六种定位，模态和非模态模式，轻触关闭。"
+                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Title_Popup}}" FontSize="16" FontWeight="SemiBold" />
+                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Subtitle_Popup}}"
                                    TextWrapping="Wrap" FontSize="13"
                                    Foreground="{DynamicResource TDFontGyColor}"
                                    MaxHeight="36" />
                     </StackPanel>
-                    <TextBlock Grid.Column="2" Text="周三" FontSize="12"
+                    <TextBlock Grid.Column="2" Text="{Translate {x:Static local:LanguageManager+Keys.Home_Timestamp_Wednesday}}" FontSize="12"
                                Foreground="{DynamicResource TDFontGyColor}"
                                VerticalAlignment="Top" />
                 </Grid>
@@ -133,13 +134,13 @@
                                    VerticalAlignment="Center" />
                     </Border>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="2">
-                        <TextBlock Text="跨平台支持" FontSize="16" FontWeight="SemiBold" />
-                        <TextBlock Text="支持 Desktop (Windows/macOS/Linux)、Android、iOS、Browser (WASM) 等多平台。"
+                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Title_CrossPlatform}}" FontSize="16" FontWeight="SemiBold" />
+                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Subtitle_CrossPlatform}}"
                                    TextWrapping="Wrap" FontSize="13"
                                    Foreground="{DynamicResource TDFontGyColor}"
                                    MaxHeight="36" />
                     </StackPanel>
-                    <TextBlock Grid.Column="2" Text="周一" FontSize="12"
+                    <TextBlock Grid.Column="2" Text="{Translate {x:Static local:LanguageManager+Keys.Home_Timestamp_Monday}}" FontSize="12"
                                Foreground="{DynamicResource TDFontGyColor}"
                                VerticalAlignment="Top" />
                 </Grid>
@@ -160,8 +161,8 @@
                                    VerticalAlignment="Center" />
                     </Border>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="2">
-                        <TextBlock Text="关于" FontSize="16" FontWeight="SemiBold" />
-                        <TextBlock Text="Irihi.Mafia Demo · 基于 Avalonia · TDesign 主题"
+                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Title_About}}" FontSize="16" FontWeight="SemiBold" />
+                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Subtitle_About}}"
                                    TextWrapping="Wrap" FontSize="13"
                                    Foreground="{DynamicResource TDFontGyColor}"
                                    MaxHeight="36" />

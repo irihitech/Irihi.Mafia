@@ -118,6 +118,7 @@
                         Placement="Bottom">
                         <Border
                             Name="PopupBorder"
+                            ClipToBounds="True"
                             MinHeight="{DynamicResource TDPickerPopupMinHeight}"
                             MaxHeight="{TemplateBinding MaxDropDownHeight}"
                             Background="{DynamicResource TDPickerPopupBackground}"

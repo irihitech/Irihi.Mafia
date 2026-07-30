@@ -18,7 +18,7 @@ public partial class ComponentsPageView : UserControl
         MainNavigation.PushAsync(new ContentPage()
         {
             Content = new ControlGalleryView(),
-            Header = "Control Gallery",
+            Header = "Gallery", //LanguageManager.Instance.Components_Header,
             DataContext = new ControlGalleryViewModel() { NavigationRoot = MainNavigation, }
         });
     }

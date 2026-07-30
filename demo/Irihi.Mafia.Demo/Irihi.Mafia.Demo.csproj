@@ -11,12 +11,17 @@
     </ItemGroup>
 
     <ItemGroup>
+        <AdditionalFiles Include="Resources\**\*.resx" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Avalonia"/>
         <PackageReference Include="AvaloniaUI.DiagnosticsSupport">
             <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
         <PackageReference Include="CommunityToolkit.Mvvm"/>
+        <PackageReference Include="Irihi.Lingua"/>
         <PackageReference Include="Semi.Avalonia"/>
     </ItemGroup>
 
