@@ -9,7 +9,6 @@
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
         <AndroidPackageFormat>apk</AndroidPackageFormat>
         <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
-        <!--<JavaSdkDirectory>C:\Program Files\Microsoft\jdk-17.0.20.8-hotspot</JavaSdkDirectory>-->
     </PropertyGroup>
 
     <ItemGroup>
