@@ -1,11 +1,12 @@
 # Irihi.Mafia
 
-**Modern Avalonia UI control library and TDesign-inspired theme.**
+**Mobile-first Avalonia UI control library and TDesign-inspired theme.**
 
-Irihi.Mafia provides a set of polished, reusable Avalonia controls alongside a complete visual theme based on [TDesign](https://tdesign.tencent.com/) design language, with full light/dark mode support.
+Irihi.Mafia is a **mobile-first** Avalonia control library — crafted for touch interactions, thumb-friendly sizing, and responsive layouts from the ground up. It also provides a complete visual theme based on [TDesign](https://tdesign.tencent.com/) design language, with full light/dark mode support.
 
 ## Features
 
+- 📱 **Mobile-first design** — Touch-optimized controls, generous tap targets, thumb-friendly spacing
 - 🎨 **TDesign-inspired theme** — A comprehensive light & dark theme with design token system (colors, typography, spacing, radius)
 - 🧩 **Custom controls** — Avatar, Cell/ CellGroup, Divider, IconButton, Picker, Popup and more
 - 🌓 **Light/Dark mode** — Built-in theme variants with consistent color palettes

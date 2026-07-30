@@ -1,11 +1,12 @@
 # Irihi.Mafia
 
-**现代化的 Avalonia UI 控件库与 TDesign 风格主题。**
+**移动端优先的 Avalonia UI 控件库与 TDesign 风格主题。**
 
-Irihi.Mafia 提供了一套精致、可复用的 Avalonia 控件，以及基于 [TDesign](https://tdesign.tencent.com/) 设计语言的完整视觉主题，支持明暗模式。
+Irihi.Mafia 是一款**移动端优先**的 Avalonia 控件库 — 从底层开始即为触摸交互优化，提供拇指友好（thumb-friendly）的尺寸和响应式布局。同时提供基于 [TDesign](https://tdesign.tencent.com/) 设计语言的完整视觉主题，支持明暗模式。
 
 ## 特性
 
+- 📱 **移动端优先设计** — 触摸优化的控件、充足的点击区域、拇指友好的间距
 - 🎨 **TDesign 风格主题** — 包含设计令牌系统的完整明暗主题（色彩、排版、间距、圆角）
 - 🧩 **自定义控件** — Avatar、Cell/ CellGroup、Divider、IconButton、Picker、Popup 等
 - 🌓 **明暗模式** — 内置明暗双主题，统一配色体系
