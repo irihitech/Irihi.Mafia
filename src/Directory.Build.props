@@ -1,0 +1,26 @@
+<Project>
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">
+        <IsAotCompatible>true</IsAotCompatible>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Authors>IRIHI Technology Co., Ltd.</Authors>
+        <Description>A modern Avalonia UI control library with a TDesign-inspired theme.</Description>
+        <RepositoryUrl>https://github.com/irihitech/Irihi.Mafia</RepositoryUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageIcon>irihi.png</PackageIcon>
+        <PackageProjectUrl>https://github.com/irihitech/Irihi.Mafia</PackageProjectUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\..\irihi.png" Pack="true" PackagePath="\" Link="Properties\irihi.png"/>
+        <None Include="..\..\LICENSE" Pack="true" PackagePath="\" Link="Properties\LICENSE"/>
+        <None Include="..\..\README.md" Pack="true" PackagePath="\" Link="Properties\README.md"/>
+    </ItemGroup>
+</Project>
