@@ -1,6 +1,8 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <StreamGeometry x:Key="TempArrowGlyph">M9.5 17.5L15 12L9.5 6.5</StreamGeometry>
+    <StreamGeometry x:Key="TempArrowGlyph">
+        M9.5 17.5L15 12L9.5 6.5
+    </StreamGeometry>
     <StreamGeometry x:Key="TempAppGlyph">
         M3 3H10V10H3V3ZM14 14H21V21H14V14ZM3 14H10V21H3V14Z
         M21.5 6.5C21.5 8.70914 19.7091 10.5 17.5 10.5C15.2909 10.5 13.5 8.70914 13.5 6.5C13.5 4.29086 15.2909 2.5 17.5 2.5C19.7091 2.5 21.5 4.29086 21.5 6.5Z
@@ -14,20 +16,16 @@
         M20 21V19C20 16.7909 18.2091 15 16 15H8C5.79086 15 4 16.7909 4 19V21H20Z
     </StreamGeometry>
     <StreamGeometry x:Key="TempCheckCircleGlyph">
-        M12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23Z
-        M7.49985 10.5858L10.4999 13.5858L16.4999 7.58578L17.9141 8.99999L10.4999 16.4142L6.08564 12L7.49985 10.5858Z
+        M16.5 9L10.5 15L7.5 12
     </StreamGeometry>
     <StreamGeometry x:Key="TempCheckRectangleGlyph">
         M22 2H2V22H22V2ZM6.08618 12L7.5004 10.5858L10.5004 13.5858L16.5004 7.58579L17.9146 9L10.5004 16.4142L6.08618 12Z
     </StreamGeometry>
-    <StreamGeometry x:Key="TempIndeterminateCircleGlyph">
-        M12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1ZM17.5 13V11L6.5 11V13L17.5 13Z
+    <StreamGeometry x:Key="TempMinusCircleGlyph">
+        M16.5 12L7.5 12    
     </StreamGeometry>
-    <!-- <StreamGeometry x:Key="TempCloseGlyph"> -->
-    <!--     M16.9503 7.05029L12.0005 12M12.0005 12L7.05078 16.9498M12.0005 12L16.9503 16.9498M12.0005 12L7.05078 7.05029 -->
-    <!-- </StreamGeometry> -->
     <StreamGeometry x:Key="TempCloseGlyph">
-        M17.66 19.78a1.5 1.5 0 0 0 2.12-2.12L14.12 12l5.66-5.66a1.5 1.5 0 0 0-2.12-2.12L12 9.88 6.34 4.22a1.5 1.5 0 1 0-2.12 2.12L9.88 12l-5.66 5.66a1.5 1.5 0 0 0 2.12 2.12L12 14.12l5.66 5.66Z
+        M16.9503 7.05029L12.0005 12M12.0005 12L7.05078 16.9498M12.0005 12L16.9503 16.9498M12.0005 12L7.05078 7.05029
     </StreamGeometry>
     <StreamGeometry x:Key="TempCheckGlyph">
         M19.5708 7.37842L10.3785 16.5708L5.42871 11.6211
@@ -39,14 +37,8 @@
     <StreamGeometry x:Key="TempChatGlyph">
         M2.5 3H21.5V17H6.5L2.5 20.5V3Z
     </StreamGeometry>
-    <!-- <StreamGeometry x:Key="TempChevronLeftGlyph"> -->
-    <!--     M14.5 17.5L9 12L14.5 6.5 -->
-    <!-- </StreamGeometry> -->
     <StreamGeometry x:Key="TempChevronLeftGlyph">
-        M16.28 4.24a1.5 1.5 0 0 1 0 2.12l-5.66 5.66 5.66 5.65a1.5 1.5 0 1 1-2.12 2.13l-6.72-6.72a1.5 1.5 0 0 1 0-2.12l6.72-6.72a1.5 1.5 0 0 1 2.12 0Z
-    </StreamGeometry>
-    <StreamGeometry x:Key="TempGridViewGlyph">
-        M10 3H3V10H10V3ZM14 3H21V10H14V3ZM21 14H14V21H21V14ZM10 14H3V21H10V14Z
+        M14.5 17.5L9 12L14.5 6.5
     </StreamGeometry>
     <StreamGeometry x:Key="TempMenuGlyph">
         M3 17h18a1 1 0 0 1 .117 1.993L21 19H3a1 1 0 0 1-.117-1.993L3 17h18H3Zm0-6 18-.002a1 1 0 0 1 .117 1.993l-.117.007L3 13a1 1 0 0 1-.117-1.993L3 11l18-.002L3 11Zm0-6h18a1 1 0 0 1 .117 1.993L21 7H3a1 1 0 0 1-.117-1.993L3 5h18H3Z

@@ -96,14 +96,9 @@
                                     Content="{TemplateBinding InnerRightContent}"
                                     ContentTemplate="{TemplateBinding InnerRightContentTemplate}"
                                     IsVisible="{TemplateBinding InnerRightContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
-                                <Path
+                                <PathIcon
                                     Name="DropDownGlyph"
-                                    Width="{DynamicResource TDPickerIconSize}"
-                                    Height="{DynamicResource TDPickerIconSize}"
-                                    Data="{DynamicResource TDPickerIconData}"
-                                    Stroke="{DynamicResource TDPickerIconForeground}"
-                                    StrokeThickness="2"
-                                    Stretch="Uniform"
+                                    Data="{DynamicResource TempArrowGlyph}"
                                     IsHitTestVisible="False"
                                     UseLayoutRounding="False" />
                             </StackPanel>
