@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="using:Irihi.Mafia.Demo"
              xmlns:pages="using:Irihi.Mafia.Demo.Views.Pages"
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
              x:Class="Irihi.Mafia.Demo.Views.MainView">
@@ -12,13 +13,13 @@
                 <PageSlide Orientation="Horizontal" Duration="0:0:0.2" />
             </CompositePageTransition>
         </TabbedPage.PageTransition>
-        <ContentPage Header="控件" Icon="{StaticResource TempAppGlyph}">
+        <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.MainView_Tab_Components}}" Icon="{StaticResource TempAppGlyph}">
             <pages:ComponentsPageView Name="ComponentsPageContent" />
         </ContentPage>
-        <ContentPage Header="首页" Icon="{StaticResource TempHomeGlyph}">
+        <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.MainView_Tab_Home}}" Icon="{StaticResource TempHomeGlyph}">
             <pages:HomePageView Name="HomePageContent" />
         </ContentPage>
-        <ContentPage Header="设置" Icon="{StaticResource TempUserGlyph}">
+        <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.MainView_Tab_Settings}}" Icon="{StaticResource TempUserGlyph}">
             <pages:ListPageView Name="ListPageContent" />
         </ContentPage>
     </TabbedPage>

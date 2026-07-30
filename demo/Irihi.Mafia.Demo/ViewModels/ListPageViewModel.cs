@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Globalization;
 using Avalonia;
 using Avalonia.Styling;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -17,7 +18,7 @@ public partial class ListPageViewModel : ViewModelBase
     public partial int SelectedThemeIndex { get; set; } = GetInitialThemeIndex();
 
     [ObservableProperty]
-    public partial int SelectedLanguageIndex { get; set; }
+    public partial int SelectedLanguageIndex { get; set; } = GetInitialLanguageIndex();
 
     [ObservableProperty] public partial bool IsNotificationEnabled { get; set; } = true;
 
@@ -34,12 +35,29 @@ public partial class ListPageViewModel : ViewModelBase
         };
     }
 
+    partial void OnSelectedLanguageIndexChanged(int value)
+    {
+        var culture = value switch
+        {
+            0 => new CultureInfo("zh-Hans"),
+            _ => CultureInfo.InvariantCulture,
+        };
+        LanguageManager.Instance.UpdateCulture(culture);
+    }
+
     private static int GetInitialThemeIndex()
     {
         var variant = Application.Current?.RequestedThemeVariant;
         if (variant == ThemeVariant.Light) return 0;
         if (variant == ThemeVariant.Dark) return 1;
-        return 2; // Default (跟随系统)
+        return 2;
+    }
+
+    private static int GetInitialLanguageIndex()
+    {
+        var culture = LanguageManager.Instance.CurrentCulture;
+        if (culture.Name.StartsWith("zh")) return 0;
+        return 1;
     }
 
     [RelayCommand]

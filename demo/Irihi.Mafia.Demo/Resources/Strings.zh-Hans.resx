@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- MainView Tabs -->
+  <data name="MainView_Tab_Components" xml:space="preserve"><value>控件</value></data>
+  <data name="MainView_Tab_Home" xml:space="preserve"><value>首页</value></data>
+  <data name="MainView_Tab_Settings" xml:space="preserve"><value>设置</value></data>
+
+  <!-- ListPage -->
+  <data name="List_Online" xml:space="preserve"><value>在线</value></data>
+  <data name="List_Section_Display" xml:space="preserve"><value>显示</value></data>
+  <data name="List_Theme_Description" xml:space="preserve"><value>切换主题</value></data>
+  <data name="List_Language_Description" xml:space="preserve"><value>选择界面语言</value></data>
+  <data name="List_Section_About" xml:space="preserve"><value>关于</value></data>
+  <data name="List_Version" xml:space="preserve"><value>版本号</value></data>
+  <data name="List_License" xml:space="preserve"><value>开源许可</value></data>
+  <data name="List_Project" xml:space="preserve"><value>项目地址</value></data>
+  <data name="List_TechStack" xml:space="preserve"><value>技术栈</value></data>
+
+  <!-- HomePage -->
+  <data name="Home_SearchPlaceholder" xml:space="preserve"><value>搜索消息和功能...</value></data>
+  <data name="Home_Title_Mafia" xml:space="preserve"><value>Mafia 控件库</value></data>
+  <data name="Home_Subtitle_Welcome" xml:space="preserve"><value>欢迎使用 Mafia！这是一个专为移动端设计的 Avalonia 控件库，提供 Popup、Cell 等一系列移动端友好的控件。</value></data>
+  <data name="Home_Timestamp_Now" xml:space="preserve"><value>现在</value></data>
+  <data name="Home_Title_CustomControls" xml:space="preserve"><value>丰富的自定义控件</value></data>
+  <data name="Home_Subtitle_Controls" xml:space="preserve"><value>Popup, Cell, Avatar, IconButton, Divider, Button, Switch, Slider, Progress, CheckBox, RadioButton, TabControl……</value></data>
+  <data name="Home_Timestamp_Yesterday" xml:space="preserve"><value>昨天</value></data>
+  <data name="Home_Title_TDesign" xml:space="preserve"><value>TDesign 主题</value></data>
+  <data name="Home_Subtitle_TDesign" xml:space="preserve"><value>内置完整的 TDesign 风格的 Light/Dark 主题，支持全局一键切换主题。</value></data>
+  <data name="Home_Title_Popup" xml:space="preserve"><value>Popup 弹出层系统</value></data>
+  <data name="Home_Subtitle_Popup" xml:space="preserve"><value>支持 Bottom/Center/Top/Left/Right/FullScreen 六种定位，模态和非模态模式，轻触关闭。</value></data>
+  <data name="Home_Timestamp_Wednesday" xml:space="preserve"><value>周三</value></data>
+  <data name="Home_Title_CrossPlatform" xml:space="preserve"><value>跨平台支持</value></data>
+  <data name="Home_Subtitle_CrossPlatform" xml:space="preserve"><value>支持 Desktop (Windows/macOS/Linux)、Android、iOS、Browser (WASM) 等多平台。</value></data>
+  <data name="Home_Timestamp_Monday" xml:space="preserve"><value>周一</value></data>
+  <data name="Home_Title_About" xml:space="preserve"><value>关于</value></data>
+  <data name="Home_Subtitle_About" xml:space="preserve"><value>Irihi.Mafia Demo · 基于 Avalonia · TDesign 主题</value></data>
+
+  <!-- ControlGallery -->
+  <data name="Gallery_SearchPlaceholder" xml:space="preserve"><value>搜索控件...</value></data>
+  <data name="Gallery_Section_Interactive" xml:space="preserve"><value>交互控件</value></data>
+  <data name="Gallery_Section_Display" xml:space="preserve"><value>展示控件</value></data>
+  <data name="Gallery_Popup" xml:space="preserve"><value>Popup 弹出层</value></data>
+  <data name="Gallery_Popup_Desc" xml:space="preserve"><value>六种定位、模态/轻触关闭</value></data>
+  <data name="Gallery_Button" xml:space="preserve"><value>Button 按钮</value></data>
+  <data name="Gallery_Button_Desc" xml:space="preserve"><value>填充/描边/文字，多色多尺寸</value></data>
+  <data name="Gallery_Picker" xml:space="preserve"><value>Picker 下拉选择</value></data>
+  <data name="Gallery_Picker_Desc" xml:space="preserve"><value>触控优化的下拉选择控件</value></data>
+  <data name="Gallery_Switch" xml:space="preserve"><value>ToggleSwitch 开关</value></data>
+  <data name="Gallery_Switch_Desc" xml:space="preserve"><value>三档尺寸开关</value></data>
+  <data name="Gallery_Slider" xml:space="preserve"><value>Slider 滑块</value></data>
+  <data name="Gallery_Slider_Desc" xml:space="preserve"><value>数值范围选择</value></data>
+  <data name="Gallery_Progress" xml:space="preserve"><value>Progress 进度条</value></data>
+  <data name="Gallery_Progress_Desc" xml:space="preserve"><value>线形/圆形进度指示</value></data>
+  <data name="Gallery_CheckBox" xml:space="preserve"><value>CheckBox 复选框</value></data>
+  <data name="Gallery_CheckBox_Desc" xml:space="preserve"><value>多选选项框</value></data>
+  <data name="Gallery_RadioButton" xml:space="preserve"><value>RadioButton 单选框</value></data>
+  <data name="Gallery_RadioButton_Desc" xml:space="preserve"><value>单选按钮组</value></data>
+  <data name="Gallery_Cell" xml:space="preserve"><value>Cell 列表项</value></data>
+  <data name="Gallery_Cell_Desc" xml:space="preserve"><value>多功能列表条目</value></data>
+  <data name="Gallery_Avatar" xml:space="preserve"><value>Avatar 头像</value></data>
+  <data name="Gallery_Avatar_Desc" xml:space="preserve"><value>图片/文字头像</value></data>
+  <data name="Gallery_IconButton" xml:space="preserve"><value>IconButton 图标按钮</value></data>
+  <data name="Gallery_IconButton_Desc" xml:space="preserve"><value>图文组合按钮</value></data>
+  <data name="Gallery_Divider" xml:space="preserve"><value>Divider 分割线</value></data>
+  <data name="Gallery_Divider_Desc" xml:space="preserve"><value>水平/垂直分割</value></data>
+  <data name="Gallery_TabControl" xml:space="preserve"><value>TabControl 标签页</value></data>
+  <data name="Gallery_TabControl_Desc" xml:space="preserve"><value>标签切换容器</value></data>
+  <data name="Gallery_TabbedPage" xml:space="preserve"><value>TabbedPage 底部导航</value></data>
+  <data name="Gallery_TabbedPage_Desc" xml:space="preserve"><value>本页正在使用的导航</value></data>
+
+  <!-- Button Detail -->
+  <data name="Button_Title" xml:space="preserve"><value>Button 按钮</value></data>
+  <data name="Button_Desc" xml:space="preserve"><value>支持填充、描边、文字三种样式，五种语义颜色（默认/主要/危险/成功/警告/浅色），四种尺寸（大/中/小/极小），三种形状（方形/圆形/圆角）。</value></data>
+  <data name="Button_Fill" xml:space="preserve"><value>填充按钮</value></data>
+  <data name="Button_Outline" xml:space="preserve"><value>描边按钮</value></data>
+  <data name="Button_Text" xml:space="preserve"><value>文字按钮</value></data>
+  <data name="Button_Sizes" xml:space="preserve"><value>尺寸变体</value></data>
+  <data name="Button_Shapes" xml:space="preserve"><value>形状变体</value></data>
+  <data name="Button_Default" xml:space="preserve"><value>默认</value></data>
+  <data name="Button_Primary" xml:space="preserve"><value>主要</value></data>
+  <data name="Button_Danger" xml:space="preserve"><value>危险</value></data>
+  <data name="Button_Success" xml:space="preserve"><value>成功</value></data>
+  <data name="Button_Warning" xml:space="preserve"><value>警告</value></data>
+  <data name="Button_Light" xml:space="preserve"><value>浅色</value></data>
+  <data name="Button_Large" xml:space="preserve"><value>大</value></data>
+  <data name="Button_Medium" xml:space="preserve"><value>中</value></data>
+  <data name="Button_Small" xml:space="preserve"><value>小</value></data>
+  <data name="Button_ExtraSmall" xml:space="preserve"><value>极小</value></data>
+  <data name="Button_Square" xml:space="preserve"><value>方</value></data>
+  <data name="Button_Circle" xml:space="preserve"><value>圆</value></data>
+  <data name="Button_Round" xml:space="preserve"><value>圆角</value></data>
+
+  <!-- Picker Detail -->
+  <data name="Picker_Title" xml:space="preserve"><value>Picker 下拉选择</value></data>
+  <data name="Picker_Desc" xml:space="preserve"><value>触控优化的下拉选择控件。使用 Mafia Popup 实现底部弹出面板，支持占位文本、禁用态等。</value></data>
+  <data name="Picker_BasicUsage" xml:space="preserve"><value>基础用法示例</value></data>
+  <data name="Picker_Placeholder_City" xml:space="preserve"><value>请选择城市</value></data>
+  <data name="Picker_LongList" xml:space="preserve"><value>多项长列表</value></data>
+  <data name="Picker_Placeholder_Province" xml:space="preserve"><value>选择省份</value></data>
+  <data name="Picker_Mvvm" xml:space="preserve"><value>MVVM 数据绑定</value></data>
+  <data name="Picker_LanguageBinding" xml:space="preserve"><value>语言选择（ItemsSource + SelectedItem）</value></data>
+  <data name="Picker_SizeBinding" xml:space="preserve"><value>尺码选择（ItemsSource + SelectedIndex）</value></data>
+  <data name="Picker_Placeholder_Size" xml:space="preserve"><value>请选择尺码</value></data>
+  <data name="Picker_Confirmable" xml:space="preserve"><value>可确认模式（IsConfirmable=True）</value></data>
+  <data name="Picker_Confirmable_Desc" xml:space="preserve"><value>选择后需点击「确认」按钮才生效，点击遮罩取消恢复原值。</value></data>
+  <data name="Picker_Placeholder_Select" xml:space="preserve"><value>请选择</value></data>
+  <data name="Picker_PopupTitle" xml:space="preserve"><value>选择选项</value></data>
+
+  <!-- Picker Items -->
+  <data name="Picker_Option1" xml:space="preserve"><value>选项一</value></data>
+  <data name="Picker_Option2" xml:space="preserve"><value>选项二</value></data>
+  <data name="Picker_Option3" xml:space="preserve"><value>选项三</value></data>
+  <data name="Picker_Option4" xml:space="preserve"><value>选项四</value></data>
+  <data name="Picker_Option5" xml:space="preserve"><value>选项五</value></data>
+  <data name="Picker_OptionA" xml:space="preserve"><value>选项 A</value></data>
+  <data name="Picker_OptionB" xml:space="preserve"><value>选项 B</value></data>
+  <data name="Picker_OptionC" xml:space="preserve"><value>选项 C</value></data>
+  <data name="Picker_OptionD" xml:space="preserve"><value>选项 D</value></data>
+  <data name="Picker_OptionE" xml:space="preserve"><value>选项 E</value></data>
+
+  <!-- Popup Detail -->
+  <data name="Popup_Title" xml:space="preserve"><value>Popup 弹出层</value></data>
+  <data name="Popup_Desc" xml:space="preserve"><value>支持六种定位方式：Bottom（底部）、Center（居中）、Top（顶部）、Left（左侧）、Right（右侧）、FullScreen（全屏）。支持模态/非模态模式和轻触关闭。</value></data>
+  <data name="Popup_Placement" xml:space="preserve"><value>Placement 位置</value></data>
+  <data name="Popup_Options" xml:space="preserve"><value>Options 选项</value></data>
+  <data name="Popup_Modal" xml:space="preserve"><value>IsModal 模态</value></data>
+  <data name="Popup_LightDismiss" xml:space="preserve"><value>Light Dismiss 轻触关闭</value></data>
+  <data name="Popup_Inheritance" xml:space="preserve"><value>附加 Placement 继承</value></data>
+  <data name="Popup_Inheritance_Desc" xml:space="preserve"><value>Popup 通过 m:Popup.Placement 从父级继承 Placement=Bottom</value></data>
+  <data name="Popup_InheritedButton" xml:space="preserve"><value>打开继承 Popup</value></data>
+  <data name="Popup_DismissHint" xml:space="preserve"><value>点击外部或按关闭按钮关闭。</value></data>
+  <data name="Popup_Close" xml:space="preserve"><value>关闭</value></data>
+
+  <!-- Switch Detail -->
+  <data name="Switch_Title" xml:space="preserve"><value>ToggleSwitch 开关</value></data>
+  <data name="Switch_Desc" xml:space="preserve"><value>开关切换控件，支持默认、小、大三种尺寸。可用于设置项的开关控制。</value></data>
+  <data name="Switch_Sizes" xml:space="preserve"><value>尺寸变体</value></data>
+  <data name="Switch_Default" xml:space="preserve"><value>默认尺寸</value></data>
+  <data name="Switch_Small" xml:space="preserve"><value>小尺寸</value></data>
+  <data name="Switch_Large" xml:space="preserve"><value>大尺寸</value></data>
+  <data name="Switch_States" xml:space="preserve"><value>状态展示</value></data>
+  <data name="Switch_Off" xml:space="preserve"><value>关闭</value></data>
+  <data name="Switch_On" xml:space="preserve"><value>开启</value></data>
+
+  <!-- Slider Detail -->
+  <data name="Slider_Title" xml:space="preserve"><value>Slider 滑块</value></data>
+  <data name="Slider_Desc" xml:space="preserve"><value>数值范围选择器，支持自定义最小值、最大值和步长。</value></data>
+
+  <!-- Progress Detail -->
+  <data name="Progress_Title" xml:space="preserve"><value>Progress 进度条</value></data>
+  <data name="Progress_Desc" xml:space="preserve"><value>支持线形进度条和圆形进度条。多种语义颜色：默认、成功、警告、错误。</value></data>
+  <data name="Progress_Linear" xml:space="preserve"><value>线形进度条</value></data>
+  <data name="Progress_Circular" xml:space="preserve"><value>圆形进度条</value></data>
+
+  <!-- Placeholder -->
+  <data name="Placeholder_Title" xml:space="preserve"><value>即将推出</value></data>
+  <data name="Placeholder_Desc" xml:space="preserve"><value>该控件的详细演示页面正在开发中。</value></data>
+
+  <!-- Components Page Header -->
+  <data name="Components_Header" xml:space="preserve"><value>控件列表</value></data>
+
+  <!-- Theme Options -->
+  <data name="Theme_Light" xml:space="preserve"><value>浅色</value></data>
+  <data name="Theme_Dark" xml:space="preserve"><value>深色</value></data>
+  <data name="Theme_System" xml:space="preserve"><value>跟随系统</value></data>
+
+  <!-- Language Options -->
+  <data name="Lang_Chinese" xml:space="preserve"><value>中文</value></data>
+  <data name="Lang_English" xml:space="preserve"><value>English</value></data>
+</root>
