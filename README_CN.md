@@ -140,8 +140,8 @@ TDesign 主题采用分层令牌体系，定制十分直观：
 
 ```bash
 # 克隆仓库
-git clone https://github.com/irihi/irihi-mafia.git
-cd irihi-mafia
+git clone https://github.com/irihitech/Irihi.Mafia.git
+cd Irihi.Mafia
 
 # 构建
 dotnet build

@@ -140,8 +140,8 @@ To customize, override any `DynamicResource` key from your app:
 
 ```bash
 # Clone the repository
-git clone https://github.com/irihi/irihi-mafia.git
-cd irihi-mafia
+git clone https://github.com/irihitech/Irihi.Mafia.git
+cd Irihi.Mafia
 
 # Build
 dotnet build
