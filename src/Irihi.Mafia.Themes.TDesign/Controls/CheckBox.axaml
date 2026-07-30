@@ -44,6 +44,7 @@
                                 UseLayoutRounding="False" />
                             <PathIcon
                                 Name="PART_CheckedIcon"
+                                Theme="{DynamicResource CirclePathIcon}"
                                 Width="{DynamicResource TDCheckBoxIconSize}"
                                 Height="{Binding $self.Width}"
                                 Data="{DynamicResource TempCheckCircleGlyph}"
@@ -84,7 +85,7 @@
         </Style>
 
         <Style Selector="^:indeterminate /template/ PathIcon#PART_CheckedIcon">
-            <Setter Property="Data" Value="{DynamicResource TempIndeterminateCircleGlyph}" />
+            <Setter Property="Data" Value="{DynamicResource TempMinusCircleGlyph}" />
         </Style>
 
         <Style Selector="^:disabled">
