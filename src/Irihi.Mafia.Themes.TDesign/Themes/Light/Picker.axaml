@@ -1,0 +1,53 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ComboBox -->
+    <StaticResource x:Key="TDPickerBackground" ResourceKey="TDBgColorContainer" />
+    <StaticResource x:Key="TDPickerBorderBrush" ResourceKey="TDBorderLevel1Color" />
+    <StaticResource x:Key="TDPickerForeground" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDPickerPlaceholderForeground" ResourceKey="TDTextColorPlaceholder" />
+    <StaticResource x:Key="TDPickerIconForeground" ResourceKey="TDTextColorSecondary" />
+
+    <StaticResource x:Key="TDPickerBackgroundPointerover" ResourceKey="TDBgColorContainerHover" />
+    <StaticResource x:Key="TDPickerBorderBrushPointerover" ResourceKey="TDBorderLevel1Color" />
+    <StaticResource x:Key="TDPickerIconForegroundPointerover" ResourceKey="TDTextColorPrimary" />
+
+    <StaticResource x:Key="TDPickerBackgroundPressed" ResourceKey="TDBgColorContainerActive" />
+    <StaticResource x:Key="TDPickerBorderBrushPressed" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDPickerIconForegroundPressed" ResourceKey="TDBrandColor" />
+
+    <StaticResource x:Key="TDPickerBackgroundDisabled" ResourceKey="TDBgColorComponentDisabled" />
+    <StaticResource x:Key="TDPickerBorderBrushDisabled" ResourceKey="TDBorderLevel1Color" />
+    <StaticResource x:Key="TDPickerIconForegroundDisabled" ResourceKey="TDTextColorDisabled" />
+
+    <!-- ComboBox Cell-like extras -->
+    <StaticResource x:Key="TDPickerLeftContentForeground" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDPickerDescriptionForeground" ResourceKey="TDTextColorSecondary" />
+    <StaticResource x:Key="TDPickerNoteForeground" ResourceKey="TDTextColorPlaceholder" />
+    <StaticResource x:Key="TDPickerRightContentForeground" ResourceKey="TDTextColorPlaceholder" />
+
+    <!-- ComboBox Popup -->
+    <StaticResource x:Key="TDPickerPopupBackground" ResourceKey="TDBgColorContainer" />
+    <SolidColorBrush x:Key="TDPickerPopupBorderBrush" Color="Transparent" />
+
+    <!-- ComboBoxItem -->
+    <SolidColorBrush x:Key="TDPickerItemForeground" Color="{StaticResource TDGrayColor11}" />
+    <SolidColorBrush x:Key="TDPickerItemBackground" Color="Transparent" />
+
+    <StaticResource x:Key="TDPickerItemForegroundPointerover" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDPickerItemBackgroundPointerover" ResourceKey="TDBgColorContainerHover" />
+
+    <StaticResource x:Key="TDPickerItemForegroundPressed" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDPickerItemBackgroundPressed" ResourceKey="TDBgColorContainerActive" />
+
+    <StaticResource x:Key="TDPickerItemForegroundSelected" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDPickerItemBackgroundSelected" ResourceKey="TDBrandColorLight" />
+    <StaticResource x:Key="TDPickerItemBackgroundSelectedPointerover" ResourceKey="TDBrandColorLightHover" />
+    <StaticResource x:Key="TDPickerItemBackgroundSelectedDisabled" ResourceKey="TDBrandColorLight" />
+    <StaticResource x:Key="TDPickerItemBackgroundDisabled" ResourceKey="TDBgColorComponentDisabled" />
+
+    <!-- Picker Title Bar -->
+    <StaticResource x:Key="TDPickerTitleBarBorderBrush" ResourceKey="TDComponentStroke" />
+    <StaticResource x:Key="TDPickerTitleForeground" ResourceKey="TDTextColorPrimary" />
+
+</ResourceDictionary>

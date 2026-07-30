@@ -1,0 +1,35 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Picker Layout -->
+    <x:Double x:Key="TDPickerMinHeight">48</x:Double>
+    <Thickness x:Key="TDPickerPadding">16</Thickness>
+    <Thickness x:Key="TDPickerBorderThickness">0,0,0,1</Thickness>
+    <CornerRadius x:Key="TDPickerCornerRadius">0</CornerRadius>
+    <x:Double x:Key="TDPickerMaxDropDownHeight">280</x:Double>
+    <x:Double x:Key="TDPickerDisabledOpacity">0.4</x:Double>
+    <StaticResource x:Key="TDPickerFontSize" ResourceKey="TDFontSizeBodyLarge" />
+    <Thickness x:Key="TDPickerLeftContentMargin">0,0,12,0</Thickness>
+    <Thickness x:Key="TDPickerContentMargin">0,0,16,0</Thickness>
+    <x:Double x:Key="TDPickerContentSpacing">4</x:Double>
+    <x:Double x:Key="TDPickerRightPanelSpacing">4</x:Double>
+    <StaticResource x:Key="TDPickerDescriptionFontSize" ResourceKey="TDFontSizeBodyMedium" />
+    <StaticResource x:Key="TDPickerNoteFontSize" ResourceKey="TDFontSizeBodyMedium" />
+
+    <!-- Picker Title Bar -->
+    <StaticResource x:Key="TDPickerTitleFontSize" ResourceKey="TDFontSizeBodyLarge" />
+
+    <!-- Picker Icon -->
+    <x:Double x:Key="TDPickerIconSize">16</x:Double>
+    <StreamGeometry x:Key="TDPickerIconData">M9.5 17.5L15 12L9.5 6.5</StreamGeometry>
+
+    <!-- Picker Popup -->
+    <x:Double x:Key="TDPickerPopupMinHeight">48</x:Double>
+    <Thickness x:Key="TDPickerPopupPadding">0,8</Thickness>
+    <Thickness x:Key="TDPickerPopupBorderThickness">0</Thickness>
+    <CornerRadius x:Key="TDPickerPopupCornerRadius">12,12,0,0</CornerRadius>
+
+    <!-- PickerItem Layout -->
+    <Thickness x:Key="TDPickerItemPadding">16,12</Thickness>
+
+</ResourceDictionary>

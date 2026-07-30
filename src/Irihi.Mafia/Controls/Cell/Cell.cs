@@ -7,7 +7,7 @@ using Irihi.Avalonia.Shared.Contracts;
 namespace Irihi.Mafia.Controls;
 
 [TemplatePart(PART_RootPanel, typeof(Panel))]
-public class Cell : Button, IInnerContentControl
+public class Cell : Button, IInnerContentControl, ICell
 {
     public const string PART_RootPanel = "PART_RootPanel";
 

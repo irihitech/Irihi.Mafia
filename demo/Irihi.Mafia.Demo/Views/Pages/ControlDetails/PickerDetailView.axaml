@@ -1,0 +1,104 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:m="https://irihi.tech/mafia"
+             xmlns:vm="clr-namespace:Irihi.Mafia.Demo.ViewModels.ControlDetails"
+             mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
+             x:DataType="vm:PickerDetailViewModel"
+             x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.PickerDetailView">
+    <ScrollViewer>
+        <StackPanel Spacing="4">
+            <TextBlock Text="Picker 下拉选择" FontSize="24" FontWeight="Bold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="触控优化的下拉选择控件。使用 Mafia Popup 实现底部弹出面板，支持占位文本、禁用态等。"
+                       TextWrapping="Wrap" FontSize="14"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <m:CellGroup Header="基础用法示例">
+                <m:Picker SelectedIndex="0">
+                    <m:PickerItem>选项一</m:PickerItem>
+                    <m:PickerItem>选项二</m:PickerItem>
+                    <m:PickerItem>选项三</m:PickerItem>
+                    <m:PickerItem>选项四</m:PickerItem>
+                    <m:PickerItem>选项五</m:PickerItem>
+                </m:Picker>
+                <m:Picker PlaceholderText="请选择城市">
+                    <m:PickerItem>北京</m:PickerItem>
+                    <m:PickerItem>上海</m:PickerItem>
+                    <m:PickerItem>广州</m:PickerItem>
+                    <m:PickerItem>深圳</m:PickerItem>
+                    <m:PickerItem>杭州</m:PickerItem>
+                </m:Picker>
+            </m:CellGroup>
+
+            <TextBlock Text="多项长列表" FontSize="16" FontWeight="SemiBold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <m:Picker PlaceholderText="选择省份" SelectedIndex="0">
+                <m:PickerItem>北京市</m:PickerItem>
+                <m:PickerItem>上海市</m:PickerItem>
+                <m:PickerItem>天津市</m:PickerItem>
+                <m:PickerItem>重庆市</m:PickerItem>
+                <m:PickerItem>河北省</m:PickerItem>
+                <m:PickerItem>山西省</m:PickerItem>
+                <m:PickerItem>辽宁省</m:PickerItem>
+                <m:PickerItem>吉林省</m:PickerItem>
+                <m:PickerItem>黑龙江省</m:PickerItem>
+                <m:PickerItem>江苏省</m:PickerItem>
+                <m:PickerItem>浙江省</m:PickerItem>
+                <m:PickerItem>安徽省</m:PickerItem>
+                <m:PickerItem>福建省</m:PickerItem>
+                <m:PickerItem>江西省</m:PickerItem>
+                <m:PickerItem>山东省</m:PickerItem>
+                <m:PickerItem>河南省</m:PickerItem>
+                <m:PickerItem>湖北省</m:PickerItem>
+                <m:PickerItem>湖南省</m:PickerItem>
+                <m:PickerItem>广东省</m:PickerItem>
+                <m:PickerItem>四川省</m:PickerItem>
+                <m:PickerItem>贵州省</m:PickerItem>
+                <m:PickerItem>云南省</m:PickerItem>
+                <m:PickerItem>陕西省</m:PickerItem>
+                <m:PickerItem>甘肃省</m:PickerItem>
+                <m:PickerItem>青海省</m:PickerItem>
+            </m:Picker>
+
+            <TextBlock Text="MVVM 数据绑定" FontSize="16" FontWeight="SemiBold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+
+            <TextBlock Text="语言选择（ItemsSource + SelectedItem）" FontSize="14"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <m:Picker ItemsSource="{Binding Languages}"
+                        SelectedItem="{Binding SelectedLanguage}"
+                        Description="数据驱动的下拉选择"
+                        Note="双向绑定">
+            </m:Picker>
+            <TextBlock Text="{Binding SelectedLanguage, StringFormat='已选: {0}'}"
+                       FontSize="14"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+
+            <TextBlock Text="尺码选择（ItemsSource + SelectedIndex）" FontSize="14"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <m:Picker ItemsSource="{Binding Sizes}"
+                        SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
+                        PlaceholderText="请选择尺码">
+            </m:Picker>
+            <TextBlock Text="{Binding SelectedIndex, StringFormat='SelectedIndex: {0}'}"
+                       FontSize="14"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+
+            <TextBlock Text="可确认模式（IsConfirmable=True）" FontSize="16" FontWeight="SemiBold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="选择后需点击「确认」按钮才生效，点击遮罩取消恢复原值。"
+                       TextWrapping="Wrap" FontSize="14"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <m:Picker PlaceholderText="请选择" IsConfirmable="True"
+                        PopupTitle="选择选项"
+                        Description="左取消 | 中标题 | 右确认">
+                <m:PickerItem>选项 A</m:PickerItem>
+                <m:PickerItem>选项 B</m:PickerItem>
+                <m:PickerItem>选项 C</m:PickerItem>
+                <m:PickerItem>选项 D</m:PickerItem>
+                <m:PickerItem>选项 E</m:PickerItem>
+            </m:Picker>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,219 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:m="https://irihi.tech/mafia">
+
+    <ControlTheme x:Key="{x:Type m:Picker}" TargetType="m:Picker">
+        <Setter Property="Padding" Value="{DynamicResource TDPickerPadding}" />
+        <Setter Property="MaxDropDownHeight" Value="{DynamicResource TDPickerMaxDropDownHeight}" />
+        <Setter Property="Background" Value="{DynamicResource TDPickerBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TDPickerBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TDPickerBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TDPickerCornerRadius}" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="MinHeight" Value="{DynamicResource TDPickerMinHeight}" />
+        <Setter Property="FontSize" Value="{DynamicResource TDPickerFontSize}" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource TDPickerPlaceholderForeground}" />
+        <Setter Property="Foreground" Value="{DynamicResource TDPickerForeground}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="m:Picker">
+                <Panel>
+                    <Border
+                        Name="BackgroundBorder"
+                        Padding="{TemplateBinding Padding}"
+                        MinHeight="{TemplateBinding MinHeight}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+
+                        <Grid ColumnDefinitions="Auto,*,Auto">
+
+                            <ContentPresenter
+                                Grid.Column="0"
+                                Name="PART_InnerLeftContent"
+                                Margin="{DynamicResource TDPickerLeftContentMargin}"
+                                Foreground="{DynamicResource TDPickerLeftContentForeground}"
+                                Content="{TemplateBinding InnerLeftContent}"
+                                ContentTemplate="{TemplateBinding InnerLeftContentTemplate}"
+                                IsVisible="{TemplateBinding InnerLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                <ContentPresenter.DataTemplates>
+                                    <DataTemplate DataType="Geometry">
+                                        <PathIcon Data="{Binding}" />
+                                    </DataTemplate>
+                                </ContentPresenter.DataTemplates>
+                            </ContentPresenter>
+
+                            <StackPanel
+                                Grid.Column="1"
+                                Margin="{DynamicResource TDPickerContentMargin}"
+                                Spacing="{DynamicResource TDPickerContentSpacing}"
+                                VerticalAlignment="Center">
+
+                                <TextBlock
+                                    Name="PlaceholderTextBlock"
+                                    FontSize="{TemplateBinding FontSize}"
+                                    Foreground="{TemplateBinding PlaceholderForeground}"
+                                    Text="{TemplateBinding PlaceholderText}"
+                                    TextTrimming="CharacterEllipsis"
+                                    IsVisible="{TemplateBinding SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}" />
+
+                                <ContentPresenter
+                                    Name="ContentPresenter"
+                                    FontSize="{TemplateBinding FontSize}"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    Content="{TemplateBinding SelectionBoxItem}"
+                                    ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                    IsVisible="{TemplateBinding SelectionBoxItem, Converter={x:Static ObjectConverters.IsNotNull}}" />
+
+                                <ContentPresenter
+                                    Name="PART_Description"
+                                    Content="{TemplateBinding Description}"
+                                    ContentTemplate="{TemplateBinding DescriptionTemplate}"
+                                    FontSize="{DynamicResource TDPickerDescriptionFontSize}"
+                                    Foreground="{DynamicResource TDPickerDescriptionForeground}"
+                                    IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                            </StackPanel>
+
+                            <StackPanel
+                                Grid.Column="2"
+                                Orientation="Horizontal"
+                                Spacing="{DynamicResource TDPickerRightPanelSpacing}"
+                                VerticalAlignment="Center">
+                                <ContentPresenter
+                                    Name="PART_Note"
+                                    Content="{TemplateBinding Note}"
+                                    ContentTemplate="{TemplateBinding NoteTemplate}"
+                                    FontSize="{DynamicResource TDPickerNoteFontSize}"
+                                    Foreground="{DynamicResource TDPickerNoteForeground}"
+                                    IsVisible="{TemplateBinding Note, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                <ContentPresenter
+                                    Name="PART_InnerRightContent"
+                                    Foreground="{DynamicResource TDPickerRightContentForeground}"
+                                    Content="{TemplateBinding InnerRightContent}"
+                                    ContentTemplate="{TemplateBinding InnerRightContentTemplate}"
+                                    IsVisible="{TemplateBinding InnerRightContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                <Path
+                                    Name="DropDownGlyph"
+                                    Width="{DynamicResource TDPickerIconSize}"
+                                    Height="{DynamicResource TDPickerIconSize}"
+                                    Data="{DynamicResource TDPickerIconData}"
+                                    Stroke="{DynamicResource TDPickerIconForeground}"
+                                    StrokeThickness="2"
+                                    Stretch="Uniform"
+                                    IsHitTestVisible="False"
+                                    UseLayoutRounding="False" />
+                            </StackPanel>
+
+                        </Grid>
+                    </Border>
+
+                    <m:Popup
+                        Name="PART_Popup"
+                        IsLightDismissEnabled="True"
+                        IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
+                        Placement="Bottom">
+                        <Border
+                            Name="PopupBorder"
+                            MinHeight="{DynamicResource TDPickerPopupMinHeight}"
+                            MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                            Background="{DynamicResource TDPickerPopupBackground}"
+                            BorderBrush="{DynamicResource TDPickerPopupBorderBrush}"
+                            BorderThickness="{DynamicResource TDPickerPopupBorderThickness}"
+                            CornerRadius="{DynamicResource TDPickerPopupCornerRadius}">
+                            <Grid RowDefinitions="Auto,*">
+                                <Border
+                                    Grid.Row="0"
+                                    IsVisible="{TemplateBinding IsConfirmable}"
+                                    BorderBrush="{DynamicResource TDPickerTitleBarBorderBrush}" >
+                                    <Grid ColumnDefinitions="Auto,*,Auto">
+                                        <Button
+                                            Grid.Column="0"
+                                            Name="PART_CancelButton"
+                                            Content="取消"
+                                            Theme="{DynamicResource TextButton}" />
+                                        <TextBlock
+                                            Grid.Column="1"
+                                            Text="{TemplateBinding PopupTitle}"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="{DynamicResource TDPickerTitleFontSize}"
+                                            Foreground="{DynamicResource TDPickerTitleForeground}"
+                                            IsVisible="{TemplateBinding PopupTitle, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                        <Button
+                                            Grid.Column="2"
+                                            Name="PART_ConfirmButton"
+                                            Classes="Primary"
+                                            Content="确认"
+                                            Theme="{DynamicResource TextButton}" />
+                                    </Grid>
+                                </Border>
+                                <ScrollViewer
+                                    Grid.Row="1"
+                                    HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                    VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                    <ItemsPresenter
+                                        Name="PART_ItemsPresenter"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}" />
+                                </ScrollViewer>
+                            </Grid>
+                        </Border>
+                    </m:Popup>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type m:PickerItem}" TargetType="m:PickerItem">
+        <Setter Property="Foreground" Value="{DynamicResource TDPickerItemForeground}" />
+        <Setter Property="Background" Value="{DynamicResource TDPickerItemBackground}" />
+        <Setter Property="Padding" Value="{DynamicResource TDPickerItemPadding}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="m:PickerItem">
+                <ContentPresenter
+                    Name="PART_ContentPresenter"
+                    Padding="{TemplateBinding Padding}"
+                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                    Background="{TemplateBinding Background}"
+                    Content="{TemplateBinding Content}"
+                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Foreground="{TemplateBinding Foreground}" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource TDPickerItemForegroundPointerover}" />
+            <Setter Property="Background" Value="{DynamicResource TDPickerItemBackgroundPointerover}" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource TDPickerItemForegroundPressed}" />
+            <Setter Property="Background" Value="{DynamicResource TDPickerItemBackgroundPressed}" />
+        </Style>
+
+        <Style Selector="^:selected">
+            <Setter Property="Foreground" Value="{DynamicResource TDPickerItemForegroundSelected}" />
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="{DynamicResource TDPickerItemBackgroundSelected}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource TDPickerItemForegroundSelected}" />
+                <Setter Property="Background" Value="{DynamicResource TDPickerItemBackgroundSelectedPointerover}" />
+            </Style>
+            <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="{DynamicResource TDPickerItemBackgroundSelectedDisabled}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource TDPickerItemBackgroundDisabled}" />
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>
