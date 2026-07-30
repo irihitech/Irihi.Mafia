@@ -29,7 +29,18 @@
             <m:CellGroup Header="{Translate {x:Static local:LanguageManager+Keys.List_Section_Display}}">
                 <m:Picker ItemsSource="{Binding ThemeOptions}"
                           SelectedIndex="{Binding SelectedThemeIndex, Mode=TwoWay}"
-                          Description="{Translate {x:Static local:LanguageManager+Keys.List_Theme_Description}}" />
+                          Description="{Translate {x:Static local:LanguageManager+Keys.List_Theme_Description}}">
+                    <m:Picker.SelectionBoxItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding .^}" />
+                        </DataTemplate>
+                    </m:Picker.SelectionBoxItemTemplate>
+                    <m:Picker.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding .^}" />
+                        </DataTemplate>
+                    </m:Picker.ItemTemplate>
+                </m:Picker>
                 <m:Picker ItemsSource="{Binding LanguageOptions}"
                           SelectedIndex="{Binding SelectedLanguageIndex, Mode=TwoWay}"
                           Description="{Translate {x:Static local:LanguageManager+Keys.List_Language_Description}}" />

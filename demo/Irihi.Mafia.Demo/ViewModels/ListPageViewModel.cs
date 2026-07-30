@@ -1,3 +1,4 @@
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Globalization;
@@ -10,7 +11,10 @@ namespace Irihi.Mafia.Demo.ViewModels;
 
 public partial class ListPageViewModel : ViewModelBase
 {
-    public ObservableCollection<string> ThemeOptions { get; } = ["浅色", "深色", "跟随系统"];
+    public ObservableCollection<IObservable<string?>> ThemeOptions { get; } =
+    [
+        LanguageManager.Instance.Theme_Light, LanguageManager.Instance.Theme_Dark, LanguageManager.Instance.Theme_System
+    ];
 
     public ObservableCollection<string> LanguageOptions { get; } = ["中文", "English"];
 
