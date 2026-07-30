@@ -1,0 +1,64 @@
+name: Pack to NuGet
+
+on:
+  workflow_dispatch:
+    inputs:
+      Upload_to_NuGet:
+        description: 'Upload to NuGet'
+        default: true
+        type: boolean
+      Irihi_Mafia:
+        description: 'Pack Irihi.Mafia'
+        default: true
+        type: boolean
+      Irihi_Mafia_Themes_TDesign:
+        description: 'Pack Irihi.Mafia.Themes.TDesign'
+        default: true
+        type: boolean
+  workflow_call:
+    inputs:
+      Upload_to_NuGet:
+        type: boolean
+        default: false
+      Irihi_Mafia:
+        type: boolean
+        default: true
+      Irihi_Mafia_Themes_TDesign:
+        type: boolean
+        default: true
+    secrets: {}
+
+jobs:
+  Pack_to_NuGet:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Pack Irihi.Mafia
+        if: ${{ inputs.Irihi_Mafia }}
+        run: dotnet pack src/Irihi.Mafia -o nugets
+
+      - name: Pack Irihi.Mafia.Themes.TDesign
+        if: ${{ inputs.Irihi_Mafia_Themes_TDesign }}
+        run: dotnet pack src/Irihi.Mafia.Themes.TDesign -o nugets
+
+      - name: NuGet login (OIDC → temp API key)
+        uses: NuGet/login@v1
+        id: login
+        if: ${{ inputs.Upload_to_NuGet }}
+        with:
+          user: ${{ secrets.NUGET_USER }}
+
+      - name: NuGet push
+        if: ${{ inputs.Upload_to_NuGet }}
+        run: dotnet nuget push nugets/*.nupkg --api-key ${{steps.login.outputs.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json --skip-duplicate
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: nugets
+          path: nugets
+        if: always()
