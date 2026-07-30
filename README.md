@@ -1,4 +1,13 @@
-# Irihi.Mafia
+<p align="center">
+  <img src="./assets/mafia.svg" alt="MAFIA" width="296" />
+</p>
+
+# IRIHI Mafia
+
+[English](./README.md) | [中文](./README_CN.md)
+
+> [!WARNING]
+> **This project is in early development and not yet ready for production use.** APIs, controls, and themes may change significantly between releases. Use at your own risk.
 
 **Mobile-first Avalonia UI control library and TDesign-inspired theme.**
 
@@ -67,6 +76,9 @@ xmlns:m="https://irihi.tech/mafia"
 ```
 
 ## Controls Overview
+
+> [!NOTE]
+> Many more controls are still in design and development. The current list represents only what has been implemented so far.
 
 | Control | Description |
 |---------|-------------|

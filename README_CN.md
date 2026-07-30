@@ -1,4 +1,13 @@
-# Irihi.Mafia
+<p align="center">
+  <img src="./assets/mafia.svg" alt="MAFIA" width="296" />
+</p>
+
+# IRIHI Mafia
+
+[English](./README.md) | [中文](./README_CN.md)
+
+> [!WARNING]
+> **本项目处于早期开发阶段，尚未准备好用于生产环境。** API、控件和主题可能在版本之间发生重大变化。请自行承担使用风险。
 
 **移动端优先的 Avalonia UI 控件库与 TDesign 风格主题。**
 
@@ -67,6 +76,9 @@ xmlns:m="https://irihi.tech/mafia"
 ```
 
 ## 控件一览
+
+> [!NOTE]
+> 仍有大量控件处于设计和开发中。当前列表仅展示已实现的部分。
 
 | 控件 | 说明 |
 |---------|-------------|
