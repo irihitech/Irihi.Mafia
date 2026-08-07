@@ -8,7 +8,7 @@
         MinWidth="300" MinHeight="700"
         WindowStartupLocation="CenterScreen"
         x:Class="Irihi.Mafia.Demo.Views.MainWindow"
-        Icon="/Assets/avalonia-logo.ico"
+        Icon="/Assets/irihi.ico"
         Title="Irihi.Mafia.Demo">
     <views:MainView />
 </Window>

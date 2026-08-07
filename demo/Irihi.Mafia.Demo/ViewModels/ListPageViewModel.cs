@@ -11,7 +11,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace Irihi.Mafia.Demo.ViewModels;
 
-public partial class ListPageViewModel : ViewModelBase
+public partial class ListPageViewModel : ObservableObject
 {
     public ILauncher? Launcher { get; set; }
     public ObservableCollection<IObservable<string?>> ThemeOptions { get; } =

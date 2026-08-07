@@ -55,6 +55,8 @@
   <data name="Gallery_CheckBox_Desc" xml:space="preserve"><value>多选选项框</value></data>
   <data name="Gallery_RadioButton" xml:space="preserve"><value>RadioButton 单选框</value></data>
   <data name="Gallery_RadioButton_Desc" xml:space="preserve"><value>单选按钮组</value></data>
+  <data name="Gallery_Input" xml:space="preserve"><value>Input 输入框</value></data>
+  <data name="Gallery_Input_Desc" xml:space="preserve"><value>文本输入控件</value></data>
   <data name="Gallery_Cell" xml:space="preserve"><value>Cell 列表项</value></data>
   <data name="Gallery_Cell_Desc" xml:space="preserve"><value>多功能列表条目</value></data>
   <data name="Gallery_Avatar" xml:space="preserve"><value>Avatar 头像</value></data>
@@ -67,6 +69,34 @@
   <data name="Gallery_TabControl_Desc" xml:space="preserve"><value>标签切换容器</value></data>
   <data name="Gallery_TabbedPage" xml:space="preserve"><value>TabbedPage 底部导航</value></data>
   <data name="Gallery_TabbedPage_Desc" xml:space="preserve"><value>本页正在使用的导航</value></data>
+
+  <!-- Input Detail -->
+  <data name="Input_Title" xml:space="preserve"><value>Input 输入框</value></data>
+  <data name="Input_Desc" xml:space="preserve"><value>带标签、必填标记与描述信息的输入框，支持一键清空、密码显示切换与多种状态。</value></data>
+  <data name="Input_Basic" xml:space="preserve"><value>基础用法</value></data>
+  <data name="Input_Basic_Default" xml:space="preserve"><value>请输入内容</value></data>
+  <data name="Input_Basic_Unit" xml:space="preserve"><value>个</value></data>
+  <data name="Input_Basic_LabelText" xml:space="preserve"><value>姓名</value></data>
+  <data name="Input_Clearable" xml:space="preserve"><value>可清空</value></data>
+  <data name="Input_Clearable_Placeholder" xml:space="preserve"><value>输入后可一键清空</value></data>
+  <data name="Input_Password" xml:space="preserve"><value>密码输入</value></data>
+  <data name="Input_Password_Placeholder" xml:space="preserve"><value>请输入密码</value></data>
+  <data name="Input_States" xml:space="preserve"><value>状态</value></data>
+  <data name="Input_Success" xml:space="preserve"><value>成功</value></data>
+  <data name="Input_Warning" xml:space="preserve"><value>警告</value></data>
+  <data name="Input_Error" xml:space="preserve"><value>错误</value></data>
+  <data name="Input_Disabled" xml:space="preserve"><value>禁用</value></data>
+  <data name="Input_Description" xml:space="preserve"><value>描述</value></data>
+  <data name="Input_Description_Label" xml:space="preserve"><value>验证码</value></data>
+  <data name="Input_Description_Text" xml:space="preserve"><value>验证码已发送至手机</value></data>
+  <data name="Input_Description_Placeholder" xml:space="preserve"><value>请输入验证码</value></data>
+  <data name="Input_Password_Label" xml:space="preserve"><value>密码</value></data>
+  <data name="Input_Success_Desc" xml:space="preserve"><value>校验通过</value></data>
+  <data name="Input_Warning_Desc" xml:space="preserve"><value>请注意内容格式</value></data>
+  <data name="Input_Error_Desc" xml:space="preserve"><value>输入内容有误</value></data>
+  <data name="Input_ReadOnly" xml:space="preserve"><value>只读</value></data>
+  <data name="Input_Action" xml:space="preserve"><value>操作</value></data>
+  <data name="Input_Action_Button" xml:space="preserve"><value>发送验证码</value></data>
 
   <!-- Button Detail -->
   <data name="Button_Title" xml:space="preserve"><value>Button 按钮</value></data>
