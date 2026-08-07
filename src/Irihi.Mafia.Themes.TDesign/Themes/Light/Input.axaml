@@ -18,10 +18,8 @@
     <SolidColorBrush x:Key="TDInputSelectionBackground" Opacity="0.8" Color="#0041C5" />
     <StaticResource x:Key="TDInputSelectionForeground" ResourceKey="TDFontWhite1" />
 
-    <!-- Inner content & buttons -->
+    <!-- Inner content -->
     <StaticResource x:Key="TDInputInnerForeground" ResourceKey="TDTextColorPrimary" />
-    <StaticResource x:Key="TDInputClearButtonForeground" ResourceKey="TDTextColorPlaceholder" />
-    <StaticResource x:Key="TDInputRevealButtonForeground" ResourceKey="TDTextColorPlaceholder" />
 
     <!-- Status -->
     <StaticResource x:Key="TDInputErrorForeground" ResourceKey="TDErrorColor" />

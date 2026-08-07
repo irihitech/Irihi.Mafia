@@ -35,52 +35,6 @@
         </Border>
     </Design.PreviewWith>
 
-    <ControlTheme x:Key="TDInputClearButton" TargetType="Button">
-        <Setter Property="Width" Value="{DynamicResource TDInputInnerButtonSize}" />
-        <Setter Property="Height" Value="{DynamicResource TDInputInnerButtonSize}" />
-        <Setter Property="Foreground" Value="{DynamicResource TDInputClearButtonForeground}" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Template">
-            <ControlTemplate TargetType="Button">
-                <Panel
-                    Width="{TemplateBinding Width}"
-                    Height="{TemplateBinding Height}"
-                    Background="{TemplateBinding Background}">
-                    <PathIcon
-                        Theme="{DynamicResource CirclePathIcon}"
-                        Data="{DynamicResource TempCloseCircleGlyph}"
-                        Foreground="{TemplateBinding Foreground}" />
-                </Panel>
-            </ControlTemplate>
-        </Setter>
-    </ControlTheme>
-
-    <ControlTheme x:Key="TDInputRevealButton" TargetType="ToggleButton">
-        <Setter Property="Width" Value="{DynamicResource TDInputInnerButtonSize}" />
-        <Setter Property="Height" Value="{DynamicResource TDInputInnerButtonSize}" />
-        <Setter Property="Foreground" Value="{DynamicResource TDInputRevealButtonForeground}" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Template">
-            <ControlTemplate TargetType="ToggleButton">
-                <Panel
-                    Width="{TemplateBinding Width}"
-                    Height="{TemplateBinding Height}"
-                    Background="{TemplateBinding Background}">
-                    <PathIcon
-                        Data="{DynamicResource TempBrowseOffGlyph}"
-                        Foreground="{TemplateBinding Foreground}"
-                        IsVisible="{TemplateBinding IsChecked, Converter={x:Static BoolConverters.Not}}" />
-                    <PathIcon
-                        Data="{DynamicResource TempBrowseGlyph}"
-                        Foreground="{TemplateBinding Foreground}"
-                        IsVisible="{TemplateBinding IsChecked}" />
-                </Panel>
-            </ControlTemplate>
-        </Setter>
-    </ControlTheme>
-
     <ControlTheme x:Key="{x:Type m:Input}" TargetType="m:Input">
         <Setter Property="Foreground" Value="{DynamicResource TDInputForeground}" />
         <Setter Property="PlaceholderForeground" Value="{DynamicResource TDInputPlaceholderForeground}" />
@@ -201,15 +155,18 @@
                                     Command="{Binding $parent[TextBox].Clear}"
                                     IsVisible="False"
                                     Focusable="False"
-                                    Theme="{StaticResource TDInputClearButton}" />
-                                <ToggleButton
+                                    Content="{DynamicResource TempCloseCircleGlyph}"
+                                    Theme="{StaticResource TDGlyphButton}" />
+                                <ToggleSwitch
                                     Name="PART_RevealButton"
                                     Grid.Row="0" Grid.Column="2"
                                     Margin="{DynamicResource TDInputInnerButtonMargin}"
                                     IsChecked="{TemplateBinding RevealPassword, Mode=TwoWay}"
                                     IsVisible="False"
                                     Focusable="False"
-                                    Theme="{StaticResource TDInputRevealButton}" />
+                                    OffContent="{DynamicResource TempBrowseOffGlyph}"
+                                    OnContent="{DynamicResource TempBrowseGlyph}"
+                                    Theme="{StaticResource TDGlyphToggleSwitch}" />
                                 <ContentPresenter
                                     Name="PART_Description"
                                     Grid.Row="1" Grid.Column="0"
@@ -266,7 +223,7 @@
 
         <Style Selector="^.RevealPasswordButton">
             <Setter Property="PasswordChar" Value="●" />
-            <Style Selector="^ /template/ ToggleButton#PART_RevealButton">
+            <Style Selector="^ /template/ ToggleSwitch#PART_RevealButton">
                 <Setter Property="IsVisible" Value="True" />
             </Style>
         </Style>

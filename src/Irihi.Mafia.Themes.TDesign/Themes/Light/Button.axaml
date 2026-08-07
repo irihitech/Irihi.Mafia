@@ -82,6 +82,9 @@
     <StaticResource x:Key="TDButtonLightTextPressedBackground" ResourceKey="TDBgColorContainerActive" />
     <StaticResource x:Key="TDButtonLightTextDisabledForeground" ResourceKey="TDBrandColorDisabled" />
 
+    <!-- Icon -->
+    <StaticResource x:Key="TDGlyphButtonForeground" ResourceKey="TDTextColorPlaceholder" />
+
     <!-- Ghost -->
     <StaticResource x:Key="TDButtonGhostBorderColor" ResourceKey="TDButtonGhostColor" />
     <SolidColorBrush x:Key="TDButtonGhostColor" Color="#FFF" />
