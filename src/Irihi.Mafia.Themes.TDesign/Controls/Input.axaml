@@ -17,8 +17,8 @@
                 <m:Input InnerLeftContent="标签左对齐" HorizontalContentAlignment="Left" PlaceholderText="请输入文字" />
                 <m:Input InnerLeftContent="标签居中" HorizontalContentAlignment="Center" PlaceholderText="请输入文字" />
                 <m:Input InnerLeftContent="标签右对齐" HorizontalContentAlignment="Right" PlaceholderText="请输入文字" />
-                <m:Input InnerLeftContent="清除" Classes="clearButton" Text="可清除的文本" />
-                <m:Input InnerLeftContent="密码" Classes="revealPasswordButton" Text="123456" />
+                <m:Input InnerLeftContent="清除" Classes="ClearButton" Text="可清除的文本" />
+                <m:Input InnerLeftContent="密码" Classes="RevealPasswordButton" Text="123456" />
                 <m:Input InnerLeftContent="标签文字" PlaceholderText="请输入文字">
                     <m:Input.InnerRightContent>
                         <Button Classes="Primary ExtraSmall" Content="操作按钮" />
@@ -258,15 +258,13 @@
             </Style>
         </Style>
 
-        <Style Selector="^.clearButton, ^.ClearButton">
-            <Style Selector="^[AcceptsReturn=False][IsReadOnly=False]:not(:empty)">
-                <Style Selector="^ /template/ Button#PART_ClearButton">
-                    <Setter Property="IsVisible" Value="True" />
-                </Style>
+        <Style Selector="^.ClearButton[AcceptsReturn=False][IsReadOnly=False]:not(:empty)">
+            <Style Selector="^ /template/ Button#PART_ClearButton">
+                <Setter Property="IsVisible" Value="True" />
             </Style>
         </Style>
 
-        <Style Selector="^.revealPasswordButton, ^.RevealPasswordButton">
+        <Style Selector="^.RevealPasswordButton">
             <Setter Property="PasswordChar" Value="●" />
             <Style Selector="^ /template/ ToggleButton#PART_RevealButton">
                 <Setter Property="IsVisible" Value="True" />

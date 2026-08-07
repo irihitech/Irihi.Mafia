@@ -40,13 +40,13 @@
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Input_Clearable}}" FontSize="16" FontWeight="SemiBold"
                        Foreground="{DynamicResource TDFontGyColor}" />
             <m:Input InnerLeftContent="{Translate {x:Static local:LanguageManager+Keys.Input_Basic_LabelText}}"
-                     Classes="clearButton" Text="TDesign"
+                     Classes="ClearButton" Text="TDesign"
                      PlaceholderText="{Translate {x:Static local:LanguageManager+Keys.Input_Clearable_Placeholder}}" />
 
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Input_Password}}" FontSize="16" FontWeight="SemiBold"
                        Foreground="{DynamicResource TDFontGyColor}" />
             <m:Input InnerLeftContent="{Translate {x:Static local:LanguageManager+Keys.Input_Password_Label}}"
-                     Classes="revealPasswordButton" PasswordChar="●" Text="123456"
+                     Classes="RevealPasswordButton" PasswordChar="●" Text="123456"
                      PlaceholderText="{Translate {x:Static local:LanguageManager+Keys.Input_Password_Placeholder}}" />
 
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Input_States}}" FontSize="16" FontWeight="SemiBold"
