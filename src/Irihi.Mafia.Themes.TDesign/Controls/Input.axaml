@@ -147,6 +147,11 @@
                                             TextAlignment="{TemplateBinding TextAlignment}"
                                             TextWrapping="{TemplateBinding TextWrapping}" />
                                     </Panel>
+                                    <ScrollViewer.Styles>
+                                        <Style Selector="ScrollContentPresenter#PART_ContentPresenter">
+                                            <Setter Property="Cursor" Value="Ibeam" />
+                                        </Style>
+                                    </ScrollViewer.Styles>
                                 </ScrollViewer>
                                 <Button
                                     Name="PART_ClearButton"
@@ -200,10 +205,6 @@
                 </DataValidationErrors>
             </ControlTemplate>
         </Setter>
-
-        <Style Selector="^ /template/ ScrollContentPresenter#PART_ContentPresenter">
-            <Setter Property="Cursor" Value="Ibeam" />
-        </Style>
 
         <Style Selector="^:disabled">
             <Setter Property="Foreground" Value="{DynamicResource TDInputDisabledForeground}" />
