@@ -10,7 +10,7 @@
             BorderThickness="1">
             <StackPanel>
                 <m:Input PlaceholderText="请输入文字" />
-                <m:Input InnerLeftContent="{DynamicResource TempAppGlyph}" IsRequired="True" PlaceholderText="请输入文字" />
+                <m:Input InnerLeftContent="{DynamicResource TempSearchGlyph}" PlaceholderText="请输入文字" />
                 <m:Input InnerLeftContent="标" PlaceholderText="请输入文字" IsRequired="True" />
                 <m:Input InnerLeftContent="标签文字" PlaceholderText="请输入文字" IsRequired="True" />
                 <m:Input InnerLeftContent="数量" PlaceholderText="请输入文字" Description="描述" InnerRightContent="个" />
@@ -24,9 +24,6 @@
                         <Button Classes="Primary ExtraSmall" Content="操作按钮" />
                     </m:Input.InnerRightContent>
                 </m:Input>
-                <m:Input InnerLeftContent="成功" Classes="Success" Text="内容" Description="校验通过" />
-                <m:Input InnerLeftContent="警告" Classes="Warning" Text="内容" Description="请注意内容格式" />
-                <m:Input InnerLeftContent="错误" Classes="Error" Text="内容" Description="输入内容有误" />
                 <m:Input InnerLeftContent="错误" Text="内容" Description="输入内容有误">
                     <DataValidationErrors.Error>
                         <system:Exception />
@@ -39,8 +36,8 @@
     </Design.PreviewWith>
 
     <ControlTheme x:Key="TDInputClearButton" TargetType="Button">
-        <Setter Property="Width" Value="24" />
-        <Setter Property="Height" Value="24" />
+        <Setter Property="Width" Value="{DynamicResource TDInputInnerButtonSize}" />
+        <Setter Property="Height" Value="{DynamicResource TDInputInnerButtonSize}" />
         <Setter Property="Foreground" Value="{DynamicResource TDInputClearButtonForeground}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Cursor" Value="Hand" />
@@ -60,8 +57,8 @@
     </ControlTheme>
 
     <ControlTheme x:Key="TDInputRevealButton" TargetType="ToggleButton">
-        <Setter Property="Width" Value="24" />
-        <Setter Property="Height" Value="24" />
+        <Setter Property="Width" Value="{DynamicResource TDInputInnerButtonSize}" />
+        <Setter Property="Height" Value="{DynamicResource TDInputInnerButtonSize}" />
         <Setter Property="Foreground" Value="{DynamicResource TDInputRevealButtonForeground}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Cursor" Value="Hand" />
@@ -117,8 +114,8 @@
                                 Orientation="Horizontal"
                                 VerticalAlignment="Center"
                                 Spacing="{DynamicResource TDCellContentSpacing}"
-                                MaxWidth="80"
-                                MinWidth="32"
+                                MaxWidth="{DynamicResource TDInputLabelMaxWidth}"
+                                MinWidth="{DynamicResource TDInputLabelMinWidth}"
                                 Margin="{DynamicResource TDInputInnerLeftContentPadding}"
                                 IsVisible="{TemplateBinding InnerLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}">
                                 <ContentPresenter
@@ -216,9 +213,9 @@
                                     Name="PART_Description"
                                     Grid.Row="1" Grid.Column="0"
                                     Grid.ColumnSpan="3"
-                                    Margin="0,4,0,0"
+                                    Margin="{DynamicResource TDInputDescriptionMargin}"
                                     Foreground="{DynamicResource TDInputPlaceholderForeground}"
-                                    FontSize="12"
+                                    FontSize="{DynamicResource TDInputDescriptionFontSize}"
                                     IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}"
                                     Content="{TemplateBinding Description}"
                                     ContentTemplate="{TemplateBinding DescriptionTemplate}">
@@ -246,21 +243,15 @@
             </ControlTemplate>
         </Setter>
 
+        <Style Selector="^ /template/ ScrollContentPresenter#PART_ContentPresenter">
+            <Setter Property="Cursor" Value="Ibeam" />
+        </Style>
+
         <Style Selector="^:disabled">
             <Setter Property="Foreground" Value="{DynamicResource TDInputDisabledForeground}" />
         </Style>
 
-        <Style Selector="^.Success">
-            <Style Selector="^ /template/ ContentPresenter#PART_Description">
-                <Setter Property="Foreground" Value="{DynamicResource TDInputSuccessForeground}" />
-            </Style>
-        </Style>
-        <Style Selector="^.Warning">
-            <Style Selector="^ /template/ ContentPresenter#PART_Description">
-                <Setter Property="Foreground" Value="{DynamicResource TDInputWarningForeground}" />
-            </Style>
-        </Style>
-        <Style Selector="^.Error,^:error">
+        <Style Selector="^:error">
             <Style Selector="^ /template/ ContentPresenter#PART_Description">
                 <Setter Property="Foreground" Value="{DynamicResource TDInputErrorForeground}" />
             </Style>
