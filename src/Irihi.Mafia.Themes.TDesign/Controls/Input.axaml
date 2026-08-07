@@ -1,0 +1,284 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+                    xmlns:m="https://irihi.tech/mafia">
+    <Design.PreviewWith>
+        <Border
+            Width="400"
+            Margin="20"
+            BorderBrush="{DynamicResource TDComponentBorder}"
+            BorderThickness="1">
+            <StackPanel>
+                <m:Input PlaceholderText="请输入文字" />
+                <m:Input InnerLeftContent="{DynamicResource TempAppGlyph}" IsRequired="True" PlaceholderText="请输入文字" />
+                <m:Input InnerLeftContent="标" PlaceholderText="请输入文字" IsRequired="True" />
+                <m:Input InnerLeftContent="标签文字" PlaceholderText="请输入文字" IsRequired="True" />
+                <m:Input InnerLeftContent="数量" PlaceholderText="请输入文字" Description="描述" InnerRightContent="个" />
+                <m:Input InnerLeftContent="标签左对齐" HorizontalContentAlignment="Left" PlaceholderText="请输入文字" />
+                <m:Input InnerLeftContent="标签居中" HorizontalContentAlignment="Center" PlaceholderText="请输入文字" />
+                <m:Input InnerLeftContent="标签右对齐" HorizontalContentAlignment="Right" PlaceholderText="请输入文字" />
+                <m:Input InnerLeftContent="清除" Classes="clearButton" Text="可清除的文本" />
+                <m:Input InnerLeftContent="密码" Classes="revealPasswordButton" Text="123456" />
+                <m:Input InnerLeftContent="标签文字" PlaceholderText="请输入文字">
+                    <m:Input.InnerRightContent>
+                        <Button Classes="Primary ExtraSmall" Content="操作按钮" />
+                    </m:Input.InnerRightContent>
+                </m:Input>
+                <m:Input InnerLeftContent="成功" Classes="Success" Text="内容" Description="校验通过" />
+                <m:Input InnerLeftContent="警告" Classes="Warning" Text="内容" Description="请注意内容格式" />
+                <m:Input InnerLeftContent="错误" Classes="Error" Text="内容" Description="输入内容有误" />
+                <m:Input InnerLeftContent="错误" Text="内容" Description="输入内容有误">
+                    <DataValidationErrors.Error>
+                        <system:Exception />
+                    </DataValidationErrors.Error>
+                </m:Input>
+                <m:Input InnerLeftContent="禁用" IsEnabled="False" Text="禁用的输入框" />
+                <m:Input InnerLeftContent="只读" IsReadOnly="True" Text="只读的输入框" />
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="TDInputClearButton" TargetType="Button">
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Height" Value="24" />
+        <Setter Property="Foreground" Value="{DynamicResource TDInputClearButtonForeground}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="Button">
+                <Panel
+                    Width="{TemplateBinding Width}"
+                    Height="{TemplateBinding Height}"
+                    Background="{TemplateBinding Background}">
+                    <PathIcon
+                        Theme="{DynamicResource CirclePathIcon}"
+                        Data="{DynamicResource TempCloseCircleGlyph}"
+                        Foreground="{TemplateBinding Foreground}" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="TDInputRevealButton" TargetType="ToggleButton">
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Height" Value="24" />
+        <Setter Property="Foreground" Value="{DynamicResource TDInputRevealButtonForeground}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ToggleButton">
+                <Panel
+                    Width="{TemplateBinding Width}"
+                    Height="{TemplateBinding Height}"
+                    Background="{TemplateBinding Background}">
+                    <PathIcon
+                        Data="{DynamicResource TempBrowseOffGlyph}"
+                        Foreground="{TemplateBinding Foreground}"
+                        IsVisible="{TemplateBinding IsChecked, Converter={x:Static BoolConverters.Not}}" />
+                    <PathIcon
+                        Data="{DynamicResource TempBrowseGlyph}"
+                        Foreground="{TemplateBinding Foreground}"
+                        IsVisible="{TemplateBinding IsChecked}" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type m:Input}" TargetType="m:Input">
+        <Setter Property="Foreground" Value="{DynamicResource TDInputForeground}" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource TDInputPlaceholderForeground}" />
+        <Setter Property="Background" Value="{DynamicResource TDInputBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TDInputBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TDInputBorderThickness}" />
+        <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
+        <Setter Property="CaretBrush" Value="{DynamicResource TDInputCaretBrush}" />
+        <Setter Property="SelectionBrush" Value="{DynamicResource TDInputSelectionBackground}" />
+        <Setter Property="SelectionForegroundBrush" Value="{DynamicResource TDInputSelectionForeground}" />
+        <Setter Property="Padding" Value="{DynamicResource TDInputPadding}" />
+        <Setter Property="MinHeight" Value="{DynamicResource TDInputMinHeight}" />
+        <Setter Property="FontSize" Value="{DynamicResource TDInputFontSize}" />
+        <Setter Property="FocusAdorner" Value="{x:Null}" />
+        <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="m:Input">
+                <DataValidationErrors>
+                    <Border
+                        Name="PART_ContentPresenterBorder"
+                        Padding="{TemplateBinding Padding}"
+                        MinHeight="{TemplateBinding MinHeight}"
+                        Background="{TemplateBinding Background}"
+                        BackgroundSizing="{TemplateBinding BackgroundSizing}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid ColumnDefinitions="Auto,*,Auto">
+                            <StackPanel
+                                Grid.Column="0"
+                                Orientation="Horizontal"
+                                VerticalAlignment="Center"
+                                Spacing="{DynamicResource TDCellContentSpacing}"
+                                MaxWidth="80"
+                                MinWidth="32"
+                                Margin="{DynamicResource TDInputInnerLeftContentPadding}"
+                                IsVisible="{TemplateBinding InnerLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                <ContentPresenter
+                                    Name="PART_InnerLeftContent"
+                                    Foreground="{DynamicResource TDInputInnerForeground}"
+                                    Content="{TemplateBinding InnerLeftContent}"
+                                    ContentTemplate="{TemplateBinding InnerLeftContentTemplate}"
+                                    TextWrapping="Wrap">
+                                    <ContentPresenter.DataTemplates>
+                                        <DataTemplate DataType="Geometry">
+                                            <PathIcon Data="{Binding}" />
+                                        </DataTemplate>
+                                    </ContentPresenter.DataTemplates>
+                                </ContentPresenter>
+                                <TextBlock
+                                    Name="PART_Asterisk"
+                                    Foreground="{DynamicResource TDCellAsteriskForeground}"
+                                    FontSize="{DynamicResource TDCellAsteriskFontSize}"
+                                    Text="*">
+                                    <TextBlock.IsVisible>
+                                        <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                            <TemplateBinding Property="InnerLeftContent" Converter="{x:Static ObjectConverters.IsNotNull}" />
+                                            <TemplateBinding Property="IsRequired" />
+                                        </MultiBinding>
+                                    </TextBlock.IsVisible>
+                                </TextBlock>
+                            </StackPanel>
+                            <Grid
+                                Grid.Column="1"
+                                RowDefinitions="Auto,*"
+                                ColumnDefinitions="*,Auto,Auto">
+                                <ScrollViewer
+                                    Name="PART_ScrollViewer"
+                                    Grid.Row="0" Grid.Column="0"
+                                    AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                                    HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                    IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                    VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                                    <Panel>
+                                        <TextBlock
+                                            Name="PART_Placeholder"
+                                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                            Foreground="{TemplateBinding PlaceholderForeground}"
+                                            Text="{TemplateBinding PlaceholderText}"
+                                            TextAlignment="{TemplateBinding TextAlignment}"
+                                            TextWrapping="{TemplateBinding TextWrapping}">
+                                            <TextBlock.IsVisible>
+                                                <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                                    <Binding ElementName="PART_TextPresenter" Path="PreeditText" Converter="{x:Static StringConverters.IsNullOrEmpty}" />
+                                                    <TemplateBinding Property="Text" Converter="{x:Static StringConverters.IsNullOrEmpty}" />
+                                                </MultiBinding>
+                                            </TextBlock.IsVisible>
+                                        </TextBlock>
+                                        <TextPresenter
+                                            Name="PART_TextPresenter"
+                                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                            CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                                            CaretBrush="{TemplateBinding CaretBrush}"
+                                            CaretIndex="{TemplateBinding CaretIndex}"
+                                            TextElement.FontSize="{TemplateBinding FontSize}"
+                                            TextElement.FontFamily="{TemplateBinding FontFamily}"
+                                            TextElement.FontWeight="{TemplateBinding FontWeight}"
+                                            TextElement.FontStyle="{TemplateBinding FontStyle}"
+                                            LineHeight="{TemplateBinding LineHeight}"
+                                            PasswordChar="{TemplateBinding PasswordChar}"
+                                            RevealPassword="{TemplateBinding RevealPassword}"
+                                            SelectionBrush="{TemplateBinding SelectionBrush}"
+                                            SelectionEnd="{TemplateBinding SelectionEnd}"
+                                            SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                            SelectionStart="{TemplateBinding SelectionStart}"
+                                            Text="{TemplateBinding Text, Mode=TwoWay}"
+                                            TextAlignment="{TemplateBinding TextAlignment}"
+                                            TextWrapping="{TemplateBinding TextWrapping}" />
+                                    </Panel>
+                                </ScrollViewer>
+                                <Button
+                                    Name="PART_ClearButton"
+                                    Grid.Row="0" Grid.Column="1"
+                                    Margin="{DynamicResource TDInputInnerButtonMargin}"
+                                    Command="{Binding $parent[TextBox].Clear}"
+                                    IsVisible="False"
+                                    Focusable="False"
+                                    Theme="{StaticResource TDInputClearButton}" />
+                                <ToggleButton
+                                    Name="PART_RevealButton"
+                                    Grid.Row="0" Grid.Column="2"
+                                    Margin="{DynamicResource TDInputInnerButtonMargin}"
+                                    IsChecked="{TemplateBinding RevealPassword, Mode=TwoWay}"
+                                    IsVisible="False"
+                                    Focusable="False"
+                                    Theme="{StaticResource TDInputRevealButton}" />
+                                <ContentPresenter
+                                    Name="PART_Description"
+                                    Grid.Row="1" Grid.Column="0"
+                                    Grid.ColumnSpan="3"
+                                    Margin="0,4,0,0"
+                                    Foreground="{DynamicResource TDInputPlaceholderForeground}"
+                                    FontSize="12"
+                                    IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                    Content="{TemplateBinding Description}"
+                                    ContentTemplate="{TemplateBinding DescriptionTemplate}">
+                                </ContentPresenter>
+                            </Grid>
+
+                            <ContentPresenter
+                                Name="PART_InnerRightContent"
+                                Grid.Column="2"
+                                VerticalAlignment="Center"
+                                Padding="{DynamicResource TDInputInnerRightContentPadding}"
+                                Foreground="{DynamicResource TDInputInnerForeground}"
+                                Content="{TemplateBinding InnerRightContent}"
+                                ContentTemplate="{TemplateBinding InnerRightContentTemplate}"
+                                IsVisible="{TemplateBinding InnerRightContent, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                <ContentPresenter.DataTemplates>
+                                    <DataTemplate DataType="Geometry">
+                                        <PathIcon Data="{Binding}" />
+                                    </DataTemplate>
+                                </ContentPresenter.DataTemplates>
+                            </ContentPresenter>
+                        </Grid>
+                    </Border>
+                </DataValidationErrors>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Foreground" Value="{DynamicResource TDInputDisabledForeground}" />
+        </Style>
+
+        <Style Selector="^.Success">
+            <Style Selector="^ /template/ ContentPresenter#PART_Description">
+                <Setter Property="Foreground" Value="{DynamicResource TDInputSuccessForeground}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Warning">
+            <Style Selector="^ /template/ ContentPresenter#PART_Description">
+                <Setter Property="Foreground" Value="{DynamicResource TDInputWarningForeground}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Error,^:error">
+            <Style Selector="^ /template/ ContentPresenter#PART_Description">
+                <Setter Property="Foreground" Value="{DynamicResource TDInputErrorForeground}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^.clearButton, ^.ClearButton">
+            <Style Selector="^[AcceptsReturn=False][IsReadOnly=False]:not(:empty)">
+                <Style Selector="^ /template/ Button#PART_ClearButton">
+                    <Setter Property="IsVisible" Value="True" />
+                </Style>
+            </Style>
+        </Style>
+
+        <Style Selector="^.revealPasswordButton, ^.RevealPasswordButton">
+            <Setter Property="PasswordChar" Value="●" />
+            <Style Selector="^ /template/ ToggleButton#PART_RevealButton">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

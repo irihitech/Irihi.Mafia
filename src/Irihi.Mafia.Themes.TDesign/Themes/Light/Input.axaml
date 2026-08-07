@@ -23,8 +23,8 @@
     <StaticResource x:Key="TDInputClearButtonForeground" ResourceKey="TDTextColorPlaceholder" />
     <StaticResource x:Key="TDInputRevealButtonForeground" ResourceKey="TDTextColorPlaceholder" />
 
-    <!-- Status: error -->
-    <StaticResource x:Key="TDInputErrorBackground" ResourceKey="TDErrorColorLight" />
-    <StaticResource x:Key="TDInputErrorBorderBrush" ResourceKey="TDErrorColor" />
+    <!-- Status -->
+    <StaticResource x:Key="TDInputSuccessForeground" ResourceKey="TDSuccessColor" />
+    <StaticResource x:Key="TDInputWarningForeground" ResourceKey="TDWarningColor" />
     <StaticResource x:Key="TDInputErrorForeground" ResourceKey="TDErrorColor" />
 </ResourceDictionary>

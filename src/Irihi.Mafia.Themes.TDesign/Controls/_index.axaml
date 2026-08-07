@@ -18,7 +18,7 @@
         <ResourceInclude Source="Slider.axaml" />
         <ResourceInclude Source="SplitView.axaml" />
         <ResourceInclude Source="Switch.axaml" />
-        <ResourceInclude Source="TextBox.axaml" />
+        <ResourceInclude Source="Input.axaml" />
         <ResourceInclude Source="TabControl.axaml" />
         <ResourceInclude Source="ContentPage.axaml" />
         <ResourceInclude Source="NavigationPage.axaml" />
