@@ -1,0 +1,14 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StaticResource x:Key="TDInputFontSize" ResourceKey="TDFontSizeBodyLarge" />
+
+    <x:Double x:Key="TDInputMinHeight">48</x:Double>
+
+    <Thickness x:Key="TDInputPadding">16</Thickness>
+
+    <Thickness x:Key="TDInputInnerButtonMargin">12,0,0,0</Thickness>
+    <Thickness x:Key="TDInputInnerLeftContentPadding">0,0,16,0</Thickness>
+    <Thickness x:Key="TDInputInnerRightContentPadding">12,0,0,0</Thickness>
+
+    <Thickness x:Key="TDInputBorderThickness">0,0,0,1</Thickness>
+</ResourceDictionary>
