@@ -94,6 +94,7 @@
         <Setter Property="Padding" Value="{DynamicResource TDInputPadding}" />
         <Setter Property="MinHeight" Value="{DynamicResource TDInputMinHeight}" />
         <Setter Property="FontSize" Value="{DynamicResource TDInputFontSize}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="FocusAdorner" Value="{x:Null}" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
         <Setter Property="Template">
@@ -145,7 +146,7 @@
                             </StackPanel>
                             <Grid
                                 Grid.Column="1"
-                                RowDefinitions="Auto,*"
+                                RowDefinitions="*,Auto"
                                 ColumnDefinitions="*,Auto,Auto">
                                 <ScrollViewer
                                     Name="PART_ScrollViewer"
