@@ -39,6 +39,7 @@ public partial class ControlGalleryViewModel : NavigationViewModelBase
             new(Manager, "Cell", nameof(LanguageManager.Keys.Gallery_Cell), nameof(LanguageManager.Keys.Gallery_Cell_Desc), ShowControlCommand),
             new(Manager, "Avatar", nameof(LanguageManager.Keys.Gallery_Avatar), nameof(LanguageManager.Keys.Gallery_Avatar_Desc), ShowControlCommand),
             new(Manager, "IconButton", nameof(LanguageManager.Keys.Gallery_IconButton), nameof(LanguageManager.Keys.Gallery_IconButton_Desc), ShowControlCommand),
+            new(Manager, "HyperlinkButton", nameof(LanguageManager.Keys.Gallery_HyperlinkButton), nameof(LanguageManager.Keys.Gallery_HyperlinkButton_Desc), ShowControlCommand),
             new(Manager, "Divider", nameof(LanguageManager.Keys.Gallery_Divider), nameof(LanguageManager.Keys.Gallery_Divider_Desc), ShowControlCommand),
             new(Manager, "TabControl", nameof(LanguageManager.Keys.Gallery_TabControl), nameof(LanguageManager.Keys.Gallery_TabControl_Desc), ShowControlCommand),
             new(Manager, "TabbedPage", nameof(LanguageManager.Keys.Gallery_TabbedPage), nameof(LanguageManager.Keys.Gallery_TabbedPage_Desc), ShowControlCommand),
@@ -70,6 +71,15 @@ public partial class ControlGalleryViewModel : NavigationViewModelBase
             "Input" => new InputDetailView(),
             "Slider" => new SliderDetailView(),
             "Progress" => new ProgressDetailView(),
+            "CheckBox" => new CheckBoxDetailView(),
+            "RadioButton" => new RadioButtonDetailView(),
+            "Cell" => new CellDetailView(),
+            "Avatar" => new AvatarDetailView(),
+            "IconButton" => new IconButtonDetailView(),
+            "HyperlinkButton" => new HyperlinkButtonDetailView(),
+            "Divider" => new DividerDetailView(),
+            "TabControl" => new TabControlDetailView(),
+            "TabbedPage" => new TabbedPageDetailView(),
             _ => new PlaceholderDetailView(),
         };
         NavigationViewModelBase? datacontext = controlName switch

@@ -1,0 +1,47 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="using:Irihi.Mafia.Demo"
+             xmlns:m="https://irihi.tech/mafia"
+             mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
+             x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.CellDetailView">
+    <ScrollViewer>
+        <StackPanel Spacing="12" Margin="16,16,16,24">
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Cell_Title}}" FontSize="24" FontWeight="Bold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Cell_Desc}}"
+                       TextWrapping="Wrap" FontSize="14"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+
+            <m:Divider />
+
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Cell_Basic}}" FontSize="16" FontWeight="SemiBold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <m:CellGroup>
+                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_Content}}" />
+                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_Content}}" Classes="Arrow" />
+                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_Required}}" Classes="Arrow" IsRequired="True" />
+                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_Note}}" Classes="Arrow"
+                        Note="{Translate {x:Static local:LanguageManager+Keys.Cell_NoteText}}" />
+                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_LeftIcon}}"
+                        InnerLeftContent="{DynamicResource TempAppGlyph}" />
+            </m:CellGroup>
+
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Cell_Advanced}}" FontSize="16" FontWeight="SemiBold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <m:CellGroup>
+                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_AdvancedContent}}"
+                        Classes="Arrow"
+                        Description="{Translate {x:Static local:LanguageManager+Keys.Cell_AdvancedDesc}}"
+                        Note="{Translate {x:Static local:LanguageManager+Keys.Cell_AdvancedNote}}"
+                        InnerLeftContent="{DynamicResource TempAppGlyph}"
+                        InnerRightContent="{DynamicResource TempArrowGlyph}" />
+                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_AdvancedContent}}"
+                        Description="{Translate {x:Static local:LanguageManager+Keys.Cell_AdvancedDesc}}"
+                        InnerLeftContent="{DynamicResource TempUserGlyph}"
+                        InnerRightContent="{DynamicResource TempChevronLeftGlyph}" />
+            </m:CellGroup>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

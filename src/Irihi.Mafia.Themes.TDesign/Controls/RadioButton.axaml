@@ -43,7 +43,6 @@
                                 UseLayoutRounding="False" />
                             <PathIcon
                                 Name="PART_CheckedIcon"
-                                Theme="{DynamicResource CirclePathIcon}"
                                 Width="{DynamicResource TDRadioButtonIconSize}"
                                 Height="{Binding $self.Width}"
                                 Data="{DynamicResource TempCheckCircleGlyph}"

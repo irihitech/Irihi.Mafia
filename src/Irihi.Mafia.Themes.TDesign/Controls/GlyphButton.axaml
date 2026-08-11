@@ -5,7 +5,7 @@
             <StackPanel Orientation="Horizontal" Spacing="8">
                 <Button Theme="{StaticResource TDGlyphButton}" Content="{StaticResource TempCloseCircleGlyph}" />
                 <Button Theme="{StaticResource TDGlyphButton}" Content="{StaticResource TempSearchGlyph}" />
-                <Button Theme="{StaticResource TDGlyphButton}" Content="{StaticResource TempMenuGlyph}" IsEnabled="False" />
+                <Button Theme="{StaticResource TDGlyphButton}" Content="{StaticResource TempMenuApplicationGlyph}" IsEnabled="False" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Spacing="8">
                 <ToggleSwitch
@@ -19,7 +19,7 @@
                     OnContent="{StaticResource TempBrowseGlyph}" />
                 <ToggleSwitch
                     Theme="{StaticResource TDGlyphToggleSwitch}"
-                    Content="{StaticResource TempMenuGlyph}"
+                    Content="{StaticResource TempMenuApplicationGlyph}"
                     OffContent="{StaticResource TempBrowseOffGlyph}"
                     OnContent="{StaticResource TempBrowseGlyph}" />
             </StackPanel>

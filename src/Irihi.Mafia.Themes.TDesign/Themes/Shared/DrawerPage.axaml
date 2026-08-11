@@ -16,5 +16,5 @@
     <StaticResource x:Key="TDDrawerPageTitleFontSize" ResourceKey="TDFontSizeTitleMedium" />
     <FontWeight x:Key="TDDrawerPageTitleFontWeight">600</FontWeight>
 
-    <StaticResource x:Key="TDDrawerPageMenuGlyph" ResourceKey="TempMenuGlyph" />
+    <StaticResource x:Key="TDDrawerPageMenuGlyph" ResourceKey="TempMenuApplicationGlyph" />
 </ResourceDictionary>

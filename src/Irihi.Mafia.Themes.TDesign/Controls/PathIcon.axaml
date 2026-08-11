@@ -1,5 +1,19 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <StackPanel Margin="20">
+            <PathIcon>
+                <PathIcon.Data>
+                    <StreamGeometry>
+                        M11.6762 6.99023L13.9998 4.6666C15.4726 3.19382 17.8604 3.19382 19.3332 4.6666C20.806 6.13938 20.806 8.52723 19.3332 10L17.0096 12.3236M6.98974 11.6766L4.66611 14.0003C3.19333 15.4731 3.19333 17.8609 4.66611 19.3337C6.13889 20.8065 8.52675 20.8065 9.99953 19.3337L12.3232 17.0101M13.9985 9.99989L9.99847 14                    </StreamGeometry>
+                </PathIcon.Data>
+            </PathIcon>
+            <PathIcon
+                Theme="{DynamicResource CirclePathIcon}"
+                Data="{DynamicResource TempMinusCircleGlyph}">
+            </PathIcon>
+        </StackPanel>
+    </Design.PreviewWith>
     <ControlTheme x:Key="{x:Type PathIcon}" TargetType="PathIcon">
         <Setter Property="Width" Value="24" />
         <Setter Property="Height" Value="24" />
@@ -14,38 +28,10 @@
                         Width="24"
                         Height="24"
                         Stroke="{TemplateBinding Foreground}"
+                        StrokeLineCap="Round"
                         StrokeThickness="{Binding BorderThickness.Left,RelativeSource={RelativeSource TemplatedParent}}"
                         Data="{TemplateBinding Data}"
                         Fill="{TemplateBinding Background}" />
-                </Viewbox>
-            </ControlTemplate>
-        </Setter>
-    </ControlTheme>
-    <ControlTheme
-        x:Key="CirclePathIcon"
-        BasedOn="{StaticResource {x:Type PathIcon}}"
-        TargetType="PathIcon">
-        <Setter Property="Template">
-            <ControlTemplate TargetType="PathIcon">
-                <Viewbox
-                    Width="{TemplateBinding Width}"
-                    Height="{TemplateBinding Height}">
-                    <Panel>
-                        <Path
-                            Width="24"
-                            Height="24"
-                            Stroke="{TemplateBinding Foreground}"
-                            StrokeThickness="{Binding BorderThickness.Left,RelativeSource={RelativeSource TemplatedParent}}"
-                            Data="M2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z"
-                            Fill="{TemplateBinding Background}" />
-                        <Path
-                            Width="24"
-                            Height="24"
-                            Stroke="{TemplateBinding Foreground}"
-                            StrokeThickness="{Binding BorderThickness.Left,RelativeSource={RelativeSource TemplatedParent}}"
-                            Data="{TemplateBinding Data}"
-                            Fill="{TemplateBinding Background}" />
-                    </Panel>
                 </Viewbox>
             </ControlTemplate>
         </Setter>

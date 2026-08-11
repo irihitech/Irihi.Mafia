@@ -63,6 +63,8 @@
   <data name="Gallery_Avatar_Desc" xml:space="preserve"><value>图片/文字头像</value></data>
   <data name="Gallery_IconButton" xml:space="preserve"><value>IconButton 图标按钮</value></data>
   <data name="Gallery_IconButton_Desc" xml:space="preserve"><value>图文组合按钮</value></data>
+  <data name="Gallery_HyperlinkButton" xml:space="preserve"><value>HyperlinkButton 链接按钮</value></data>
+  <data name="Gallery_HyperlinkButton_Desc" xml:space="preserve"><value>文字链接按钮</value></data>
   <data name="Gallery_Divider" xml:space="preserve"><value>Divider 分割线</value></data>
   <data name="Gallery_Divider_Desc" xml:space="preserve"><value>水平/垂直分割</value></data>
   <data name="Gallery_TabControl" xml:space="preserve"><value>TabControl 标签页</value></data>
@@ -181,6 +183,117 @@
   <data name="Progress_Desc" xml:space="preserve"><value>支持线形进度条和圆形进度条。多种语义颜色：默认、成功、警告、错误。</value></data>
   <data name="Progress_Linear" xml:space="preserve"><value>线形进度条</value></data>
   <data name="Progress_Circular" xml:space="preserve"><value>圆形进度条</value></data>
+
+  <!-- CheckBox Detail -->
+  <data name="CheckBox_Title" xml:space="preserve"><value>CheckBox 复选框</value></data>
+  <data name="CheckBox_Desc" xml:space="preserve"><value>支持选中、半选（三态）与禁用状态，可通过 Justify 将勾选图标切换至右侧对齐。</value></data>
+  <data name="CheckBox_Basic" xml:space="preserve"><value>基础用法</value></data>
+  <data name="CheckBox_Default" xml:space="preserve"><value>默认状态</value></data>
+  <data name="CheckBox_Checked" xml:space="preserve"><value>已选中</value></data>
+  <data name="CheckBox_Indeterminate" xml:space="preserve"><value>半选状态</value></data>
+  <data name="CheckBox_Justify" xml:space="preserve"><value>右侧对齐</value></data>
+  <data name="CheckBox_States" xml:space="preserve"><value>状态展示</value></data>
+  <data name="CheckBox_DisabledChecked" xml:space="preserve"><value>禁用-已选</value></data>
+  <data name="CheckBox_Disabled" xml:space="preserve"><value>禁用-默认</value></data>
+
+  <!-- RadioButton Detail -->
+  <data name="RadioButton_Title" xml:space="preserve"><value>RadioButton 单选框</value></data>
+  <data name="RadioButton_Desc" xml:space="preserve"><value>同一分组内只能选择一项，支持禁用状态。</value></data>
+  <data name="RadioButton_Basic" xml:space="preserve"><value>基础用法</value></data>
+  <data name="RadioButton_Option1" xml:space="preserve"><value>选项一</value></data>
+  <data name="RadioButton_Option2" xml:space="preserve"><value>选项二</value></data>
+  <data name="RadioButton_Option3" xml:space="preserve"><value>选项三</value></data>
+  <data name="RadioButton_Justify" xml:space="preserve"><value>右侧对齐</value></data>
+  <data name="RadioButton_States" xml:space="preserve"><value>状态展示</value></data>
+  <data name="RadioButton_DisabledChecked" xml:space="preserve"><value>禁用-已选</value></data>
+  <data name="RadioButton_Disabled" xml:space="preserve"><value>禁用-默认</value></data>
+
+  <!-- Cell Detail -->
+  <data name="Cell_Title" xml:space="preserve"><value>Cell 列表项</value></data>
+  <data name="Cell_Desc" xml:space="preserve"><value>多功能列表条目，支持标题、描述、辅助信息、必填标记、箭头以及左右自定义内容，常配合 CellGroup 使用。</value></data>
+  <data name="Cell_Basic" xml:space="preserve"><value>基础用法</value></data>
+  <data name="Cell_Content" xml:space="preserve"><value>单行标题</value></data>
+  <data name="Cell_Required" xml:space="preserve"><value>必填项</value></data>
+  <data name="Cell_Note" xml:space="preserve"><value>带辅助信息</value></data>
+  <data name="Cell_NoteText" xml:space="preserve"><value>更多</value></data>
+  <data name="Cell_LeftIcon" xml:space="preserve"><value>带左侧图标</value></data>
+  <data name="Cell_Advanced" xml:space="preserve"><value>复杂布局</value></data>
+  <data name="Cell_AdvancedContent" xml:space="preserve"><value>个人设置</value></data>
+  <data name="Cell_AdvancedDesc" xml:space="preserve"><value>一段用于说明当前配置含义的描述文字</value></data>
+  <data name="Cell_AdvancedNote" xml:space="preserve"><value>详情</value></data>
+
+  <!-- Avatar Detail -->
+  <data name="Avatar_Title" xml:space="preserve"><value>Avatar 头像</value></data>
+  <data name="Avatar_Desc" xml:space="preserve"><value>支持图片、文字、图标三种内容，圆形/方形两种形状，大/中/小三档尺寸。</value></data>
+  <data name="Avatar_Content" xml:space="preserve"><value>内容类型</value></data>
+  <data name="Avatar_Image" xml:space="preserve"><value>图片</value></data>
+  <data name="Avatar_Text" xml:space="preserve"><value>文字</value></data>
+  <data name="Avatar_Icon" xml:space="preserve"><value>图标</value></data>
+  <data name="Avatar_Shape" xml:space="preserve"><value>形状</value></data>
+  <data name="Avatar_Round" xml:space="preserve"><value>圆形</value></data>
+  <data name="Avatar_Square" xml:space="preserve"><value>方形</value></data>
+  <data name="Avatar_Size" xml:space="preserve"><value>尺寸</value></data>
+  <data name="Avatar_Small" xml:space="preserve"><value>小</value></data>
+  <data name="Avatar_Medium" xml:space="preserve"><value>中</value></data>
+  <data name="Avatar_Large" xml:space="preserve"><value>大</value></data>
+
+  <!-- IconButton Detail -->
+  <data name="IconButton_Title" xml:space="preserve"><value>IconButton 图标按钮</value></data>
+  <data name="IconButton_Desc" xml:space="preserve"><value>图标与文字组合按钮，支持填充、描边、文字三种主题，多种语义颜色、尺寸与形状。</value></data>
+  <data name="IconButton_Fill" xml:space="preserve"><value>填充按钮</value></data>
+  <data name="IconButton_Outline" xml:space="preserve"><value>描边按钮</value></data>
+  <data name="IconButton_Text" xml:space="preserve"><value>文字按钮</value></data>
+  <data name="IconButton_Sizes" xml:space="preserve"><value>尺寸变体</value></data>
+  <data name="IconButton_Shapes" xml:space="preserve"><value>形状变体</value></data>
+  <data name="IconButton_Button" xml:space="preserve"><value>按钮</value></data>
+  <data name="IconButton_Disabled" xml:space="preserve"><value>禁用状态</value></data>
+
+  <!-- HyperlinkButton Detail -->
+  <data name="HyperlinkButton_Title" xml:space="preserve"><value>HyperlinkButton 链接按钮</value></data>
+  <data name="HyperlinkButton_Desc" xml:space="preserve"><value>文字链接按钮，支持默认与 Primary/Success/Warning/Danger 多种语义色，可附加下划线与链接图标。</value></data>
+  <data name="HyperlinkButton_Basic" xml:space="preserve"><value>基础用法</value></data>
+  <data name="HyperlinkButton_Link" xml:space="preserve"><value>跳转链接</value></data>
+  <data name="HyperlinkButton_Colors" xml:space="preserve"><value>颜色变体</value></data>
+  <data name="HyperlinkButton_Disabled" xml:space="preserve"><value>禁用状态</value></data>
+
+  <!-- Divider Detail -->
+  <data name="Divider_Title" xml:space="preserve"><value>Divider 分割线</value></data>
+  <data name="Divider_Desc" xml:space="preserve"><value>水平/垂直分割线，支持文字信息与左、中、右对齐方式。</value></data>
+  <data name="Divider_Horizontal" xml:space="preserve"><value>水平分割</value></data>
+  <data name="Divider_Left" xml:space="preserve"><value>左对齐</value></data>
+  <data name="Divider_Center" xml:space="preserve"><value>居中</value></data>
+  <data name="Divider_Right" xml:space="preserve"><value>右对齐</value></data>
+  <data name="Divider_Vertical" xml:space="preserve"><value>垂直分割</value></data>
+  <data name="Divider_Text" xml:space="preserve"><value>文字信息</value></data>
+
+  <!-- TabControl Detail -->
+  <data name="TabControl_Title" xml:space="preserve"><value>TabControl 标签页</value></data>
+  <data name="TabControl_Desc" xml:space="preserve"><value>标签切换容器，支持图标、禁用状态与多种标签位置。</value></data>
+  <data name="TabControl_Basic" xml:space="preserve"><value>基础用法</value></data>
+  <data name="TabControl_Recommend" xml:space="preserve"><value>推荐</value></data>
+  <data name="TabControl_Recommend_Content" xml:space="preserve"><value>这是「推荐」标签页的内容。</value></data>
+  <data name="TabControl_Follow" xml:space="preserve"><value>关注</value></data>
+  <data name="TabControl_Follow_Content" xml:space="preserve"><value>这是「关注」标签页的内容。</value></data>
+  <data name="TabControl_Message" xml:space="preserve"><value>消息</value></data>
+  <data name="TabControl_Message_Content" xml:space="preserve"><value>这是「消息」标签页的内容。</value></data>
+  <data name="TabControl_Mine" xml:space="preserve"><value>我的</value></data>
+  <data name="TabControl_Mine_Content" xml:space="preserve"><value>这是「我的」标签页的内容。</value></data>
+  <data name="TabControl_Large" xml:space="preserve"><value>大字号</value></data>
+  <data name="TabControl_Left" xml:space="preserve"><value>左侧标签</value></data>
+
+  <!-- TabbedPage Detail -->
+  <data name="TabbedPage_Title" xml:space="preserve"><value>TabbedPage 底部导航</value></data>
+  <data name="TabbedPage_Desc" xml:space="preserve"><value>通过底部标签栏在多个页面之间切换，支持图标与 Tag 样式，是本 Demo 正在使用的导航方式。</value></data>
+  <data name="TabbedPage_Basic" xml:space="preserve"><value>基础用法</value></data>
+  <data name="TabbedPage_Home" xml:space="preserve"><value>首页</value></data>
+  <data name="TabbedPage_Home_Content" xml:space="preserve"><value>首页内容</value></data>
+  <data name="TabbedPage_Apps" xml:space="preserve"><value>应用</value></data>
+  <data name="TabbedPage_Apps_Content" xml:space="preserve"><value>应用内容</value></data>
+  <data name="TabbedPage_Chat" xml:space="preserve"><value>聊天</value></data>
+  <data name="TabbedPage_Chat_Content" xml:space="preserve"><value>聊天内容</value></data>
+  <data name="TabbedPage_Mine" xml:space="preserve"><value>我的</value></data>
+  <data name="TabbedPage_Mine_Content" xml:space="preserve"><value>我的内容</value></data>
+  <data name="TabbedPage_Tag" xml:space="preserve"><value>Tag 样式</value></data>
 
   <!-- Placeholder -->
   <data name="Placeholder_Title" xml:space="preserve"><value>即将推出</value></data>

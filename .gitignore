@@ -363,6 +363,7 @@ MigrationBackup/
 ## Reasonix
 #################
 .reasonix/
+reasonix.toml
 
 #################
 ## Cake

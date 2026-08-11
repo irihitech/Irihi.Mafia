@@ -1,0 +1,78 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="using:Irihi.Mafia.Demo"
+             xmlns:m="https://irihi.tech/mafia"
+             mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
+             x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.TabControlDetailView">
+    <ScrollViewer>
+        <StackPanel Spacing="12" Margin="16,16,16,24">
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Title}}" FontSize="24" FontWeight="Bold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Desc}}"
+                       TextWrapping="Wrap" FontSize="14"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+
+            <m:Divider />
+
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Basic}}" FontSize="16" FontWeight="SemiBold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TabControl>
+                <TabItem Header="{Translate {x:Static local:LanguageManager+Keys.TabControl_Recommend}}"
+                         Icon="{DynamicResource TempAppGlyph}">
+                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Recommend_Content}}"
+                               Margin="12" TextWrapping="Wrap" />
+                </TabItem>
+                <TabItem Header="{Translate {x:Static local:LanguageManager+Keys.TabControl_Follow}}">
+                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Follow_Content}}"
+                               Margin="12" TextWrapping="Wrap" />
+                </TabItem>
+                <TabItem Header="{Translate {x:Static local:LanguageManager+Keys.TabControl_Message}}"
+                         Icon="{DynamicResource TempChatGlyph}" IsEnabled="False">
+                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Message_Content}}"
+                               Margin="12" TextWrapping="Wrap" />
+                </TabItem>
+                <TabItem Header="{Translate {x:Static local:LanguageManager+Keys.TabControl_Mine}}"
+                         Icon="{DynamicResource TempUserGlyph}">
+                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Mine_Content}}"
+                               Margin="12" TextWrapping="Wrap" />
+                </TabItem>
+            </TabControl>
+
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Large}}" FontSize="16" FontWeight="SemiBold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TabControl Classes="Large">
+                <TabItem Header="{Translate {x:Static local:LanguageManager+Keys.TabControl_Recommend}}">
+                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Recommend_Content}}"
+                               Margin="12" TextWrapping="Wrap" />
+                </TabItem>
+                <TabItem Header="{Translate {x:Static local:LanguageManager+Keys.TabControl_Follow}}">
+                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Follow_Content}}"
+                               Margin="12" TextWrapping="Wrap" />
+                </TabItem>
+                <TabItem Header="{Translate {x:Static local:LanguageManager+Keys.TabControl_Mine}}">
+                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Mine_Content}}"
+                               Margin="12" TextWrapping="Wrap" />
+                </TabItem>
+            </TabControl>
+
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Left}}" FontSize="16" FontWeight="SemiBold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TabControl TabStripPlacement="Left" Height="160">
+                <TabItem Header="{Translate {x:Static local:LanguageManager+Keys.TabControl_Recommend}}">
+                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Recommend_Content}}"
+                               Margin="12" TextWrapping="Wrap" />
+                </TabItem>
+                <TabItem Header="{Translate {x:Static local:LanguageManager+Keys.TabControl_Follow}}">
+                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Follow_Content}}"
+                               Margin="12" TextWrapping="Wrap" />
+                </TabItem>
+                <TabItem Header="{Translate {x:Static local:LanguageManager+Keys.TabControl_Mine}}">
+                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Mine_Content}}"
+                               Margin="12" TextWrapping="Wrap" />
+                </TabItem>
+            </TabControl>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

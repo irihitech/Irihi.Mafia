@@ -63,6 +63,8 @@
   <data name="Gallery_Avatar_Desc" xml:space="preserve"><value>Image/text avatar</value></data>
   <data name="Gallery_IconButton" xml:space="preserve"><value>IconButton</value></data>
   <data name="Gallery_IconButton_Desc" xml:space="preserve"><value>Icon+text button</value></data>
+  <data name="Gallery_HyperlinkButton" xml:space="preserve"><value>HyperlinkButton</value></data>
+  <data name="Gallery_HyperlinkButton_Desc" xml:space="preserve"><value>Hyperlink text button</value></data>
   <data name="Gallery_Divider" xml:space="preserve"><value>Divider</value></data>
   <data name="Gallery_Divider_Desc" xml:space="preserve"><value>Horizontal/vertical divider</value></data>
   <data name="Gallery_TabControl" xml:space="preserve"><value>TabControl</value></data>
@@ -181,6 +183,117 @@
   <data name="Progress_Desc" xml:space="preserve"><value>Linear and circular progress bars with semantic colors: default, success, warning, error.</value></data>
   <data name="Progress_Linear" xml:space="preserve"><value>Linear Progress</value></data>
   <data name="Progress_Circular" xml:space="preserve"><value>Circular Progress</value></data>
+
+  <!-- CheckBox Detail -->
+  <data name="CheckBox_Title" xml:space="preserve"><value>CheckBox</value></data>
+  <data name="CheckBox_Desc" xml:space="preserve"><value>Supports checked, indeterminate (three-state), and disabled states. Use Justify to move the check icon to the right.</value></data>
+  <data name="CheckBox_Basic" xml:space="preserve"><value>Basic Usage</value></data>
+  <data name="CheckBox_Default" xml:space="preserve"><value>Default</value></data>
+  <data name="CheckBox_Checked" xml:space="preserve"><value>Checked</value></data>
+  <data name="CheckBox_Indeterminate" xml:space="preserve"><value>Indeterminate</value></data>
+  <data name="CheckBox_Justify" xml:space="preserve"><value>Justify (icon on right)</value></data>
+  <data name="CheckBox_States" xml:space="preserve"><value>States</value></data>
+  <data name="CheckBox_DisabledChecked" xml:space="preserve"><value>Disabled - Checked</value></data>
+  <data name="CheckBox_Disabled" xml:space="preserve"><value>Disabled - Default</value></data>
+
+  <!-- RadioButton Detail -->
+  <data name="RadioButton_Title" xml:space="preserve"><value>RadioButton</value></data>
+  <data name="RadioButton_Desc" xml:space="preserve"><value>Only one option can be selected within the same group. Supports disabled state.</value></data>
+  <data name="RadioButton_Basic" xml:space="preserve"><value>Basic Usage</value></data>
+  <data name="RadioButton_Option1" xml:space="preserve"><value>Option 1</value></data>
+  <data name="RadioButton_Option2" xml:space="preserve"><value>Option 2</value></data>
+  <data name="RadioButton_Option3" xml:space="preserve"><value>Option 3</value></data>
+  <data name="RadioButton_Justify" xml:space="preserve"><value>Justify (icon on right)</value></data>
+  <data name="RadioButton_States" xml:space="preserve"><value>States</value></data>
+  <data name="RadioButton_DisabledChecked" xml:space="preserve"><value>Disabled - Checked</value></data>
+  <data name="RadioButton_Disabled" xml:space="preserve"><value>Disabled - Default</value></data>
+
+  <!-- Cell Detail -->
+  <data name="Cell_Title" xml:space="preserve"><value>Cell</value></data>
+  <data name="Cell_Desc" xml:space="preserve"><value>Versatile list item with title, description, note, required mark, arrow, and left/right custom content. Usually used with CellGroup.</value></data>
+  <data name="Cell_Basic" xml:space="preserve"><value>Basic Usage</value></data>
+  <data name="Cell_Content" xml:space="preserve"><value>Single line title</value></data>
+  <data name="Cell_Required" xml:space="preserve"><value>Required</value></data>
+  <data name="Cell_Note" xml:space="preserve"><value>With note</value></data>
+  <data name="Cell_NoteText" xml:space="preserve"><value>More</value></data>
+  <data name="Cell_LeftIcon" xml:space="preserve"><value>With left icon</value></data>
+  <data name="Cell_Advanced" xml:space="preserve"><value>Advanced Layout</value></data>
+  <data name="Cell_AdvancedContent" xml:space="preserve"><value>Settings</value></data>
+  <data name="Cell_AdvancedDesc" xml:space="preserve"><value>A description explaining the meaning of the current setting.</value></data>
+  <data name="Cell_AdvancedNote" xml:space="preserve"><value>Detail</value></data>
+
+  <!-- Avatar Detail -->
+  <data name="Avatar_Title" xml:space="preserve"><value>Avatar</value></data>
+  <data name="Avatar_Desc" xml:space="preserve"><value>Supports image, text, and icon content; round and square shapes; large, medium, and small sizes.</value></data>
+  <data name="Avatar_Content" xml:space="preserve"><value>Content Types</value></data>
+  <data name="Avatar_Image" xml:space="preserve"><value>Image</value></data>
+  <data name="Avatar_Text" xml:space="preserve"><value>Text</value></data>
+  <data name="Avatar_Icon" xml:space="preserve"><value>Icon</value></data>
+  <data name="Avatar_Shape" xml:space="preserve"><value>Shapes</value></data>
+  <data name="Avatar_Round" xml:space="preserve"><value>Round</value></data>
+  <data name="Avatar_Square" xml:space="preserve"><value>Square</value></data>
+  <data name="Avatar_Size" xml:space="preserve"><value>Sizes</value></data>
+  <data name="Avatar_Small" xml:space="preserve"><value>Small</value></data>
+  <data name="Avatar_Medium" xml:space="preserve"><value>Medium</value></data>
+  <data name="Avatar_Large" xml:space="preserve"><value>Large</value></data>
+
+  <!-- IconButton Detail -->
+  <data name="IconButton_Title" xml:space="preserve"><value>IconButton</value></data>
+  <data name="IconButton_Desc" xml:space="preserve"><value>Icon + text button with fill, outline, and text themes, multiple semantic colors, sizes, and shapes.</value></data>
+  <data name="IconButton_Fill" xml:space="preserve"><value>Fill</value></data>
+  <data name="IconButton_Outline" xml:space="preserve"><value>Outline</value></data>
+  <data name="IconButton_Text" xml:space="preserve"><value>Text</value></data>
+  <data name="IconButton_Sizes" xml:space="preserve"><value>Size Variants</value></data>
+  <data name="IconButton_Shapes" xml:space="preserve"><value>Shape Variants</value></data>
+  <data name="IconButton_Button" xml:space="preserve"><value>Button</value></data>
+  <data name="IconButton_Disabled" xml:space="preserve"><value>Disabled</value></data>
+
+  <!-- HyperlinkButton Detail -->
+  <data name="HyperlinkButton_Title" xml:space="preserve"><value>HyperlinkButton</value></data>
+  <data name="HyperlinkButton_Desc" xml:space="preserve"><value>Text link button with default and Primary/Success/Warning/Danger semantic colors; supports underline and a link icon.</value></data>
+  <data name="HyperlinkButton_Basic" xml:space="preserve"><value>Basic Usage</value></data>
+  <data name="HyperlinkButton_Link" xml:space="preserve"><value>Jump link</value></data>
+  <data name="HyperlinkButton_Colors" xml:space="preserve"><value>Color Variants</value></data>
+  <data name="HyperlinkButton_Disabled" xml:space="preserve"><value>Disabled</value></data>
+
+  <!-- Divider Detail -->
+  <data name="Divider_Title" xml:space="preserve"><value>Divider</value></data>
+  <data name="Divider_Desc" xml:space="preserve"><value>Horizontal and vertical dividers with optional text content and left/center/right alignment.</value></data>
+  <data name="Divider_Horizontal" xml:space="preserve"><value>Horizontal</value></data>
+  <data name="Divider_Left" xml:space="preserve"><value>Left</value></data>
+  <data name="Divider_Center" xml:space="preserve"><value>Center</value></data>
+  <data name="Divider_Right" xml:space="preserve"><value>Right</value></data>
+  <data name="Divider_Vertical" xml:space="preserve"><value>Vertical</value></data>
+  <data name="Divider_Text" xml:space="preserve"><value>Text</value></data>
+
+  <!-- TabControl Detail -->
+  <data name="TabControl_Title" xml:space="preserve"><value>TabControl</value></data>
+  <data name="TabControl_Desc" xml:space="preserve"><value>Tab switching container with icon, disabled state, and multiple tab strip placements.</value></data>
+  <data name="TabControl_Basic" xml:space="preserve"><value>Basic Usage</value></data>
+  <data name="TabControl_Recommend" xml:space="preserve"><value>Recommend</value></data>
+  <data name="TabControl_Recommend_Content" xml:space="preserve"><value>This is the content of the "Recommend" tab.</value></data>
+  <data name="TabControl_Follow" xml:space="preserve"><value>Follow</value></data>
+  <data name="TabControl_Follow_Content" xml:space="preserve"><value>This is the content of the "Follow" tab.</value></data>
+  <data name="TabControl_Message" xml:space="preserve"><value>Message</value></data>
+  <data name="TabControl_Message_Content" xml:space="preserve"><value>This is the content of the "Message" tab.</value></data>
+  <data name="TabControl_Mine" xml:space="preserve"><value>Mine</value></data>
+  <data name="TabControl_Mine_Content" xml:space="preserve"><value>This is the content of the "Mine" tab.</value></data>
+  <data name="TabControl_Large" xml:space="preserve"><value>Large Font</value></data>
+  <data name="TabControl_Left" xml:space="preserve"><value>Left Placement</value></data>
+
+  <!-- TabbedPage Detail -->
+  <data name="TabbedPage_Title" xml:space="preserve"><value>TabbedPage</value></data>
+  <data name="TabbedPage_Desc" xml:space="preserve"><value>Bottom tab bar navigation between pages, supports icons and the Tag style. This is the navigation used by the Demo itself.</value></data>
+  <data name="TabbedPage_Basic" xml:space="preserve"><value>Basic Usage</value></data>
+  <data name="TabbedPage_Home" xml:space="preserve"><value>Home</value></data>
+  <data name="TabbedPage_Home_Content" xml:space="preserve"><value>Home content</value></data>
+  <data name="TabbedPage_Apps" xml:space="preserve"><value>Apps</value></data>
+  <data name="TabbedPage_Apps_Content" xml:space="preserve"><value>Apps content</value></data>
+  <data name="TabbedPage_Chat" xml:space="preserve"><value>Chat</value></data>
+  <data name="TabbedPage_Chat_Content" xml:space="preserve"><value>Chat content</value></data>
+  <data name="TabbedPage_Mine" xml:space="preserve"><value>Mine</value></data>
+  <data name="TabbedPage_Mine_Content" xml:space="preserve"><value>Mine content</value></data>
+  <data name="TabbedPage_Tag" xml:space="preserve"><value>Tag Style</value></data>
 
   <!-- Placeholder -->
   <data name="Placeholder_Title" xml:space="preserve"><value>Coming Soon</value></data>

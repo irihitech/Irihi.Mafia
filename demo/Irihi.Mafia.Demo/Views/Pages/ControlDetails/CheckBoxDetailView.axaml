@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="using:Irihi.Mafia.Demo"
+             xmlns:m="https://irihi.tech/mafia"
+             mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
+             x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.CheckBoxDetailView">
+    <ScrollViewer>
+        <StackPanel Spacing="12" Margin="16,16,16,24">
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.CheckBox_Title}}" FontSize="24" FontWeight="Bold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.CheckBox_Desc}}"
+                       TextWrapping="Wrap" FontSize="14"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+
+            <m:Divider />
+
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.CheckBox_Basic}}" FontSize="16" FontWeight="SemiBold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <StackPanel Spacing="8">
+                <CheckBox Content="{Translate {x:Static local:LanguageManager+Keys.CheckBox_Default}}" />
+                <CheckBox Content="{Translate {x:Static local:LanguageManager+Keys.CheckBox_Checked}}" IsChecked="True" />
+                <CheckBox Content="{Translate {x:Static local:LanguageManager+Keys.CheckBox_Indeterminate}}"
+                          IsThreeState="True" IsChecked="{x:Null}" />
+                <CheckBox Content="{Translate {x:Static local:LanguageManager+Keys.CheckBox_Justify}}"
+                          Classes="Justify" IsChecked="True" />
+            </StackPanel>
+
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.CheckBox_States}}" FontSize="16" FontWeight="SemiBold"
+                       Foreground="{DynamicResource TDFontGyColor}" />
+            <StackPanel Spacing="8">
+                <CheckBox Content="{Translate {x:Static local:LanguageManager+Keys.CheckBox_DisabledChecked}}"
+                          IsChecked="True" IsEnabled="False" />
+                <CheckBox Content="{Translate {x:Static local:LanguageManager+Keys.CheckBox_Disabled}}"
+                          IsEnabled="False" />
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
