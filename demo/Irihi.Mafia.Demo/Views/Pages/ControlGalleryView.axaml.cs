@@ -1,8 +1,6 @@
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
 
-namespace Irihi.Mafia.Demo.Views.Pages.ControlDetails;
+namespace Irihi.Mafia.Demo.Views.Pages;
 
 public partial class ControlGalleryView : UserControl
 {

@@ -1,7 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using Irihi.Mafia.Demo.ViewModels.ControlDetails;
-using Irihi.Mafia.Demo.Views.Pages.ControlDetails;
+using Irihi.Mafia.Demo.ViewModels;
 
 namespace Irihi.Mafia.Demo.Views.Pages;
 

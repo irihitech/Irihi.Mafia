@@ -10,21 +10,6 @@
              x:DataType="vm:HomePageViewModel">
     <ScrollViewer>
         <StackPanel>
-            <Border Background="{DynamicResource TDBgColorContainer}" Padding="12,10,12,6">
-                <Border Background="{DynamicResource TDBgColorPage}"
-                        CornerRadius="10" Padding="12,8">
-                    <Grid ColumnDefinitions="Auto,*,Auto">
-                        <TextBlock Grid.Column="0" Text="🔍" FontSize="14"
-                                   VerticalAlignment="Center" Margin="0,0,8,0" />
-                        <TextBlock Grid.Column="1" Text="{Translate {x:Static local:LanguageManager+Keys.Home_SearchPlaceholder}}"
-                                   FontSize="14"
-                                   Foreground="{DynamicResource TDFontGyColor}"
-                                   VerticalAlignment="Center"
-                                   Opacity="0.6" />
-                    </Grid>
-                </Border>
-            </Border>
-
             <Border Background="{DynamicResource TDBgColorContainer}" Padding="16,12">
                 <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
                     <Border Grid.Column="0" Background="{DynamicResource TDPrimaryColor}"

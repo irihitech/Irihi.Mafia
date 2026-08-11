@@ -1,0 +1,26 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Text -->
+    <StaticResource x:Key="TDInputForeground" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDInputPlaceholderForeground" ResourceKey="TDTextColorPlaceholder" />
+    <StaticResource x:Key="TDInputDisabledForeground" ResourceKey="TDTextColorDisabled" />
+
+    <!-- Fill -->
+    <StaticResource x:Key="TDInputBackground" ResourceKey="TDBgColorContainer" />
+    <StaticResource x:Key="TDInputDisabledBackground" ResourceKey="TDBgColorComponentDisabled" />
+
+    <!-- Border -->
+    <StaticResource x:Key="TDInputBorderBrush" ResourceKey="TDComponentBorder" />
+    <StaticResource x:Key="TDInputDisabledBorderBrush" ResourceKey="TDComponentBorder" />
+
+    <!-- Caret & Selection -->
+    <StaticResource x:Key="TDInputCaretBrush" ResourceKey="TDBrandColor" />
+    <SolidColorBrush x:Key="TDInputSelectionBackground" Opacity="0.8" Color="#0041C5" />
+    <StaticResource x:Key="TDInputSelectionForeground" ResourceKey="TDFontWhite1" />
+
+    <!-- Inner content -->
+    <StaticResource x:Key="TDInputInnerForeground" ResourceKey="TDTextColorPrimary" />
+
+    <!-- Status -->
+    <StaticResource x:Key="TDInputErrorForeground" ResourceKey="TDErrorColor" />
+</ResourceDictionary>

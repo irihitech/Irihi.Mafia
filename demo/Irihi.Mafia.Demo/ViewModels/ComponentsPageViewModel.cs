@@ -1,6 +1,7 @@
+using CommunityToolkit.Mvvm.ComponentModel;
+
 namespace Irihi.Mafia.Demo.ViewModels;
 
-public class ComponentsPageViewModel : ViewModelBase
+public class ComponentsPageViewModel : ObservableObject
 {
-    
 }
