@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Irihi.Mafia\Irihi.Mafia.csproj" />
+    <ProjectReference Include="..\Irihi.Mafia.Themes.TDesign.Icons\Irihi.Mafia.Themes.TDesign.Icons.csproj" />
   </ItemGroup>
 
   <ItemGroup>
