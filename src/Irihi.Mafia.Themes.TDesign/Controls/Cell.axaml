@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:m="https://irihi.tech/mafia">
+    xmlns:m="https://irihi.tech/mafia"
+    xmlns:td="https://irihi.tech/td">
     <Design.PreviewWith>
         <m:CellGroup Header="基础用法" Width="400" Margin="20">
             <m:Cell Content="单行标题" />
@@ -139,7 +140,11 @@
         </Setter>
 
         <Style Selector="^.Arrow /template/ ContentPresenter#PART_InnerRightContent">
-            <Setter Property="Content" Value="{DynamicResource TempArrowGlyph}" />
+            <Setter Property="Content">
+                <Template>
+                    <td:ChevronRight OuterStroke="{Binding $parent[ContentPresenter].Foreground}" />
+                </Template>
+            </Setter>
         </Style>
         <Style Selector="^.Hover:pressed /template/ Border#PART_Background">
             <Setter Property="Background" Value="{DynamicResource TDCellPressedBackground}" />

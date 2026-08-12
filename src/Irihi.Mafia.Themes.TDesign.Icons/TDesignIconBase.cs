@@ -8,19 +8,19 @@ public abstract class TDesignIconBase : Control
 {
     public static readonly StyledProperty<IBrush?> OuterStrokeProperty =
         AvaloniaProperty.Register<TDesignIconBase, IBrush?>(
-            nameof(OuterStroke), new SolidColorBrush(Color.Parse("#333")));
+            nameof(OuterStroke), new SolidColorBrush(Color.Parse("#191919")));
 
     public static readonly StyledProperty<IBrush?> OuterFillProperty =
         AvaloniaProperty.Register<TDesignIconBase, IBrush?>(
-            nameof(OuterFill), new SolidColorBrush(Color.Parse("#2F88FF")));
+            nameof(OuterFill), new SolidColorBrush(Color.Parse("#BBD3FB")));
 
     public static readonly StyledProperty<IBrush?> InnerStrokeProperty =
         AvaloniaProperty.Register<TDesignIconBase, IBrush?>(
-            nameof(InnerStroke), Brushes.White);
+            nameof(InnerStroke), new SolidColorBrush(Color.Parse("#0052D9")));
 
     public static readonly StyledProperty<IBrush?> InnerFillProperty =
         AvaloniaProperty.Register<TDesignIconBase, IBrush?>(
-            nameof(InnerFill), new SolidColorBrush(Color.Parse("#43CCF8")));
+            nameof(InnerFill), new SolidColorBrush(Color.Parse("#F78D94")));
 
     public static readonly StyledProperty<double> StrokeWidthProperty =
         AvaloniaProperty.Register<TDesignIconBase, double>(
@@ -44,7 +44,7 @@ public abstract class TDesignIconBase : Control
 
     public static readonly StyledProperty<IBrush?> FallbackBrushProperty =
         AvaloniaProperty.Register<TDesignIconBase, IBrush?>(
-            nameof(FallbackBrush), defaultValue: Brushes.White);
+            nameof(FallbackBrush), Brushes.White);
 
     // 0: OuterStroke, 1: OuterFill, 2: InnerStroke, 3: InnerFill， 4: WhiteFallback, 5: NullFallback
     private readonly IBrush?[] _brushes = new IBrush[6];
@@ -289,6 +289,4 @@ public abstract class TDesignIconBase : Control
             }
         }
     }
-
-    public object ProvideValue() => this;
 }
