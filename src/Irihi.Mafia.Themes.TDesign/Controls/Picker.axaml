@@ -98,7 +98,7 @@
                                     IsVisible="{TemplateBinding InnerRightContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                 <PathIcon
                                     Name="DropDownGlyph"
-                                    Data="{DynamicResource TempArrowGlyph}"
+                                    Data="{DynamicResource TempChevronRightGlyph}"
                                     IsHitTestVisible="False"
                                     UseLayoutRounding="False" />
                             </StackPanel>

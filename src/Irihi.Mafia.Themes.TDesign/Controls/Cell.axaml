@@ -10,7 +10,7 @@
             <m:Cell Content="单行标题" Classes="Arrow" Note="辅助信息" />
             <m:Cell Content="单行标题" Classes="Arrow" />
             <m:Cell Content="单行标题" InnerLeftContent="{DynamicResource TempAppGlyph}" />
-            <m:Cell Content="单行标题" InnerRightContent="{DynamicResource TempArrowGlyph}" />
+            <m:Cell Content="单行标题" InnerRightContent="{DynamicResource TempChevronRightGlyph}" />
             <m:Cell
                 Classes="Arrow"
                 Content="单行标题"

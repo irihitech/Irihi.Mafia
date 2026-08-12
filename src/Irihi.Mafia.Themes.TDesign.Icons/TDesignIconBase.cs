@@ -24,7 +24,7 @@ public abstract class TDesignIconBase : Control
 
     public static readonly StyledProperty<double> StrokeWidthProperty =
         AvaloniaProperty.Register<TDesignIconBase, double>(
-            nameof(StrokeWidth), 4);
+            nameof(StrokeWidth), 2);
 
     public static readonly StyledProperty<PenLineCap> LineCapProperty =
         AvaloniaProperty.Register<TDesignIconBase, PenLineCap>(
@@ -170,8 +170,7 @@ public abstract class TDesignIconBase : Control
     {
         foreach (var pen in _pens)
         {
-            if (pen is not null)
-                pen.Thickness = args.NewValue.Value;
+            pen?.Thickness = args.NewValue.Value;
         }
 
         InvalidateVisual();
@@ -181,8 +180,7 @@ public abstract class TDesignIconBase : Control
     {
         foreach (var pen in _pens)
         {
-            if (pen is not null)
-                pen.LineCap = args.NewValue.Value;
+            pen?.LineCap = args.NewValue.Value;
         }
 
         InvalidateVisual();
@@ -192,8 +190,7 @@ public abstract class TDesignIconBase : Control
     {
         foreach (var pen in _pens)
         {
-            if (pen is not null)
-                pen.LineJoin = args.NewValue.Value;
+            pen?.LineJoin = args.NewValue.Value;
         }
 
         InvalidateVisual();
@@ -266,7 +263,7 @@ public abstract class TDesignIconBase : Control
         if (DrawingData == null) return;
         var mode = Mode;
         Matrix.CreateRotation(1);
-        var scale = new Vector(Bounds.Width / 48.0, Bounds.Height / 48.0);
+        var scale = new Vector(Bounds.Width / 24.0, Bounds.Height / 24.0);
         using (context.PushTransform(Matrix.CreateScale(scale)))
         {
             foreach (var element in DrawingData)
@@ -292,4 +289,6 @@ public abstract class TDesignIconBase : Control
             }
         }
     }
+
+    public object ProvideValue() => this;
 }
