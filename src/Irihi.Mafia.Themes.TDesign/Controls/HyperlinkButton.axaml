@@ -33,7 +33,7 @@
                         IsVisible="False"
                         Width="{DynamicResource TDLinkIconWidth}"
                         Height="{Binding $self.Width}"
-                        OuterStroke="{Binding #PART_ContentPresenter.Foreground}" />
+                        Stroke1="{Binding #PART_ContentPresenter.Foreground}" />
                     <ContentPresenter
                         Name="PART_ContentPresenter"
                         Foreground="{TemplateBinding Foreground}"

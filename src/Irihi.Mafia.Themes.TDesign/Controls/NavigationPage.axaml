@@ -55,7 +55,7 @@
                                 <Panel Background="Transparent">
                                     <td:ChevronLeft
                                         Name="PART_BackButtonDefaultIcon"
-                                        OuterStroke="{DynamicResource TDNavigationPageBackButtonForeground}" />
+                                        Stroke1="{DynamicResource TDNavigationPageBackButtonForeground}" />
                                     <ContentPresenter
                                         Name="PART_BackButtonContentPresenter"
                                         VerticalAlignment="Center"

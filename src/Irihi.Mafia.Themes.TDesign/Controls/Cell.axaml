@@ -142,7 +142,7 @@
         <Style Selector="^.Arrow /template/ ContentPresenter#PART_InnerRightContent">
             <Setter Property="Content">
                 <Template>
-                    <td:ChevronRight OuterStroke="{Binding $parent[ContentPresenter].Foreground}" />
+                    <td:ChevronRight Stroke1="{Binding $parent[ContentPresenter].Foreground}" />
                 </Template>
             </Setter>
         </Style>

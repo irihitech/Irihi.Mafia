@@ -46,7 +46,7 @@
                                 Name="PART_CheckedIcon"
                                 Width="{DynamicResource TDRadioButtonIconSize}"
                                 Height="{Binding $self.Width}"
-                                OuterFill="{DynamicResource TDRadioButtonIconCheckedForeground}"
+                                Fill1="{DynamicResource TDRadioButtonIconCheckedForeground}"
                                 UseLayoutRounding="False" />
                         </Panel>
                         <ContentPresenter
@@ -86,7 +86,7 @@
                 <Setter Property="Stroke" Value="{DynamicResource TDRadioButtonIconDisabledBorderBrush}" />
             </Style>
             <Style Selector="^ /template/ td|CheckCircleFilled#PART_CheckedIcon">
-                <Setter Property="OuterFill" Value="{DynamicResource TDRadioButtonIconDisabledForeground}" />
+                <Setter Property="Fill1" Value="{DynamicResource TDRadioButtonIconDisabledForeground}" />
             </Style>
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource TDRadioButtonContentDisabledForeground}" />

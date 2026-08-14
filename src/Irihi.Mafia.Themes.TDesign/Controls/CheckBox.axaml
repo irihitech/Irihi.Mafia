@@ -47,13 +47,13 @@
                                 Name="PART_CheckedIcon"
                                 Width="{DynamicResource TDCheckBoxIconSize}"
                                 Height="{Binding $self.Width}"
-                                OuterFill="{DynamicResource TDCheckBoxIconCheckedForeground}"
+                                Fill1="{DynamicResource TDCheckBoxIconCheckedForeground}"
                                 UseLayoutRounding="False" />
                             <td:MinusCircleFilled
                                 Name="PART_IndeterminateIcon"
                                 Width="{DynamicResource TDCheckBoxIconSize}"
                                 Height="{Binding $self.Width}"
-                                OuterFill="{DynamicResource TDCheckBoxIconCheckedForeground}"
+                                Fill1="{DynamicResource TDCheckBoxIconCheckedForeground}"
                                 UseLayoutRounding="False"
                                 IsVisible="False" />
                         </Panel>
@@ -106,10 +106,10 @@
                 <Setter Property="Stroke" Value="{DynamicResource TDCheckBoxIconDisabledBorderBrush}" />
             </Style>
             <Style Selector="^ /template/ td|CheckCircleFilled#PART_CheckedIcon">
-                <Setter Property="OuterFill" Value="{DynamicResource TDCheckBoxIconDisabledForeground}" />
+                <Setter Property="Fill1" Value="{DynamicResource TDCheckBoxIconDisabledForeground}" />
             </Style>
             <Style Selector="^ /template/ td|MinusCircleFilled#PART_IndeterminateIcon">
-                <Setter Property="OuterFill" Value="{DynamicResource TDCheckBoxIconDisabledForeground}" />
+                <Setter Property="Fill1" Value="{DynamicResource TDCheckBoxIconDisabledForeground}" />
             </Style>
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource TDCheckBoxContentDisabledForeground}" />

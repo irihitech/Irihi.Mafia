@@ -7,20 +7,20 @@ namespace Irihi.Mafia.Themes.TDesign.Icons;
 
 public abstract class TDesignIconBase : Control
 {
-    public static readonly StyledProperty<IBrush?> OuterStrokeProperty =
-        TextElement.ForegroundProperty.AddOwner<TextBlock>();
+    public static readonly StyledProperty<IBrush?> Stroke1Property =
+        TextElement.ForegroundProperty.AddOwner<TDesignIconBase>();
 
-    public static readonly StyledProperty<IBrush?> OuterFillProperty =
+    public static readonly StyledProperty<IBrush?> Fill1Property =
         AvaloniaProperty.Register<TDesignIconBase, IBrush?>(
-            nameof(OuterFill), new SolidColorBrush(Color.Parse("#BBD3FB")));
+            nameof(Fill1), new SolidColorBrush(Color.Parse("#BBD3FB")));
 
-    public static readonly StyledProperty<IBrush?> InnerStrokeProperty =
+    public static readonly StyledProperty<IBrush?> Stroke2Property =
         AvaloniaProperty.Register<TDesignIconBase, IBrush?>(
-            nameof(InnerStroke), new SolidColorBrush(Color.Parse("#0052D9")));
+            nameof(Stroke2), new SolidColorBrush(Color.Parse("#0052D9")));
 
-    public static readonly StyledProperty<IBrush?> InnerFillProperty =
+    public static readonly StyledProperty<IBrush?> Fill2Property =
         AvaloniaProperty.Register<TDesignIconBase, IBrush?>(
-            nameof(InnerFill), new SolidColorBrush(Color.Parse("#F78D94")));
+            nameof(Fill2), new SolidColorBrush(Color.Parse("#F78D94")));
 
     public static readonly StyledProperty<double> StrokeWidthProperty =
         AvaloniaProperty.Register<TDesignIconBase, double>(
@@ -46,7 +46,7 @@ public abstract class TDesignIconBase : Control
         AvaloniaProperty.Register<TDesignIconBase, IBrush?>(
             nameof(FallbackBrush), Brushes.White);
 
-    // 0: OuterStroke, 1: OuterFill, 2: InnerStroke, 3: InnerFill, 4: WhiteFallback, 5: NullFallback
+    // 0: Stroke1, 1: Fill1, 2: Stroke2, 3: Fill2, 4: WhiteFallback, 5: NullFallback
     private readonly IBrush?[] _brushes = new IBrush[6];
     private readonly Pen?[] _pens = new Pen?[6];
 
@@ -55,15 +55,14 @@ public abstract class TDesignIconBase : Control
     {
         WidthProperty.OverrideDefaultValue<TDesignIconBase>(24);
         HeightProperty.OverrideDefaultValue<TDesignIconBase>(24);
-        OuterStrokeProperty.Changed.AddClassHandler<TDesignIconBase, IBrush?>((icon, e) => icon.InvalidateBrushes(e, 0));
-        OuterFillProperty.Changed.AddClassHandler<TDesignIconBase, IBrush?>((icon, e) => icon.InvalidateBrushes(e, 1));
-        InnerStrokeProperty.Changed.AddClassHandler<TDesignIconBase, IBrush?>((icon, e) => icon.InvalidateBrushes(e, 2));
-        InnerFillProperty.Changed.AddClassHandler<TDesignIconBase, IBrush?>((icon, e) => icon.InvalidateBrushes(e, 3));
+        Stroke1Property.Changed.AddClassHandler<TDesignIconBase, IBrush?>((icon, e) => icon.InvalidateBrushes(e, 0));
+        Fill1Property.Changed.AddClassHandler<TDesignIconBase, IBrush?>((icon, e) => icon.InvalidateBrushes(e, 1));
+        Stroke2Property.Changed.AddClassHandler<TDesignIconBase, IBrush?>((icon, e) => icon.InvalidateBrushes(e, 2));
+        Fill2Property.Changed.AddClassHandler<TDesignIconBase, IBrush?>((icon, e) => icon.InvalidateBrushes(e, 3));
         FallbackBrushProperty.Changed.AddClassHandler<TDesignIconBase, IBrush?>((icon, e) => icon.InvalidateBrushes(e, 4));
         StrokeWidthProperty.Changed.AddClassHandler<TDesignIconBase, double>((icon, e) => icon.InvalidateStrokeWidth(e));
         LineCapProperty.Changed.AddClassHandler<TDesignIconBase, PenLineCap>((icon, e) => icon.InvalidateLineCap(e));
-        LineJoinProperty.Changed.AddClassHandler<TDesignIconBase, PenLineJoin>((icon, e) =>
-            icon.InvalidateLineJoin(e));
+        LineJoinProperty.Changed.AddClassHandler<TDesignIconBase, PenLineJoin>((icon, e) => icon.InvalidateLineJoin(e));
         AffectsRender<TDesignIconBase>(ModeProperty);
     }
 
@@ -73,28 +72,28 @@ public abstract class TDesignIconBase : Control
         _pens[4] = new Pen(Brushes.White);
     }
 
-    public IBrush? OuterStroke
+    public IBrush? Stroke1
     {
-        get => GetValue(OuterStrokeProperty);
-        set => SetValue(OuterStrokeProperty, value);
+        get => GetValue(Stroke1Property);
+        set => SetValue(Stroke1Property, value);
     }
 
-    public IBrush? OuterFill
+    public IBrush? Fill1
     {
-        get => GetValue(OuterFillProperty);
-        set => SetValue(OuterFillProperty, value);
+        get => GetValue(Fill1Property);
+        set => SetValue(Fill1Property, value);
     }
 
-    public IBrush? InnerStroke
+    public IBrush? Stroke2
     {
-        get => GetValue(InnerStrokeProperty);
-        set => SetValue(InnerStrokeProperty, value);
+        get => GetValue(Stroke2Property);
+        set => SetValue(Stroke2Property, value);
     }
 
-    public IBrush? InnerFill
+    public IBrush? Fill2
     {
-        get => GetValue(InnerFillProperty);
-        set => SetValue(InnerFillProperty, value);
+        get => GetValue(Fill2Property);
+        set => SetValue(Fill2Property, value);
     }
 
     public IBrush? FallbackBrush
@@ -138,15 +137,15 @@ public abstract class TDesignIconBase : Control
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        _brushes[0] = OuterStroke;
-        _brushes[1] = OuterFill;
-        _brushes[2] = InnerStroke;
-        _brushes[3] = InnerFill;
+        _brushes[0] = Stroke1;
+        _brushes[1] = Fill1;
+        _brushes[2] = Stroke2;
+        _brushes[3] = Fill2;
         _brushes[4] = FallbackBrush;
-        _pens[0] = new Pen(OuterStroke, StrokeWidth, lineCap: LineCap, lineJoin: LineJoin);
-        _pens[1] = new Pen(OuterFill, StrokeWidth, lineCap: LineCap, lineJoin: LineJoin);
-        _pens[2] = new Pen(InnerStroke, StrokeWidth, lineCap: LineCap, lineJoin: LineJoin);
-        _pens[3] = new Pen(InnerFill, StrokeWidth, lineCap: LineCap, lineJoin: LineJoin);
+        _pens[0] = new Pen(Stroke1, StrokeWidth, lineCap: LineCap, lineJoin: LineJoin);
+        _pens[1] = new Pen(Fill1, StrokeWidth, lineCap: LineCap, lineJoin: LineJoin);
+        _pens[2] = new Pen(Stroke2, StrokeWidth, lineCap: LineCap, lineJoin: LineJoin);
+        _pens[3] = new Pen(Fill2, StrokeWidth, lineCap: LineCap, lineJoin: LineJoin);
         _pens[4] = new Pen(FallbackBrush, StrokeWidth, lineCap: LineCap, lineJoin: LineJoin);
     }
 
