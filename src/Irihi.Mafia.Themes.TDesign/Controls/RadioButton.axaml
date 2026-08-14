@@ -42,11 +42,11 @@
                                 Stroke="{DynamicResource TDRadioButtonIconBorderBrush}"
                                 StrokeThickness="{DynamicResource TDRadioButtonIconBorderThickness}"
                                 UseLayoutRounding="False" />
-                            <td:CheckCircle
+                            <td:CheckCircleFilled
                                 Name="PART_CheckedIcon"
                                 Width="{DynamicResource TDRadioButtonIconSize}"
                                 Height="{Binding $self.Width}"
-                                OuterStroke="{DynamicResource TDRadioButtonIconCheckedForeground}"
+                                OuterFill="{DynamicResource TDRadioButtonIconCheckedForeground}"
                                 UseLayoutRounding="False" />
                         </Panel>
                         <ContentPresenter
@@ -73,11 +73,11 @@
             <Setter Property="Grid.Column" Value="2" />
         </Style>
 
-        <Style Selector="^:unchecked /template/ td|CheckCircle#PART_CheckedIcon">
+        <Style Selector="^:unchecked /template/ td|CheckCircleFilled#PART_CheckedIcon">
             <Setter Property="IsVisible" Value="False" />
         </Style>
 
-        <Style Selector="^:checked /template/ td|CheckCircle#PART_CheckedIcon">
+        <Style Selector="^:checked /template/ td|CheckCircleFilled#PART_CheckedIcon">
             <Setter Property="IsVisible" Value="True" />
         </Style>
 
@@ -85,8 +85,8 @@
             <Style Selector="^ /template/ Ellipse#PART_OuterEllipse">
                 <Setter Property="Stroke" Value="{DynamicResource TDRadioButtonIconDisabledBorderBrush}" />
             </Style>
-            <Style Selector="^ /template/ td|CheckCircle#PART_CheckedIcon">
-                <Setter Property="OuterStroke" Value="{DynamicResource TDRadioButtonIconDisabledForeground}" />
+            <Style Selector="^ /template/ td|CheckCircleFilled#PART_CheckedIcon">
+                <Setter Property="OuterFill" Value="{DynamicResource TDRadioButtonIconDisabledForeground}" />
             </Style>
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource TDRadioButtonContentDisabledForeground}" />
