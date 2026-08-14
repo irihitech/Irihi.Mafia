@@ -99,6 +99,7 @@
                                     IsVisible="{TemplateBinding InnerRightContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                 <td:ChevronRight
                                     Name="DropDownGlyph"
+                                    Stroke1="{DynamicResource TDCellRightContentForeground}"
                                     IsHitTestVisible="False"
                                     UseLayoutRounding="False" />
                             </StackPanel>
