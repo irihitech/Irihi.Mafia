@@ -46,7 +46,7 @@ public abstract class TDesignIconBase : Control
         AvaloniaProperty.Register<TDesignIconBase, IBrush?>(
             nameof(FallbackBrush), Brushes.White);
 
-    // 0: OuterStroke, 1: OuterFill, 2: InnerStroke, 3: InnerFill， 4: WhiteFallback, 5: NullFallback
+    // 0: OuterStroke, 1: OuterFill, 2: InnerStroke, 3: InnerFill, 4: WhiteFallback, 5: NullFallback
     private readonly IBrush?[] _brushes = new IBrush[6];
     private readonly Pen?[] _pens = new Pen?[6];
 
@@ -208,6 +208,25 @@ public abstract class TDesignIconBase : Control
         return _pens[effectiveIndex]!;
     }
 
+    /// <summary>
+    /// Applies the element-level pen overrides (StrokeWidth/StrokeCap/StrokeJoin).
+    /// When no override is set, the original pen is returned as-is (zero allocation);
+    /// a null pen (unused slot) stays null and the element is simply not stroked.
+    /// </summary>
+    private static Pen? ApplyPenOverrides(Pen? pen, DrawingElement element)
+    {
+        if (pen is null || (element.StrokeWidth is null && element.StrokeCap is null && element.StrokeJoin is null))
+        {
+            return pen;
+        }
+
+        return new Pen(
+            pen.Brush,
+            element.StrokeWidth ?? pen.Thickness,
+            lineCap: element.StrokeCap ?? pen.LineCap,
+            lineJoin: element.StrokeJoin ?? pen.LineJoin);
+    }
+
     private int GetEffectiveIndex(IconMode mode, int index)
     {
         var result = 0;
@@ -270,21 +289,23 @@ public abstract class TDesignIconBase : Control
             {
                 if (element is PathDrawingElement pde)
                 {
-                    context.DrawPathElement(pde, GetBrush(mode, element.FillIndex), GetPen(mode, element.StrokeIndex));
+                    context.DrawPathElement(pde, GetBrush(mode, element.FillIndex),
+                        ApplyPenOverrides(GetPen(mode, element.StrokeIndex), element));
                 }
                 else if (element is EllipseDrawingElement ede)
                 {
                     context.DrawEllipseElement(ede, GetBrush(mode, element.FillIndex),
-                        GetPen(mode, element.StrokeIndex));
+                        ApplyPenOverrides(GetPen(mode, element.StrokeIndex), element));
                 }
                 else if (element is LineDrawingElement lde)
                 {
-                    var pen = GetPen(mode, element.StrokeIndex);
+                    var pen = ApplyPenOverrides(GetPen(mode, element.StrokeIndex), element);
                     if (pen is not null) context.DrawLineElement(lde, pen);
                 }
                 else if (element is RectDrawingElement rde)
                 {
-                    context.DrawRectElement(rde, GetBrush(mode, element.FillIndex), GetPen(mode, element.StrokeIndex));
+                    context.DrawRectElement(rde, GetBrush(mode, element.FillIndex),
+                        ApplyPenOverrides(GetPen(mode, element.StrokeIndex), element));
                 }
             }
         }

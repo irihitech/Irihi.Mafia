@@ -1,0 +1,50 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:td="https://irihi.tech/td"
+             xmlns:m="https://irihi.tech/mafia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.IconGalleryView">
+    <UserControl.Styles>
+        <Style Selector=":is(td|TDesignIconBase)">
+            <Setter Property="Mode" Value="{Binding #modePicker.SelectedValue}" />
+            <Setter Property="OuterStroke" Value="{DynamicResource TDTextColorPrimary}" />
+            <Setter Property="OuterFill" Value="#BBD3FB" />
+            <Setter Property="InnerStroke" Value="#0052D9" />
+            <Setter Property="InnerFill" Value="#F78D94" />
+        </Style>
+    </UserControl.Styles>
+    <ScrollViewer>
+        <StackPanel Margin="16" Spacing="24">
+            <TextBlock Text="TDesign Icons" FontSize="20" FontWeight="Bold" />
+
+            <m:Picker Name="modePicker" SelectedIndex="3" Description="IconMode">
+                <td:IconMode>Line</td:IconMode>
+                <td:IconMode>Fill</td:IconMode>
+                <td:IconMode>TwoTone</td:IconMode>
+                <td:IconMode>MultiColor</td:IconMode>
+            </m:Picker>
+
+            <UniformGrid Columns="6" ColumnSpacing="16" RowSpacing="16">
+                <td:App />
+                <td:Browse />
+                <td:BrowseOff />
+                <td:Chat />
+                <td:Check />
+                <td:CheckCircle />
+                <td:CheckRectangle />
+                <td:ChevronLeft />
+                <td:ChevronRight />
+                <td:Close />
+                <td:CloseCircle />
+                <td:Home />
+                <td:Link />
+                <td:MenuApplication />
+                <td:MinusCircle />
+                <td:Search />
+                <td:User />
+            </UniformGrid>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

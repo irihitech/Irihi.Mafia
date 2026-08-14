@@ -1,21 +1,19 @@
-using Avalonia.Media;
+﻿using Avalonia.Media;
 
 namespace Irihi.Mafia.Themes.TDesign.Icons;
 
-public class ChevronRight : TDesignIconBase
+public class Chat : TDesignIconBase
 {
     private static readonly DrawingElement[]? StaticDrawingData =
     [
         new PathDrawingElement()
         {
+            FillIndex = 1,
             StrokeIndex = 0,
-            InheritStrokeWidth = true,
-            InheritStrokeCap = true,
-            InheritStrokeJoin = true,
             Data = StreamGeometry.Parse(
-                "M9.5 17.5L15 12L9.5 6.5"),
+                "M2.5 4H21.5V19H6.5L2.5 22V4Z"),
         },
     ];
-    
+
     protected override DrawingElement[]? DrawingData => StaticDrawingData;
 }

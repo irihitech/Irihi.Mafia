@@ -7,9 +7,22 @@ public abstract class DrawingElement
 {
     public int StrokeIndex { get; set; } = -1;
     public int FillIndex { get; set; } = -1;
-    public bool InheritStrokeWidth { get; set; }
-    public bool InheritStrokeCap { get; set; }
-    public bool InheritStrokeJoin { get; set; }
+
+    /// <summary>
+    /// Element-level stroke width; when null, inherits <see cref="TDesignIconBase.StrokeWidth"/>.
+    /// </summary>
+    public double? StrokeWidth { get; set; }
+
+    /// <summary>
+    /// Element-level line cap; when null, inherits <see cref="TDesignIconBase.LineCap"/>.
+    /// </summary>
+    public PenLineCap? StrokeCap { get; set; }
+
+    /// <summary>
+    /// Element-level line join; when null, inherits <see cref="TDesignIconBase.LineJoin"/>.
+    /// </summary>
+    public PenLineJoin? StrokeJoin { get; set; }
+
     public Matrix? Transform { get; set; }
 }
 

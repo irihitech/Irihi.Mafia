@@ -43,6 +43,7 @@ public partial class ControlGalleryViewModel : NavigationViewModelBase
             new(Manager, "Divider", nameof(LanguageManager.Keys.Gallery_Divider), nameof(LanguageManager.Keys.Gallery_Divider_Desc), ShowControlCommand),
             new(Manager, "TabControl", nameof(LanguageManager.Keys.Gallery_TabControl), nameof(LanguageManager.Keys.Gallery_TabControl_Desc), ShowControlCommand),
             new(Manager, "TabbedPage", nameof(LanguageManager.Keys.Gallery_TabbedPage), nameof(LanguageManager.Keys.Gallery_TabbedPage_Desc), ShowControlCommand),
+            new(Manager, "Icon", nameof(LanguageManager.Keys.Gallery_Icon), nameof(LanguageManager.Keys.Gallery_Icon_Desc), ShowControlCommand),
         ]);
         ApplyFilter();
     }
@@ -80,6 +81,7 @@ public partial class ControlGalleryViewModel : NavigationViewModelBase
             "Divider" => new DividerDetailView(),
             "TabControl" => new TabControlDetailView(),
             "TabbedPage" => new TabbedPageDetailView(),
+            "Icon" => new IconGalleryView(),
             _ => new PlaceholderDetailView(),
         };
         NavigationViewModelBase? datacontext = controlName switch
