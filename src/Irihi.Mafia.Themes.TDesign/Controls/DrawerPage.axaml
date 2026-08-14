@@ -1,6 +1,7 @@
-<ResourceDictionary
+﻿<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:td="https://irihi.tech/td">
     <ControlTheme
         x:Key="TDDrawerPagePaneToggleButtonTheme"
         TargetType="ToggleButton"
@@ -49,9 +50,8 @@
                                 IsVisible="False"
                                 Theme="{StaticResource TDDrawerPagePaneToggleButtonTheme}">
                                 <Panel>
-                                    <PathIcon
+                                    <td:MenuApplication
                                         Name="PART_CompactPaneButtonIcon"
-                                        Data="{DynamicResource TDDrawerPageMenuGlyph}"
                                         IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNull}}" />
                                     <ContentPresenter
                                         Name="PART_CompactPaneIconPresenter"
@@ -134,9 +134,8 @@
                                         IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}"
                                         Theme="{StaticResource TDDrawerPagePaneToggleButtonTheme}">
                                         <Panel>
-                                            <PathIcon
+                                            <td:MenuApplication
                                                 Name="PART_BottomPaneButtonIcon"
-                                                Data="{DynamicResource TDDrawerPageMenuGlyph}"
                                                 IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNull}}" />
                                             <ContentPresenter
                                                 Name="PART_BottomPaneIconPresenter"

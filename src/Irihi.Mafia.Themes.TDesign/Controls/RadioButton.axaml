@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:td="https://irihi.tech/td">
     <Design.PreviewWith>
         <StackPanel Width="400" Margin="20">
             <RadioButton Content="单选标题" GroupName="Group1" />
@@ -41,12 +42,12 @@
                                 Stroke="{DynamicResource TDRadioButtonIconBorderBrush}"
                                 StrokeThickness="{DynamicResource TDRadioButtonIconBorderThickness}"
                                 UseLayoutRounding="False" />
-                            <PathIcon
+                            <td:CheckCircle
                                 Name="PART_CheckedIcon"
                                 Width="{DynamicResource TDRadioButtonIconSize}"
                                 Height="{Binding $self.Width}"
-                                Data="{DynamicResource TempCheckCircleGlyph}"
-                                Foreground="{DynamicResource TDRadioButtonIconCheckedForeground}"
+                                OuterStroke="{DynamicResource TDRadioButtonIconCheckedForeground}"
+                                Mode="Fill"
                                 UseLayoutRounding="False" />
                         </Panel>
                         <ContentPresenter
@@ -73,11 +74,11 @@
             <Setter Property="Grid.Column" Value="2" />
         </Style>
 
-        <Style Selector="^:unchecked /template/ PathIcon#PART_CheckedIcon">
+        <Style Selector="^:unchecked /template/ td|CheckCircle#PART_CheckedIcon">
             <Setter Property="IsVisible" Value="False" />
         </Style>
 
-        <Style Selector="^:checked /template/ PathIcon#PART_CheckedIcon">
+        <Style Selector="^:checked /template/ td|CheckCircle#PART_CheckedIcon">
             <Setter Property="IsVisible" Value="True" />
         </Style>
 
@@ -85,8 +86,8 @@
             <Style Selector="^ /template/ Ellipse#PART_OuterEllipse">
                 <Setter Property="Stroke" Value="{DynamicResource TDRadioButtonIconDisabledBorderBrush}" />
             </Style>
-            <Style Selector="^ /template/ PathIcon#PART_CheckedIcon">
-                <Setter Property="Foreground" Value="{DynamicResource TDRadioButtonIconDisabledForeground}" />
+            <Style Selector="^ /template/ td|CheckCircle#PART_CheckedIcon">
+                <Setter Property="OuterStroke" Value="{DynamicResource TDRadioButtonIconDisabledForeground}" />
             </Style>
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource TDRadioButtonContentDisabledForeground}" />

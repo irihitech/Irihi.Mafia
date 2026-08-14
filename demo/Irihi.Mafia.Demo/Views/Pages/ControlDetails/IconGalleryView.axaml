@@ -9,7 +9,6 @@
     <UserControl.Styles>
         <Style Selector=":is(td|TDesignIconBase)">
             <Setter Property="Mode" Value="{Binding #modePicker.SelectedValue}" />
-            <Setter Property="OuterStroke" Value="{DynamicResource TDTextColorPrimary}" />
             <Setter Property="OuterFill" Value="#BBD3FB" />
             <Setter Property="InnerStroke" Value="#0052D9" />
             <Setter Property="InnerFill" Value="#F78D94" />

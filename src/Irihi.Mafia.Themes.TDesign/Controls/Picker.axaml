@@ -1,7 +1,8 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:m="https://irihi.tech/mafia">
+    xmlns:m="https://irihi.tech/mafia"
+    xmlns:td="https://irihi.tech/td">
 
     <ControlTheme x:Key="{x:Type m:Picker}" TargetType="m:Picker">
         <Setter Property="Padding" Value="{DynamicResource TDPickerPadding}" />
@@ -96,9 +97,8 @@
                                     Content="{TemplateBinding InnerRightContent}"
                                     ContentTemplate="{TemplateBinding InnerRightContentTemplate}"
                                     IsVisible="{TemplateBinding InnerRightContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
-                                <PathIcon
+                                <td:ChevronRight
                                     Name="DropDownGlyph"
-                                    Data="{DynamicResource TempChevronRightGlyph}"
                                     IsHitTestVisible="False"
                                     UseLayoutRounding="False" />
                             </StackPanel>

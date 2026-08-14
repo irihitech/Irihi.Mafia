@@ -1,5 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Documents;
 using Avalonia.Media;
 
 namespace Irihi.Mafia.Themes.TDesign.Icons;
@@ -7,8 +8,7 @@ namespace Irihi.Mafia.Themes.TDesign.Icons;
 public abstract class TDesignIconBase : Control
 {
     public static readonly StyledProperty<IBrush?> OuterStrokeProperty =
-        AvaloniaProperty.Register<TDesignIconBase, IBrush?>(
-            nameof(OuterStroke), new SolidColorBrush(Color.Parse("#191919")));
+        TextElement.ForegroundProperty.AddOwner<TextBlock>();
 
     public static readonly StyledProperty<IBrush?> OuterFillProperty =
         AvaloniaProperty.Register<TDesignIconBase, IBrush?>(
