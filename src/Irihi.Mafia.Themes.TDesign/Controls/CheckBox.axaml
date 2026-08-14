@@ -48,14 +48,12 @@
                                 Width="{DynamicResource TDCheckBoxIconSize}"
                                 Height="{Binding $self.Width}"
                                 OuterStroke="{DynamicResource TDCheckBoxIconCheckedForeground}"
-                                Mode="Fill"
                                 UseLayoutRounding="False" />
                             <td:MinusCircle
                                 Name="PART_IndeterminateIcon"
                                 Width="{DynamicResource TDCheckBoxIconSize}"
                                 Height="{Binding $self.Width}"
                                 OuterStroke="{DynamicResource TDCheckBoxIconCheckedForeground}"
-                                Mode="Fill"
                                 UseLayoutRounding="False"
                                 IsVisible="False" />
                         </Panel>

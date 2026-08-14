@@ -47,7 +47,6 @@
                                 Width="{DynamicResource TDRadioButtonIconSize}"
                                 Height="{Binding $self.Width}"
                                 OuterStroke="{DynamicResource TDRadioButtonIconCheckedForeground}"
-                                Mode="Fill"
                                 UseLayoutRounding="False" />
                         </Panel>
                         <ContentPresenter

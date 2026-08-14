@@ -1,4 +1,4 @@
-using Avalonia;
+﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Documents;
 using Avalonia.Media;
@@ -244,9 +244,7 @@ public abstract class TDesignIconBase : Control
                 result = index switch
                 {
                     0 => 0,
-                    1 => 0,
-                    2 => 4,
-                    3 => 4,
+                    2 => 2,
                     _ => 5
                 };
                 break;
