@@ -232,7 +232,7 @@ public abstract class TDesignIconBase : Control
         var result = 0;
         switch (mode)
         {
-            case IconMode.Line:
+            case IconMode.OutlineSingle:
                 result = index switch
                 {
                     0 => 0,
@@ -240,7 +240,7 @@ public abstract class TDesignIconBase : Control
                     _ => 5
                 };
                 break;
-            case IconMode.Fill:
+            case IconMode.OutlineDouble:
                 result = index switch
                 {
                     0 => 0,
@@ -248,7 +248,7 @@ public abstract class TDesignIconBase : Control
                     _ => 5
                 };
                 break;
-            case IconMode.TwoTone:
+            case IconMode.FilledDouble:
                 result = index switch
                 {
                     0 => 0,
@@ -258,7 +258,7 @@ public abstract class TDesignIconBase : Control
                     _ => 5
                 };
                 break;
-            case IconMode.MultiColor:
+            case IconMode.FilledMultiple:
                 result = index switch
                 {
                     0 => 0,
