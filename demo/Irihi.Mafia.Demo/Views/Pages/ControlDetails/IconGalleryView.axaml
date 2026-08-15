@@ -20,10 +20,25 @@
                     <td:IconMode>FilledMultiple</td:IconMode>
                 </m:Picker>
 
+                <TextBlock FontSize="14">
+                    <Run Text="StrokeWidth: " />
+                    <Run Text="{Binding #thickSlider.Value}" />
+                </TextBlock>
+
+                <Slider
+                    Name="thickSlider"
+                    Margin="10,8"
+                    Minimum="0.5"
+                    Maximum="2.5"
+                    TickFrequency="0.5"
+                    TickPlacement="BottomRight"
+                    IsSnapToTickEnabled="True" />
+
                 <UniformGrid Columns="6" ColumnSpacing="16" RowSpacing="16">
                     <UniformGrid.Styles>
                         <Style Selector=":is(td|TDesignIconBase)">
                             <Setter Property="Mode" Value="{Binding #modePicker.SelectedValue}" />
+                            <Setter Property="StrokeWidth" Value="{Binding #thickSlider.Value}" />
                         </Style>
                     </UniformGrid.Styles>
                     <td:App />
@@ -42,6 +57,7 @@
                     <td:MenuApplication />
                     <td:MinusCircle />
                     <td:Search />
+                    <td:Setting />
                     <td:User />
                 </UniformGrid>
             </StackPanel>
