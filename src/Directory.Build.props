@@ -1,14 +1,12 @@
 <Project>
     <PropertyGroup>
+        <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
 
-    <PropertyGroup Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">
-        <IsAotCompatible>true</IsAotCompatible>
-    </PropertyGroup>
-
     <PropertyGroup>
+        <Version>0.0.1</Version>
         <Authors>IRIHI Technology Co., Ltd.</Authors>
         <Description>A modern Avalonia UI control library with a TDesign-inspired theme.</Description>
         <RepositoryUrl>https://github.com/irihitech/Irihi.Mafia</RepositoryUrl>

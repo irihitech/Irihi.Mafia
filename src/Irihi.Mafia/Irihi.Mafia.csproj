@@ -2,10 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
     <PackageId>Irihi.Mafia</PackageId>
-    <Version>0.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
