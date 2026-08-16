@@ -1,8 +1,9 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:td="https://irihi.tech/td">
     <Design.PreviewWith>
         <StackPanel Margin="20">
-            <HyperlinkButton Content="跳转链接" Classes="WithIcon Underline"/>
+            <HyperlinkButton Content="跳转链接" Classes="WithIcon Underline" />
             <HyperlinkButton Content="跳转链接" Classes="Primary Underline WithIcon" />
             <HyperlinkButton Content="跳转链接" Classes="Success Underline WithIcon" />
             <HyperlinkButton Content="跳转链接" Classes="Warning Underline WithIcon" />
@@ -27,13 +28,12 @@
                     Name="PART_RootPanel"
                     Orientation="Horizontal"
                     Spacing="{DynamicResource TDLinkIconSpacing}">
-                    <PathIcon
+                    <td:Link
                         Name="PART_LinkGlyph"
                         IsVisible="False"
                         Width="{DynamicResource TDLinkIconWidth}"
                         Height="{Binding $self.Width}"
-                        Data="{DynamicResource TempLinkGlyph}"
-                        Foreground="{Binding #PART_ContentPresenter.Foreground}" />
+                        Stroke1="{Binding #PART_ContentPresenter.Foreground}" />
                     <ContentPresenter
                         Name="PART_ContentPresenter"
                         Foreground="{TemplateBinding Foreground}"
@@ -92,7 +92,7 @@
             </Style>
         </Style>
 
-        <Style Selector="^.WithIcon /template/ PathIcon#PART_LinkGlyph">
+        <Style Selector="^.WithIcon /template/ td|Link#PART_LinkGlyph">
             <Setter Property="IsVisible" Value="True" />
         </Style>
 

@@ -1,27 +1,47 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:td="https://irihi.tech/td">
     <Design.PreviewWith>
         <StackPanel Spacing="16">
             <StackPanel Orientation="Horizontal" Spacing="8">
-                <Button Theme="{StaticResource TDGlyphButton}" Content="{StaticResource TempCloseCircleGlyph}" />
-                <Button Theme="{StaticResource TDGlyphButton}" Content="{StaticResource TempSearchGlyph}" />
-                <Button Theme="{StaticResource TDGlyphButton}" Content="{StaticResource TempMenuApplicationGlyph}" IsEnabled="False" />
+                <Button Theme="{DynamicResource TDGlyphButton}">
+                    <td:CloseCircle />
+                </Button>
+                <Button Theme="{DynamicResource TDGlyphButton}">
+                    <td:Search />
+                </Button>
+                <Button Theme="{DynamicResource TDGlyphButton}" IsEnabled="False">
+                    <td:MenuApplication />
+                </Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Spacing="8">
-                <ToggleSwitch
-                    Theme="{StaticResource TDGlyphToggleSwitch}"
-                    OffContent="{StaticResource TempBrowseOffGlyph}"
-                    OnContent="{StaticResource TempBrowseGlyph}" />
-                <ToggleSwitch
-                    Theme="{StaticResource TDGlyphToggleSwitch}"
-                    IsChecked="True"
-                    OffContent="{StaticResource TempBrowseOffGlyph}"
-                    OnContent="{StaticResource TempBrowseGlyph}" />
-                <ToggleSwitch
-                    Theme="{StaticResource TDGlyphToggleSwitch}"
-                    Content="{StaticResource TempMenuApplicationGlyph}"
-                    OffContent="{StaticResource TempBrowseOffGlyph}"
-                    OnContent="{StaticResource TempBrowseGlyph}" />
+                <ToggleSwitch Theme="{DynamicResource TDGlyphToggleSwitch}">
+                    <ToggleSwitch.OffContent>
+                        <td:BrowseOff />
+                    </ToggleSwitch.OffContent>
+                    <ToggleSwitch.OnContent>
+                        <td:Browse />
+                    </ToggleSwitch.OnContent>
+                </ToggleSwitch>
+                <ToggleSwitch Theme="{DynamicResource TDGlyphToggleSwitch}" IsChecked="True">
+                    <ToggleSwitch.OffContent>
+                        <td:BrowseOff />
+                    </ToggleSwitch.OffContent>
+                    <ToggleSwitch.OnContent>
+                        <td:Browse />
+                    </ToggleSwitch.OnContent>
+                </ToggleSwitch>
+                <ToggleSwitch Theme="{DynamicResource TDGlyphToggleSwitch}">
+                    <ToggleSwitch.Content>
+                        <td:MenuApplication />
+                    </ToggleSwitch.Content>
+                    <ToggleSwitch.OffContent>
+                        <td:BrowseOff />
+                    </ToggleSwitch.OffContent>
+                    <ToggleSwitch.OnContent>
+                        <td:Browse />
+                    </ToggleSwitch.OnContent>
+                </ToggleSwitch>
             </StackPanel>
         </StackPanel>
     </Design.PreviewWith>

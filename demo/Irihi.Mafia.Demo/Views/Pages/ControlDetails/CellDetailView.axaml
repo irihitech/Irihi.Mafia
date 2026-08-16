@@ -36,7 +36,7 @@
                         Description="{Translate {x:Static local:LanguageManager+Keys.Cell_AdvancedDesc}}"
                         Note="{Translate {x:Static local:LanguageManager+Keys.Cell_AdvancedNote}}"
                         InnerLeftContent="{DynamicResource TempAppGlyph}"
-                        InnerRightContent="{DynamicResource TempArrowGlyph}" />
+                        InnerRightContent="{DynamicResource TempChevronRightGlyph}" />
                 <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_AdvancedContent}}"
                         Description="{Translate {x:Static local:LanguageManager+Keys.Cell_AdvancedDesc}}"
                         InnerLeftContent="{DynamicResource TempUserGlyph}"

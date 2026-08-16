@@ -1,7 +1,8 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=System.Runtime"
-                    xmlns:m="https://irihi.tech/mafia">
+                    xmlns:m="https://irihi.tech/mafia"
+                    xmlns:td="https://irihi.tech/td">
     <Design.PreviewWith>
         <Border
             Width="400"
@@ -10,7 +11,11 @@
             BorderThickness="1">
             <StackPanel>
                 <m:Input PlaceholderText="请输入文字" />
-                <m:Input InnerLeftContent="{DynamicResource TempSearchGlyph}" PlaceholderText="请输入文字" />
+                <m:Input PlaceholderText="请输入文字">
+                    <m:Input.InnerLeftContent>
+                        <td:Search />
+                    </m:Input.InnerLeftContent>
+                </m:Input>
                 <m:Input InnerLeftContent="标" PlaceholderText="请输入文字" IsRequired="True" />
                 <m:Input InnerLeftContent="标签文字" PlaceholderText="请输入文字" IsRequired="True" />
                 <m:Input InnerLeftContent="数量" PlaceholderText="请输入文字" Description="描述" InnerRightContent="个" />
@@ -160,8 +165,9 @@
                                     Command="{Binding $parent[TextBox].Clear}"
                                     IsVisible="False"
                                     Focusable="False"
-                                    Content="{DynamicResource TempCloseCircleGlyph}"
-                                    Theme="{StaticResource TDGlyphButton}" />
+                                    Theme="{StaticResource TDGlyphButton}">
+                                    <td:CloseCircle />
+                                </Button>
                                 <ToggleSwitch
                                     Name="PART_RevealButton"
                                     Grid.Row="0" Grid.Column="2"
@@ -169,9 +175,14 @@
                                     IsChecked="{TemplateBinding RevealPassword, Mode=TwoWay}"
                                     IsVisible="False"
                                     Focusable="False"
-                                    OffContent="{DynamicResource TempBrowseOffGlyph}"
-                                    OnContent="{DynamicResource TempBrowseGlyph}"
-                                    Theme="{StaticResource TDGlyphToggleSwitch}" />
+                                    Theme="{StaticResource TDGlyphToggleSwitch}">
+                                    <ToggleSwitch.OnContent>
+                                        <td:Browse />
+                                    </ToggleSwitch.OnContent>
+                                    <ToggleSwitch.OffContent>
+                                        <td:BrowseOff />
+                                    </ToggleSwitch.OffContent>
+                                </ToggleSwitch>
                                 <ContentPresenter
                                     Name="PART_Description"
                                     Grid.Row="1" Grid.Column="0"

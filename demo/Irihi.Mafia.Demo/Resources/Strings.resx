@@ -71,6 +71,8 @@
   <data name="Gallery_TabControl_Desc" xml:space="preserve"><value>Tab switching container</value></data>
   <data name="Gallery_TabbedPage" xml:space="preserve"><value>TabbedPage</value></data>
   <data name="Gallery_TabbedPage_Desc" xml:space="preserve"><value>Navigation used on this page</value></data>
+  <data name="Gallery_Icon" xml:space="preserve"><value>Icon</value></data>
+  <data name="Gallery_Icon_Desc" xml:space="preserve"><value>Icon used in the gallery</value></data>
 
   <!-- Input Detail -->
   <data name="Input_Title" xml:space="preserve"><value>Input</value></data>
