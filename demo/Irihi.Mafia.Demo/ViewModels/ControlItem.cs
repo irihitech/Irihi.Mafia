@@ -24,12 +24,13 @@ public class ControlItem
         Title = manager.GetObservable(titleKey)!;
         Description = manager.GetObservable(descriptionKey)!;
         Command = command;
-
+        
         var searchable = new List<string> { name };
         if (Title is LinguaObservableString title)
             searchable.AddRange(manager.GetTranslations(title).Values);
         if (Description is LinguaObservableString description)
             searchable.AddRange(manager.GetTranslations(description).Values);
+        
         _searchable = searchable.ToArray();
     }
 

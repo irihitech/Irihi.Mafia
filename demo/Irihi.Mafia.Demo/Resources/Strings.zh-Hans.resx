@@ -73,6 +73,8 @@
   <data name="Gallery_TabbedPage_Desc" xml:space="preserve"><value>本页正在使用的导航</value></data>
   <data name="Gallery_Icon" xml:space="preserve"><value>Icon</value></data>
   <data name="Gallery_Icon_Desc" xml:space="preserve"><value>画廊使用的图标</value></data>
+  <data name="Gallery_StickyPanel" xml:space="preserve"><value>StickyPanel 粘性面板</value></data>
+  <data name="Gallery_StickyPanel_Desc" xml:space="preserve"><value>滚动时粘性表头</value></data>
 
   <!-- Input Detail -->
   <data name="Input_Title" xml:space="preserve"><value>Input 输入框</value></data>
@@ -308,6 +310,16 @@
   <data name="Theme_Light" xml:space="preserve"><value>浅色</value></data>
   <data name="Theme_Dark" xml:space="preserve"><value>深色</value></data>
   <data name="Theme_System" xml:space="preserve"><value>跟随系统</value></data>
+
+  <!-- StickyPanel Detail -->
+  <data name="StickyPanel_Title" xml:space="preserve"><value>StickyPanel 粘性面板</value></data>
+  <data name="StickyPanel_Desc" xml:space="preserve"><value>一个垂直面板，具有粘性表头，在滚动时保持固定。在子元素上设置 StickyLevel 来启用粘性行为。</value></data>
+  <data name="StickyPanel_Section_Group1" xml:space="preserve"><value>分组 1</value></data>
+  <data name="StickyPanel_Section_Group2" xml:space="preserve"><value>分组 2</value></data>
+  <data name="StickyPanel_Section_Group3" xml:space="preserve"><value>分组 3</value></data>
+  <data name="StickyPanel_Section_Group4" xml:space="preserve"><value>分组 4</value></data>
+  <data name="StickyPanel_Section_Group5" xml:space="preserve"><value>分组 5</value></data>
+  <data name="StickyPanel_Section_Group6" xml:space="preserve"><value>分组 6</value></data>
 
   <!-- Language Options -->
   <data name="Lang_Chinese" xml:space="preserve"><value>中文</value></data>

@@ -44,6 +44,7 @@ public partial class ControlGalleryViewModel : NavigationViewModelBase
             new(Manager, "TabControl", nameof(LanguageManager.Keys.Gallery_TabControl), nameof(LanguageManager.Keys.Gallery_TabControl_Desc), ShowControlCommand),
             new(Manager, "TabbedPage", nameof(LanguageManager.Keys.Gallery_TabbedPage), nameof(LanguageManager.Keys.Gallery_TabbedPage_Desc), ShowControlCommand),
             new(Manager, "Icon", nameof(LanguageManager.Keys.Gallery_Icon), nameof(LanguageManager.Keys.Gallery_Icon_Desc), ShowControlCommand),
+            new(Manager, "StickyPanel", nameof(LanguageManager.Keys.Gallery_StickyPanel), nameof(LanguageManager.Keys.Gallery_StickyPanel_Desc), ShowControlCommand),
         ]);
         ApplyFilter();
     }
@@ -82,6 +83,7 @@ public partial class ControlGalleryViewModel : NavigationViewModelBase
             "TabControl" => new TabControlDetailView(),
             "TabbedPage" => new TabbedPageDetailView(),
             "Icon" => new IconGalleryView(),
+            "StickyPanel" => new StickyPanelDetailView(),
             _ => new PlaceholderDetailView(),
         };
         NavigationViewModelBase? datacontext = controlName switch
