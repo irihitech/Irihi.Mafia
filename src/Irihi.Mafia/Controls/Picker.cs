@@ -26,7 +26,7 @@ public class Picker : SelectingItemsControl, ICell
 {
 
     private static readonly FuncTemplate<Panel?> DefaultPanel =
-        new(() => new StackPanel());
+        new(() => new VirtualizingStackPanel());
 
     /// <summary>
     /// Defines the <see cref="IsConfirmable"/> property.

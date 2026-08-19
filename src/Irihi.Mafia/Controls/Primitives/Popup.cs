@@ -120,23 +120,32 @@ public class Popup : Control
         _zIndex = Interlocked.Increment(ref s_zIndexBase);
         host.ZIndex = _zIndex;
 
-        // Enter animation: start from transparent + offset
+        // Keep initial layout in-place so virtualized content gets the correct viewport.
         host.Opacity = 0;
-        var initialOffset = GetContentOffsetForPlacement(Placement);
-        host.ContentOffsetX = initialOffset.X;
-        host.ContentOffsetY = initialOffset.Y;
+        host.ContentOffsetX = 0;
+        host.ContentOffsetY = 0;
 
         host.Show();
 
-        // Trigger animation to final state on next layout
+        // Stage the entrance slide after first layout, then animate to final state.
+        var initialOffset = GetContentOffsetForPlacement(Placement);
         Dispatcher.UIThread.Post(() =>
         {
-            if (_host == host && !_isClosing)
+            if (_host != host || _isClosing)
+                return;
+
+            host.ContentOffsetX = initialOffset.X;
+            host.ContentOffsetY = initialOffset.Y;
+
+            Dispatcher.UIThread.Post(() =>
             {
-                host.Opacity = 1;
-                host.ContentOffsetX = 0;
-                host.ContentOffsetY = 0;
-            }
+                if (_host == host && !_isClosing)
+                {
+                    host.Opacity = 1;
+                    host.ContentOffsetX = 0;
+                    host.ContentOffsetY = 0;
+                }
+            }, DispatcherPriority.Render);
         }, DispatcherPriority.Render);
 
         _isOpenRequested = true;
