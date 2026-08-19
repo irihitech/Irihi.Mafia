@@ -118,7 +118,9 @@ public class Calendar : TemplatedControl
     private DateTime? _rangeAnchor;
     private CalendarMonthView[]? _pagedMonths;
     private VirtualCalendarMonthCollection? _scrollMonths;
+    private bool _isRecenteringScrollRange;
     private bool _scrollAlignmentPending;
+    private double _scrollMonthHeight;
     private int _scrollAnchorIndex;
 
     static Calendar()
@@ -263,6 +265,11 @@ public class Calendar : TemplatedControl
             _monthsPresenter.LayoutUpdated -= OnMonthsPresenterLayoutUpdated;
         }
 
+        if (_scrollViewer is not null)
+        {
+            _scrollViewer.PropertyChanged -= OnScrollViewerPropertyChanged;
+        }
+
         _monthsPresenter = e.NameScope.Find<CalendarMonthsPresenter>(PART_MonthsPresenter);
         if (_monthsPresenter is not null)
         {
@@ -272,6 +279,11 @@ public class Calendar : TemplatedControl
         }
 
         _scrollViewer = e.NameScope.Find<ScrollViewer>(PART_ScrollViewer);
+        if (_scrollViewer is not null)
+        {
+            _scrollViewer.PropertyChanged += OnScrollViewerPropertyChanged;
+        }
+
         ScrollHomeMonthIntoView();
     }
 
@@ -851,6 +863,7 @@ public class Calendar : TemplatedControl
             return false;
         }
 
+        _scrollMonthHeight = firstContainer.Bounds.Height;
         var targetOffset = firstContainer.Bounds.Height * _scrollAnchorIndex;
         if (Math.Abs(_scrollViewer.Offset.Y - targetOffset) > 0.5)
         {
@@ -873,6 +886,60 @@ public class Calendar : TemplatedControl
     private void OnMonthsPresenterLayoutUpdated(object? sender, EventArgs e)
     {
         TryAlignScrollViewerToCurrentMonth();
+    }
+
+    private void OnScrollViewerPropertyChanged(object? sender, AvaloniaPropertyChangedEventArgs e)
+    {
+        if (e.Property == ScrollViewer.OffsetProperty)
+        {
+            EnsureScrollRange();
+        }
+    }
+
+    private void EnsureScrollRange()
+    {
+        if (_isRecenteringScrollRange
+            || DisplayMode != CalendarDisplayMode.Scroll
+            || _scrollViewer is null
+            || _scrollMonths is null
+            || _scrollMonthHeight <= 0)
+        {
+            return;
+        }
+
+        var buffer = Math.Max(0, ScrollMonthBuffer);
+        var count = _scrollMonths.Count;
+        var threshold = Math.Max(2, Math.Min(buffer, 4));
+
+        if (count <= threshold * 2 + 1)
+        {
+            return;
+        }
+
+        var offsetY = Math.Max(0, _scrollViewer.Offset.Y);
+        var monthIndex = (int)Math.Clamp(Math.Floor(offsetY / _scrollMonthHeight), 0, count - 1);
+        if (monthIndex >= threshold && monthIndex < count - threshold)
+        {
+            return;
+        }
+
+        var monthOffset = offsetY - (monthIndex * _scrollMonthHeight);
+        var currentMonth = _scrollMonths.GetMonth(monthIndex);
+        var selection = CaptureSelection();
+        var newAnchorIndex = buffer;
+        var newStartMonth = currentMonth.AddMonths(-newAnchorIndex);
+        var newOffset = Math.Max(0, (newAnchorIndex * _scrollMonthHeight) + monthOffset);
+
+        _isRecenteringScrollRange = true;
+        try
+        {
+            _scrollMonths.ResetRange(newStartMonth, count, selection);
+            _scrollViewer.Offset = new Vector(_scrollViewer.Offset.X, newOffset);
+        }
+        finally
+        {
+            _isRecenteringScrollRange = false;
+        }
     }
 
     private void OnMonthsPresenterPointerPressed(object? sender, PointerPressedEventArgs e)
@@ -1049,6 +1116,13 @@ public class Calendar : TemplatedControl
         {
             month = NormalizeMonth(month);
             return ((month.Year - _startMonth.Year) * 12) + month.Month - _startMonth.Month;
+        }
+
+        public DateTime GetMonth(int index)
+        {
+            ArgumentOutOfRangeException.ThrowIfNegative(index);
+            ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(index, _count);
+            return _startMonth.AddMonths(index);
         }
 
         public void ResetRange(DateTime startMonth, int count, SelectionState selection)

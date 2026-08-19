@@ -148,4 +148,23 @@ public class CalendarTest
             calendar.VisibleMonths.Cast<CalendarMonthView>().SelectMany(x => x.Days),
             x => x.Date == new DateTime(2026, 8, 10) && x.IsRangeStart);
     }
+
+    [Fact]
+    public void Scroll_Mode_Retains_Source_When_DisplayDate_Moves_Beyond_Initial_Window()
+    {
+        var calendar = new Calendar
+        {
+            DisplayMode = CalendarDisplayMode.Scroll,
+            ScrollMonthBuffer = 12
+        };
+
+        var source = calendar.VisibleMonths;
+        calendar.DisplayDate = new DateTime(2032, 3, 16);
+
+        var months = Assert.IsAssignableFrom<IList>(calendar.VisibleMonths);
+        var centeredMonth = Assert.IsType<CalendarMonthView>(months[12]);
+
+        Assert.Same(source, calendar.VisibleMonths);
+        Assert.Equal(new DateTime(2032, 3, 1), centeredMonth.Month);
+    }
 }
