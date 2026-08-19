@@ -25,7 +25,9 @@
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}"
                     Padding="{TemplateBinding Padding}">
-                    <StackPanel Spacing="{DynamicResource TDCalendarSpacing}">
+                    <Grid
+                        RowDefinitions="Auto,Auto,*"
+                        RowSpacing="{DynamicResource TDCalendarSpacing}">
                         <Grid
                             ColumnDefinitions="Auto,*,Auto"
                             VerticalAlignment="Center"
@@ -59,7 +61,9 @@
                             </Button>
                         </Grid>
 
-                        <ItemsControl ItemsSource="{Binding $parent[m:Calendar].DayOfWeekHeaders}">
+                        <ItemsControl
+                            Grid.Row="1"
+                            ItemsSource="{Binding $parent[m:Calendar].DayOfWeekHeaders}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <UniformGrid Columns="7" />
@@ -78,6 +82,7 @@
 
                         <ScrollViewer
                             Name="PART_ScrollViewer"
+                            Grid.Row="2"
                             HorizontalScrollBarVisibility="Disabled"
                             VerticalScrollBarVisibility="Auto"
                             MaxHeight="{DynamicResource TDCalendarScrollViewportMaxHeight}">
@@ -123,7 +128,7 @@
                                 </m:CalendarMonthsPresenter.ItemTemplate>
                             </m:CalendarMonthsPresenter>
                         </ScrollViewer>
-                    </StackPanel>
+                    </Grid>
                 </Border>
             </ControlTemplate>
         </Setter>
@@ -133,7 +138,7 @@
             <Setter Property="MaxHeight" Value="Infinity" />
         </Style>
 
-        <Style Selector="^:paged /template/ m|CalendarMonthsPresenter#PART_MonthsPresenter">
+        <Style Selector="^:paged /template/ ItemsControl#PART_MonthsPresenter">
             <Setter Property="ItemsControl.ItemsPanel">
                 <ItemsPanelTemplate>
                     <StackPanel />
@@ -141,7 +146,7 @@
             </Setter>
         </Style>
 
-        <Style Selector="^:scroll /template/ m|CalendarMonthsPresenter#PART_MonthsPresenter">
+        <Style Selector="^:scroll /template/ ItemsControl#PART_MonthsPresenter">
             <Setter Property="ItemsControl.ItemsPanel">
                 <ItemsPanelTemplate>
                     <VirtualizingStackPanel CacheLength="1" />
