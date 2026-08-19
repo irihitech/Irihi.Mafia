@@ -8,7 +8,6 @@ using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
 using Avalonia.Data;
 using Avalonia.Input;
-using Avalonia.Threading;
 using Irihi.Mafia.Common;
 using CalendarDisplayMode = Irihi.Mafia.Common.CalendarDisplayMode;
 using CalendarSelectionMode = Irihi.Mafia.Common.CalendarSelectionMode;
@@ -119,6 +118,7 @@ public class Calendar : TemplatedControl
     private DateTime? _rangeAnchor;
     private CalendarMonthView[]? _pagedMonths;
     private VirtualCalendarMonthCollection? _scrollMonths;
+    private bool _scrollAlignmentPending;
     private int _scrollAnchorIndex;
 
     static Calendar()
@@ -260,6 +260,7 @@ public class Calendar : TemplatedControl
             _monthsPresenter.PointerPressed -= OnMonthsPresenterPointerPressed;
             _monthsPresenter.PointerReleased -= OnMonthsPresenterPointerReleased;
             _monthsPresenter.PointerCaptureLost -= OnMonthsPresenterPointerCaptureLost;
+            _monthsPresenter.LayoutUpdated -= OnMonthsPresenterLayoutUpdated;
         }
 
         _monthsPresenter = e.NameScope.Find<CalendarMonthsPresenter>(PART_MonthsPresenter);
@@ -811,37 +812,67 @@ public class Calendar : TemplatedControl
     {
         if (_scrollViewer is null || _monthsPresenter is null || DisplayMode != CalendarDisplayMode.Scroll)
         {
+            StopTrackingScrollAlignment();
             return;
         }
 
-        Dispatcher.UIThread.Post(() => AlignScrollViewerToCurrentMonth(0), DispatcherPriority.Loaded);
+        _scrollAlignmentPending = true;
+        _monthsPresenter.LayoutUpdated -= OnMonthsPresenterLayoutUpdated;
+        _monthsPresenter.LayoutUpdated += OnMonthsPresenterLayoutUpdated;
+        TryAlignScrollViewerToCurrentMonth();
     }
 
-    private void AlignScrollViewerToCurrentMonth(int attempt)
+    private bool TryAlignScrollViewerToCurrentMonth()
     {
         if (_scrollViewer is null || _monthsPresenter is null || DisplayMode != CalendarDisplayMode.Scroll)
         {
-            return;
+            StopTrackingScrollAlignment();
+            return true;
+        }
+
+        if (!_scrollAlignmentPending)
+        {
+            return true;
         }
 
         if (_scrollAnchorIndex <= 0)
         {
-            _scrollViewer.Offset = new Vector(_scrollViewer.Offset.X, 0);
-            return;
+            if (Math.Abs(_scrollViewer.Offset.Y) > 0.5)
+            {
+                _scrollViewer.Offset = new Vector(_scrollViewer.Offset.X, 0);
+            }
+
+            StopTrackingScrollAlignment();
+            return true;
         }
 
         if (_monthsPresenter.ContainerFromIndex(0) is not Control firstContainer || firstContainer.Bounds.Height <= 0)
         {
-            if (attempt < 5)
-            {
-                Dispatcher.UIThread.Post(() => AlignScrollViewerToCurrentMonth(attempt + 1), DispatcherPriority.Loaded);
-            }
-
-            return;
+            return false;
         }
 
         var targetOffset = firstContainer.Bounds.Height * _scrollAnchorIndex;
-        _scrollViewer.Offset = new Vector(_scrollViewer.Offset.X, targetOffset);
+        if (Math.Abs(_scrollViewer.Offset.Y - targetOffset) > 0.5)
+        {
+            _scrollViewer.Offset = new Vector(_scrollViewer.Offset.X, targetOffset);
+        }
+
+        StopTrackingScrollAlignment();
+        return true;
+    }
+
+    private void StopTrackingScrollAlignment()
+    {
+        _scrollAlignmentPending = false;
+        if (_monthsPresenter is not null)
+        {
+            _monthsPresenter.LayoutUpdated -= OnMonthsPresenterLayoutUpdated;
+        }
+    }
+
+    private void OnMonthsPresenterLayoutUpdated(object? sender, EventArgs e)
+    {
+        TryAlignScrollViewerToCurrentMonth();
     }
 
     private void OnMonthsPresenterPointerPressed(object? sender, PointerPressedEventArgs e)

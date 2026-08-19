@@ -16,7 +16,7 @@
     <x:Double x:Key="TDCalendarMonthSpacing">8</x:Double>
     <Thickness x:Key="TDCalendarMonthPadding">0,4,0,0</Thickness>
     <Thickness x:Key="TDCalendarScrollMonthPadding">0,0,0,16</Thickness>
-    <x:Double x:Key="TDCalendarScrollViewportMaxHeight">420</x:Double>
+    <x:Double x:Key="TDCalendarScrollViewportMaxHeight">312</x:Double>
 
     <x:Double x:Key="TDCalendarDaySize">40</x:Double>
     <Thickness x:Key="TDCalendarDayMargin">2</Thickness>
