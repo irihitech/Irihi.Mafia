@@ -26,7 +26,10 @@
                     CornerRadius="{TemplateBinding CornerRadius}"
                     Padding="{TemplateBinding Padding}">
                     <StackPanel Spacing="{DynamicResource TDCalendarSpacing}">
-                        <Grid ColumnDefinitions="Auto,*,Auto" VerticalAlignment="Center">
+                        <Grid
+                            ColumnDefinitions="Auto,*,Auto"
+                            VerticalAlignment="Center"
+                            IsVisible="{Binding $parent[m:Calendar].IsPagedMode}">
                             <Button
                                 MinWidth="{DynamicResource TDCalendarHeaderButtonSize}"
                                 MinHeight="{DynamicResource TDCalendarHeaderButtonSize}"
@@ -89,6 +92,7 @@
                                                 FontSize="{DynamicResource TDCalendarHeaderFontSize}"
                                                 FontWeight="{DynamicResource TDCalendarHeaderFontWeight}"
                                                 Foreground="{DynamicResource TDCalendarMonthTitleForeground}"
+                                                IsVisible="{Binding $parent[m:Calendar].IsScrollMode}"
                                                 Text="{Binding Title}" />
 
                                             <ItemsControl ItemsSource="{Binding Days}">
@@ -123,10 +127,6 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-
-        <Style Selector="^:paged /template/ TextBlock#PART_MonthTitle">
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
 
         <Style Selector="^:paged /template/ ScrollViewer#PART_ScrollViewer">
             <Setter Property="VerticalScrollBarVisibility" Value="Disabled" />

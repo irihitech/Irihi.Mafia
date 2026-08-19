@@ -115,6 +115,20 @@ public class CalendarTest
     }
 
     [Fact]
+    public void Display_Mode_Flags_Follow_Current_Mode()
+    {
+        var calendar = new Calendar();
+
+        Assert.True(calendar.IsPagedMode);
+        Assert.False(calendar.IsScrollMode);
+
+        calendar.DisplayMode = CalendarDisplayMode.Scroll;
+
+        Assert.False(calendar.IsPagedMode);
+        Assert.True(calendar.IsScrollMode);
+    }
+
+    [Fact]
     public void Scroll_Mode_Keeps_List_Source_When_Selecting()
     {
         var calendar = new Calendar

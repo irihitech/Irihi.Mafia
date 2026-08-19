@@ -87,6 +87,16 @@ public class Calendar : TemplatedControl
             nameof(DayOfWeekHeaders),
             o => o.DayOfWeekHeaders);
 
+    public static readonly DirectProperty<Calendar, bool> IsPagedModeProperty =
+        AvaloniaProperty.RegisterDirect<Calendar, bool>(
+            nameof(IsPagedMode),
+            o => o.IsPagedMode);
+
+    public static readonly DirectProperty<Calendar, bool> IsScrollModeProperty =
+        AvaloniaProperty.RegisterDirect<Calendar, bool>(
+            nameof(IsScrollMode),
+            o => o.IsScrollMode);
+
     public static readonly DirectProperty<Calendar, IEnumerable> VisibleMonthsProperty =
         AvaloniaProperty.RegisterDirect<Calendar, IEnumerable>(
             nameof(VisibleMonths),
@@ -98,6 +108,8 @@ public class Calendar : TemplatedControl
 
     private string _displayedMonthTitle = string.Empty;
     private IReadOnlyList<string> _dayOfWeekHeaders = Array.Empty<string>();
+    private bool _isPagedMode = true;
+    private bool _isScrollMode;
     private IEnumerable _visibleMonths = Array.Empty<CalendarMonthView>();
 
     private bool _isUpdatingSelection;
@@ -213,6 +225,18 @@ public class Calendar : TemplatedControl
     {
         get => _dayOfWeekHeaders;
         private set => SetAndRaise(DayOfWeekHeadersProperty, ref _dayOfWeekHeaders, value);
+    }
+
+    public bool IsPagedMode
+    {
+        get => _isPagedMode;
+        private set => SetAndRaise(IsPagedModeProperty, ref _isPagedMode, value);
+    }
+
+    public bool IsScrollMode
+    {
+        get => _isScrollMode;
+        private set => SetAndRaise(IsScrollModeProperty, ref _isScrollMode, value);
     }
 
     public IEnumerable VisibleMonths
@@ -770,6 +794,8 @@ public class Calendar : TemplatedControl
 
     private void UpdateDisplayModePseudoClasses(CalendarDisplayMode mode)
     {
+        IsPagedMode = mode == CalendarDisplayMode.Paged;
+        IsScrollMode = mode == CalendarDisplayMode.Scroll;
         PseudoClasses.Set(PC_Paged, mode == CalendarDisplayMode.Paged);
         PseudoClasses.Set(PC_Scroll, mode == CalendarDisplayMode.Scroll);
     }
