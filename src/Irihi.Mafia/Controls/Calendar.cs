@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Globalization;
 using System.Windows.Input;
 using Avalonia;
@@ -7,19 +8,18 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Data;
 using Avalonia.Input;
 using Avalonia.Threading;
-using Avalonia.VisualTree;
 using Irihi.Mafia.Common;
 using CalendarDisplayMode = Irihi.Mafia.Common.CalendarDisplayMode;
 using CalendarSelectionMode = Irihi.Mafia.Common.CalendarSelectionMode;
 
 namespace Irihi.Mafia.Controls;
 
-[TemplatePart(PART_PagedHost, typeof(Control))]
+[TemplatePart(PART_MonthsPresenter, typeof(CalendarMonthsPresenter))]
 [TemplatePart(PART_ScrollViewer, typeof(ScrollViewer))]
 [PseudoClasses(PC_Paged, PC_Scroll, PC_Single, PC_Multiple, PC_Range)]
 public class Calendar : TemplatedControl
 {
-    public const string PART_PagedHost = "PART_PagedHost";
+    public const string PART_MonthsPresenter = "PART_MonthsPresenter";
     public const string PART_ScrollViewer = "PART_ScrollViewer";
 
     public const string PC_Paged = ":paged";
@@ -86,15 +86,10 @@ public class Calendar : TemplatedControl
             nameof(DayOfWeekHeaders),
             o => o.DayOfWeekHeaders);
 
-    public static readonly DirectProperty<Calendar, IReadOnlyList<CalendarDayItem>> PagedDaysProperty =
-        AvaloniaProperty.RegisterDirect<Calendar, IReadOnlyList<CalendarDayItem>>(
-            nameof(PagedDays),
-            o => o.PagedDays);
-
-    public static readonly DirectProperty<Calendar, IReadOnlyList<CalendarMonthView>> ScrollMonthsProperty =
-        AvaloniaProperty.RegisterDirect<Calendar, IReadOnlyList<CalendarMonthView>>(
-            nameof(ScrollMonths),
-            o => o.ScrollMonths);
+    public static readonly DirectProperty<Calendar, IEnumerable> VisibleMonthsProperty =
+        AvaloniaProperty.RegisterDirect<Calendar, IEnumerable>(
+            nameof(VisibleMonths),
+            o => o.VisibleMonths);
 
     private readonly ICommand _previousMonthCommand;
     private readonly ICommand _nextMonthCommand;
@@ -102,14 +97,14 @@ public class Calendar : TemplatedControl
 
     private string _displayedMonthTitle = string.Empty;
     private IReadOnlyList<string> _dayOfWeekHeaders = Array.Empty<string>();
-    private IReadOnlyList<CalendarDayItem> _pagedDays = Array.Empty<CalendarDayItem>();
-    private IReadOnlyList<CalendarMonthView> _scrollMonths = Array.Empty<CalendarMonthView>();
+    private IEnumerable _visibleMonths = Array.Empty<CalendarMonthView>();
 
     private bool _isUpdatingSelection;
-    private Control? _pagedHost;
+    private CalendarMonthsPresenter? _monthsPresenter;
     private ScrollViewer? _scrollViewer;
     private Point? _swipeStart;
     private DateTime? _rangeAnchor;
+    private int _scrollAnchorIndex;
 
     static Calendar()
     {
@@ -217,16 +212,10 @@ public class Calendar : TemplatedControl
         private set => SetAndRaise(DayOfWeekHeadersProperty, ref _dayOfWeekHeaders, value);
     }
 
-    public IReadOnlyList<CalendarDayItem> PagedDays
+    public IEnumerable VisibleMonths
     {
-        get => _pagedDays;
-        private set => SetAndRaise(PagedDaysProperty, ref _pagedDays, value);
-    }
-
-    public IReadOnlyList<CalendarMonthView> ScrollMonths
-    {
-        get => _scrollMonths;
-        private set => SetAndRaise(ScrollMonthsProperty, ref _scrollMonths, value);
+        get => _visibleMonths;
+        private set => SetAndRaise(VisibleMonthsProperty, ref _visibleMonths, value);
     }
 
     public ICommand PreviousMonthCommand => _previousMonthCommand;
@@ -239,19 +228,19 @@ public class Calendar : TemplatedControl
     {
         base.OnApplyTemplate(e);
 
-        if (_pagedHost is not null)
+        if (_monthsPresenter is not null)
         {
-            _pagedHost.PointerPressed -= OnPagedHostPointerPressed;
-            _pagedHost.PointerReleased -= OnPagedHostPointerReleased;
-            _pagedHost.PointerCaptureLost -= OnPagedHostPointerCaptureLost;
+            _monthsPresenter.PointerPressed -= OnMonthsPresenterPointerPressed;
+            _monthsPresenter.PointerReleased -= OnMonthsPresenterPointerReleased;
+            _monthsPresenter.PointerCaptureLost -= OnMonthsPresenterPointerCaptureLost;
         }
 
-        _pagedHost = e.NameScope.Find<Control>(PART_PagedHost);
-        if (_pagedHost is not null)
+        _monthsPresenter = e.NameScope.Find<CalendarMonthsPresenter>(PART_MonthsPresenter);
+        if (_monthsPresenter is not null)
         {
-            _pagedHost.PointerPressed += OnPagedHostPointerPressed;
-            _pagedHost.PointerReleased += OnPagedHostPointerReleased;
-            _pagedHost.PointerCaptureLost += OnPagedHostPointerCaptureLost;
+            _monthsPresenter.PointerPressed += OnMonthsPresenterPointerPressed;
+            _monthsPresenter.PointerReleased += OnMonthsPresenterPointerReleased;
+            _monthsPresenter.PointerCaptureLost += OnMonthsPresenterPointerCaptureLost;
         }
 
         _scrollViewer = e.NameScope.Find<ScrollViewer>(PART_ScrollViewer);
@@ -403,7 +392,7 @@ public class Calendar : TemplatedControl
                 break;
         }
 
-        if (DisplayMode == CalendarDisplayMode.Paged && NormalizeMonth(DisplayDate) != NormalizeMonth(date))
+        if (NormalizeMonth(DisplayDate) != NormalizeMonth(date))
         {
             SetCurrentValue(DisplayDateProperty, NormalizeMonth(date));
         }
@@ -578,8 +567,7 @@ public class Calendar : TemplatedControl
 
         DayOfWeekHeaders = BuildDayOfWeekHeaders();
         DisplayedMonthTitle = normalizedDisplayDate.ToString("Y", CultureInfo.CurrentCulture);
-        PagedDays = BuildMonthDays(normalizedDisplayDate, selection);
-        ScrollMonths = BuildScrollMonths(normalizedDisplayDate, selection);
+        VisibleMonths = BuildVisibleMonths(normalizedDisplayDate, selection);
     }
 
     private IReadOnlyList<string> BuildDayOfWeekHeaders()
@@ -593,6 +581,28 @@ public class Calendar : TemplatedControl
         }
 
         return headers;
+    }
+
+    private IEnumerable BuildVisibleMonths(DateTime displayDate, SelectionState selection)
+    {
+        if (DisplayMode == CalendarDisplayMode.Paged)
+        {
+            _scrollAnchorIndex = 0;
+            return new[] { BuildMonth(displayDate, selection) };
+        }
+
+        var buffer = Math.Max(0, ScrollMonthBuffer);
+        _scrollAnchorIndex = buffer;
+        return new VirtualCalendarMonthCollection(displayDate.AddMonths(-buffer), buffer * 2 + 1, BuildMonth, selection);
+    }
+
+    private CalendarMonthView BuildMonth(DateTime month, SelectionState selection)
+    {
+        var normalizedMonth = NormalizeMonth(month);
+        return new CalendarMonthView(
+            normalizedMonth,
+            normalizedMonth.ToString("Y", CultureInfo.CurrentCulture),
+            BuildMonthDays(normalizedMonth, selection));
     }
 
     private IReadOnlyList<CalendarDayItem> BuildMonthDays(DateTime month, SelectionState selection)
@@ -609,22 +619,6 @@ public class Calendar : TemplatedControl
         }
 
         return days;
-    }
-
-    private IReadOnlyList<CalendarMonthView> BuildScrollMonths(DateTime displayDate, SelectionState selection)
-    {
-        var buffer = Math.Max(0, ScrollMonthBuffer);
-        var firstMonth = NormalizeMonth(displayDate).AddMonths(-buffer);
-        var months = new List<CalendarMonthView>(buffer * 2 + 1);
-
-        for (var index = 0; index <= buffer * 2; index++)
-        {
-            var month = firstMonth.AddMonths(index);
-            var title = month.ToString("Y", CultureInfo.CurrentCulture);
-            months.Add(new CalendarMonthView(month, title, BuildMonthDays(month, selection)));
-        }
-
-        return months;
     }
 
     private CalendarDayItem BuildDayItem(DateTime activeMonth, DateTime date, DateTime today, SelectionState selection)
@@ -740,52 +734,60 @@ public class Calendar : TemplatedControl
 
     private void ScrollHomeMonthIntoView()
     {
-        if (_scrollViewer is null || DisplayMode != CalendarDisplayMode.Scroll || ScrollMonths.Count == 0)
+        if (_scrollViewer is null || _monthsPresenter is null || DisplayMode != CalendarDisplayMode.Scroll)
         {
             return;
         }
 
-        var targetMonth = ScrollMonths.FirstOrDefault(x => x.Month == NormalizeMonth(DisplayDate));
-        if (targetMonth is null)
+        Dispatcher.UIThread.Post(() => AlignScrollViewerToCurrentMonth(0), DispatcherPriority.Loaded);
+    }
+
+    private void AlignScrollViewerToCurrentMonth(int attempt)
+    {
+        if (_scrollViewer is null || _monthsPresenter is null || DisplayMode != CalendarDisplayMode.Scroll)
         {
             return;
         }
 
-        Dispatcher.UIThread.Post(() =>
+        if (_scrollAnchorIndex <= 0)
         {
-            if (_scrollViewer is null || DisplayMode != CalendarDisplayMode.Scroll)
+            _scrollViewer.Offset = new Vector(_scrollViewer.Offset.X, 0);
+            return;
+        }
+
+        if (_monthsPresenter.ContainerFromIndex(0) is not Control firstContainer || firstContainer.Bounds.Height <= 0)
+        {
+            if (attempt < 5)
             {
-                return;
+                Dispatcher.UIThread.Post(() => AlignScrollViewerToCurrentMonth(attempt + 1), DispatcherPriority.Loaded);
             }
 
-            var target = _scrollViewer
-                .GetVisualDescendants()
-                .OfType<Control>()
-                .FirstOrDefault(control => ReferenceEquals(control.DataContext, targetMonth));
+            return;
+        }
 
-            target?.BringIntoView();
-        }, DispatcherPriority.Loaded);
+        var targetOffset = firstContainer.Bounds.Height * _scrollAnchorIndex;
+        _scrollViewer.Offset = new Vector(_scrollViewer.Offset.X, targetOffset);
     }
 
-    private void OnPagedHostPointerPressed(object? sender, PointerPressedEventArgs e)
+    private void OnMonthsPresenterPointerPressed(object? sender, PointerPressedEventArgs e)
     {
-        if (DisplayMode != CalendarDisplayMode.Paged || !e.GetCurrentPoint(this).Properties.IsLeftButtonPressed)
+        if (DisplayMode != CalendarDisplayMode.Paged || !e.GetCurrentPoint(this).Properties.IsLeftButtonPressed || _monthsPresenter is null)
         {
             return;
         }
 
-        _swipeStart = e.GetPosition(_pagedHost);
+        _swipeStart = e.GetPosition(_monthsPresenter);
     }
 
-    private void OnPagedHostPointerReleased(object? sender, PointerReleasedEventArgs e)
+    private void OnMonthsPresenterPointerReleased(object? sender, PointerReleasedEventArgs e)
     {
-        if (_swipeStart is null || _pagedHost is null || DisplayMode != CalendarDisplayMode.Paged)
+        if (_swipeStart is null || _monthsPresenter is null || DisplayMode != CalendarDisplayMode.Paged)
         {
             _swipeStart = null;
             return;
         }
 
-        var end = e.GetPosition(_pagedHost);
+        var end = e.GetPosition(_monthsPresenter);
         var delta = end - _swipeStart.Value;
         _swipeStart = null;
 
@@ -806,7 +808,7 @@ public class Calendar : TemplatedControl
         e.Handled = true;
     }
 
-    private void OnPagedHostPointerCaptureLost(object? sender, PointerCaptureLostEventArgs e)
+    private void OnMonthsPresenterPointerCaptureLost(object? sender, PointerCaptureLostEventArgs e)
     {
         _swipeStart = null;
     }
@@ -894,5 +896,92 @@ public class Calendar : TemplatedControl
         {
             _owner._isUpdatingSelection = false;
         }
+    }
+
+    private sealed class VirtualCalendarMonthCollection : IList<CalendarMonthView>
+    {
+        private readonly Dictionary<int, CalendarMonthView> _cache = [];
+        private readonly DateTime _startMonth;
+        private readonly int _count;
+        private readonly Func<DateTime, SelectionState, CalendarMonthView> _factory;
+        private readonly SelectionState _selection;
+
+        public VirtualCalendarMonthCollection(
+            DateTime startMonth,
+            int count,
+            Func<DateTime, SelectionState, CalendarMonthView> factory,
+            SelectionState selection)
+        {
+            _startMonth = NormalizeMonth(startMonth);
+            _count = count;
+            _factory = factory;
+            _selection = selection;
+        }
+
+        public int Count => _count;
+
+        public bool IsReadOnly => true;
+
+        public CalendarMonthView this[int index]
+        {
+            get
+            {
+                ArgumentOutOfRangeException.ThrowIfNegative(index);
+                ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(index, _count);
+
+                if (_cache.TryGetValue(index, out var month))
+                {
+                    return month;
+                }
+
+                month = _factory(_startMonth.AddMonths(index), _selection);
+                _cache[index] = month;
+                return month;
+            }
+            set => throw new NotSupportedException();
+        }
+
+        public IEnumerator<CalendarMonthView> GetEnumerator()
+        {
+            for (var index = 0; index < _count; index++)
+            {
+                yield return this[index];
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+        public int IndexOf(CalendarMonthView item)
+        {
+            for (var index = 0; index < _count; index++)
+            {
+                if (Equals(this[index], item))
+                {
+                    return index;
+                }
+            }
+
+            return -1;
+        }
+
+        public bool Contains(CalendarMonthView item) => IndexOf(item) >= 0;
+
+        public void CopyTo(CalendarMonthView[] array, int arrayIndex)
+        {
+            for (var index = 0; index < _count; index++)
+            {
+                array[arrayIndex + index] = this[index];
+            }
+        }
+
+        public void Add(CalendarMonthView item) => throw new NotSupportedException();
+
+        public void Clear() => throw new NotSupportedException();
+
+        public void Insert(int index, CalendarMonthView item) => throw new NotSupportedException();
+
+        public bool Remove(CalendarMonthView item) => throw new NotSupportedException();
+
+        public void RemoveAt(int index) => throw new NotSupportedException();
     }
 }

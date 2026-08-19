@@ -9,11 +9,12 @@ public class CalendarTest
     public void Default_Mode_And_Grid_Are_Initialized()
     {
         var calendar = new Calendar();
+        var visibleMonths = calendar.VisibleMonths.Cast<CalendarMonthView>().ToArray();
 
         Assert.Equal(CalendarDisplayMode.Paged, calendar.DisplayMode);
         Assert.Equal(CalendarSelectionMode.Single, calendar.SelectionMode);
-        Assert.Equal(42, calendar.PagedDays.Count);
-        Assert.Equal(25, calendar.ScrollMonths.Count);
+        Assert.Single(visibleMonths);
+        Assert.Equal(42, visibleMonths[0].Days.Count);
     }
 
     [Fact]
@@ -30,7 +31,7 @@ public class CalendarTest
         Assert.Empty(calendar.SelectedDates ?? []);
         Assert.Null(calendar.RangeStart);
         Assert.Null(calendar.RangeEnd);
-        Assert.Single(calendar.PagedDays, x => x.IsSelected);
+        Assert.Single(calendar.VisibleMonths.Cast<CalendarMonthView>().Single().Days, x => x.IsSelected);
     }
 
     [Fact]
@@ -52,7 +53,7 @@ public class CalendarTest
         Assert.Null(calendar.RangeStart);
         Assert.Null(calendar.RangeEnd);
         Assert.Equal([second], calendar.SelectedDates);
-        Assert.Single(calendar.PagedDays, x => x.IsSelected);
+        Assert.Single(calendar.VisibleMonths.Cast<CalendarMonthView>().Single().Days, x => x.IsSelected);
     }
 
     [Fact]
@@ -72,13 +73,13 @@ public class CalendarTest
 
         Assert.Equal(start, calendar.RangeStart);
         Assert.Equal(end, calendar.RangeEnd);
-        Assert.Equal(5, calendar.PagedDays.Count(x => x.IsInRange));
+        Assert.Equal(5, calendar.VisibleMonths.Cast<CalendarMonthView>().Single().Days.Count(x => x.IsInRange));
 
         calendar.SelectDateCommand.Execute(restart);
 
         Assert.Equal(restart, calendar.RangeStart);
         Assert.Null(calendar.RangeEnd);
-        Assert.Single(calendar.PagedDays, x => x.IsSelected);
+        Assert.Single(calendar.VisibleMonths.Cast<CalendarMonthView>().Single().Days, x => x.IsSelected);
     }
 
     [Fact]
@@ -94,5 +95,21 @@ public class CalendarTest
 
         calendar.PreviousMonthCommand.Execute(null);
         Assert.Equal(new DateTime(2026, 8, 1), calendar.DisplayDate);
+    }
+
+    [Fact]
+    public void Scroll_Mode_Uses_Virtualized_Month_Source()
+    {
+        var calendar = new Calendar
+        {
+            DisplayMode = CalendarDisplayMode.Scroll,
+            ScrollMonthBuffer = 12
+        };
+
+        var visibleMonths = calendar.VisibleMonths.Cast<CalendarMonthView>().ToArray();
+
+        Assert.Equal(25, visibleMonths.Length);
+        Assert.Equal(new DateTime(calendar.DisplayDate.Year, calendar.DisplayDate.Month, 1), visibleMonths[12].Month);
+        Assert.Equal(42, visibleMonths[12].Days.Count);
     }
 }

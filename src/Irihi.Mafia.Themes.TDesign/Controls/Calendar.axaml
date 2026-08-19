@@ -73,42 +73,19 @@
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
 
-                        <Border Name="PART_PagedHost" Padding="{DynamicResource TDCalendarMonthPadding}">
-                            <ItemsControl ItemsSource="{Binding $parent[m:Calendar].PagedDays}">
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <UniformGrid Columns="7" />
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate x:DataType="m:CalendarDayItem">
-                                        <m:CalendarDayButton
-                                            Command="{Binding $parent[m:Calendar].SelectDateCommand}"
-                                            CommandParameter="{Binding Date}"
-                                            Content="{Binding Text}"
-                                            Date="{Binding Date}"
-                                            IsEnabled="{Binding IsEnabled}"
-                                            IsInactive="{Binding IsCurrentMonth, Converter={x:Static BoolConverters.Not}}"
-                                            IsInRange="{Binding IsInRange}"
-                                            IsRangeEnd="{Binding IsRangeEnd}"
-                                            IsRangeStart="{Binding IsRangeStart}"
-                                            IsSelected="{Binding IsSelected}"
-                                            IsToday="{Binding IsToday}" />
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </Border>
-
                         <ScrollViewer
                             Name="PART_ScrollViewer"
                             HorizontalScrollBarVisibility="Disabled"
                             VerticalScrollBarVisibility="Auto"
                             MaxHeight="{DynamicResource TDCalendarScrollViewportMaxHeight}">
-                            <ItemsControl ItemsSource="{Binding $parent[m:Calendar].ScrollMonths}">
-                                <ItemsControl.ItemTemplate>
+                            <m:CalendarMonthsPresenter
+                                Name="PART_MonthsPresenter"
+                                ItemsSource="{Binding $parent[m:Calendar].VisibleMonths}">
+                                <m:CalendarMonthsPresenter.ItemTemplate>
                                     <DataTemplate x:DataType="m:CalendarMonthView">
                                         <StackPanel Margin="{DynamicResource TDCalendarScrollMonthPadding}" Spacing="{DynamicResource TDCalendarMonthSpacing}">
                                             <TextBlock
+                                                Name="PART_MonthTitle"
                                                 FontSize="{DynamicResource TDCalendarHeaderFontSize}"
                                                 FontWeight="{DynamicResource TDCalendarHeaderFontWeight}"
                                                 Foreground="{DynamicResource TDCalendarMonthTitleForeground}"
@@ -139,20 +116,37 @@
                                             </ItemsControl>
                                         </StackPanel>
                                     </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
+                                </m:CalendarMonthsPresenter.ItemTemplate>
+                            </m:CalendarMonthsPresenter>
                         </ScrollViewer>
                     </StackPanel>
                 </Border>
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:paged /template/ ScrollViewer#PART_ScrollViewer">
+        <Style Selector="^:paged /template/ TextBlock#PART_MonthTitle">
             <Setter Property="IsVisible" Value="False" />
         </Style>
 
-        <Style Selector="^:scroll /template/ Border#PART_PagedHost">
-            <Setter Property="IsVisible" Value="False" />
+        <Style Selector="^:paged /template/ ScrollViewer#PART_ScrollViewer">
+            <Setter Property="VerticalScrollBarVisibility" Value="Disabled" />
+            <Setter Property="MaxHeight" Value="Infinity" />
+        </Style>
+
+        <Style Selector="^:paged /template/ m|CalendarMonthsPresenter#PART_MonthsPresenter">
+            <Setter Property="ItemsControl.ItemsPanel">
+                <ItemsPanelTemplate>
+                    <StackPanel />
+                </ItemsPanelTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="^:scroll /template/ m|CalendarMonthsPresenter#PART_MonthsPresenter">
+            <Setter Property="ItemsControl.ItemsPanel">
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel CacheLength="1" />
+                </ItemsPanelTemplate>
+            </Setter>
         </Style>
     </ControlTheme>
 
