@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Specialized;
 using System.Globalization;
 using System.Windows.Input;
 using Avalonia;
@@ -104,6 +105,8 @@ public class Calendar : TemplatedControl
     private ScrollViewer? _scrollViewer;
     private Point? _swipeStart;
     private DateTime? _rangeAnchor;
+    private CalendarMonthView[]? _pagedMonths;
+    private VirtualCalendarMonthCollection? _scrollMonths;
     private int _scrollAnchorIndex;
 
     static Calendar()
@@ -392,7 +395,7 @@ public class Calendar : TemplatedControl
                 break;
         }
 
-        if (NormalizeMonth(DisplayDate) != NormalizeMonth(date))
+        if (DisplayMode == CalendarDisplayMode.Paged && NormalizeMonth(DisplayDate) != NormalizeMonth(date))
         {
             SetCurrentValue(DisplayDateProperty, NormalizeMonth(date));
         }
@@ -567,7 +570,7 @@ public class Calendar : TemplatedControl
 
         DayOfWeekHeaders = BuildDayOfWeekHeaders();
         DisplayedMonthTitle = normalizedDisplayDate.ToString("Y", CultureInfo.CurrentCulture);
-        VisibleMonths = BuildVisibleMonths(normalizedDisplayDate, selection);
+        RefreshVisibleMonths(normalizedDisplayDate, selection);
     }
 
     private IReadOnlyList<string> BuildDayOfWeekHeaders()
@@ -583,26 +586,57 @@ public class Calendar : TemplatedControl
         return headers;
     }
 
-    private IEnumerable BuildVisibleMonths(DateTime displayDate, SelectionState selection)
+    private void RefreshVisibleMonths(DateTime displayDate, SelectionState selection)
     {
         if (DisplayMode == CalendarDisplayMode.Paged)
         {
             _scrollAnchorIndex = 0;
-            return new[] { BuildMonth(displayDate, selection) };
+            _scrollMonths = null;
+
+            if (_pagedMonths is null || _pagedMonths.Length != 1 || _pagedMonths[0].Month != displayDate)
+            {
+                _pagedMonths = [BuildMonth(displayDate, selection)];
+                VisibleMonths = _pagedMonths;
+            }
+            else
+            {
+                UpdateMonthSelection(_pagedMonths[0], selection);
+            }
+
+            return;
         }
 
         var buffer = Math.Max(0, ScrollMonthBuffer);
-        _scrollAnchorIndex = buffer;
-        return new VirtualCalendarMonthCollection(displayDate.AddMonths(-buffer), buffer * 2 + 1, BuildMonth, selection);
+        var startMonth = displayDate.AddMonths(-buffer);
+        var count = buffer * 2 + 1;
+
+        _pagedMonths = null;
+
+        if (_scrollMonths is null)
+        {
+            _scrollMonths = new VirtualCalendarMonthCollection(startMonth, count, BuildMonth, UpdateMonthSelection, selection);
+            VisibleMonths = _scrollMonths;
+        }
+        else if (_scrollMonths.Count != count || !_scrollMonths.ContainsMonth(displayDate))
+        {
+            _scrollMonths.ResetRange(startMonth, count, selection);
+        }
+        else
+        {
+            _scrollMonths.ApplySelection(selection);
+        }
+
+        _scrollAnchorIndex = _scrollMonths.GetIndexOfMonth(displayDate);
     }
 
     private CalendarMonthView BuildMonth(DateTime month, SelectionState selection)
     {
         var normalizedMonth = NormalizeMonth(month);
-        return new CalendarMonthView(
+        var view = new CalendarMonthView(
             normalizedMonth,
             normalizedMonth.ToString("Y", CultureInfo.CurrentCulture),
             BuildMonthDays(normalizedMonth, selection));
+        return view;
     }
 
     private IReadOnlyList<CalendarDayItem> BuildMonthDays(DateTime month, SelectionState selection)
@@ -626,7 +660,30 @@ public class Calendar : TemplatedControl
         var isCurrentMonth = date.Month == activeMonth.Month && date.Year == activeMonth.Year;
         var isToday = date == today;
         var isEnabled = IsDateEnabled(date);
+        var (isSelected, isInRange, isRangeStart, isRangeEnd) = GetSelectionFlags(selection, date);
 
+        return new CalendarDayItem(
+            date,
+            isCurrentMonth,
+            isEnabled,
+            isSelected,
+            isInRange,
+            isRangeStart,
+            isRangeEnd,
+            isToday);
+    }
+
+    private void UpdateMonthSelection(CalendarMonthView monthView, SelectionState selection)
+    {
+        foreach (var day in monthView.Days)
+        {
+            var (isSelected, isInRange, isRangeStart, isRangeEnd) = GetSelectionFlags(selection, day.Date);
+            day.UpdateSelectionState(isSelected, isInRange, isRangeStart, isRangeEnd);
+        }
+    }
+
+    private static (bool IsSelected, bool IsInRange, bool IsRangeStart, bool IsRangeEnd) GetSelectionFlags(SelectionState selection, DateTime date)
+    {
         var isSelected = false;
         var isInRange = false;
         var isRangeStart = false;
@@ -653,15 +710,7 @@ public class Calendar : TemplatedControl
                 break;
         }
 
-        return new CalendarDayItem(
-            date,
-            isCurrentMonth,
-            isEnabled,
-            isSelected,
-            isInRange,
-            isRangeStart,
-            isRangeEnd,
-            isToday);
+        return (isSelected, isInRange, isRangeStart, isRangeEnd);
     }
 
     private SelectionState CaptureSelection()
@@ -898,29 +947,70 @@ public class Calendar : TemplatedControl
         }
     }
 
-    private sealed class VirtualCalendarMonthCollection : IList<CalendarMonthView>
+    private sealed class VirtualCalendarMonthCollection : IList<CalendarMonthView>, IList, INotifyCollectionChanged
     {
         private readonly Dictionary<int, CalendarMonthView> _cache = [];
-        private readonly DateTime _startMonth;
-        private readonly int _count;
         private readonly Func<DateTime, SelectionState, CalendarMonthView> _factory;
-        private readonly SelectionState _selection;
+        private readonly Action<CalendarMonthView, SelectionState> _selectionUpdater;
+        private DateTime _startMonth;
+        private int _count;
+        private SelectionState _selection;
 
         public VirtualCalendarMonthCollection(
             DateTime startMonth,
             int count,
             Func<DateTime, SelectionState, CalendarMonthView> factory,
+            Action<CalendarMonthView, SelectionState> selectionUpdater,
             SelectionState selection)
         {
             _startMonth = NormalizeMonth(startMonth);
             _count = count;
             _factory = factory;
+            _selectionUpdater = selectionUpdater;
             _selection = selection;
         }
+
+        public event NotifyCollectionChangedEventHandler? CollectionChanged;
 
         public int Count => _count;
 
         public bool IsReadOnly => true;
+
+        bool IList.IsFixedSize => true;
+
+        object ICollection.SyncRoot => this;
+
+        bool ICollection.IsSynchronized => false;
+
+        public bool ContainsMonth(DateTime month)
+        {
+            month = NormalizeMonth(month);
+            return month >= _startMonth && month <= _startMonth.AddMonths(_count - 1);
+        }
+
+        public int GetIndexOfMonth(DateTime month)
+        {
+            month = NormalizeMonth(month);
+            return ((month.Year - _startMonth.Year) * 12) + month.Month - _startMonth.Month;
+        }
+
+        public void ResetRange(DateTime startMonth, int count, SelectionState selection)
+        {
+            _startMonth = NormalizeMonth(startMonth);
+            _count = count;
+            _selection = selection;
+            _cache.Clear();
+            CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+        }
+
+        public void ApplySelection(SelectionState selection)
+        {
+            _selection = selection;
+            foreach (var month in _cache.Values)
+            {
+                _selectionUpdater(month, selection);
+            }
+        }
 
         public CalendarMonthView this[int index]
         {
@@ -974,6 +1064,16 @@ public class Calendar : TemplatedControl
             }
         }
 
+        void ICollection.CopyTo(Array array, int index)
+        {
+            ArgumentNullException.ThrowIfNull(array);
+
+            for (var itemIndex = 0; itemIndex < _count; itemIndex++)
+            {
+                array.SetValue(this[itemIndex], index + itemIndex);
+            }
+        }
+
         public void Add(CalendarMonthView item) => throw new NotSupportedException();
 
         public void Clear() => throw new NotSupportedException();
@@ -983,5 +1083,21 @@ public class Calendar : TemplatedControl
         public bool Remove(CalendarMonthView item) => throw new NotSupportedException();
 
         public void RemoveAt(int index) => throw new NotSupportedException();
+
+        int IList.Add(object? value) => throw new NotSupportedException();
+
+        bool IList.Contains(object? value) => value is CalendarMonthView month && Contains(month);
+
+        int IList.IndexOf(object? value) => value is CalendarMonthView month ? IndexOf(month) : -1;
+
+        void IList.Insert(int index, object? value) => throw new NotSupportedException();
+
+        void IList.Remove(object? value) => throw new NotSupportedException();
+
+        object? IList.this[int index]
+        {
+            get => this[index];
+            set => throw new NotSupportedException();
+        }
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using Irihi.Mafia.Common;
 using Irihi.Mafia.Controls;
 
@@ -111,5 +112,26 @@ public class CalendarTest
         Assert.Equal(25, visibleMonths.Length);
         Assert.Equal(new DateTime(calendar.DisplayDate.Year, calendar.DisplayDate.Month, 1), visibleMonths[12].Month);
         Assert.Equal(42, visibleMonths[12].Days.Count);
+    }
+
+    [Fact]
+    public void Scroll_Mode_Keeps_List_Source_When_Selecting()
+    {
+        var calendar = new Calendar
+        {
+            DisplayMode = CalendarDisplayMode.Scroll,
+            SelectionMode = CalendarSelectionMode.Range
+        };
+
+        var source = calendar.VisibleMonths;
+
+        calendar.SelectDateCommand.Execute(new DateTime(2026, 8, 10));
+        calendar.SelectDateCommand.Execute(new DateTime(2026, 8, 15));
+
+        Assert.Same(source, calendar.VisibleMonths);
+        Assert.IsAssignableFrom<IList>(calendar.VisibleMonths);
+        Assert.Contains(
+            calendar.VisibleMonths.Cast<CalendarMonthView>().SelectMany(x => x.Days),
+            x => x.Date == new DateTime(2026, 8, 10) && x.IsRangeStart);
     }
 }
