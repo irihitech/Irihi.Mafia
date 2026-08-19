@@ -17,7 +17,7 @@ Irihi.Mafia 是一款**移动端优先**的 Avalonia 控件库 — 从底层开�
 
 - 📱 **移动端优先设计** — 触摸优化的控件、充足的点击区域、拇指友好的间距
 - 🎨 **TDesign 风格主题** — 包含设计令牌系统的完整明暗主题（色彩、排版、间距、圆角）
-- 🧩 **自定义控件** — Avatar、Cell/ CellGroup、Divider、IconButton、Picker、Popup 等
+- 🧩 **自定义控件** — Avatar、Calendar、Cell/ CellGroup、Divider、IconButton、Picker、Popup 等
 - 🌓 **明暗模式** — 内置明暗双主题，统一配色体系
 - 📦 **模块化包** — 核心逻辑库与主题库分离为独立 NuGet 包
 - 🖥️ **跨平台** — 通过 Avalonia 支持 Windows、macOS、Linux、Android、iOS 和浏览器
@@ -83,6 +83,7 @@ xmlns:m="https://irihi.tech/mafia"
 | 控件 | 说明 |
 |---------|-------------|
 | `Avatar` | 带图片源的按钮，适用于用户头像 |
+| `Calendar` | 面向移动端的日历控件，支持翻页、滚动浏览月份，以及单选、多选、范围选择 |
 | `Cell` | 带描述、备注和左右内容插槽的列表项 |
 | `CellGroup` | 将 `Cell` 项分组显示，带分组标题 |
 | `Divider` | 水平或垂直分隔线 |

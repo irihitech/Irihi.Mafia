@@ -43,6 +43,8 @@
   <data name="Gallery_Popup_Desc" xml:space="preserve"><value>Six placements, modal/light dismiss</value></data>
   <data name="Gallery_Button" xml:space="preserve"><value>Button</value></data>
   <data name="Gallery_Button_Desc" xml:space="preserve"><value>Fill/outline/text, multi-color multi-size</value></data>
+  <data name="Gallery_Calendar" xml:space="preserve"><value>Calendar</value></data>
+  <data name="Gallery_Calendar_Desc" xml:space="preserve"><value>Touch-first calendar with paged and scroll modes</value></data>
   <data name="Gallery_Picker" xml:space="preserve"><value>Picker</value></data>
   <data name="Gallery_Picker_Desc" xml:space="preserve"><value>Touch-optimized dropdown</value></data>
   <data name="Gallery_Switch" xml:space="preserve"><value>ToggleSwitch</value></data>
@@ -153,6 +155,17 @@
   <data name="Picker_OptionC" xml:space="preserve"><value>Option C</value></data>
   <data name="Picker_OptionD" xml:space="preserve"><value>Option D</value></data>
   <data name="Picker_OptionE" xml:space="preserve"><value>Option E</value></data>
+
+  <!-- Calendar Detail -->
+  <data name="Calendar_Title" xml:space="preserve"><value>Calendar</value></data>
+  <data name="Calendar_Desc" xml:space="preserve"><value>Mobile-first calendar with horizontal month paging, smooth vertical month scrolling, and touch selection for single, multiple, and range scenarios.</value></data>
+  <data name="Calendar_PagedSingle" xml:space="preserve"><value>Paged mode · single selection</value></data>
+  <data name="Calendar_Multiple" xml:space="preserve"><value>Paged mode · multiple selection</value></data>
+  <data name="Calendar_Multiple_Desc" xml:space="preserve"><value>Tap dates to toggle them on or off.</value></data>
+  <data name="Calendar_Range" xml:space="preserve"><value>Paged mode · range selection</value></data>
+  <data name="Calendar_Range_Desc" xml:space="preserve"><value>The first tap sets the start; the second tap completes the range; the third tap starts a new range.</value></data>
+  <data name="Calendar_Scroll" xml:space="preserve"><value>Scroll mode</value></data>
+  <data name="Calendar_Scroll_Desc" xml:space="preserve"><value>Swipe vertically to browse months continuously instead of flipping an entire month at a time.</value></data>
 
   <!-- Popup Detail -->
   <data name="Popup_Title" xml:space="preserve"><value>Popup</value></data>

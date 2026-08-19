@@ -1,0 +1,29 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Thickness x:Key="TDCalendarPadding">16</Thickness>
+    <Thickness x:Key="TDCalendarBorderThickness">1</Thickness>
+    <CornerRadius x:Key="TDCalendarCornerRadius">16</CornerRadius>
+    <x:Double x:Key="TDCalendarSpacing">12</x:Double>
+
+    <x:Double x:Key="TDCalendarHeaderButtonSize">32</x:Double>
+    <StaticResource x:Key="TDCalendarHeaderFontSize" ResourceKey="TDFontSizeBodyLarge" />
+    <FontWeight x:Key="TDCalendarHeaderFontWeight">600</FontWeight>
+
+    <StaticResource x:Key="TDCalendarWeekHeaderFontSize" ResourceKey="TDFontSizeBodyMedium" />
+    <StaticResource x:Key="TDCalendarDayFontSize" ResourceKey="TDFontSizeBodyMedium" />
+
+    <x:Double x:Key="TDCalendarMonthSpacing">8</x:Double>
+    <Thickness x:Key="TDCalendarMonthPadding">0,4,0,0</Thickness>
+    <Thickness x:Key="TDCalendarScrollMonthPadding">0,0,0,16</Thickness>
+    <x:Double x:Key="TDCalendarScrollViewportMaxHeight">420</x:Double>
+
+    <x:Double x:Key="TDCalendarDaySize">40</x:Double>
+    <Thickness x:Key="TDCalendarDayMargin">2</Thickness>
+    <CornerRadius x:Key="TDCalendarDayCornerRadius">20</CornerRadius>
+    <CornerRadius x:Key="TDCalendarDayRangeStartCornerRadius">12,0,0,12</CornerRadius>
+    <CornerRadius x:Key="TDCalendarDayRangeEndCornerRadius">0,12,12,0</CornerRadius>
+    <CornerRadius x:Key="TDCalendarDayRangeSingleCornerRadius">12</CornerRadius>
+    <Thickness x:Key="TDCalendarDayTodayBorderThickness">1</Thickness>
+
+</ResourceDictionary>
