@@ -33,21 +33,24 @@
         <Setter Property="MaskBrush" Value="{DynamicResource TDPopupMaskBrush}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="m:OverlayPopupHost">
-                <Panel>
-                    <Border
-                        Name="PART_MaskBorder"
-                        Background="{TemplateBinding MaskBrush}" />
-                    <ContentPresenter
-                        Name="PART_ContentPresenter"
-                        Content="{TemplateBinding Content}"
-                        ContentTemplate="{TemplateBinding ContentTemplate}">
-                        <ContentPresenter.RenderTransform>
-                            <TranslateTransform
-                                X="{Binding ContentOffsetX, RelativeSource={RelativeSource TemplatedParent}}"
-                                Y="{Binding ContentOffsetY, RelativeSource={RelativeSource TemplatedParent}}" />
-                        </ContentPresenter.RenderTransform>
-                    </ContentPresenter>
-                </Panel>
+                <LayoutTransformControl LayoutTransform="{TemplateBinding Transform}">
+                    <Panel>
+                        <Border
+                            Name="PART_MaskBorder"
+                            Background="{TemplateBinding MaskBrush}" />
+                        <ContentPresenter
+                            Name="PART_ContentPresenter"
+                            Margin="{TemplateBinding SafeAreaPadding}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}">
+                            <ContentPresenter.RenderTransform>
+                                <TranslateTransform
+                                    X="{Binding ContentOffsetX, RelativeSource={RelativeSource TemplatedParent}}"
+                                    Y="{Binding ContentOffsetY, RelativeSource={RelativeSource TemplatedParent}}" />
+                            </ContentPresenter.RenderTransform>
+                        </ContentPresenter>
+                    </Panel>
+                </LayoutTransformControl>
             </ControlTemplate>
         </Setter>
 

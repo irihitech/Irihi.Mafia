@@ -77,8 +77,6 @@ public class Popup : Control
     public event EventHandler<CancelEventArgs>? Closing;
 
     private OverlayPopupHost? _host;
-    private OverlayLayer? _overlayLayer;
-    private IDisposable? _sizeSubscription;
     private int _zIndex;
     private bool _isOpenRequested;
     private bool _ignoreIsOpenChanged;
@@ -99,22 +97,17 @@ public class Popup : Control
     {
         if (_host is not null || _isClosing) return;
 
-        var overlayLayer = OverlayLayer.GetOverlayLayer(this);
-        if (overlayLayer is null)
+        if (TopLevel.GetTopLevel(this) is null)
         {
             _isOpenRequested = true;
             return;
         }
 
-        _overlayLayer = overlayLayer;
-
-        var host = new OverlayPopupHost
-        {
-            Content = Child,
-            [~IsModalProperty] = this[~IsModalProperty],
-            [~OverlayPopupHost.PlacementProperty] = this[~PlacementProperty],
-            [~DataContextProperty] = this[~DataContextProperty]
-        };
+        var host = OverlayPopupHost.CreatePopupHost(this);
+        host[~IsModalProperty] = this[~IsModalProperty];
+        host[~OverlayPopupHost.PlacementProperty] = this[~PlacementProperty];
+        host[~DataContextProperty] = this[~DataContextProperty];
+        host.SetChild(Child);
 
         if (!IsModal)
             host.MaskBrush = Brushes.Transparent;
@@ -124,10 +117,7 @@ public class Popup : Control
         host.MaskPointerPressed += OnMaskPointerPressed;
         _host = host;
 
-        UpdateHostSize();
         _zIndex = Interlocked.Increment(ref s_zIndexBase);
-        Canvas.SetLeft(host, 0);
-        Canvas.SetTop(host, 0);
         host.ZIndex = _zIndex;
 
         // Enter animation: start from transparent + offset
@@ -136,8 +126,7 @@ public class Popup : Control
         host.ContentOffsetX = initialOffset.X;
         host.ContentOffsetY = initialOffset.Y;
 
-        _overlayLayer.Children.Add(host);
-        _overlayLayer.PropertyChanged += OnOverlayLayerBoundsChanged;
+        host.Show();
 
         // Trigger animation to final state on next layout
         Dispatcher.UIThread.Post(() =>
@@ -189,22 +178,16 @@ public class Popup : Control
 
         // Cleanup after animation completes
         var capturedHost = host;
-        var capturedOverlay = _overlayLayer;
         Task.Delay(AnimationDuration).ContinueWith(_ =>
         {
             Dispatcher.UIThread.Post(() =>
             {
                 capturedHost.MaskPointerPressed -= OnMaskPointerPressed;
-                capturedHost.Content = null;
-                _sizeSubscription?.Dispose();
-                _sizeSubscription = null;
-                if (capturedOverlay is not null)
-                    capturedOverlay.PropertyChanged -= OnOverlayLayerBoundsChanged;
-                capturedOverlay?.Children.Remove(capturedHost);
+                capturedHost.Hide();
+                capturedHost.SetChild(null);
                 if (_host == capturedHost)
                 {
                     _host = null;
-                    _overlayLayer = null;
                 }
                 _isClosing = false;
             });
@@ -224,14 +207,9 @@ public class Popup : Control
         {
             // Force immediate cleanup (skip animation) if detaching
             _host.MaskPointerPressed -= OnMaskPointerPressed;
-            _host.Content = null;
-            _sizeSubscription?.Dispose();
-            _sizeSubscription = null;
-            if (_overlayLayer is not null)
-                _overlayLayer.PropertyChanged -= OnOverlayLayerBoundsChanged;
-            _overlayLayer?.Children.Remove(_host);
+            _host.Hide();
+            _host.SetChild(null);
             _host = null;
-            _overlayLayer = null;
             _isClosing = false;
         }
     }
@@ -265,7 +243,7 @@ public class Popup : Control
 
         if (_host is not null)
         {
-            _host.Content = newValue.HasValue ? newValue.Value : null;
+            _host.SetChild(newValue.HasValue ? newValue.Value : null);
         }
     }
 
@@ -288,19 +266,7 @@ public class Popup : Control
         };
     }
 
-    private void UpdateHostSize()
-    {
-        if (_host is null || _overlayLayer is null) return;
-        _host.Width = _overlayLayer.Bounds.Width;
-        _host.Height = _overlayLayer.Bounds.Height;
-    }
-
     private IgnoreIsOpenScope BeginIgnoringIsOpen() => new(this);
-
-    private void OnOverlayLayerBoundsChanged(object? sender, AvaloniaPropertyChangedEventArgs e)
-    {
-        if (e.Property == BoundsProperty) UpdateHostSize();
-    }
 
     private static int s_zIndexBase = 1000;
 
