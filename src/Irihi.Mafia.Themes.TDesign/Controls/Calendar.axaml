@@ -158,8 +158,8 @@
     <ControlTheme x:Key="{x:Type m:CalendarDayButton}" TargetType="m:CalendarDayButton">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource TDCalendarDayForeground}" />
-        <Setter Property="Width" Value="{DynamicResource TDCalendarDaySize}" />
-        <Setter Property="Height" Value="{DynamicResource TDCalendarDaySize}" />
+        <Setter Property="Width" Value="{DynamicResource TDCalendarDayWidth}" />
+        <Setter Property="Height" Value="{DynamicResource TDCalendarDayHeight}" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="FontSize" Value="{DynamicResource TDCalendarDayFontSize}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -213,6 +213,7 @@
 
         <Style Selector="^:in-range /template/ Border#PART_RangeBackground">
             <Setter Property="Background" Value="{DynamicResource TDCalendarDayRangeBackground}" />
+            <Setter Property="CornerRadius" Value="0" />
         </Style>
 
         <Style Selector="^:range-start /template/ Border#PART_RangeBackground">
@@ -236,6 +237,22 @@
                 <Setter Property="BorderBrush" Value="Transparent" />
                 <Setter Property="BorderThickness" Value="0" />
             </Style>
+        </Style>
+
+        <Style Selector="^:selected:in-range /template/ Border#PART_SelectionBackground">
+            <Setter Property="CornerRadius" Value="0" />
+        </Style>
+
+        <Style Selector="^:selected:range-start /template/ Border#PART_SelectionBackground">
+            <Setter Property="CornerRadius" Value="{DynamicResource TDCalendarDayRangeStartCornerRadius}" />
+        </Style>
+
+        <Style Selector="^:selected:range-end /template/ Border#PART_SelectionBackground">
+            <Setter Property="CornerRadius" Value="{DynamicResource TDCalendarDayRangeEndCornerRadius}" />
+        </Style>
+
+        <Style Selector="^:selected:range-start:range-end /template/ Border#PART_SelectionBackground">
+            <Setter Property="CornerRadius" Value="{DynamicResource TDCalendarDayRangeSingleCornerRadius}" />
         </Style>
     </ControlTheme>
 
