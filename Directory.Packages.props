@@ -9,11 +9,10 @@
     <PackageVersion Include="Irihi.Avalonia.Shared" Version="0.5.0"/>
     <!--test-->
     <PackageVersion Include="Avalonia.HarfBuzz" Version="$(AvaloniaVersion)"/>
-    <PackageVersion Include="Avalonia.Headless" Version="$(AvaloniaVersion)"/>
+    <PackageVersion Include="Avalonia.Headless.Xunit" Version="$(AvaloniaVersion)"/>
     <PackageVersion Include="coverlet.collector" Version="8.0.1"/>
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.3.0"/>
     <PackageVersion Include="xunit.v3" Version="3.2.2"/>
-    <PackageVersion Include="xunit.v3.runner.msbuild" Version="3.2.2"/>
     <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5"/>
     <!--demo-->
     <PackageVersion Include="Avalonia.Desktop" Version="$(AvaloniaVersion)"/>

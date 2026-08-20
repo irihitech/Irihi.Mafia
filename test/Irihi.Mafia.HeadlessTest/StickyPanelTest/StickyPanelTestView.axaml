@@ -1,0 +1,29 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:m="https://irihi.tech/mafia"
+             mc:Ignorable="d" d:DesignWidth="800"
+             d:DesignHeight="450"
+             x:Class="Irihi.Mafia.HeadlessTest.StickyPanelTest.StickyPanelTestView">
+    <ScrollViewer x:Name="scroll" x:FieldModifier="public">
+        <ItemsControl x:Name="items" x:FieldModifier="public">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <m:StickyPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="Auto,*">
+                        <Border Height="20" Background="Red" m:StickyPanel.StickyLevel="1" />
+                        <Border Grid.Row="1" Height="80" Background="LightGray" />
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </ScrollViewer>
+
+</UserControl>
+

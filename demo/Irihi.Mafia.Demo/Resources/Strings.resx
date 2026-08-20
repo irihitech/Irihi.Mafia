@@ -73,6 +73,8 @@
   <data name="Gallery_TabbedPage_Desc" xml:space="preserve"><value>Navigation used on this page</value></data>
   <data name="Gallery_Icon" xml:space="preserve"><value>Icon</value></data>
   <data name="Gallery_Icon_Desc" xml:space="preserve"><value>Icon used in the gallery</value></data>
+  <data name="Gallery_StickyPanel" xml:space="preserve"><value>StickyPanel</value></data>
+  <data name="Gallery_StickyPanel_Desc" xml:space="preserve"><value>Sticky headers during scrolling</value></data>
 
   <!-- Input Detail -->
   <data name="Input_Title" xml:space="preserve"><value>Input</value></data>
@@ -308,6 +310,16 @@
   <data name="Theme_Light" xml:space="preserve"><value>Light</value></data>
   <data name="Theme_Dark" xml:space="preserve"><value>Dark</value></data>
   <data name="Theme_System" xml:space="preserve"><value>Follow System</value></data>
+
+  <!-- StickyPanel Detail -->
+  <data name="StickyPanel_Title" xml:space="preserve"><value>StickyPanel</value></data>
+  <data name="StickyPanel_Desc" xml:space="preserve"><value>A vertical panel with sticky headers that remain pinned during scrolling. Set StickyLevel on a child to enable sticky behavior.</value></data>
+  <data name="StickyPanel_Section_Group1" xml:space="preserve"><value>Group 1</value></data>
+  <data name="StickyPanel_Section_Group2" xml:space="preserve"><value>Group 2</value></data>
+  <data name="StickyPanel_Section_Group3" xml:space="preserve"><value>Group 3</value></data>
+  <data name="StickyPanel_Section_Group4" xml:space="preserve"><value>Group 4</value></data>
+  <data name="StickyPanel_Section_Group5" xml:space="preserve"><value>Group 5</value></data>
+  <data name="StickyPanel_Section_Group6" xml:space="preserve"><value>Group 6</value></data>
 
   <!-- Language Options -->
   <data name="Lang_Chinese" xml:space="preserve"><value>中文</value></data>
