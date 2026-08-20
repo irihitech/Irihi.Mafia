@@ -4,6 +4,7 @@ using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Media;
+using Avalonia.Threading;
 using Irihi.Mafia.Common;
 
 namespace Irihi.Mafia.Controls.Primitives;
@@ -19,6 +20,12 @@ public class OverlayPopupHost : ContentControl
     public const string PC_Top = ":top";
     public const string PC_FullScreen = ":fullscreen";
     public const string PART_MaskBorder = "PART_MaskBorder";
+
+    public static readonly StyledProperty<Transform?> TransformProperty =
+        PopupRoot.TransformProperty.AddOwner<OverlayPopupHost>();
+
+    public static readonly StyledProperty<Thickness> SafeAreaPaddingProperty =
+        AvaloniaProperty.Register<OverlayPopupHost, Thickness>(nameof(SafeAreaPadding));
 
     public static readonly StyledProperty<double> ContentOffsetXProperty =
         AvaloniaProperty.Register<OverlayPopupHost, double>(nameof(ContentOffsetX));
@@ -59,6 +66,24 @@ public class OverlayPopupHost : ContentControl
     public static readonly StyledProperty<IBrush?> MaskBrushProperty =
         AvaloniaProperty.Register<OverlayPopupHost, IBrush?>(nameof(MaskBrush));
 
+    private Border? _maskBorder;
+    private readonly OverlayLayer? _overlayLayer;
+    private Point _lastRequestedPosition;
+    private Size _popupSize;
+    private bool _needsPositionUpdate;
+
+    public Transform? Transform
+    {
+        get => GetValue(TransformProperty);
+        set => SetValue(TransformProperty, value);
+    }
+
+    public Thickness SafeAreaPadding
+    {
+        get => GetValue(SafeAreaPaddingProperty);
+        set => SetValue(SafeAreaPaddingProperty, value);
+    }
+
     public IBrush? MaskBrush
     {
         get => GetValue(MaskBrushProperty);
@@ -69,20 +94,105 @@ public class OverlayPopupHost : ContentControl
 
     static OverlayPopupHost()
     {
+        KeyboardNavigation.TabNavigationProperty.OverrideDefaultValue<OverlayPopupHost>(KeyboardNavigationMode.Cycle);
         PlacementProperty.Changed.AddClassHandler<OverlayPopupHost, PopupPlacement>(
             (o, e) => UpdatePlacementPseudoClasses(o, e.NewValue.Value));
+    }
+
+    public OverlayPopupHost()
+    {
+    }
+
+    internal OverlayPopupHost(OverlayLayer overlayLayer)
+    {
+        _overlayLayer = overlayLayer;
+    }
+
+    internal static OverlayPopupHost CreatePopupHost(Visual target)
+    {
+        if (OverlayLayer.GetOverlayLayer(target) is { } overlayLayer)
+        {
+            return new OverlayPopupHost(overlayLayer);
+        }
+
+        throw new InvalidOperationException("Unable to create overlay popup host: no overlay layer found for target.");
+    }
+
+    internal void SetChild(Control? control)
+    {
+        Content = control;
+    }
+
+    internal void Show()
+    {
+        if (_overlayLayer is null)
+            return;
+
+        if (Parent != _overlayLayer)
+            _overlayLayer.Children.Add(this);
+        _overlayLayer.PropertyChanged += OnOverlayLayerPropertyChanged;
+        UpdateOverlayLayout();
+
+        // Ensure descendants are built early so focus behavior matches popup root behavior.
+        UpdateLayout();
+    }
+
+    internal void Hide()
+    {
+        if (_overlayLayer is null)
+            return;
+
+        _overlayLayer.PropertyChanged -= OnOverlayLayerPropertyChanged;
+        _overlayLayer.Children.Remove(this);
+    }
+
+    internal void SetPosition(Point point)
+    {
+        _lastRequestedPosition = point;
+        _needsPositionUpdate = true;
+        UpdatePosition();
     }
 
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
         base.OnApplyTemplate(e);
 
-        if (e.NameScope.Find<Border>(PART_MaskBorder) is { } maskBorder)
+        if (_maskBorder is not null)
+            _maskBorder.PointerPressed -= OnMaskPointerPressed;
+
+        _maskBorder = e.NameScope.Find<Border>(PART_MaskBorder);
+        if (_maskBorder is not null)
         {
-            maskBorder.PointerPressed += OnMaskPointerPressed;
+            _maskBorder.PointerPressed += OnMaskPointerPressed;
         }
 
         UpdatePlacementPseudoClasses(this, Placement);
+    }
+
+    protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
+    {
+        base.OnAttachedToVisualTree(e);
+        UpdateSafeAreaPadding();
+    }
+
+    protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
+    {
+        if (_overlayLayer is not null)
+            _overlayLayer.PropertyChanged -= OnOverlayLayerPropertyChanged;
+
+        base.OnDetachedFromVisualTree(e);
+    }
+
+    protected override Size ArrangeOverride(Size finalSize)
+    {
+        if (_popupSize != finalSize)
+        {
+            _popupSize = finalSize;
+            UpdateSafeAreaPadding();
+        }
+
+        UpdatePosition();
+        return base.ArrangeOverride(finalSize);
     }
 
     private void OnMaskPointerPressed(object? sender, PointerPressedEventArgs e)
@@ -91,6 +201,41 @@ public class OverlayPopupHost : ContentControl
         {
             MaskPointerPressed?.Invoke(this, e);
         }
+    }
+
+    private void UpdatePosition()
+    {
+        if (!_needsPositionUpdate)
+            return;
+
+        _needsPositionUpdate = false;
+        Dispatcher.UIThread.Post(() =>
+        {
+            Canvas.SetLeft(this, _lastRequestedPosition.X);
+            Canvas.SetTop(this, _lastRequestedPosition.Y);
+        }, DispatcherPriority.Render);
+    }
+
+    private void UpdateSafeAreaPadding()
+    {
+        var topLevel = TopLevel.GetTopLevel(this);
+        SetCurrentValue(SafeAreaPaddingProperty, topLevel?.InsetsManager?.SafeAreaPadding ?? default);
+    }
+
+    private void OnOverlayLayerPropertyChanged(object? sender, AvaloniaPropertyChangedEventArgs e)
+    {
+        if (e.Property == BoundsProperty)
+            UpdateOverlayLayout();
+    }
+
+    private void UpdateOverlayLayout()
+    {
+        if (_overlayLayer is null)
+            return;
+
+        SetCurrentValue(WidthProperty, _overlayLayer.Bounds.Width);
+        SetCurrentValue(HeightProperty, _overlayLayer.Bounds.Height);
+        SetPosition(default);
     }
 
     private static void UpdatePlacementPseudoClasses(OverlayPopupHost host, PopupPlacement placement)
