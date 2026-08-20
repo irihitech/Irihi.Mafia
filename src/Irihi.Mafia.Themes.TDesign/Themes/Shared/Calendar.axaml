@@ -18,9 +18,8 @@
     <Thickness x:Key="TDCalendarScrollMonthPadding">0,0,0,16</Thickness>
     <x:Double x:Key="TDCalendarScrollViewportMaxHeight">312</x:Double>
 
-    <x:Double x:Key="TDCalendarDayWidth">44</x:Double>
     <x:Double x:Key="TDCalendarDayHeight">34</x:Double>
-    <Thickness x:Key="TDCalendarDayMargin">2</Thickness>
+    <Thickness x:Key="TDCalendarDayMargin">0,2</Thickness>
     <CornerRadius x:Key="TDCalendarDayCornerRadius">8</CornerRadius>
     <CornerRadius x:Key="TDCalendarDayRangeStartCornerRadius">8,0,0,8</CornerRadius>
     <CornerRadius x:Key="TDCalendarDayRangeEndCornerRadius">0,8,8,0</CornerRadius>
