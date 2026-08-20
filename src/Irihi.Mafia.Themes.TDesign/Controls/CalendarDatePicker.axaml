@@ -144,24 +144,27 @@
                         Placement="Bottom">
                         <Border
                             Name="PART_PopupBorder"
+                            HorizontalAlignment="Stretch"
                             ClipToBounds="True"
-                            MinHeight="{TemplateBinding PopupMinHeight}"
                             MaxHeight="{TemplateBinding PopupMaxHeight}"
                             Background="{DynamicResource TDPickerPopupBackground}"
                             BorderBrush="{DynamicResource TDPickerPopupBorderBrush}"
                             BorderThickness="{DynamicResource TDPickerPopupBorderThickness}"
                             CornerRadius="{DynamicResource TDPickerPopupCornerRadius}"
-                            Padding="16,16,16,24">
+                            Padding="16">
                             <StackPanel Spacing="12">
                                 <TextBlock
+                                    
                                     FontSize="{DynamicResource TDPickerTitleFontSize}"
                                     Foreground="{DynamicResource TDPickerTitleForeground}"
                                     HorizontalAlignment="Center"
                                     Text="{TemplateBinding PopupTitle}"
                                     IsVisible="{TemplateBinding PopupTitle, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                 <m:Calendar
+                                    Padding="0"
                                     DisplayMode="{TemplateBinding DisplayMode}"
                                     SelectionMode="Single"
+                                    HorizontalAlignment="Stretch"
                                     SelectedDate="{TemplateBinding SelectedDate, Mode=TwoWay}"
                                     FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
                                     MinDate="{TemplateBinding MinDate}"
