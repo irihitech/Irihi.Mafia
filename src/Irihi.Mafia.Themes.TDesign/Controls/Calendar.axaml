@@ -119,7 +119,14 @@
                                                             IsRangeEnd="{Binding IsRangeEnd}"
                                                             IsRangeStart="{Binding IsRangeStart}"
                                                             IsSelected="{Binding IsSelected}"
-                                                            IsToday="{Binding IsToday}" />
+                                                            IsToday="{Binding IsToday}">
+                                                            <m:CalendarDayButton.IsVisible>
+                                                                <MultiBinding Converter="{x:Static BoolConverters.Or}">
+                                                                    <Binding Path="IsCurrentMonth" />
+                                                                    <Binding Path="$parent[m:Calendar].IsPagedMode" />
+                                                                </MultiBinding>
+                                                            </m:CalendarDayButton.IsVisible>
+                                                        </m:CalendarDayButton>
                                                     </DataTemplate>
                                                 </ItemsControl.ItemTemplate>
                                             </ItemsControl>
@@ -153,6 +160,7 @@
                 </ItemsPanelTemplate>
             </Setter>
         </Style>
+
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type m:CalendarDayButton}" TargetType="m:CalendarDayButton">
