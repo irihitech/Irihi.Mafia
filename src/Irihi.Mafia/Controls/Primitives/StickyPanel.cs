@@ -16,9 +16,7 @@ namespace Irihi.Mafia.Controls.Primitives;
 /// </remarks>
 public class StickyPanel : Panel
 {
-    // ─────────────────────────────────────────────────────────────
-    //  Attached property
-    // ─────────────────────────────────────────────────────────────
+    #region Attached property
 
     /// <summary>
     /// Defines <c>StickyPanel.StickyLevel</c>. <see langword="null"/> disables sticky behavior.
@@ -32,26 +30,28 @@ public class StickyPanel : Panel
     /// <summary>Sets the value of <see cref="StickyLevelProperty"/> on a control.</summary>
     public static void SetStickyLevel(Control control, int? value) => control.SetValue(StickyLevelProperty, value);
 
-    // ─────────────────────────────────────────────────────────────
-    //  Internals
-    // ─────────────────────────────────────────────────────────────
+    #endregion
+
+    #region Internals
 
     /// <summary>Z-order baseline for pinned elements.</summary>
     private const int StickyZIndex = 1000;
 
     /// <summary>Cached sticky elements and levels.</summary>
-    private readonly List<StickyElementInfo> _stickyElements = new();
+    private readonly List<StickyElementInfo> _stickyElements = [];
 
     /// <summary>Sticky entries sorted by layout position.</summary>
-    private readonly List<StickyEntry> _stickyEntries = new();
+    private readonly List<StickyEntry> _stickyEntries = [];
 
     /// <summary>Scratch buffer for computed pinned Y positions.</summary>
-    private double[] _pinned = Array.Empty<double>();
+    private double[] _pinned = [];
 
     private double _maxStickyHeight;
     private Rect _viewport;
     private double _lastOffset = double.NaN;
     private bool _discoveryDirty = true;
+
+    #endregion
 
     static StickyPanel()
     {
@@ -70,9 +70,8 @@ public class StickyPanel : Panel
 
     private void OnStickyLevelChanged() => _discoveryDirty = true;
 
-    // ─────────────────────────────────────────────────────────────
-    //  Measure / Arrange
-    // ─────────────────────────────────────────────────────────────
+
+    #region Measure / Arrange
 
     /// <inheritdoc/>
     protected override Size MeasureOverride(Size availableSize)
@@ -107,9 +106,9 @@ public class StickyPanel : Panel
         return finalSize;
     }
 
-    // ─────────────────────────────────────────────────────────────
-    //  Sticky discovery
-    // ─────────────────────────────────────────────────────────────
+    #endregion
+
+    #region Sticky discovery
 
     private void RebuildStickyEntries()
     {
@@ -204,7 +203,7 @@ public class StickyPanel : Panel
         for (int i = n - 1; i >= 0; i--)
         {
             var entry = _stickyEntries[i];
-            entry.NextSameIndex = nextByLevel.TryGetValue(entry.Level, out int next) ? next : -1;
+            entry.NextSameIndex = nextByLevel.GetValueOrDefault(entry.Level, -1);
             nextByLevel[entry.Level] = i;
         }
 
@@ -220,6 +219,7 @@ public class StickyPanel : Panel
                 if (level < entry.Level && index > above)
                     above = index;
             }
+
             entry.AboveIndex = above;
 
             lastByLevel[entry.Level] = i;
@@ -227,9 +227,9 @@ public class StickyPanel : Panel
         }
     }
 
-    // ─────────────────────────────────────────────────────────────
-    //  Scroll handling
-    // ─────────────────────────────────────────────────────────────
+    #endregion
+
+    #region Scroll handling
 
     private void OnEffectiveViewportChanged(object? sender, EffectiveViewportChangedEventArgs e)
     {
@@ -325,9 +325,9 @@ public class StickyPanel : Panel
             entry.Element.RenderTransform = transform;
     }
 
-    // ─────────────────────────────────────────────────────────────
-    //  Records
-    // ─────────────────────────────────────────────────────────────
+    #endregion
+
+    #region Records
 
     /// <summary>Cached sticky element metadata.</summary>
     private sealed class StickyElementInfo
@@ -347,4 +347,6 @@ public class StickyPanel : Panel
         public int NextSameIndex { get; set; } = -1;
         public TranslateTransform? Transform { get; set; }
     }
+
+    #endregion
 }
