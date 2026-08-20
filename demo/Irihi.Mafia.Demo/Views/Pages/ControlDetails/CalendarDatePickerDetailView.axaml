@@ -1,0 +1,81 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="using:Irihi.Mafia.Demo"
+             xmlns:m="https://irihi.tech/mafia"
+             xmlns:vm="clr-namespace:Irihi.Mafia.Demo.ViewModels.ControlDetails"
+             mc:Ignorable="d"
+             d:DesignWidth="390"
+             d:DesignHeight="844"
+             x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.CalendarDatePickerDetailView"
+             x:DataType="vm:CalendarDatePickerDetailViewModel">
+    <ScrollViewer>
+        <StackPanel Spacing="12" >
+            <TextBlock
+                FontSize="24"
+                FontWeight="Bold"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Title}}" />
+
+            <TextBlock
+                FontSize="14"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Desc}}"
+                TextWrapping="Wrap" />
+
+            <TextBlock
+                FontSize="18"
+                FontWeight="SemiBold"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Basic}}" />
+
+            <m:CellGroup>
+                <m:CalendarDatePicker
+                    Content="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Label}}"
+                    Description="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_LabelDesc}}"
+                    PlaceholderText="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Placeholder}}"
+                    PopupTitle="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_PopupTitle}}"
+                    SelectedDate="{Binding SelectedDate, Mode=TwoWay}" />
+            </m:CellGroup>
+
+            <TextBlock
+                FontSize="14"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Binding SelectedDateText, StringFormat='Selected: {0}'}"
+                TextWrapping="Wrap" />
+
+            <TextBlock
+                FontSize="18"
+                FontWeight="SemiBold"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Scroll}}" />
+
+            <TextBlock
+                FontSize="14"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Scroll_Desc}}"
+                TextWrapping="Wrap" />
+
+            <m:CellGroup>
+                <m:CalendarDatePicker
+                    Content="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_ScrollLabel}}"
+                    DisplayMode="Scroll"
+                    PopupTitle="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_PopupTitle}}"
+                    PlaceholderText="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Placeholder}}"
+                    SelectedDate="{Binding ScrollSelectedDate, Mode=TwoWay}" />
+
+                <m:CalendarDatePicker
+                    Content="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Disabled}}"
+                    IsEnabled="False"
+                    SelectedDate="2026-08-21" />
+            </m:CellGroup>
+
+            <TextBlock
+                FontSize="14"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Binding ScrollSelectedDateText, StringFormat='Selected: {0}'}"
+                TextWrapping="Wrap" />
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

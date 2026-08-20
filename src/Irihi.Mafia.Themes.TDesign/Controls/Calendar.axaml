@@ -1,0 +1,267 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:m="https://irihi.tech/mafia"
+    xmlns:td="https://irihi.tech/td">
+
+    <Design.PreviewWith>
+        <StackPanel Width="360" Spacing="24">
+            <m:Calendar />
+            <m:Calendar DisplayMode="Scroll" SelectionMode="Range" />
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type m:Calendar}" TargetType="m:Calendar">
+        <Setter Property="Background" Value="{DynamicResource TDCalendarBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TDCalendarBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TDCalendarBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TDCalendarCornerRadius}" />
+        <Setter Property="Padding" Value="{DynamicResource TDCalendarPadding}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="m:Calendar">
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Padding="{TemplateBinding Padding}">
+                    <Grid
+                        RowDefinitions="Auto,Auto,*"
+                        RowSpacing="{DynamicResource TDCalendarSpacing}">
+                        <Grid
+                            ColumnDefinitions="Auto,*,Auto"
+                            VerticalAlignment="Center"
+                            IsVisible="{Binding $parent[m:Calendar].IsPagedMode}">
+                            <Button
+                                MinWidth="{DynamicResource TDCalendarHeaderButtonSize}"
+                                MinHeight="{DynamicResource TDCalendarHeaderButtonSize}"
+                                Padding="0"
+                                Theme="{DynamicResource TextButton}"
+                                Command="{Binding $parent[m:Calendar].PreviousMonthCommand}">
+                                <td:ChevronLeft Stroke1="{DynamicResource TDCalendarHeaderButtonForeground}" />
+                            </Button>
+
+                            <TextBlock
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="{DynamicResource TDCalendarHeaderFontSize}"
+                                FontWeight="{DynamicResource TDCalendarHeaderFontWeight}"
+                                Foreground="{DynamicResource TDCalendarMonthTitleForeground}"
+                                Text="{Binding $parent[m:Calendar].DisplayedMonthTitle}" />
+
+                            <Button
+                                Grid.Column="2"
+                                MinWidth="{DynamicResource TDCalendarHeaderButtonSize}"
+                                MinHeight="{DynamicResource TDCalendarHeaderButtonSize}"
+                                Padding="0"
+                                Theme="{DynamicResource TextButton}"
+                                Command="{Binding $parent[m:Calendar].NextMonthCommand}">
+                                <td:ChevronRight Stroke1="{DynamicResource TDCalendarHeaderButtonForeground}" />
+                            </Button>
+                        </Grid>
+
+                        <ItemsControl
+                            Grid.Row="1"
+                            ItemsSource="{Binding $parent[m:Calendar].DayOfWeekHeaders}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="7" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="x:String">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        FontSize="{DynamicResource TDCalendarWeekHeaderFontSize}"
+                                        Foreground="{DynamicResource TDCalendarWeekHeaderForeground}"
+                                        Text="{Binding}" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                        <ScrollViewer
+                            Name="PART_ScrollViewer"
+                            Grid.Row="2"
+                            HorizontalScrollBarVisibility="Disabled"
+                            VerticalScrollBarVisibility="Auto"
+                            MaxHeight="{DynamicResource TDCalendarScrollViewportMaxHeight}">
+                            <m:CalendarMonthsPresenter
+                                Name="PART_MonthsPresenter"
+                                ItemsSource="{Binding $parent[m:Calendar].VisibleMonths}">
+                                <m:CalendarMonthsPresenter.ItemTemplate>
+                                    <DataTemplate x:DataType="m:CalendarMonthView">
+                                        <StackPanel Margin="{DynamicResource TDCalendarScrollMonthPadding}" Spacing="{DynamicResource TDCalendarMonthSpacing}">
+                                            <TextBlock
+                                                Name="PART_MonthTitle"
+                                                FontSize="{DynamicResource TDCalendarHeaderFontSize}"
+                                                FontWeight="{DynamicResource TDCalendarHeaderFontWeight}"
+                                                Foreground="{DynamicResource TDCalendarMonthTitleForeground}"
+                                                IsVisible="{Binding $parent[m:Calendar].IsScrollMode}"
+                                                Text="{Binding Title}" />
+
+                                            <ItemsControl ItemsSource="{Binding Days}">
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <UniformGrid Columns="7" />
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate x:DataType="m:CalendarDayItem">
+                                                        <m:CalendarDayButton
+                                                            Command="{Binding $parent[m:Calendar].SelectDateCommand}"
+                                                            CommandParameter="{Binding Date}"
+                                                            Content="{Binding Text}"
+                                                            Date="{Binding Date}"
+                                                            IsEnabled="{Binding IsEnabled}"
+                                                            IsInactive="{Binding IsCurrentMonth, Converter={x:Static BoolConverters.Not}}"
+                                                            IsInRange="{Binding IsInRange}"
+                                                            IsRangeEnd="{Binding IsRangeEnd}"
+                                                            IsRangeStart="{Binding IsRangeStart}"
+                                                            IsSelected="{Binding IsSelected}"
+                                                            IsToday="{Binding IsToday}">
+                                                            <m:CalendarDayButton.IsVisible>
+                                                                <MultiBinding Converter="{x:Static BoolConverters.Or}">
+                                                                    <Binding Path="IsCurrentMonth" />
+                                                                    <Binding Path="$parent[m:Calendar].IsPagedMode" />
+                                                                </MultiBinding>
+                                                            </m:CalendarDayButton.IsVisible>
+                                                        </m:CalendarDayButton>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </m:CalendarMonthsPresenter.ItemTemplate>
+                            </m:CalendarMonthsPresenter>
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:paged /template/ ScrollViewer#PART_ScrollViewer">
+            <Setter Property="VerticalScrollBarVisibility" Value="Disabled" />
+            <Setter Property="MaxHeight" Value="Infinity" />
+        </Style>
+
+        <Style Selector="^:paged /template/ ItemsControl#PART_MonthsPresenter">
+            <Setter Property="ItemsControl.ItemsPanel">
+                <ItemsPanelTemplate>
+                    <StackPanel />
+                </ItemsPanelTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="^:scroll /template/ ItemsControl#PART_MonthsPresenter">
+            <Setter Property="ItemsControl.ItemsPanel">
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel CacheLength="1" />
+                </ItemsPanelTemplate>
+            </Setter>
+        </Style>
+
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type m:CalendarDayButton}" TargetType="m:CalendarDayButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource TDCalendarDayForeground}" />
+        <Setter Property="Height" Value="{DynamicResource TDCalendarDayHeight}" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="FontSize" Value="{DynamicResource TDCalendarDayFontSize}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="m:CalendarDayButton">
+                <Grid
+                    HorizontalAlignment="Stretch"
+                    Height="{TemplateBinding Height}"
+                    Margin="{DynamicResource TDCalendarDayMargin}">
+                    <Border
+                        Name="PART_RangeBackground"
+                        Background="Transparent"
+                        CornerRadius="{DynamicResource TDCalendarDayRangeSingleCornerRadius}" />
+
+                    <Border
+                        Name="PART_SelectionBackground"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        CornerRadius="{DynamicResource TDCalendarDayCornerRadius}">
+                        <TextBlock
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            FontSize="{TemplateBinding FontSize}"
+                            Foreground="{TemplateBinding Foreground}"
+                            Text="{TemplateBinding Content}" />
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pressed /template/ Border#PART_SelectionBackground">
+            <Setter Property="Background" Value="{DynamicResource TDCalendarDayPressedBackground}" />
+        </Style>
+
+        <Style Selector="^:inactive">
+            <Setter Property="Foreground" Value="{DynamicResource TDCalendarDayInactiveForeground}" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Foreground" Value="{DynamicResource TDCalendarDayDisabledForeground}" />
+        </Style>
+
+        <Style Selector="^:today /template/ Border#PART_SelectionBackground">
+            <Setter Property="BorderBrush" Value="{DynamicResource TDCalendarDayTodayBorderBrush}" />
+            <Setter Property="BorderThickness" Value="{DynamicResource TDCalendarDayTodayBorderThickness}" />
+        </Style>
+
+        <Style Selector="^:in-range /template/ Border#PART_RangeBackground">
+            <Setter Property="Background" Value="{DynamicResource TDCalendarDayRangeBackground}" />
+            <Setter Property="CornerRadius" Value="0" />
+        </Style>
+
+        <Style Selector="^:range-start /template/ Border#PART_RangeBackground">
+            <Setter Property="Background" Value="{DynamicResource TDCalendarDayRangeBackground}" />
+            <Setter Property="CornerRadius" Value="{DynamicResource TDCalendarDayRangeStartCornerRadius}" />
+        </Style>
+
+        <Style Selector="^:range-end /template/ Border#PART_RangeBackground">
+            <Setter Property="Background" Value="{DynamicResource TDCalendarDayRangeBackground}" />
+            <Setter Property="CornerRadius" Value="{DynamicResource TDCalendarDayRangeEndCornerRadius}" />
+        </Style>
+
+        <Style Selector="^:range-start:range-end /template/ Border#PART_RangeBackground">
+            <Setter Property="CornerRadius" Value="{DynamicResource TDCalendarDayRangeSingleCornerRadius}" />
+        </Style>
+
+        <Style Selector="^:selected">
+            <Setter Property="Foreground" Value="{DynamicResource TDCalendarDaySelectedForeground}" />
+            <Style Selector="^ /template/ Border#PART_SelectionBackground">
+                <Setter Property="Background" Value="{DynamicResource TDCalendarDaySelectedBackground}" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="0" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:selected:in-range /template/ Border#PART_SelectionBackground">
+            <Setter Property="CornerRadius" Value="0" />
+        </Style>
+
+        <Style Selector="^:selected:range-start /template/ Border#PART_SelectionBackground">
+            <Setter Property="CornerRadius" Value="{DynamicResource TDCalendarDayRangeStartCornerRadius}" />
+        </Style>
+
+        <Style Selector="^:selected:range-end /template/ Border#PART_SelectionBackground">
+            <Setter Property="CornerRadius" Value="{DynamicResource TDCalendarDayRangeEndCornerRadius}" />
+        </Style>
+
+        <Style Selector="^:selected:range-start:range-end /template/ Border#PART_SelectionBackground">
+            <Setter Property="CornerRadius" Value="{DynamicResource TDCalendarDayRangeSingleCornerRadius}" />
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>

@@ -1,0 +1,188 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:m="https://irihi.tech/mafia"
+    xmlns:td="https://irihi.tech/td">
+
+    <Design.PreviewWith>
+        <StackPanel Width="390" Spacing="12" Margin="16">
+            <m:CalendarDatePicker
+                Content="出行日期"
+                Description="点击后通过日历选择日期"
+                PlaceholderText="请选择日期" />
+            <m:CalendarDatePicker
+                Content="滚动选择"
+                DisplayMode="Scroll"
+                PopupTitle="请选择日期"
+                SelectedDate="2026-08-21" />
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <ControlTheme x:Key="{x:Type m:CalendarDatePicker}" TargetType="m:CalendarDatePicker">
+        <Setter Property="Padding" Value="{DynamicResource TDCellPadding}" />
+        <Setter Property="Background" Value="{DynamicResource TDCellBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TDCellBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TDCellBorderThickness}" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource TDPickerPlaceholderForeground}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="m:CalendarDatePicker">
+                <Panel>
+                    <Border
+                        Name="PART_Background"
+                        Padding="{TemplateBinding Padding}"
+                        MinHeight="{TemplateBinding MinHeight}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid
+                            Name="{x:Static m:Cell.PART_RootPanel}"
+                            ColumnDefinitions="Auto,*,Auto">
+                            <ContentPresenter
+                                Grid.Column="0"
+                                Name="PART_InnerLeftContent"
+                                Margin="{DynamicResource TDCellLeftContentMargin}"
+                                Foreground="{DynamicResource TDCellLeftContentForeground}"
+                                Content="{TemplateBinding InnerLeftContent}"
+                                ContentTemplate="{TemplateBinding InnerLeftContentTemplate}"
+                                IsVisible="{TemplateBinding InnerLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                <ContentPresenter.DataTemplates>
+                                    <DataTemplate DataType="Geometry">
+                                        <PathIcon Data="{Binding}" />
+                                    </DataTemplate>
+                                </ContentPresenter.DataTemplates>
+                            </ContentPresenter>
+
+                            <StackPanel
+                                Grid.Column="1"
+                                Margin="{DynamicResource TDCellContentMargin}"
+                                Spacing="{DynamicResource TDCellContentPanelSpacing}">
+                                <StackPanel Orientation="Horizontal" Spacing="{DynamicResource TDCellContentSpacing}">
+                                    <ContentPresenter
+                                        Name="PART_ContentPresenter"
+                                        Content="{TemplateBinding Content}"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                                        Foreground="{DynamicResource TDCellContentForeground}"
+                                        FontSize="{DynamicResource TDCellContentFontSize}"
+                                        IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                    <TextBlock
+                                        Name="PART_Asterisk"
+                                        Foreground="{DynamicResource TDCellAsteriskForeground}"
+                                        FontSize="{DynamicResource TDCellAsteriskFontSize}"
+                                        IsVisible="{TemplateBinding IsRequired}"
+                                        Text="*" />
+                                </StackPanel>
+                                <ContentPresenter
+                                    Name="PART_Description"
+                                    Content="{TemplateBinding Description}"
+                                    ContentTemplate="{TemplateBinding DescriptionTemplate}"
+                                    Foreground="{DynamicResource TDCellDescriptionForeground}"
+                                    FontSize="{DynamicResource TDCellDescriptionFontSize}"
+                                    IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                            </StackPanel>
+
+                            <StackPanel
+                                Grid.Column="2"
+                                Name="PART_RightPanel"
+                                Orientation="Horizontal"
+                                Spacing="{DynamicResource TDCellRightPanelSpacing}"
+                                VerticalAlignment="Center">
+                                <ContentPresenter
+                                    Name="PART_Note"
+                                    Content="{TemplateBinding Note}"
+                                    ContentTemplate="{TemplateBinding NoteTemplate}"
+                                    Foreground="{DynamicResource TDCellNoteForeground}"
+                                    FontSize="{DynamicResource TDCellNoteFontSize}"
+                                    IsVisible="{TemplateBinding Note, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                <TextBlock
+                                    Name="PART_SelectedDateText"
+                                    FontSize="{DynamicResource TDCellNoteFontSize}"
+                                    Foreground="{DynamicResource TDCellNoteForeground}"
+                                    Text="{TemplateBinding SelectedDateText}">
+                                    <TextBlock.IsVisible>
+                                        <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                            <TemplateBinding Property="Note" Converter="{x:Static ObjectConverters.IsNull}" />
+                                            <TemplateBinding Property="SelectedDateText" Converter="{x:Static ObjectConverters.IsNotNull}" />
+                                        </MultiBinding>
+                                    </TextBlock.IsVisible>
+                                </TextBlock>
+                                <TextBlock
+                                    Name="PART_PlaceholderText"
+                                    FontSize="{DynamicResource TDCellNoteFontSize}"
+                                    Foreground="{TemplateBinding PlaceholderForeground}"
+                                    Text="{TemplateBinding PlaceholderText}">
+                                    <TextBlock.IsVisible>
+                                        <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                            <TemplateBinding Property="Note" Converter="{x:Static ObjectConverters.IsNull}" />
+                                            <TemplateBinding Property="SelectedDateText" Converter="{x:Static ObjectConverters.IsNull}" />
+                                        </MultiBinding>
+                                    </TextBlock.IsVisible>
+                                </TextBlock>
+                                <ContentPresenter
+                                    Name="PART_InnerRightContent"
+                                    Foreground="{DynamicResource TDCellRightContentForeground}"
+                                    Content="{TemplateBinding InnerRightContent}"
+                                    ContentTemplate="{TemplateBinding InnerRightContentTemplate}"
+                                    IsVisible="{TemplateBinding InnerRightContent, Converter={x:Static ObjectConverters.IsNotNull}}">
+                                    <ContentPresenter.DataTemplates>
+                                        <DataTemplate DataType="Geometry">
+                                            <PathIcon Data="{Binding}" />
+                                        </DataTemplate>
+                                    </ContentPresenter.DataTemplates>
+                                </ContentPresenter>
+                                <td:ChevronRight
+                                    Name="PART_DefaultChevron"
+                                    Stroke1="{DynamicResource TDCellRightContentForeground}"
+                                    IsVisible="{TemplateBinding InnerRightContent, Converter={x:Static ObjectConverters.IsNull}}" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <m:Popup
+                        Name="PART_Popup"
+                        IsLightDismissEnabled="True"
+                        IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
+                        Placement="Bottom">
+                        <Border
+                            Name="PART_PopupBorder"
+                            HorizontalAlignment="Stretch"
+                            ClipToBounds="True"
+                            MaxHeight="{TemplateBinding PopupMaxHeight}"
+                            Background="{DynamicResource TDPickerPopupBackground}"
+                            BorderBrush="{DynamicResource TDPickerPopupBorderBrush}"
+                            BorderThickness="{DynamicResource TDPickerPopupBorderThickness}"
+                            CornerRadius="{DynamicResource TDPickerPopupCornerRadius}"
+                            Padding="16">
+                            <StackPanel Spacing="12">
+                                <TextBlock
+                                    FontSize="{DynamicResource TDPickerTitleFontSize}"
+                                    Foreground="{DynamicResource TDPickerTitleForeground}"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Text="{TemplateBinding PopupTitle}"
+                                    IsVisible="{TemplateBinding PopupTitle, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                                <m:Calendar
+                                    Padding="0"
+                                    DisplayMode="{TemplateBinding DisplayMode}"
+                                    SelectionMode="Single"
+                                    HorizontalAlignment="Stretch"
+                                    SelectedDate="{TemplateBinding PopupSelectedDate, Mode=TwoWay}"
+                                    FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
+                                    MinDate="{TemplateBinding MinDate}"
+                                    MaxDate="{TemplateBinding MaxDate}" />
+                                <Button
+                                    Name="PART_ConfirmButton"
+                                    Classes="Primary"
+                                    HorizontalAlignment="Stretch"
+                                    Content="{TemplateBinding ConfirmButtonText}" />
+                            </StackPanel>
+                        </Border>
+                    </m:Popup>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pressed /template/ Border#PART_Background">
+            <Setter Property="Background" Value="{DynamicResource TDCellPressedBackground}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

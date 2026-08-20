@@ -43,6 +43,10 @@
   <data name="Gallery_Popup_Desc" xml:space="preserve"><value>Six placements, modal/light dismiss</value></data>
   <data name="Gallery_Button" xml:space="preserve"><value>Button</value></data>
   <data name="Gallery_Button_Desc" xml:space="preserve"><value>Fill/outline/text, multi-color multi-size</value></data>
+  <data name="Gallery_Calendar" xml:space="preserve"><value>Calendar</value></data>
+  <data name="Gallery_Calendar_Desc" xml:space="preserve"><value>Touch-first calendar with paged and scroll modes</value></data>
+  <data name="Gallery_CalendarDatePicker" xml:space="preserve"><value>CalendarDatePicker</value></data>
+  <data name="Gallery_CalendarDatePicker_Desc" xml:space="preserve"><value>Cell-style date picker backed by calendar popup</value></data>
   <data name="Gallery_Picker" xml:space="preserve"><value>Picker</value></data>
   <data name="Gallery_Picker_Desc" xml:space="preserve"><value>Touch-optimized dropdown</value></data>
   <data name="Gallery_Switch" xml:space="preserve"><value>ToggleSwitch</value></data>
@@ -153,6 +157,34 @@
   <data name="Picker_OptionC" xml:space="preserve"><value>Option C</value></data>
   <data name="Picker_OptionD" xml:space="preserve"><value>Option D</value></data>
   <data name="Picker_OptionE" xml:space="preserve"><value>Option E</value></data>
+
+  <!-- Calendar Detail -->
+  <data name="Calendar_Title" xml:space="preserve"><value>Calendar</value></data>
+  <data name="Calendar_Desc" xml:space="preserve"><value>Mobile-first calendar with horizontal month paging, smooth vertical month scrolling, and touch selection for single, multiple, and range scenarios.</value></data>
+  <data name="Calendar_PagedSingle" xml:space="preserve"><value>Paged mode · single selection</value></data>
+  <data name="Calendar_Multiple" xml:space="preserve"><value>Paged mode · multiple selection</value></data>
+  <data name="Calendar_Multiple_Desc" xml:space="preserve"><value>Tap dates to toggle them on or off.</value></data>
+  <data name="Calendar_Range" xml:space="preserve"><value>Paged mode · range selection</value></data>
+  <data name="Calendar_Range_Desc" xml:space="preserve"><value>The first tap sets the start; the second tap completes the range; the third tap starts a new range.</value></data>
+  <data name="Calendar_Scroll" xml:space="preserve"><value>Scroll mode</value></data>
+  <data name="Calendar_Scroll_Desc" xml:space="preserve"><value>Swipe vertically to browse months continuously instead of flipping an entire month at a time.</value></data>
+  <data name="Calendar_ScrollPopup" xml:space="preserve"><value>Scroll calendar in popup</value></data>
+  <data name="Calendar_ScrollPopup_Desc" xml:space="preserve"><value>Open a bottom popup from a cell and complete range selection with smooth scroll mode, suitable for mobile form and filter scenarios.</value></data>
+  <data name="Calendar_ScrollPopup_Cell" xml:space="preserve"><value>Travel dates</value></data>
+  <data name="Calendar_ScrollPopup_CellDesc" xml:space="preserve"><value>Tap to open bottom popup and choose a date range</value></data>
+
+  <!-- CalendarDatePicker Detail -->
+  <data name="CalendarDatePicker_Title" xml:space="preserve"><value>CalendarDatePicker</value></data>
+  <data name="CalendarDatePicker_Desc" xml:space="preserve"><value>Cell-style date selection control that opens a Calendar in a bottom popup for touch interaction.</value></data>
+  <data name="CalendarDatePicker_Basic" xml:space="preserve"><value>Basic usage</value></data>
+  <data name="CalendarDatePicker_Label" xml:space="preserve"><value>Date</value></data>
+  <data name="CalendarDatePicker_LabelDesc" xml:space="preserve"><value>Tap to open the date selector</value></data>
+  <data name="CalendarDatePicker_Placeholder" xml:space="preserve"><value>Select a date</value></data>
+  <data name="CalendarDatePicker_PopupTitle" xml:space="preserve"><value>Select date</value></data>
+  <data name="CalendarDatePicker_Scroll" xml:space="preserve"><value>Scroll mode</value></data>
+  <data name="CalendarDatePicker_Scroll_Desc" xml:space="preserve"><value>Use smooth vertical scrolling calendar inside popup to pick a date.</value></data>
+  <data name="CalendarDatePicker_ScrollLabel" xml:space="preserve"><value>Travel date</value></data>
+  <data name="CalendarDatePicker_Disabled" xml:space="preserve"><value>Disabled state</value></data>
 
   <!-- Popup Detail -->
   <data name="Popup_Title" xml:space="preserve"><value>Popup</value></data>

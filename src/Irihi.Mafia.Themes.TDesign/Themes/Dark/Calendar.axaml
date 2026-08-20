@@ -1,0 +1,20 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <StaticResource x:Key="TDCalendarBackground" ResourceKey="TDBgColorContainer" />
+    <StaticResource x:Key="TDCalendarBorderBrush" ResourceKey="TDComponentStroke" />
+
+    <StaticResource x:Key="TDCalendarHeaderButtonForeground" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDCalendarWeekHeaderForeground" ResourceKey="TDTextColorSecondary" />
+    <StaticResource x:Key="TDCalendarMonthTitleForeground" ResourceKey="TDTextColorPrimary" />
+
+    <StaticResource x:Key="TDCalendarDayForeground" ResourceKey="TDTextColorPrimary" />
+    <StaticResource x:Key="TDCalendarDayInactiveForeground" ResourceKey="TDTextColorPlaceholder" />
+    <StaticResource x:Key="TDCalendarDayDisabledForeground" ResourceKey="TDTextColorDisabled" />
+    <StaticResource x:Key="TDCalendarDayPressedBackground" ResourceKey="TDBgColorContainerActive" />
+    <StaticResource x:Key="TDCalendarDayTodayBorderBrush" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDCalendarDaySelectedBackground" ResourceKey="TDBrandColor" />
+    <StaticResource x:Key="TDCalendarDaySelectedForeground" ResourceKey="TDFontWhite1" />
+    <StaticResource x:Key="TDCalendarDayRangeBackground" ResourceKey="TDBrandColorLight" />
+
+</ResourceDictionary>
