@@ -10,8 +10,9 @@
              d:DesignHeight="844"
              x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.CalendarDetailView"
              x:DataType="vm:CalendarDetailViewModel">
-    <ScrollViewer>
-        <StackPanel Spacing="12" Margin="16,16,16,24">
+    <Panel>
+        <ScrollViewer>
+            <StackPanel Spacing="12" Margin="16,16,16,24">
             <TextBlock
                 FontSize="24"
                 FontWeight="Bold"
@@ -101,6 +102,64 @@
                 Foreground="{DynamicResource TDFontGyColor}"
                 Text="{Binding ScrollRangeText, StringFormat='Range: {0}'}"
                 TextWrapping="Wrap" />
+
+            <TextBlock
+                FontSize="18"
+                FontWeight="SemiBold"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_ScrollPopup}}" />
+
+            <TextBlock
+                FontSize="14"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_ScrollPopup_Desc}}"
+                TextWrapping="Wrap" />
+
+            <m:CellGroup>
+                <m:Cell
+                    Classes="Arrow"
+                    Command="{Binding OpenScrollPopupCommand}"
+                    Content="{Translate {x:Static local:LanguageManager+Keys.Calendar_ScrollPopup_Cell}}"
+                    Description="{Translate {x:Static local:LanguageManager+Keys.Calendar_ScrollPopup_CellDesc}}"
+                    Note="{Binding PopupRangeText}" />
+            </m:CellGroup>
         </StackPanel>
-    </ScrollViewer>
+        </ScrollViewer>
+
+        <m:Popup
+            IsOpen="{Binding IsScrollPopupOpen}"
+            IsModal="True"
+            IsLightDismissEnabled="True"
+            Placement="Bottom"
+            MinHeight="480">
+            <Border
+                Background="{DynamicResource TDBgColorContainer}"
+                CornerRadius="16"
+                Padding="16,16,16,24">
+                <StackPanel Spacing="12">
+                    <TextBlock
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_ScrollPopup}}" />
+
+                    <m:Calendar
+                        DisplayMode="Scroll"
+                        SelectionMode="Range"
+                        RangeStart="{Binding PopupRangeStart, Mode=TwoWay}"
+                        RangeEnd="{Binding PopupRangeEnd, Mode=TwoWay}" />
+
+                    <TextBlock
+                        FontSize="14"
+                        Foreground="{DynamicResource TDFontGyColor}"
+                        Text="{Binding PopupRangeText, StringFormat='Range: {0}'}"
+                        TextWrapping="Wrap" />
+
+                    <Button
+                        Classes="Primary"
+                        Command="{Binding CloseScrollPopupCommand}"
+                        Content="{Translate {x:Static local:LanguageManager+Keys.Popup_Close}}" />
+                </StackPanel>
+            </Border>
+        </m:Popup>
+    </Panel>
 </UserControl>

@@ -166,6 +166,10 @@
   <data name="Calendar_Range_Desc" xml:space="preserve"><value>The first tap sets the start; the second tap completes the range; the third tap starts a new range.</value></data>
   <data name="Calendar_Scroll" xml:space="preserve"><value>Scroll mode</value></data>
   <data name="Calendar_Scroll_Desc" xml:space="preserve"><value>Swipe vertically to browse months continuously instead of flipping an entire month at a time.</value></data>
+  <data name="Calendar_ScrollPopup" xml:space="preserve"><value>Scroll calendar in popup</value></data>
+  <data name="Calendar_ScrollPopup_Desc" xml:space="preserve"><value>Open a bottom popup from a cell and complete range selection with smooth scroll mode, suitable for mobile form and filter scenarios.</value></data>
+  <data name="Calendar_ScrollPopup_Cell" xml:space="preserve"><value>Travel dates</value></data>
+  <data name="Calendar_ScrollPopup_CellDesc" xml:space="preserve"><value>Tap to open bottom popup and choose a date range</value></data>
 
   <!-- Popup Detail -->
   <data name="Popup_Title" xml:space="preserve"><value>Popup</value></data>

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace Irihi.Mafia.Demo.ViewModels.ControlDetails;
 
@@ -32,6 +33,15 @@ public partial class CalendarDetailViewModel : NavigationViewModelBase
     [ObservableProperty]
     public partial DateTime? ScrollRangeEnd { get; set; } = Today.AddDays(18);
 
+    [ObservableProperty]
+    public partial bool IsScrollPopupOpen { get; set; }
+
+    [ObservableProperty]
+    public partial DateTime? PopupRangeStart { get; set; } = Today.AddDays(20);
+
+    [ObservableProperty]
+    public partial DateTime? PopupRangeEnd { get; set; } = Today.AddDays(26);
+
     public string PagedSingleDateText => PagedSingleDate?.ToString("yyyy-MM-dd") ?? "None";
 
     public string MultipleDatesText => MultipleDates is { Count: > 0 }
@@ -41,6 +51,8 @@ public partial class CalendarDetailViewModel : NavigationViewModelBase
     public string RangeText => FormatRange(RangeStart, RangeEnd);
 
     public string ScrollRangeText => FormatRange(ScrollRangeStart, ScrollRangeEnd);
+
+    public string PopupRangeText => FormatRange(PopupRangeStart, PopupRangeEnd);
 
     partial void OnPagedSingleDateChanged(DateTime? value) => OnPropertyChanged(nameof(PagedSingleDateText));
 
@@ -53,6 +65,22 @@ public partial class CalendarDetailViewModel : NavigationViewModelBase
     partial void OnScrollRangeStartChanged(DateTime? value) => OnPropertyChanged(nameof(ScrollRangeText));
 
     partial void OnScrollRangeEndChanged(DateTime? value) => OnPropertyChanged(nameof(ScrollRangeText));
+
+    partial void OnPopupRangeStartChanged(DateTime? value) => OnPropertyChanged(nameof(PopupRangeText));
+
+    partial void OnPopupRangeEndChanged(DateTime? value) => OnPropertyChanged(nameof(PopupRangeText));
+
+    [RelayCommand]
+    private void OpenScrollPopup()
+    {
+        IsScrollPopupOpen = true;
+    }
+
+    [RelayCommand]
+    private void CloseScrollPopup()
+    {
+        IsScrollPopupOpen = false;
+    }
 
     private static string FormatRange(DateTime? start, DateTime? end)
     {
