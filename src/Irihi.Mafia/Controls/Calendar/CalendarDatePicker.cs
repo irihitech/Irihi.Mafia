@@ -2,17 +2,21 @@ using System.Globalization;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
+using Avalonia.Controls.Primitives;
 using Avalonia.Controls.Templates;
 using Avalonia.Data;
+using Avalonia.Interactivity;
 using Avalonia.Media;
 using Irihi.Mafia.Common;
 
 namespace Irihi.Mafia.Controls;
 
 [TemplatePart(PART_Popup, typeof(Primitives.Popup), IsRequired = true)]
+[TemplatePart(PART_ConfirmButton, typeof(Button), IsRequired = false)]
 public class CalendarDatePicker : Cell, ICell
 {
     public const string PART_Popup = "PART_Popup";
+    public const string PART_ConfirmButton = "PART_ConfirmButton";
 
     public static readonly StyledProperty<bool> IsDropDownOpenProperty =
         AvaloniaProperty.Register<CalendarDatePicker, bool>(
@@ -22,6 +26,11 @@ public class CalendarDatePicker : Cell, ICell
     public static readonly StyledProperty<DateTime?> SelectedDateProperty =
         AvaloniaProperty.Register<CalendarDatePicker, DateTime?>(
             nameof(SelectedDate),
+            defaultBindingMode: BindingMode.TwoWay);
+
+    public static readonly StyledProperty<DateTime?> PopupSelectedDateProperty =
+        AvaloniaProperty.Register<CalendarDatePicker, DateTime?>(
+            nameof(PopupSelectedDate),
             defaultBindingMode: BindingMode.TwoWay);
 
     public static readonly StyledProperty<string?> PlaceholderTextProperty =
@@ -35,6 +44,9 @@ public class CalendarDatePicker : Cell, ICell
 
     public static readonly StyledProperty<string?> PopupTitleProperty =
         AvaloniaProperty.Register<CalendarDatePicker, string?>(nameof(PopupTitle));
+
+    public static readonly StyledProperty<string> ConfirmButtonTextProperty =
+        AvaloniaProperty.Register<CalendarDatePicker, string>(nameof(ConfirmButtonText), "Confirm");
 
     public static readonly StyledProperty<double> PopupMinHeightProperty =
         AvaloniaProperty.Register<CalendarDatePicker, double>(nameof(PopupMinHeight), 480d);
@@ -62,6 +74,7 @@ public class CalendarDatePicker : Cell, ICell
             o => o.SelectedDateText);
 
     private string? _selectedDateText;
+    private Button? _confirmButton;
 
     static CalendarDatePicker()
     {
@@ -77,6 +90,7 @@ public class CalendarDatePicker : Cell, ICell
             Classes.Add("Arrow");
         }
 
+        SetCurrentValue(PopupSelectedDateProperty, SelectedDate);
         UpdateSelectedDateText();
     }
 
@@ -90,6 +104,12 @@ public class CalendarDatePicker : Cell, ICell
     {
         get => GetValue(SelectedDateProperty);
         set => SetValue(SelectedDateProperty, value);
+    }
+
+    public DateTime? PopupSelectedDate
+    {
+        get => GetValue(PopupSelectedDateProperty);
+        set => SetValue(PopupSelectedDateProperty, value);
     }
 
     public string? PlaceholderText
@@ -114,6 +134,12 @@ public class CalendarDatePicker : Cell, ICell
     {
         get => GetValue(PopupTitleProperty);
         set => SetValue(PopupTitleProperty, value);
+    }
+
+    public string ConfirmButtonText
+    {
+        get => GetValue(ConfirmButtonTextProperty);
+        set => SetValue(ConfirmButtonTextProperty, value);
     }
 
     public double PopupMinHeight
@@ -158,12 +184,25 @@ public class CalendarDatePicker : Cell, ICell
         private set => SetAndRaise(SelectedDateTextProperty, ref _selectedDateText, value);
     }
 
+    protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+    {
+        base.OnApplyTemplate(e);
+
+        if (_confirmButton is not null)
+            _confirmButton.Click -= OnConfirmClick;
+
+        _confirmButton = e.NameScope.Find<Button>(PART_ConfirmButton);
+        if (_confirmButton is not null)
+            _confirmButton.Click += OnConfirmClick;
+    }
+
     protected override void OnClick()
     {
         base.OnClick();
 
         if (IsEnabled)
         {
+            SetCurrentValue(PopupSelectedDateProperty, SelectedDate);
             SetCurrentValue(IsDropDownOpenProperty, true);
         }
     }
@@ -172,10 +211,16 @@ public class CalendarDatePicker : Cell, ICell
     {
         UpdateSelectedDateText();
 
-        if (date is not null && IsDropDownOpen)
+        if (!IsDropDownOpen)
         {
-            SetCurrentValue(IsDropDownOpenProperty, false);
+            SetCurrentValue(PopupSelectedDateProperty, date);
         }
+    }
+
+    private void OnConfirmClick(object? sender, RoutedEventArgs e)
+    {
+        SetCurrentValue(SelectedDateProperty, PopupSelectedDate);
+        SetCurrentValue(IsDropDownOpenProperty, false);
     }
 
     private void UpdateSelectedDateText()

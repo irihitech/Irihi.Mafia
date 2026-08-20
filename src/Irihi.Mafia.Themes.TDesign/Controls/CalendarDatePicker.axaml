@@ -154,10 +154,10 @@
                             Padding="16">
                             <StackPanel Spacing="12">
                                 <TextBlock
-                                    
                                     FontSize="{DynamicResource TDPickerTitleFontSize}"
                                     Foreground="{DynamicResource TDPickerTitleForeground}"
                                     HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
                                     Text="{TemplateBinding PopupTitle}"
                                     IsVisible="{TemplateBinding PopupTitle, Converter={x:Static ObjectConverters.IsNotNull}}" />
                                 <m:Calendar
@@ -165,10 +165,15 @@
                                     DisplayMode="{TemplateBinding DisplayMode}"
                                     SelectionMode="Single"
                                     HorizontalAlignment="Stretch"
-                                    SelectedDate="{TemplateBinding SelectedDate, Mode=TwoWay}"
+                                    SelectedDate="{TemplateBinding PopupSelectedDate, Mode=TwoWay}"
                                     FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
                                     MinDate="{TemplateBinding MinDate}"
                                     MaxDate="{TemplateBinding MaxDate}" />
+                                <Button
+                                    Name="PART_ConfirmButton"
+                                    Classes="Primary"
+                                    HorizontalAlignment="Stretch"
+                                    Content="{TemplateBinding ConfirmButtonText}" />
                             </StackPanel>
                         </Border>
                     </m:Popup>
