@@ -4,6 +4,7 @@
         <ResourceInclude Source="Avatar.axaml" />
         <ResourceInclude Source="Button.axaml" />
         <ResourceInclude Source="Calendar.axaml" />
+        <ResourceInclude Source="CalendarDatePicker.axaml" />
         <ResourceInclude Source="Cell.axaml" />
         <ResourceInclude Source="CheckBox.axaml" />
         <ResourceInclude Source="Picker.axaml" />

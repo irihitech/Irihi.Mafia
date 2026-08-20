@@ -45,6 +45,8 @@
   <data name="Gallery_Button_Desc" xml:space="preserve"><value>填充/描边/文字，多色多尺寸</value></data>
   <data name="Gallery_Calendar" xml:space="preserve"><value>Calendar 日历</value></data>
   <data name="Gallery_Calendar_Desc" xml:space="preserve"><value>支持翻页与滚动的触摸日历</value></data>
+  <data name="Gallery_CalendarDatePicker" xml:space="preserve"><value>CalendarDatePicker 日期选择</value></data>
+  <data name="Gallery_CalendarDatePicker_Desc" xml:space="preserve"><value>基于日历弹层的 Cell 风格日期选择</value></data>
   <data name="Gallery_Picker" xml:space="preserve"><value>Picker 下拉选择</value></data>
   <data name="Gallery_Picker_Desc" xml:space="preserve"><value>触控优化的下拉选择控件</value></data>
   <data name="Gallery_Switch" xml:space="preserve"><value>ToggleSwitch 开关</value></data>
@@ -170,6 +172,19 @@
   <data name="Calendar_ScrollPopup_Desc" xml:space="preserve"><value>通过 Cell 拉起底部 Popup，在弹层中完成滚动范围选择，适合移动端表单与筛选场景。</value></data>
   <data name="Calendar_ScrollPopup_Cell" xml:space="preserve"><value>出行日期</value></data>
   <data name="Calendar_ScrollPopup_CellDesc" xml:space="preserve"><value>点击打开底部弹层选择日期范围</value></data>
+
+  <!-- CalendarDatePicker Detail -->
+  <data name="CalendarDatePicker_Title" xml:space="preserve"><value>CalendarDatePicker 日期选择</value></data>
+  <data name="CalendarDatePicker_Desc" xml:space="preserve"><value>Cell 风格的日期选择控件，点击后在底部弹层中打开 Calendar 进行触摸选日。</value></data>
+  <data name="CalendarDatePicker_Basic" xml:space="preserve"><value>基础用法</value></data>
+  <data name="CalendarDatePicker_Label" xml:space="preserve"><value>日期</value></data>
+  <data name="CalendarDatePicker_LabelDesc" xml:space="preserve"><value>点击打开日期选择器</value></data>
+  <data name="CalendarDatePicker_Placeholder" xml:space="preserve"><value>请选择日期</value></data>
+  <data name="CalendarDatePicker_PopupTitle" xml:space="preserve"><value>选择日期</value></data>
+  <data name="CalendarDatePicker_Scroll" xml:space="preserve"><value>滚动模式</value></data>
+  <data name="CalendarDatePicker_Scroll_Desc" xml:space="preserve"><value>在弹层中使用纵向丝滑滚动日历选择日期。</value></data>
+  <data name="CalendarDatePicker_ScrollLabel" xml:space="preserve"><value>出行日期</value></data>
+  <data name="CalendarDatePicker_Disabled" xml:space="preserve"><value>禁用状态</value></data>
 
   <!-- Popup Detail -->
   <data name="Popup_Title" xml:space="preserve"><value>Popup 弹出层</value></data>

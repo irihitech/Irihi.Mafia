@@ -27,6 +27,7 @@ public partial class ControlGalleryViewModel : NavigationViewModelBase
             new(Manager, "Popup", nameof(LanguageManager.Keys.Gallery_Popup), nameof(LanguageManager.Keys.Gallery_Popup_Desc), ShowControlCommand),
             new(Manager, "Button", nameof(LanguageManager.Keys.Gallery_Button), nameof(LanguageManager.Keys.Gallery_Button_Desc), ShowControlCommand),
             new(Manager, "Calendar", nameof(LanguageManager.Keys.Gallery_Calendar), nameof(LanguageManager.Keys.Gallery_Calendar_Desc), ShowControlCommand),
+            new(Manager, "CalendarDatePicker", nameof(LanguageManager.Keys.Gallery_CalendarDatePicker), nameof(LanguageManager.Keys.Gallery_CalendarDatePicker_Desc), ShowControlCommand),
             new(Manager, "Picker", nameof(LanguageManager.Keys.Gallery_Picker), nameof(LanguageManager.Keys.Gallery_Picker_Desc), ShowControlCommand),
             new(Manager, "Switch", nameof(LanguageManager.Keys.Gallery_Switch), nameof(LanguageManager.Keys.Gallery_Switch_Desc), ShowControlCommand),
             new(Manager, "Slider", nameof(LanguageManager.Keys.Gallery_Slider), nameof(LanguageManager.Keys.Gallery_Slider_Desc), ShowControlCommand),
@@ -70,6 +71,7 @@ public partial class ControlGalleryViewModel : NavigationViewModelBase
             "Popup" => new PopupDetailView(),
             "Button" => new ButtonDetailView(),
             "Calendar" => new CalendarDetailView(),
+            "CalendarDatePicker" => new CalendarDatePickerDetailView(),
             "Picker" => new PickerDetailView(),
             "Switch" => new SwitchDetailView(),
             "Input" => new InputDetailView(),
@@ -93,6 +95,7 @@ public partial class ControlGalleryViewModel : NavigationViewModelBase
             "Popup" => new PopupDetailViewModel() { NavigationRoot = NavigationRoot },
             "Button" => new ButtonDetailViewModel() { NavigationRoot = NavigationRoot },
             "Calendar" => new CalendarDetailViewModel() { NavigationRoot = NavigationRoot },
+            "CalendarDatePicker" => new CalendarDatePickerDetailViewModel() { NavigationRoot = NavigationRoot },
             "Picker" => new PickerDetailViewModel() { NavigationRoot = NavigationRoot },
             _ => null,
         };
