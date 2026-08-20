@@ -118,6 +118,7 @@ public class Calendar : TemplatedControl
     private DateTime? _rangeAnchor;
     private CalendarMonthView[]? _pagedMonths;
     private VirtualCalendarMonthCollection? _scrollMonths;
+    private DateTime _scrollAnchorMonth = NormalizeMonth(DateTime.Today);
     private bool _isRecenteringScrollRange;
     private bool _scrollAlignmentPending;
     private double _scrollMonthHeight;
@@ -145,6 +146,7 @@ public class Calendar : TemplatedControl
         _previousMonthCommand = new ActionCommand(_ => MoveMonth(-1));
         _nextMonthCommand = new ActionCommand(_ => MoveMonth(1));
         _selectDateCommand = new ActionCommand(SelectDateFromCommand);
+        _scrollAnchorMonth = NormalizeMonth(DisplayDate);
 
         UpdateDisplayModePseudoClasses(DisplayMode);
         UpdateSelectionModePseudoClasses(SelectionMode);
@@ -296,12 +298,22 @@ public class Calendar : TemplatedControl
             return;
         }
 
+        if (DisplayMode == CalendarDisplayMode.Scroll)
+        {
+            _scrollAnchorMonth = normalized;
+        }
+
         RefreshCalendar();
         ScrollHomeMonthIntoView();
     }
 
     private void OnDisplayModeChanged(CalendarDisplayMode value)
     {
+        if (value == CalendarDisplayMode.Scroll)
+        {
+            _scrollAnchorMonth = NormalizeMonth(DisplayDate);
+        }
+
         UpdateDisplayModePseudoClasses(value);
         RefreshCalendar();
         ScrollHomeMonthIntoView();
@@ -629,6 +641,7 @@ public class Calendar : TemplatedControl
         {
             _scrollAnchorIndex = 0;
             _scrollMonths = null;
+            _scrollAnchorMonth = displayDate;
 
             if (_pagedMonths is null || _pagedMonths.Length != 1 || _pagedMonths[0].Month != displayDate)
             {
@@ -644,7 +657,14 @@ public class Calendar : TemplatedControl
         }
 
         var buffer = Math.Max(0, ScrollMonthBuffer);
-        var startMonth = displayDate.AddMonths(-buffer);
+        var anchorMonth = NormalizeMonth(_scrollAnchorMonth);
+        if (_scrollMonths is null)
+        {
+            anchorMonth = displayDate;
+            _scrollAnchorMonth = anchorMonth;
+        }
+
+        var startMonth = anchorMonth.AddMonths(-buffer);
         var count = buffer * 2 + 1;
 
         _pagedMonths = null;
@@ -654,7 +674,7 @@ public class Calendar : TemplatedControl
             _scrollMonths = new VirtualCalendarMonthCollection(startMonth, count, BuildMonth, UpdateMonthSelection, selection);
             VisibleMonths = _scrollMonths;
         }
-        else if (_scrollMonths.Count != count || !_scrollMonths.ContainsMonth(displayDate))
+        else if (_scrollMonths.Count != count || !_scrollMonths.ContainsMonth(anchorMonth))
         {
             _scrollMonths.ResetRange(startMonth, count, selection);
         }
@@ -663,7 +683,7 @@ public class Calendar : TemplatedControl
             _scrollMonths.ApplySelection(selection);
         }
 
-        _scrollAnchorIndex = _scrollMonths.GetIndexOfMonth(displayDate);
+        _scrollAnchorIndex = _scrollMonths.GetIndexOfMonth(anchorMonth);
     }
 
     private CalendarMonthView BuildMonth(DateTime month, SelectionState selection)
@@ -925,6 +945,7 @@ public class Calendar : TemplatedControl
 
         var monthOffset = offsetY - (monthIndex * _scrollMonthHeight);
         var currentMonth = _scrollMonths.GetMonth(monthIndex);
+        _scrollAnchorMonth = currentMonth;
         var selection = CaptureSelection();
         var newAnchorIndex = buffer;
         var newStartMonth = currentMonth.AddMonths(-newAnchorIndex);

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Reflection;
 using Irihi.Mafia.Common;
 using Irihi.Mafia.Controls;
 
@@ -166,5 +167,26 @@ public class CalendarTest
 
         Assert.Same(source, calendar.VisibleMonths);
         Assert.Equal(new DateTime(2032, 3, 1), centeredMonth.Month);
+    }
+
+    [Fact]
+    public void Scroll_Mode_Selection_Does_Not_Reset_To_DisplayDate_Month()
+    {
+        var calendar = new Calendar
+        {
+            DisplayMode = CalendarDisplayMode.Scroll,
+            SelectionMode = CalendarSelectionMode.Range,
+            DisplayDate = new DateTime(2026, 8, 1),
+            ScrollMonthBuffer = 1
+        };
+
+        var field = typeof(Calendar).GetField("_scrollAnchorMonth", BindingFlags.Instance | BindingFlags.NonPublic);
+        Assert.NotNull(field);
+        field!.SetValue(calendar, new DateTime(2027, 2, 1));
+
+        calendar.SelectDateCommand.Execute(new DateTime(2027, 2, 10));
+
+        var months = calendar.VisibleMonths.Cast<CalendarMonthView>().ToArray();
+        Assert.Equal(new DateTime(2027, 2, 1), months[calendar.ScrollMonthBuffer].Month);
     }
 }
