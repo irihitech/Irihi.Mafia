@@ -3,23 +3,6 @@
              xmlns:td="https://irihi.tech/td"
              x:Class="Irihi.Mafia.HeadlessTest.TestApp"
              RequestedThemeVariant="Default">
-    <Application.Resources>
-        <!-- Add this temporarily for testing, can be removed when theme complete.  -->
-        <ControlTheme x:Key="{x:Type ItemsControl}" TargetType="ItemsControl">
-            <Setter Property="Template">
-                <ControlTemplate>
-                    <Border
-                        Padding="{TemplateBinding Padding}"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                        <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
-                    </Border>
-                </ControlTemplate>
-            </Setter>
-        </ControlTheme>
-    </Application.Resources>
     <Application.Styles>
         <td:TDesignTheme />
     </Application.Styles>
