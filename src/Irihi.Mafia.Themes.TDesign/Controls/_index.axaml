@@ -23,6 +23,7 @@
         <ResourceInclude Source="SplitView.axaml" />
         <ResourceInclude Source="Switch.axaml" />
         <ResourceInclude Source="Input.axaml" />
+        <ResourceInclude Source="ItemsControl.axaml" />
         <ResourceInclude Source="TabControl.axaml" />
         <ResourceInclude Source="ContentPage.axaml" />
         <ResourceInclude Source="NavigationPage.axaml" />
