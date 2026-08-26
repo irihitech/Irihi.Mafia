@@ -17,7 +17,7 @@ Irihi.Mafia is a **mobile-first** Avalonia control library — crafted for touch
 
 - 📱 **Mobile-first design** — Touch-optimized controls, generous tap targets, thumb-friendly spacing
 - 🎨 **TDesign-inspired theme** — A comprehensive light & dark theme with design token system (colors, typography, spacing, radius)
-- 🧩 **Custom controls** — Avatar, Cell/ CellGroup, Divider, IconButton, Picker, Popup and more
+- 🧩 **Custom controls** — Avatar, Calendar, Cell/ CellGroup, Divider, IconButton, Picker, Popup and more
 - 🌓 **Light/Dark mode** — Built-in theme variants with consistent color palettes
 - 📦 **Modular packages** — Core logic library and theme library are separate NuGet packages
 - 🖥️ **Cross-platform** — Works on Windows, macOS, Linux, Android, iOS and Browser via Avalonia
@@ -83,6 +83,7 @@ xmlns:m="https://irihi.tech/mafia"
 | Control | Description |
 |---------|-------------|
 | `Avatar` | Button with an image source, for user avatars |
+| `Calendar` | Mobile-first calendar with paged and scroll month browsing plus single/multiple/range selection |
 | `Cell` | List item with description, note, and inner content slots |
 | `CellGroup` | Groups `Cell` items under a header |
 | `Divider` | A horizontal or vertical separator line |

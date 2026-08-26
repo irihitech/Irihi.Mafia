@@ -1,0 +1,165 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="using:Irihi.Mafia.Demo"
+             xmlns:m="https://irihi.tech/mafia"
+             xmlns:vm="clr-namespace:Irihi.Mafia.Demo.ViewModels.ControlDetails"
+             mc:Ignorable="d"
+             d:DesignWidth="390"
+             d:DesignHeight="844"
+             x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.CalendarDetailView"
+             x:DataType="vm:CalendarDetailViewModel">
+    <Panel>
+        <ScrollViewer>
+            <StackPanel Spacing="12" Margin="16,16,16,24">
+            <TextBlock
+                FontSize="24"
+                FontWeight="Bold"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Title}}" />
+
+            <TextBlock
+                FontSize="14"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Desc}}"
+                TextWrapping="Wrap" />
+
+            <TextBlock
+                FontSize="18"
+                FontWeight="SemiBold"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_PagedSingle}}" />
+
+            <m:Calendar SelectedDate="{Binding PagedSingleDate, Mode=TwoWay}" />
+            <TextBlock
+                FontSize="14"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Binding PagedSingleDateText, StringFormat='Selected: {0}'}" />
+
+            <TextBlock
+                FontSize="18"
+                FontWeight="SemiBold"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Multiple}}" />
+
+            <TextBlock
+                FontSize="14"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Multiple_Desc}}"
+                TextWrapping="Wrap" />
+
+            <m:Calendar
+                SelectionMode="Multiple"
+                SelectedDates="{Binding MultipleDates, Mode=TwoWay}" />
+            <TextBlock
+                FontSize="14"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Binding MultipleDatesText, StringFormat='Selected: {0}'}"
+                TextWrapping="Wrap" />
+
+            <TextBlock
+                FontSize="18"
+                FontWeight="SemiBold"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Range}}" />
+
+            <TextBlock
+                FontSize="14"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Range_Desc}}"
+                TextWrapping="Wrap" />
+
+            <m:Calendar
+                SelectionMode="Range"
+                RangeStart="{Binding RangeStart, Mode=TwoWay}"
+                RangeEnd="{Binding RangeEnd, Mode=TwoWay}" />
+            <TextBlock
+                FontSize="14"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Binding RangeText, StringFormat='Range: {0}'}"
+                TextWrapping="Wrap" />
+
+            <TextBlock
+                FontSize="18"
+                FontWeight="SemiBold"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Scroll}}" />
+
+            <TextBlock
+                FontSize="14"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Scroll_Desc}}"
+                TextWrapping="Wrap" />
+
+            <m:Calendar
+                DisplayMode="Scroll"
+                SelectionMode="Range"
+                RangeStart="{Binding ScrollRangeStart, Mode=TwoWay}"
+                RangeEnd="{Binding ScrollRangeEnd, Mode=TwoWay}" />
+            <TextBlock
+                FontSize="14"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Binding ScrollRangeText, StringFormat='Range: {0}'}"
+                TextWrapping="Wrap" />
+
+            <TextBlock
+                FontSize="18"
+                FontWeight="SemiBold"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_ScrollPopup}}" />
+
+            <TextBlock
+                FontSize="14"
+                Foreground="{DynamicResource TDFontGyColor}"
+                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_ScrollPopup_Desc}}"
+                TextWrapping="Wrap" />
+
+            <m:CellGroup>
+                <m:Cell
+                    Classes="Arrow"
+                    Command="{Binding OpenScrollPopupCommand}"
+                    Content="{Translate {x:Static local:LanguageManager+Keys.Calendar_ScrollPopup_Cell}}"
+                    Description="{Translate {x:Static local:LanguageManager+Keys.Calendar_ScrollPopup_CellDesc}}"
+                    Note="{Binding PopupRangeText}" />
+            </m:CellGroup>
+        </StackPanel>
+        </ScrollViewer>
+
+        <m:Popup
+            IsOpen="{Binding IsScrollPopupOpen}"
+            IsModal="True"
+            IsLightDismissEnabled="True"
+            Placement="Bottom"
+            MinHeight="480">
+            <Border
+                Background="{DynamicResource TDBgColorContainer}"
+                CornerRadius="16"
+                Padding="16,16,16,24">
+                <StackPanel Spacing="12">
+                    <TextBlock
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_ScrollPopup}}" />
+
+                    <m:Calendar
+                        DisplayMode="Scroll"
+                        SelectionMode="Range"
+                        RangeStart="{Binding PopupRangeStart, Mode=TwoWay}"
+                        RangeEnd="{Binding PopupRangeEnd, Mode=TwoWay}" />
+
+                    <TextBlock
+                        FontSize="14"
+                        Foreground="{DynamicResource TDFontGyColor}"
+                        Text="{Binding PopupRangeText, StringFormat='Range: {0}'}"
+                        TextWrapping="Wrap" />
+
+                    <Button
+                        Classes="Primary"
+                        Command="{Binding CloseScrollPopupCommand}"
+                        Content="{Translate {x:Static local:LanguageManager+Keys.Popup_Close}}" />
+                </StackPanel>
+            </Border>
+        </m:Popup>
+    </Panel>
+</UserControl>
