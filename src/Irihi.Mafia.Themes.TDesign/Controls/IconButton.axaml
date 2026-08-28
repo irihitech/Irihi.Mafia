@@ -1,55 +1,56 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:m="https://irihi.tech/mafia">
+                    xmlns:m="https://irihi.tech/mafia"
+                    xmlns:td="https://irihi.tech/td">
     <Design.PreviewWith>
         <StackPanel Spacing="16">
             <WrapPanel ItemSpacing="16">
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Content="填充按钮" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Classes="Primary" Content="填充按钮" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Classes="Danger" Content="填充按钮" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Classes="Light" Content="填充按钮" />
+                <m:IconButton Icon="{td:TempApp}" Content="填充按钮" />
+                <m:IconButton Icon="{td:TempApp}" Classes="Primary" Content="填充按钮" />
+                <m:IconButton Icon="{td:TempApp}" Classes="Danger" Content="填充按钮" />
+                <m:IconButton Icon="{td:TempApp}" Classes="Light" Content="填充按钮" />
             </WrapPanel>
             <WrapPanel ItemSpacing="16">
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Theme="{DynamicResource OutlineIconButton}" Content="描边按钮" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Theme="{DynamicResource OutlineIconButton}" Classes="Primary" Content="描边按钮" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Theme="{DynamicResource OutlineIconButton}" Classes="Danger" Content="描边按钮" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Theme="{DynamicResource OutlineIconButton}" Classes="Light" Content="描边按钮" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource OutlineIconButton}" Content="描边按钮" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource OutlineIconButton}" Classes="Primary" Content="描边按钮" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource OutlineIconButton}" Classes="Danger" Content="描边按钮" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource OutlineIconButton}" Classes="Light" Content="描边按钮" />
             </WrapPanel>
             <WrapPanel ItemSpacing="16">
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Theme="{DynamicResource TextIconButton}" Content="文字按钮" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Theme="{DynamicResource TextIconButton}" Classes="Primary" Content="文字按钮" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Theme="{DynamicResource TextIconButton}" Classes="Danger" Content="文字按钮" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Theme="{DynamicResource TextIconButton}" Classes="Light" Content="文字按钮" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource TextIconButton}" Content="文字按钮" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource TextIconButton}" Classes="Primary" Content="文字按钮" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource TextIconButton}" Classes="Danger" Content="文字按钮" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource TextIconButton}" Classes="Light" Content="文字按钮" />
             </WrapPanel>
             <WrapPanel ItemSpacing="16">
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Content="填充按钮" IsEnabled="False" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Classes="Primary" Content="填充按钮" IsEnabled="False" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Classes="Danger" Content="填充按钮" IsEnabled="False" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Classes="Light" Content="填充按钮" IsEnabled="False" />
+                <m:IconButton Icon="{td:TempApp}" Content="填充按钮" IsEnabled="False" />
+                <m:IconButton Icon="{td:TempApp}" Classes="Primary" Content="填充按钮" IsEnabled="False" />
+                <m:IconButton Icon="{td:TempApp}" Classes="Danger" Content="填充按钮" IsEnabled="False" />
+                <m:IconButton Icon="{td:TempApp}" Classes="Light" Content="填充按钮" IsEnabled="False" />
             </WrapPanel>
             <WrapPanel ItemSpacing="16">
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Theme="{DynamicResource OutlineIconButton}" Content="描边按钮" IsEnabled="False" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Theme="{DynamicResource OutlineIconButton}" Classes="Primary" Content="描边按钮" IsEnabled="False" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Theme="{DynamicResource OutlineIconButton}" Classes="Danger" Content="描边按钮" IsEnabled="False" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Theme="{DynamicResource OutlineIconButton}" Classes="Light" Content="描边按钮" IsEnabled="False" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource OutlineIconButton}" Content="描边按钮" IsEnabled="False" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource OutlineIconButton}" Classes="Primary" Content="描边按钮" IsEnabled="False" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource OutlineIconButton}" Classes="Danger" Content="描边按钮" IsEnabled="False" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource OutlineIconButton}" Classes="Light" Content="描边按钮" IsEnabled="False" />
             </WrapPanel>
             <WrapPanel ItemSpacing="16">
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Theme="{DynamicResource TextIconButton}" Content="文字按钮" IsEnabled="False" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Theme="{DynamicResource TextIconButton}" Classes="Primary" Content="文字按钮" IsEnabled="False" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Theme="{DynamicResource TextIconButton}" Classes="Danger" Content="文字按钮" IsEnabled="False" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Theme="{DynamicResource TextIconButton}" Classes="Light" Content="文字按钮" IsEnabled="False" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource TextIconButton}" Content="文字按钮" IsEnabled="False" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource TextIconButton}" Classes="Primary" Content="文字按钮" IsEnabled="False" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource TextIconButton}" Classes="Danger" Content="文字按钮" IsEnabled="False" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource TextIconButton}" Classes="Light" Content="文字按钮" IsEnabled="False" />
             </WrapPanel>
             <WrapPanel ItemSpacing="16">
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Classes="Primary Large" Content="按钮" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Classes="Primary Medium" Content="按钮" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Classes="Primary Small" Content="按钮" />
-                <m:IconButton Icon="{StaticResource TempAppGlyph}" Classes="Primary ExtraSmall" Content="按钮" />
+                <m:IconButton Icon="{td:TempApp}" Classes="Primary Large" Content="按钮" />
+                <m:IconButton Icon="{td:TempApp}" Classes="Primary Medium" Content="按钮" />
+                <m:IconButton Icon="{td:TempApp}" Classes="Primary Small" Content="按钮" />
+                <m:IconButton Icon="{td:TempApp}" Classes="Primary ExtraSmall" Content="按钮" />
             </WrapPanel>
             <WrapPanel ItemSpacing="16">
                 <m:IconButton Classes="Primary Rectangle" Content="按钮" />
-                <m:IconButton Classes="Primary Square" Icon="{StaticResource TempAppGlyph}" />
+                <m:IconButton Classes="Primary Square" Icon="{td:TempApp}" />
                 <m:IconButton Classes="Primary Round" Content="按钮" />
-                <m:IconButton Classes="Primary Circle" Icon="{StaticResource TempAppGlyph}" />
+                <m:IconButton Classes="Primary Circle" Icon="{td:TempApp}" />
             </WrapPanel>
         </StackPanel>
     </Design.PreviewWith>

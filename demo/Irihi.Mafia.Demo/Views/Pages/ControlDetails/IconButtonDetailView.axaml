@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="using:Irihi.Mafia.Demo"
              xmlns:m="https://irihi.tech/mafia"
+             xmlns:td="https://irihi.tech/td"
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
              x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.IconButtonDetailView">
     <ScrollViewer>
@@ -19,52 +20,52 @@
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.IconButton_Fill}}" FontSize="16" FontWeight="SemiBold"
                        Foreground="{DynamicResource TDFontGyColor}" />
             <WrapPanel ItemSpacing="8" LineSpacing="8">
-                <m:IconButton Icon="{DynamicResource TempAppGlyph}" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
-                <m:IconButton Icon="{DynamicResource TempAppGlyph}" Classes="Primary" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
-                <m:IconButton Icon="{DynamicResource TempAppGlyph}" Classes="Danger" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
-                <m:IconButton Icon="{DynamicResource TempAppGlyph}" Classes="Light" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
+                <m:IconButton Icon="{td:TempApp}" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
+                <m:IconButton Icon="{td:TempApp}" Classes="Primary" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
+                <m:IconButton Icon="{td:TempApp}" Classes="Danger" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
+                <m:IconButton Icon="{td:TempApp}" Classes="Light" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
             </WrapPanel>
 
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.IconButton_Outline}}" FontSize="16" FontWeight="SemiBold"
                        Foreground="{DynamicResource TDFontGyColor}" />
             <WrapPanel ItemSpacing="8" LineSpacing="8">
-                <m:IconButton Icon="{DynamicResource TempAppGlyph}" Theme="{DynamicResource OutlineIconButton}" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
-                <m:IconButton Icon="{DynamicResource TempAppGlyph}" Theme="{DynamicResource OutlineIconButton}" Classes="Primary" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
-                <m:IconButton Icon="{DynamicResource TempAppGlyph}" Theme="{DynamicResource OutlineIconButton}" Classes="Danger" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource OutlineIconButton}" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource OutlineIconButton}" Classes="Primary" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource OutlineIconButton}" Classes="Danger" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
             </WrapPanel>
 
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.IconButton_Text}}" FontSize="16" FontWeight="SemiBold"
                        Foreground="{DynamicResource TDFontGyColor}" />
             <WrapPanel ItemSpacing="8" LineSpacing="8">
-                <m:IconButton Icon="{DynamicResource TempAppGlyph}" Theme="{DynamicResource TextIconButton}" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
-                <m:IconButton Icon="{DynamicResource TempAppGlyph}" Theme="{DynamicResource TextIconButton}" Classes="Primary" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
-                <m:IconButton Icon="{DynamicResource TempAppGlyph}" Theme="{DynamicResource TextIconButton}" Classes="Danger" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource TextIconButton}" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource TextIconButton}" Classes="Primary" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
+                <m:IconButton Icon="{td:TempApp}" Theme="{DynamicResource TextIconButton}" Classes="Danger" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
             </WrapPanel>
 
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.IconButton_Sizes}}" FontSize="16" FontWeight="SemiBold"
                        Foreground="{DynamicResource TDFontGyColor}" />
             <WrapPanel ItemSpacing="8" LineSpacing="8">
-                <m:IconButton Classes="Primary Large" Icon="{DynamicResource TempAppGlyph}" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
-                <m:IconButton Classes="Primary Medium" Icon="{DynamicResource TempAppGlyph}" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
-                <m:IconButton Classes="Primary Small" Icon="{DynamicResource TempAppGlyph}" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
-                <m:IconButton Classes="Primary ExtraSmall" Icon="{DynamicResource TempAppGlyph}" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
+                <m:IconButton Classes="Primary Large" Icon="{td:TempApp}" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
+                <m:IconButton Classes="Primary Medium" Icon="{td:TempApp}" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
+                <m:IconButton Classes="Primary Small" Icon="{td:TempApp}" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
+                <m:IconButton Classes="Primary ExtraSmall" Icon="{td:TempApp}" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
             </WrapPanel>
 
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.IconButton_Shapes}}" FontSize="16" FontWeight="SemiBold"
                        Foreground="{DynamicResource TDFontGyColor}" />
             <WrapPanel ItemSpacing="8" LineSpacing="8">
-                <m:IconButton Classes="Primary Rectangle" Icon="{DynamicResource TempAppGlyph}" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
-                <m:IconButton Classes="Primary Square" Icon="{DynamicResource TempAppGlyph}" />
-                <m:IconButton Classes="Primary Round" Icon="{DynamicResource TempAppGlyph}" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
-                <m:IconButton Classes="Primary Circle" Icon="{DynamicResource TempAppGlyph}" />
+                <m:IconButton Classes="Primary Rectangle" Icon="{td:TempApp}" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
+                <m:IconButton Classes="Primary Square" Icon="{td:TempApp}" />
+                <m:IconButton Classes="Primary Round" Icon="{td:TempApp}" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" />
+                <m:IconButton Classes="Primary Circle" Icon="{td:TempApp}" />
             </WrapPanel>
 
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.IconButton_Disabled}}" FontSize="16" FontWeight="SemiBold"
                        Foreground="{DynamicResource TDFontGyColor}" />
             <WrapPanel ItemSpacing="8" LineSpacing="8">
-                <m:IconButton Icon="{DynamicResource TempAppGlyph}" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" IsEnabled="False" />
-                <m:IconButton Icon="{DynamicResource TempAppGlyph}" Classes="Primary" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" IsEnabled="False" />
-                <m:IconButton Icon="{DynamicResource TempAppGlyph}" Classes="Danger" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" IsEnabled="False" />
+                <m:IconButton Icon="{td:TempApp}" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" IsEnabled="False" />
+                <m:IconButton Icon="{td:TempApp}" Classes="Primary" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" IsEnabled="False" />
+                <m:IconButton Icon="{td:TempApp}" Classes="Danger" Content="{Translate {x:Static local:LanguageManager+Keys.IconButton_Button}}" IsEnabled="False" />
             </WrapPanel>
         </StackPanel>
     </ScrollViewer>

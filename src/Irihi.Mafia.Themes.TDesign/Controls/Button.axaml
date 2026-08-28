@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:td="https://irihi.tech/td">
     <Design.PreviewWith>
         <StackPanel Spacing="16">
             <WrapPanel ItemSpacing="16">
@@ -46,9 +47,9 @@
             </WrapPanel>
             <WrapPanel ItemSpacing="16">
                 <Button Classes="Primary Rectangle" Content="按钮" />
-                <Button Classes="Primary Square" Content="{StaticResource TempAppGlyph}" />
+                <Button Classes="Primary Square" Content="{td:TempApp}" />
                 <Button Classes="Primary Round" Content="按钮" />
-                <Button Classes="Primary Circle" Content="{StaticResource TempAppGlyph}" />
+                <Button Classes="Primary Circle" Content="{td:TempApp}" />
             </WrapPanel>
         </StackPanel>
     </Design.PreviewWith>

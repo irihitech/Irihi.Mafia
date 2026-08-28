@@ -5,9 +5,9 @@
     xmlns:iri="https://irihi.tech/shared">
     <Design.PreviewWith>
         <TabControl Classes="Large" Width="360" Margin="10" TabStripPlacement="Top">
-            <TabItem Header="推荐" Icon="{StaticResource TempAppGlyph}" Content="推荐内容" />
+            <TabItem Header="推荐" Icon="{td:TempApp}" Content="推荐内容" />
             <TabItem Header="关注" Content="关注内容" />
-            <TabItem Header="消息" Icon="{StaticResource TempChatGlyph}" IsEnabled="False" />
+            <TabItem Header="消息" Icon="{td:TempChat}" IsEnabled="False" />
             <TabItem Header="我的" Content="我的内容" />
         </TabControl>
     </Design.PreviewWith>

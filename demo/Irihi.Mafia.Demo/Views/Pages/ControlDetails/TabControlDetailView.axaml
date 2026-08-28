@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="using:Irihi.Mafia.Demo"
              xmlns:m="https://irihi.tech/mafia"
+             xmlns:td="https://irihi.tech/td"
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
              x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.TabControlDetailView">
     <ScrollViewer>
@@ -20,7 +21,7 @@
                        Foreground="{DynamicResource TDFontGyColor}" />
             <TabControl>
                 <TabItem Header="{Translate {x:Static local:LanguageManager+Keys.TabControl_Recommend}}"
-                         Icon="{DynamicResource TempAppGlyph}">
+                         Icon="{td:TempApp}">
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Recommend_Content}}"
                                Margin="12" TextWrapping="Wrap" />
                 </TabItem>
@@ -29,12 +30,12 @@
                                Margin="12" TextWrapping="Wrap" />
                 </TabItem>
                 <TabItem Header="{Translate {x:Static local:LanguageManager+Keys.TabControl_Message}}"
-                         Icon="{DynamicResource TempChatGlyph}" IsEnabled="False">
+                         Icon="{td:TempChat}" IsEnabled="False">
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Message_Content}}"
                                Margin="12" TextWrapping="Wrap" />
                 </TabItem>
                 <TabItem Header="{Translate {x:Static local:LanguageManager+Keys.TabControl_Mine}}"
-                         Icon="{DynamicResource TempUserGlyph}">
+                         Icon="{td:TempUser}">
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Mine_Content}}"
                                Margin="12" TextWrapping="Wrap" />
                 </TabItem>

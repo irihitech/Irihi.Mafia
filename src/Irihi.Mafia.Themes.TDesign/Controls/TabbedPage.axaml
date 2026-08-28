@@ -5,10 +5,10 @@
     xmlns:iri="https://irihi.tech/shared">
     <Design.PreviewWith>
         <TabbedPage Classes="Tag" Width="360" Height="640" Margin="10" TabPlacement="Bottom">
-            <ContentPage Header="首页" Icon="{StaticResource TempHomeGlyph}" Content="首页内容" />
-            <ContentPage Header="应用" Icon="{StaticResource TempAppGlyph}" Content="应用内容" />
-            <ContentPage Header="聊天" Icon="{StaticResource TempChatGlyph}" Content="聊天内容" />
-            <ContentPage Header="我的" Icon="{StaticResource TempUserGlyph}" Content="我的内容" />
+            <ContentPage Header="首页" Icon="{td:TempHome}" Content="首页内容" />
+            <ContentPage Header="应用" Icon="{td:TempApp}" Content="应用内容" />
+            <ContentPage Header="聊天" Icon="{td:TempChat}" Content="聊天内容" />
+            <ContentPage Header="我的" Icon="{td:TempUser}" Content="我的内容" />
         </TabbedPage>
     </Design.PreviewWith>
 

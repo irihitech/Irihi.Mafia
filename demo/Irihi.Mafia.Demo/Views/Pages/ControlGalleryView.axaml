@@ -5,6 +5,7 @@
              xmlns:local="using:Irihi.Mafia.Demo"
              xmlns:m="https://irihi.tech/mafia"
              xmlns:vm="clr-namespace:Irihi.Mafia.Demo.ViewModels"
+             xmlns:td="https://irihi.tech/td"
              mc:Ignorable="d" d:DesignWidth="800"
              d:DesignHeight="450"
              x:DataType="vm:ControlGalleryViewModel"
@@ -13,7 +14,7 @@
         <StackPanel>
             <m:Input
                 PlaceholderText="{Translate {x:Static local:LanguageManager+Keys.Gallery_SearchPlaceholder}}"
-                InnerLeftContent="{DynamicResource TempSearchGlyph}"
+                InnerLeftContent="{td:TempSearch}"
                 Classes="ClearButton"
                 Text="{Binding SearchText, Mode=TwoWay}" />
 

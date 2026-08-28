@@ -9,8 +9,8 @@
             <m:Avatar Classes="Square" Source="/Assets/avatar1.png" />
             <m:Avatar Content="A" />
             <m:Avatar Content="A" Classes="Square" />
-            <m:Avatar Content="{DynamicResource TempUserGlyph}" />
-            <m:Avatar Classes="Large Square" Content="{DynamicResource TempUserGlyph}" />
+            <m:Avatar Content="{td:TempUser}" />
+            <m:Avatar Classes="Large Square" Content="{td:TempUser}" />
         </StackPanel>
     </Design.PreviewWith>
 

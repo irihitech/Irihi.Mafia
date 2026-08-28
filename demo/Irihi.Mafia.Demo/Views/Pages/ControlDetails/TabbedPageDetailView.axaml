@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="using:Irihi.Mafia.Demo"
              xmlns:m="https://irihi.tech/mafia"
+             xmlns:td="https://irihi.tech/td"
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
              x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.TabbedPageDetailView">
     <ScrollViewer>
@@ -20,22 +21,22 @@
                        Foreground="{DynamicResource TDFontGyColor}" />
             <TabbedPage TabPlacement="Bottom" Height="420">
                 <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Home}}"
-                             Icon="{DynamicResource TempHomeGlyph}">
+                             Icon="{td:TempHome}">
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Home_Content}}"
                                Margin="16" TextWrapping="Wrap" />
                 </ContentPage>
                 <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Apps}}"
-                             Icon="{DynamicResource TempAppGlyph}">
+                             Icon="{td:TempApp}">
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Apps_Content}}"
                                Margin="16" TextWrapping="Wrap" />
                 </ContentPage>
                 <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Chat}}"
-                             Icon="{DynamicResource TempChatGlyph}">
+                             Icon="{td:TempChat}">
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Chat_Content}}"
                                Margin="16" TextWrapping="Wrap" />
                 </ContentPage>
                 <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Mine}}"
-                             Icon="{DynamicResource TempUserGlyph}">
+                             Icon="{td:TempUser}">
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Mine_Content}}"
                                Margin="16" TextWrapping="Wrap" />
                 </ContentPage>
@@ -45,22 +46,22 @@
                        Foreground="{DynamicResource TDFontGyColor}" />
             <TabbedPage Classes="Tag" TabPlacement="Bottom" Height="420">
                 <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Home}}"
-                             Icon="{DynamicResource TempHomeGlyph}">
+                             Icon="{td:TempHome}">
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Home_Content}}"
                                Margin="16" TextWrapping="Wrap" />
                 </ContentPage>
                 <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Apps}}"
-                             Icon="{DynamicResource TempAppGlyph}">
+                             Icon="{td:TempApp}">
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Apps_Content}}"
                                Margin="16" TextWrapping="Wrap" />
                 </ContentPage>
                 <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Chat}}"
-                             Icon="{DynamicResource TempChatGlyph}">
+                             Icon="{td:TempChat}">
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Chat_Content}}"
                                Margin="16" TextWrapping="Wrap" />
                 </ContentPage>
                 <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Mine}}"
-                             Icon="{DynamicResource TempUserGlyph}">
+                             Icon="{td:TempUser}">
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Mine_Content}}"
                                Margin="16" TextWrapping="Wrap" />
                 </ContentPage>

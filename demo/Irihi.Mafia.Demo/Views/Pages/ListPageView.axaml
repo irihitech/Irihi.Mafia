@@ -5,6 +5,7 @@
              xmlns:local="using:Irihi.Mafia.Demo"
              xmlns:vm="using:Irihi.Mafia.Demo.ViewModels"
              xmlns:m="https://irihi.tech/mafia"
+             xmlns:td="https://irihi.tech/td"
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
              x:Class="Irihi.Mafia.Demo.Views.Pages.ListPageView"
              x:DataType="vm:ListPageViewModel">
@@ -55,7 +56,7 @@
                 <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.List_Project}}" Note="GitHub" Classes="Arrow"
                         Command="{Binding OpenProjectUrlCommand}" />
                 <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.List_TechStack}}" Description="Avalonia 12 · .NET 10"
-                        InnerLeftContent="{StaticResource TempAppGlyph}" />
+                        InnerLeftContent="{td:TempApp}" />
             </m:CellGroup>
         </StackPanel>
     </ScrollViewer>

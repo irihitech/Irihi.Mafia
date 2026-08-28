@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="using:Irihi.Mafia.Demo"
              xmlns:pages="using:Irihi.Mafia.Demo.Views.Pages"
+             xmlns:td="https://irihi.tech/td"
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
              x:Class="Irihi.Mafia.Demo.Views.MainView">
     <TabbedPage TabPlacement="Bottom" Classes="Tag">
@@ -13,13 +14,13 @@
                 <PageSlide Orientation="Horizontal" Duration="0:0:0.2" />
             </CompositePageTransition>
         </TabbedPage.PageTransition>
-        <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.MainView_Tab_Components}}" Icon="{StaticResource TempAppGlyph}">
+        <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.MainView_Tab_Components}}" Icon="{td:TempApp}">
             <pages:ComponentsPageView Name="ComponentsPageContent" />
         </ContentPage>
-        <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.MainView_Tab_Home}}" Icon="{StaticResource TempHomeGlyph}">
+        <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.MainView_Tab_Home}}" Icon="{td:TempHome}">
             <pages:HomePageView Name="HomePageContent" />
         </ContentPage>
-        <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.MainView_Tab_Settings}}" Icon="{StaticResource TempUserGlyph}">
+        <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.MainView_Tab_Settings}}" Icon="{td:TempSetting}">
             <pages:ListPageView Name="ListPageContent" />
         </ContentPage>
     </TabbedPage>
