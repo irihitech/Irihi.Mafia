@@ -1,45 +1,45 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:td="https://irihi.tech/td">
+                    xmlns:tdicon="https://irihi.tech/iconica/tdesign">
     <Design.PreviewWith>
         <StackPanel Spacing="16">
             <StackPanel Orientation="Horizontal" Spacing="8">
                 <Button Theme="{DynamicResource TDGlyphButton}">
-                    <td:CloseCircle />
+                    <tdicon:CloseCircle />
                 </Button>
                 <Button Theme="{DynamicResource TDGlyphButton}">
-                    <td:Search />
+                    <tdicon:Search />
                 </Button>
                 <Button Theme="{DynamicResource TDGlyphButton}" IsEnabled="False">
-                    <td:MenuApplication />
+                    <tdicon:MenuApplication />
                 </Button>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Spacing="8">
                 <ToggleSwitch Theme="{DynamicResource TDGlyphToggleSwitch}">
                     <ToggleSwitch.OffContent>
-                        <td:BrowseOff />
+                        <tdicon:BrowseOff />
                     </ToggleSwitch.OffContent>
                     <ToggleSwitch.OnContent>
-                        <td:Browse />
+                        <tdicon:Browse />
                     </ToggleSwitch.OnContent>
                 </ToggleSwitch>
                 <ToggleSwitch Theme="{DynamicResource TDGlyphToggleSwitch}" IsChecked="True">
                     <ToggleSwitch.OffContent>
-                        <td:BrowseOff />
+                        <tdicon:BrowseOff />
                     </ToggleSwitch.OffContent>
                     <ToggleSwitch.OnContent>
-                        <td:Browse />
+                        <tdicon:Browse />
                     </ToggleSwitch.OnContent>
                 </ToggleSwitch>
                 <ToggleSwitch Theme="{DynamicResource TDGlyphToggleSwitch}">
                     <ToggleSwitch.Content>
-                        <td:MenuApplication />
+                        <tdicon:MenuApplication />
                     </ToggleSwitch.Content>
                     <ToggleSwitch.OffContent>
-                        <td:BrowseOff />
+                        <tdicon:BrowseOff />
                     </ToggleSwitch.OffContent>
                     <ToggleSwitch.OnContent>
-                        <td:Browse />
+                        <tdicon:Browse />
                     </ToggleSwitch.OnContent>
                 </ToggleSwitch>
             </StackPanel>

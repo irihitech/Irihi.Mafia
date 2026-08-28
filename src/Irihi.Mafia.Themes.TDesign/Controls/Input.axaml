@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=System.Runtime"
                     xmlns:m="https://irihi.tech/mafia"
-                    xmlns:td="https://irihi.tech/td">
+                    xmlns:tdicon="https://irihi.tech/iconica/tdesign">
     <Design.PreviewWith>
         <Border
             Width="400"
@@ -13,7 +13,7 @@
                 <m:Input PlaceholderText="请输入文字" />
                 <m:Input PlaceholderText="请输入文字">
                     <m:Input.InnerLeftContent>
-                        <td:Search />
+                        <tdicon:Search />
                     </m:Input.InnerLeftContent>
                 </m:Input>
                 <m:Input InnerLeftContent="标" PlaceholderText="请输入文字" IsRequired="True" />
@@ -166,7 +166,7 @@
                                     IsVisible="False"
                                     Focusable="False"
                                     Theme="{StaticResource TDGlyphButton}">
-                                    <td:CloseCircle />
+                                    <tdicon:CloseCircle />
                                 </Button>
                                 <ToggleSwitch
                                     Name="PART_RevealButton"
@@ -177,10 +177,10 @@
                                     Focusable="False"
                                     Theme="{StaticResource TDGlyphToggleSwitch}">
                                     <ToggleSwitch.OnContent>
-                                        <td:Browse />
+                                        <tdicon:Browse />
                                     </ToggleSwitch.OnContent>
                                     <ToggleSwitch.OffContent>
-                                        <td:BrowseOff />
+                                        <tdicon:BrowseOff />
                                     </ToggleSwitch.OffContent>
                                 </ToggleSwitch>
                                 <ContentPresenter
@@ -192,8 +192,7 @@
                                     FontSize="{DynamicResource TDInputDescriptionFontSize}"
                                     IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}"
                                     Content="{TemplateBinding Description}"
-                                    ContentTemplate="{TemplateBinding DescriptionTemplate}">
-                                </ContentPresenter>
+                                    ContentTemplate="{TemplateBinding DescriptionTemplate}" />
                             </Grid>
 
                             <ContentPresenter

@@ -2,8 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:td="https://irihi.tech/td"
              xmlns:m="https://irihi.tech/mafia"
+             xmlns:tdicon="https://irihi.tech/iconica/tdesign"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.IconGalleryView">
     <ScrollViewer>
@@ -14,10 +14,10 @@
                 <TextBlock Text="Outline" FontSize="16" FontWeight="SemiBold" />
 
                 <m:Picker Name="modePicker" SelectedIndex="3" Description="IconMode">
-                    <td:IconMode>OutlineSingle</td:IconMode>
-                    <td:IconMode>OutlineDouble</td:IconMode>
-                    <td:IconMode>FilledDouble</td:IconMode>
-                    <td:IconMode>FilledMultiple</td:IconMode>
+                    <tdicon:IconMode>OutlineSingle</tdicon:IconMode>
+                    <tdicon:IconMode>OutlineDouble</tdicon:IconMode>
+                    <tdicon:IconMode>FilledDouble</tdicon:IconMode>
+                    <tdicon:IconMode>FilledMultiple</tdicon:IconMode>
                 </m:Picker>
 
                 <TextBlock FontSize="14">
@@ -36,29 +36,29 @@
 
                 <UniformGrid Columns="6" ColumnSpacing="16" RowSpacing="16">
                     <UniformGrid.Styles>
-                        <Style Selector=":is(td|TDesignIconBase)">
+                        <Style Selector=":is(tdicon|TDesignIconBase)">
                             <Setter Property="Mode" Value="{Binding #modePicker.SelectedValue}" />
                             <Setter Property="StrokeWidth" Value="{Binding #thickSlider.Value}" />
                         </Style>
                     </UniformGrid.Styles>
-                    <td:App />
-                    <td:Browse />
-                    <td:BrowseOff />
-                    <td:Chat />
-                    <td:Check />
-                    <td:CheckCircle />
-                    <td:CheckRectangle />
-                    <td:ChevronLeft />
-                    <td:ChevronRight />
-                    <td:Close />
-                    <td:CloseCircle />
-                    <td:Home />
-                    <td:Link />
-                    <td:MenuApplication />
-                    <td:MinusCircle />
-                    <td:Search />
-                    <td:Setting />
-                    <td:User />
+                    <tdicon:App />
+                    <tdicon:Browse />
+                    <tdicon:BrowseOff />
+                    <tdicon:Chat />
+                    <tdicon:Check />
+                    <tdicon:CheckCircle />
+                    <tdicon:CheckRectangle />
+                    <tdicon:ChevronLeft />
+                    <tdicon:ChevronRight />
+                    <tdicon:Close />
+                    <tdicon:CloseCircle />
+                    <tdicon:Home />
+                    <tdicon:Link />
+                    <tdicon:MenuApplication />
+                    <tdicon:MinusCircle />
+                    <tdicon:Search />
+                    <tdicon:Setting />
+                    <tdicon:User />
                 </UniformGrid>
             </StackPanel>
 
@@ -67,8 +67,8 @@
             <StackPanel Spacing="12">
                 <TextBlock Text="Fill" FontSize="16" FontWeight="SemiBold" />
                 <UniformGrid Columns="6" ColumnSpacing="16" RowSpacing="16">
-                    <td:CheckCircleFilled />
-                    <td:MinusCircleFilled />
+                    <tdicon:CheckCircleFilled />
+                    <tdicon:MinusCircleFilled />
                 </UniformGrid>
             </StackPanel>
         </StackPanel>

@@ -2,7 +2,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:m="https://irihi.tech/mafia"
-    xmlns:td="https://irihi.tech/td">
+    xmlns:tdicon="https://irihi.tech/iconica/tdesign">
     <Design.PreviewWith>
         <m:CellGroup Header="基础用法" Width="400" Margin="20">
             <m:Cell Content="单行标题" />
@@ -142,7 +142,7 @@
         <Style Selector="^.Arrow /template/ ContentPresenter#PART_InnerRightContent">
             <Setter Property="Content">
                 <Template>
-                    <td:ChevronRight Stroke1="{Binding $parent[ContentPresenter].Foreground}" />
+                    <tdicon:ChevronRight Stroke1="{Binding $parent[ContentPresenter].Foreground}" />
                 </Template>
             </Setter>
         </Style>
