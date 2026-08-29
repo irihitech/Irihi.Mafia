@@ -7,7 +7,7 @@
         <StackPanel Spacing="12" Margin="16,16,16,24">
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Title}}" FontSize="24" FontWeight="Bold" />
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Desc}}"
-                       TextWrapping="Wrap" FontSize="14" />
+                       TextWrapping="Wrap" />
 
             <m:Divider />
 

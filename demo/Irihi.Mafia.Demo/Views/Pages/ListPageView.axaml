@@ -19,7 +19,7 @@
                     </Border>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="4">
                         <TextBlock Text="Mafia Demo" FontSize="20" FontWeight="Bold" />
-                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.List_Online}}" FontSize="14"
+                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.List_Online}}"
                                    Foreground="{DynamicResource TDSuccessColor}" />
                     </StackPanel>
                 </Grid>

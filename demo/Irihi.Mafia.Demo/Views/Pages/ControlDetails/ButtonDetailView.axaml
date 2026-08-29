@@ -10,7 +10,7 @@
         <StackPanel Spacing="12" Margin="16,16,16,24">
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Button_Title}}" FontSize="24" FontWeight="Bold" />
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Button_Desc}}"
-                       TextWrapping="Wrap" FontSize="14" />
+                       TextWrapping="Wrap" />
 
             <m:Divider />
 

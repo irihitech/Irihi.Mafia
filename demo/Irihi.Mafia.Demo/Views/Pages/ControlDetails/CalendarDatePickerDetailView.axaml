@@ -18,7 +18,6 @@
                 Text="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Title}}" />
 
             <TextBlock
-                FontSize="14"
                 Text="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Desc}}"
                 TextWrapping="Wrap" />
 
@@ -37,7 +36,6 @@
             </m:CellGroup>
 
             <TextBlock
-                FontSize="14"
                 Text="{Binding SelectedDateText, StringFormat='Selected: {0}'}"
                 TextWrapping="Wrap" />
 
@@ -47,7 +45,6 @@
                 Text="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Scroll}}" />
 
             <TextBlock
-                FontSize="14"
                 Text="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Scroll_Desc}}"
                 TextWrapping="Wrap" />
 
@@ -66,7 +63,6 @@
             </m:CellGroup>
 
             <TextBlock
-                FontSize="14"
                 Text="{Binding ScrollSelectedDateText, StringFormat='Selected: {0}'}"
                 TextWrapping="Wrap" />
         </StackPanel>

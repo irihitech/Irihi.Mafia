@@ -10,11 +10,11 @@
             <m:Divider HorizontalContentAlignment="Stretch" Content="文字信息" />
             <m:Divider HorizontalContentAlignment="Right" Content="文字信息" />
             <StackPanel Orientation="Horizontal">
-                <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource TDTextColorPrimary}" FontSize="14" Text="文字信息"/>
+                <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource TDTextColorPrimary}" Text="文字信息"/>
                 <m:Divider Orientation="Vertical" />
-                <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource TDTextColorPrimary}" FontSize="14" Text="文字信息"/>
+                <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource TDTextColorPrimary}" Text="文字信息"/>
                 <m:Divider Orientation="Vertical" />
-                <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource TDTextColorPrimary}" FontSize="14" Text="文字信息"/>
+                <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource TDTextColorPrimary}" Text="文字信息"/>
             </StackPanel>
         </StackPanel>
     </Design.PreviewWith>

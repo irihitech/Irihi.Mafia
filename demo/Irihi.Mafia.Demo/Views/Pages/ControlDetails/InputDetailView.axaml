@@ -11,7 +11,7 @@
         <StackPanel Spacing="12">
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Input_Title}}" FontSize="24" FontWeight="Bold" />
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Input_Desc}}"
-                       TextWrapping="Wrap" FontSize="14" />
+                       TextWrapping="Wrap" />
 
             <m:Divider />
 

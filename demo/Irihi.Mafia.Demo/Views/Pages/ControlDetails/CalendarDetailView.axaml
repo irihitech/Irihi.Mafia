@@ -19,7 +19,6 @@
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Title}}" />
 
             <TextBlock
-                FontSize="14"
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Desc}}"
                 TextWrapping="Wrap" />
 
@@ -30,7 +29,6 @@
 
             <m:Calendar SelectedDate="{Binding PagedSingleDate, Mode=TwoWay}" />
             <TextBlock
-                FontSize="14"
                 Text="{Binding PagedSingleDateText, StringFormat='Selected: {0}'}" />
 
             <TextBlock
@@ -39,7 +37,6 @@
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Multiple}}" />
 
             <TextBlock
-                FontSize="14"
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Multiple_Desc}}"
                 TextWrapping="Wrap" />
 
@@ -47,7 +44,6 @@
                 SelectionMode="Multiple"
                 SelectedDates="{Binding MultipleDates, Mode=TwoWay}" />
             <TextBlock
-                FontSize="14"
                 Text="{Binding MultipleDatesText, StringFormat='Selected: {0}'}"
                 TextWrapping="Wrap" />
 
@@ -57,7 +53,6 @@
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Range}}" />
 
             <TextBlock
-                FontSize="14"
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Range_Desc}}"
                 TextWrapping="Wrap" />
 
@@ -66,7 +61,6 @@
                 RangeStart="{Binding RangeStart, Mode=TwoWay}"
                 RangeEnd="{Binding RangeEnd, Mode=TwoWay}" />
             <TextBlock
-                FontSize="14"
                 Text="{Binding RangeText, StringFormat='Range: {0}'}"
                 TextWrapping="Wrap" />
 
@@ -76,7 +70,6 @@
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Scroll}}" />
 
             <TextBlock
-                FontSize="14"
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Scroll_Desc}}"
                 TextWrapping="Wrap" />
 
@@ -86,7 +79,6 @@
                 RangeStart="{Binding ScrollRangeStart, Mode=TwoWay}"
                 RangeEnd="{Binding ScrollRangeEnd, Mode=TwoWay}" />
             <TextBlock
-                FontSize="14"
                 Text="{Binding ScrollRangeText, StringFormat='Range: {0}'}"
                 TextWrapping="Wrap" />
 
@@ -96,7 +88,6 @@
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_ScrollPopup}}" />
 
             <TextBlock
-                FontSize="14"
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_ScrollPopup_Desc}}"
                 TextWrapping="Wrap" />
 
@@ -134,7 +125,6 @@
                         RangeEnd="{Binding PopupRangeEnd, Mode=TwoWay}" />
 
                     <TextBlock
-                        FontSize="14"
                         Text="{Binding PopupRangeText, StringFormat='Range: {0}'}"
                         TextWrapping="Wrap" />
 

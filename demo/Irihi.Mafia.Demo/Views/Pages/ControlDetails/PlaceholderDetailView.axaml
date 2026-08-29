@@ -9,7 +9,7 @@
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Placeholder_Title}}" FontSize="20" FontWeight="Bold"
                        HorizontalAlignment="Center" />
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Placeholder_Desc}}" 
-                       TextWrapping="Wrap" FontSize="14"
+                       TextWrapping="Wrap"
                        HorizontalAlignment="Center" />
         </StackPanel>
     </ScrollViewer>

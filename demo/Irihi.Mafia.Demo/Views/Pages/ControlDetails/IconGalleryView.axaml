@@ -20,7 +20,7 @@
                     <tdicon:IconMode>FilledMultiple</tdicon:IconMode>
                 </m:Picker>
 
-                <TextBlock FontSize="14">
+                <TextBlock>
                     <Run Text="StrokeWidth: " />
                     <Run Text="{Binding #thickSlider.Value}" />
                 </TextBlock>

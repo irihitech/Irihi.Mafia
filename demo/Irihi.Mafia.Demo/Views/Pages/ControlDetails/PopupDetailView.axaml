@@ -13,7 +13,7 @@
             <StackPanel Spacing="12" Margin="16,16,16,24">
                 <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Title}}" FontSize="24" FontWeight="Bold" />
                 <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Desc}}"
-                           TextWrapping="Wrap" FontSize="14" />
+                           TextWrapping="Wrap" />
 
                 <m:Divider />
 
@@ -40,7 +40,7 @@
 
                 <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Inheritance}}" FontSize="18" FontWeight="SemiBold" />
                 <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Inheritance_Desc}}"
-                           TextWrapping="Wrap" FontSize="14" />
+                           TextWrapping="Wrap" />
                 <Button Content="{Translate {x:Static local:LanguageManager+Keys.Popup_InheritedButton}}"
                         Command="{Binding OpenInheritedPopupCommand}"
                         Classes="Primary" />
