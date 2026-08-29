@@ -30,8 +30,8 @@
                 <ToggleSwitch IsEnabled="False" OnContent="■" OffContent="■" IsChecked="True" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" Spacing="8">
-                <ToggleSwitch OnContent="{DynamicResource TempCheckGlyph}" OffContent="{DynamicResource TempCloseGlyph}" />
-                <ToggleSwitch OnContent="{DynamicResource TempCheckGlyph}" OffContent="{DynamicResource TempCloseGlyph}" IsChecked="True" />
+                <ToggleSwitch OnContent="{td:TempCheck}" OffContent="{td:TempClose}" />
+                <ToggleSwitch OnContent="{td:TempCheck}" OffContent="{td:TempClose}" IsChecked="True" />
             </StackPanel>
         </StackPanel>
     </Design.PreviewWith>

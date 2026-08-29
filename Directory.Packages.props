@@ -6,6 +6,7 @@
   <ItemGroup>
     <!--src-->
     <PackageVersion Include="Avalonia" Version="$(AvaloniaVersion)"/>
+    <PackageVersion Include="Irihi.Iconica.TDesign" Version="1.0.0"/>
     <PackageVersion Include="Irihi.Avalonia.Shared" Version="0.5.0"/>
     <!--test-->
     <PackageVersion Include="Avalonia.HarfBuzz" Version="$(AvaloniaVersion)"/>

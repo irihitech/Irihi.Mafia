@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="using:Irihi.Mafia.Demo"
              xmlns:m="https://irihi.tech/mafia"
+             xmlns:td="https://irihi.tech/td"
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
              x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.CellDetailView">
     <ScrollViewer>
@@ -25,7 +26,7 @@
                 <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_Note}}" Classes="Arrow"
                         Note="{Translate {x:Static local:LanguageManager+Keys.Cell_NoteText}}" />
                 <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_LeftIcon}}"
-                        InnerLeftContent="{DynamicResource TempAppGlyph}" />
+                        InnerLeftContent="{td:TempApp}" />
             </m:CellGroup>
 
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Cell_Advanced}}" FontSize="16" FontWeight="SemiBold"
@@ -35,12 +36,12 @@
                         Classes="Arrow"
                         Description="{Translate {x:Static local:LanguageManager+Keys.Cell_AdvancedDesc}}"
                         Note="{Translate {x:Static local:LanguageManager+Keys.Cell_AdvancedNote}}"
-                        InnerLeftContent="{DynamicResource TempAppGlyph}"
-                        InnerRightContent="{DynamicResource TempChevronRightGlyph}" />
+                        InnerLeftContent="{td:TempApp}"
+                        InnerRightContent="{td:TempChevronRight}" />
                 <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_AdvancedContent}}"
                         Description="{Translate {x:Static local:LanguageManager+Keys.Cell_AdvancedDesc}}"
-                        InnerLeftContent="{DynamicResource TempUserGlyph}"
-                        InnerRightContent="{DynamicResource TempChevronLeftGlyph}" />
+                        InnerLeftContent="{td:TempUser}"
+                        InnerRightContent="{td:TempChevronLeft}" />
             </m:CellGroup>
         </StackPanel>
     </ScrollViewer>

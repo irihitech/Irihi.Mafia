@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="using:Irihi.Mafia.Demo"
              xmlns:m="https://irihi.tech/mafia"
+             xmlns:td="https://irihi.tech/td"
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
              x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.AvatarDetailView">
     <ScrollViewer>
@@ -30,7 +31,7 @@
                                Foreground="{DynamicResource TDFontGyColor}" HorizontalAlignment="Center" />
                 </StackPanel>
                 <StackPanel Spacing="4" HorizontalAlignment="Center">
-                    <m:Avatar Content="{DynamicResource TempUserGlyph}" />
+                    <m:Avatar Content="{td:TempUser}" />
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Avatar_Icon}}" FontSize="12"
                                Foreground="{DynamicResource TDFontGyColor}" HorizontalAlignment="Center" />
                 </StackPanel>

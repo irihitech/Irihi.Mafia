@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:td="https://irihi.tech/td">
+                    xmlns:tdicon="https://irihi.tech/iconica/tdesign">
     <Design.PreviewWith>
         <StackPanel Width="400" Margin="20">
             <CheckBox Content="多选标题" />
@@ -43,17 +43,17 @@
                                 Stroke="{DynamicResource TDCheckBoxIconBorderBrush}"
                                 StrokeThickness="{DynamicResource TDCheckBoxIconBorderThickness}"
                                 UseLayoutRounding="False" />
-                            <td:CheckCircleFilled
+                            <tdicon:CheckCircleFilled
                                 Name="PART_CheckedIcon"
                                 Width="{DynamicResource TDCheckBoxIconSize}"
                                 Height="{Binding $self.Width}"
-                                Fill1="{DynamicResource TDCheckBoxIconCheckedForeground}"
+                                Stroke1="{DynamicResource TDCheckBoxIconCheckedForeground}"
                                 UseLayoutRounding="False" />
-                            <td:MinusCircleFilled
+                            <tdicon:MinusCircleFilled
                                 Name="PART_IndeterminateIcon"
                                 Width="{DynamicResource TDCheckBoxIconSize}"
                                 Height="{Binding $self.Width}"
-                                Fill1="{DynamicResource TDCheckBoxIconCheckedForeground}"
+                                Stroke1="{DynamicResource TDCheckBoxIconCheckedForeground}"
                                 UseLayoutRounding="False"
                                 IsVisible="False" />
                         </Panel>
@@ -81,22 +81,22 @@
             <Setter Property="Grid.Column" Value="2" />
         </Style>
 
-        <Style Selector="^:unchecked /template/ td|CheckCircleFilled#PART_CheckedIcon">
+        <Style Selector="^:unchecked /template/ tdicon|CheckCircleFilled#PART_CheckedIcon">
             <Setter Property="IsVisible" Value="False" />
         </Style>
         <Style Selector="^:checked">
-            <Style Selector="^ /template/ td|CheckCircleFilled#PART_CheckedIcon">
+            <Style Selector="^ /template/ tdicon|CheckCircleFilled#PART_CheckedIcon">
                 <Setter Property="IsVisible" Value="True" />
             </Style>
-            <Style Selector="^ /template/ td|MinusCircleFilled#PART_IndeterminateIcon">
+            <Style Selector="^ /template/ tdicon|MinusCircleFilled#PART_IndeterminateIcon">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
         </Style>
         <Style Selector="^:indeterminate">
-            <Style Selector="^ /template/ td|CheckCircleFilled#PART_CheckedIcon">
+            <Style Selector="^ /template/ tdicon|CheckCircleFilled#PART_CheckedIcon">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
-            <Style Selector="^ /template/ td|MinusCircleFilled#PART_IndeterminateIcon">
+            <Style Selector="^ /template/ tdicon|MinusCircleFilled#PART_IndeterminateIcon">
                 <Setter Property="IsVisible" Value="True" />
             </Style>
         </Style>
@@ -105,11 +105,11 @@
             <Style Selector="^ /template/ Ellipse#PART_OuterEllipse">
                 <Setter Property="Stroke" Value="{DynamicResource TDCheckBoxIconDisabledBorderBrush}" />
             </Style>
-            <Style Selector="^ /template/ td|CheckCircleFilled#PART_CheckedIcon">
-                <Setter Property="Fill1" Value="{DynamicResource TDCheckBoxIconDisabledForeground}" />
+            <Style Selector="^ /template/ tdicon|CheckCircleFilled#PART_CheckedIcon">
+                <Setter Property="Stroke1" Value="{DynamicResource TDCheckBoxIconDisabledForeground}" />
             </Style>
-            <Style Selector="^ /template/ td|MinusCircleFilled#PART_IndeterminateIcon">
-                <Setter Property="Fill1" Value="{DynamicResource TDCheckBoxIconDisabledForeground}" />
+            <Style Selector="^ /template/ tdicon|MinusCircleFilled#PART_IndeterminateIcon">
+                <Setter Property="Stroke1" Value="{DynamicResource TDCheckBoxIconDisabledForeground}" />
             </Style>
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource TDCheckBoxContentDisabledForeground}" />

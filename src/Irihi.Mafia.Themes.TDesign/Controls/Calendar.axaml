@@ -2,7 +2,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:m="https://irihi.tech/mafia"
-    xmlns:td="https://irihi.tech/td">
+    xmlns:tdicon="https://irihi.tech/iconica/tdesign">
 
     <Design.PreviewWith>
         <StackPanel Width="360" Spacing="24">
@@ -38,7 +38,7 @@
                                 Padding="0"
                                 Theme="{DynamicResource TextButton}"
                                 Command="{Binding $parent[m:Calendar].PreviousMonthCommand}">
-                                <td:ChevronLeft Stroke1="{DynamicResource TDCalendarHeaderButtonForeground}" />
+                                <tdicon:ChevronLeft Stroke1="{DynamicResource TDCalendarHeaderButtonForeground}" />
                             </Button>
 
                             <TextBlock
@@ -57,7 +57,7 @@
                                 Padding="0"
                                 Theme="{DynamicResource TextButton}"
                                 Command="{Binding $parent[m:Calendar].NextMonthCommand}">
-                                <td:ChevronRight Stroke1="{DynamicResource TDCalendarHeaderButtonForeground}" />
+                                <tdicon:ChevronRight Stroke1="{DynamicResource TDCalendarHeaderButtonForeground}" />
                             </Button>
                         </Grid>
 

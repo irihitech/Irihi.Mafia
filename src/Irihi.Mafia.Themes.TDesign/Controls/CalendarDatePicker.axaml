@@ -2,7 +2,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:m="https://irihi.tech/mafia"
-    xmlns:td="https://irihi.tech/td">
+    xmlns:tdicon="https://irihi.tech/iconica/tdesign">
 
     <Design.PreviewWith>
         <StackPanel Width="390" Spacing="12" Margin="16">
@@ -129,7 +129,7 @@
                                         </DataTemplate>
                                     </ContentPresenter.DataTemplates>
                                 </ContentPresenter>
-                                <td:ChevronRight
+                                <tdicon:ChevronRight
                                     Name="PART_DefaultChevron"
                                     Stroke1="{DynamicResource TDCellRightContentForeground}"
                                     IsVisible="{TemplateBinding InnerRightContent, Converter={x:Static ObjectConverters.IsNull}}" />

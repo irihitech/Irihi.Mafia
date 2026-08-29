@@ -1,7 +1,7 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:td="https://irihi.tech/td">
+    xmlns:tdicon="https://irihi.tech/iconica/tdesign">
     <Design.PreviewWith>
         <NavigationPage Width="400" Height="300">
             <ContentPage Header="标题" Content="内容" />
@@ -53,7 +53,7 @@
                                 IsVisible="{TemplateBinding IsBackButtonEffectivelyVisible}"
                                 Theme="{StaticResource TextButton}">
                                 <Panel Background="Transparent">
-                                    <td:ChevronLeft
+                                    <tdicon:ChevronLeft
                                         Name="PART_BackButtonDefaultIcon"
                                         Stroke1="{DynamicResource TDNavigationPageBackButtonForeground}" />
                                     <ContentPresenter
@@ -88,8 +88,7 @@
                         IsVisible="False"
                         Height="{DynamicResource TDNavigationPageNavBarShadowHeight}"
                         Background="{DynamicResource TDNavigationPageNavBarShadowBackground}"
-                        IsHitTestVisible="False">
-                    </Border>
+                        IsHitTestVisible="False" />
                     <ContentPresenter
                         Name="PART_ModalBackPresenter"
                         ZIndex="99"

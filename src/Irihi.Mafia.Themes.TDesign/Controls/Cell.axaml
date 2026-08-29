@@ -2,6 +2,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:m="https://irihi.tech/mafia"
+    xmlns:tdicon="https://irihi.tech/iconica/tdesign"
     xmlns:td="https://irihi.tech/td">
     <Design.PreviewWith>
         <m:CellGroup Header="基础用法" Width="400" Margin="20">
@@ -10,14 +11,14 @@
             <m:Cell Content="单行标题" Classes="Arrow" IsRequired="True" />
             <m:Cell Content="单行标题" Classes="Arrow" Note="辅助信息" />
             <m:Cell Content="单行标题" Classes="Arrow" />
-            <m:Cell Content="单行标题" InnerLeftContent="{DynamicResource TempAppGlyph}" />
-            <m:Cell Content="单行标题" InnerRightContent="{DynamicResource TempChevronRightGlyph}" />
+            <m:Cell Content="单行标题" InnerLeftContent="{td:TempApp}" />
+            <m:Cell Content="单行标题" InnerRightContent="{td:TempChevronRight}" />
             <m:Cell
                 Classes="Arrow"
                 Content="单行标题"
                 Description="一段很长很长的内容文字"
                 Note="辅助信息"
-                InnerLeftContent="{DynamicResource TempAppGlyph}" />
+                InnerLeftContent="{td:TempApp}" />
         </m:CellGroup>
     </Design.PreviewWith>
 
@@ -142,7 +143,7 @@
         <Style Selector="^.Arrow /template/ ContentPresenter#PART_InnerRightContent">
             <Setter Property="Content">
                 <Template>
-                    <td:ChevronRight Stroke1="{Binding $parent[ContentPresenter].Foreground}" />
+                    <tdicon:ChevronRight Stroke1="{Binding $parent[ContentPresenter].Foreground}" />
                 </Template>
             </Setter>
         </Style>
