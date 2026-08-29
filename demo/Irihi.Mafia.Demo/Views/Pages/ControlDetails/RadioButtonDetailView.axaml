@@ -8,31 +8,26 @@
              x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.RadioButtonDetailView">
     <ScrollViewer>
         <StackPanel Spacing="12" Margin="16,16,16,24">
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Title}}" FontSize="24" FontWeight="Bold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Title}}" FontSize="24" FontWeight="Bold" />
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Desc}}"
-                       TextWrapping="Wrap" FontSize="14"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+                       TextWrapping="Wrap" FontSize="14" />
 
             <m:Divider />
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Basic}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Basic}}" FontSize="16" FontWeight="SemiBold" />
             <StackPanel Spacing="8">
                 <RadioButton Content="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Option1}}" GroupName="Group1" IsChecked="True" />
                 <RadioButton Content="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Option2}}" GroupName="Group1" />
                 <RadioButton Content="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Option3}}" GroupName="Group1" />
             </StackPanel>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Justify}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Justify}}" FontSize="16" FontWeight="SemiBold" />
             <StackPanel Spacing="8">
                 <RadioButton Content="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Option1}}" GroupName="Group2" Classes="Justify" />
                 <RadioButton Content="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Option2}}" GroupName="Group2" Classes="Justify" IsChecked="True" />
             </StackPanel>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.RadioButton_States}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.RadioButton_States}}" FontSize="16" FontWeight="SemiBold" />
             <StackPanel Spacing="8">
                 <RadioButton Content="{Translate {x:Static local:LanguageManager+Keys.RadioButton_DisabledChecked}}"
                              GroupName="Group3" IsChecked="True" IsEnabled="False" />

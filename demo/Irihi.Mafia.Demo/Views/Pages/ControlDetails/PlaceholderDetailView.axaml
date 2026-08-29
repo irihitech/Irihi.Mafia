@@ -10,7 +10,6 @@
                        HorizontalAlignment="Center" />
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Placeholder_Desc}}" 
                        TextWrapping="Wrap" FontSize="14"
-                       Foreground="{DynamicResource TDFontGyColor}"
                        HorizontalAlignment="Center" />
         </StackPanel>
     </ScrollViewer>

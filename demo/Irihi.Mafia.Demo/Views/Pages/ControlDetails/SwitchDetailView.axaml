@@ -6,24 +6,23 @@
     <ScrollViewer>
         <StackPanel Spacing="12" Margin="16,16,16,24">
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Title}}" FontSize="24" FontWeight="Bold" />
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Desc}}" 
-                       TextWrapping="Wrap" FontSize="14"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Desc}}"
+                       TextWrapping="Wrap" FontSize="14" />
 
             <m:Divider />
 
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Sizes}}" FontSize="16" FontWeight="SemiBold" />
             <StackPanel Spacing="12">
                 <StackPanel Spacing="4">
-                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Default}}" FontSize="13" Foreground="{DynamicResource TDFontGyColor}" />
+                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Default}}" FontSize="13" />
                     <ToggleSwitch IsChecked="True" />
                 </StackPanel>
                 <StackPanel Spacing="4">
-                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Small}}" FontSize="13" Foreground="{DynamicResource TDFontGyColor}" />
+                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Small}}" FontSize="13" />
                     <ToggleSwitch Classes="Small" />
                 </StackPanel>
                 <StackPanel Spacing="4">
-                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Large}}" FontSize="13" Foreground="{DynamicResource TDFontGyColor}" />
+                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Large}}" FontSize="13" />
                     <ToggleSwitch Classes="Large" IsChecked="True" />
                 </StackPanel>
             </StackPanel>
@@ -34,11 +33,11 @@
             <StackPanel Spacing="8">
                 <WrapPanel>
                     <StackPanel Margin="0,0,16,0" Spacing="4">
-                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Off}}" FontSize="13" Foreground="{DynamicResource TDFontGyColor}" />
+                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Off}}" FontSize="13" />
                         <ToggleSwitch />
                     </StackPanel>
                     <StackPanel Spacing="4">
-                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_On}}" FontSize="13" Foreground="{DynamicResource TDFontGyColor}" />
+                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_On}}" FontSize="13" />
                         <ToggleSwitch IsChecked="True" />
                     </StackPanel>
                 </WrapPanel>

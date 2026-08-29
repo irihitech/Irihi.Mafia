@@ -10,11 +10,9 @@
              x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.PickerDetailView">
     <ScrollViewer>
         <StackPanel Spacing="4">
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Picker_Title}}" FontSize="24" FontWeight="Bold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Picker_Title}}" FontSize="24" FontWeight="Bold" />
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Picker_Desc}}"
-                       TextWrapping="Wrap" FontSize="14"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+                       TextWrapping="Wrap" FontSize="14" />
             <m:CellGroup Header="{Translate {x:Static local:LanguageManager+Keys.Picker_BasicUsage}}">
                 <m:Picker SelectedIndex="0">
                     <m:PickerItem Content="{Translate {x:Static local:LanguageManager+Keys.Picker_Option1}}" />
@@ -32,8 +30,7 @@
                 </m:Picker>
             </m:CellGroup>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Picker_LongList}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Picker_LongList}}" FontSize="16" FontWeight="SemiBold" />
             <m:Picker PlaceholderText="{Translate {x:Static local:LanguageManager+Keys.Picker_Placeholder_Province}}" SelectedIndex="0">
                 <m:PickerItem>北京市</m:PickerItem>
                 <m:PickerItem>上海市</m:PickerItem>
@@ -62,38 +59,29 @@
                 <m:PickerItem>青海省</m:PickerItem>
             </m:Picker>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Picker_Mvvm}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Picker_Mvvm}}" FontSize="16" FontWeight="SemiBold" />
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Picker_LanguageBinding}}" FontSize="14"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Picker_LanguageBinding}}" FontSize="14" />
             <m:Picker ItemsSource="{Binding Languages}"
-                        SelectedItem="{Binding SelectedLanguage}"
-                        Description="数据驱动的下拉选择"
-                        Note="双向绑定">
-            </m:Picker>
+                      SelectedItem="{Binding SelectedLanguage}"
+                      Description="数据驱动的下拉选择"
+                      Note="双向绑定" />
             <TextBlock Text="{Binding SelectedLanguage, StringFormat='已选: {0}'}"
-                       FontSize="14"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+                       FontSize="14" />
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Picker_SizeBinding}}" FontSize="14"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Picker_SizeBinding}}" FontSize="14" />
             <m:Picker ItemsSource="{Binding Sizes}"
-                        SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
-                        PlaceholderText="{Translate {x:Static local:LanguageManager+Keys.Picker_Placeholder_Size}}">
-            </m:Picker>
+                      SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
+                      PlaceholderText="{Translate {x:Static local:LanguageManager+Keys.Picker_Placeholder_Size}}" />
             <TextBlock Text="{Binding SelectedIndex, StringFormat='SelectedIndex: {0}'}"
-                       FontSize="14"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+                       FontSize="14" />
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Picker_Confirmable}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Picker_Confirmable}}" FontSize="16" FontWeight="SemiBold" />
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Picker_Confirmable_Desc}}"
-                       TextWrapping="Wrap" FontSize="14"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+                       TextWrapping="Wrap" FontSize="14" />
             <m:Picker PlaceholderText="{Translate {x:Static local:LanguageManager+Keys.Picker_Placeholder_Select}}" IsConfirmable="True"
-                        PopupTitle="{Translate {x:Static local:LanguageManager+Keys.Picker_PopupTitle}}"
-                        Description="左取消 | 中标题 | 右确认">
+                      PopupTitle="{Translate {x:Static local:LanguageManager+Keys.Picker_PopupTitle}}"
+                      Description="左取消 | 中标题 | 右确认">
                 <m:PickerItem Content="{Translate {x:Static local:LanguageManager+Keys.Picker_OptionA}}" />
                 <m:PickerItem Content="{Translate {x:Static local:LanguageManager+Keys.Picker_OptionB}}" />
                 <m:PickerItem Content="{Translate {x:Static local:LanguageManager+Keys.Picker_OptionC}}" />

@@ -8,16 +8,13 @@
              x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.DividerDetailView">
     <ScrollViewer>
         <StackPanel Spacing="12" Margin="16,16,16,24">
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Divider_Title}}" FontSize="24" FontWeight="Bold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Divider_Title}}" FontSize="24" FontWeight="Bold" />
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Divider_Desc}}"
-                       TextWrapping="Wrap" FontSize="14"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+                       TextWrapping="Wrap" FontSize="14" />
 
             <m:Divider />
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Divider_Horizontal}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Divider_Horizontal}}" FontSize="16" FontWeight="SemiBold" />
             <StackPanel Spacing="16">
                 <m:Divider />
                 <m:Divider HorizontalContentAlignment="Left"
@@ -28,19 +25,15 @@
                            Content="{Translate {x:Static local:LanguageManager+Keys.Divider_Right}}" />
             </StackPanel>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Divider_Vertical}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Divider_Vertical}}" FontSize="16" FontWeight="SemiBold" />
             <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
                 <TextBlock VerticalAlignment="Center" FontSize="14"
-                           Foreground="{DynamicResource TDFontGyColor}"
                            Text="{Translate {x:Static local:LanguageManager+Keys.Divider_Text}}" />
                 <m:Divider Orientation="Vertical" />
                 <TextBlock VerticalAlignment="Center" FontSize="14"
-                           Foreground="{DynamicResource TDFontGyColor}"
                            Text="{Translate {x:Static local:LanguageManager+Keys.Divider_Text}}" />
                 <m:Divider Orientation="Vertical" />
                 <TextBlock VerticalAlignment="Center" FontSize="14"
-                           Foreground="{DynamicResource TDFontGyColor}"
                            Text="{Translate {x:Static local:LanguageManager+Keys.Divider_Text}}" />
             </StackPanel>
         </StackPanel>

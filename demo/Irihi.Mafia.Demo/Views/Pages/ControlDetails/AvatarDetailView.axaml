@@ -9,66 +9,61 @@
              x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.AvatarDetailView">
     <ScrollViewer>
         <StackPanel Spacing="12" Margin="16,16,16,24">
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Avatar_Title}}" FontSize="24" FontWeight="Bold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Avatar_Title}}" FontSize="24" FontWeight="Bold" />
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Avatar_Desc}}"
-                       TextWrapping="Wrap" FontSize="14"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+                       TextWrapping="Wrap" FontSize="14" />
 
             <m:Divider />
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Avatar_Content}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Avatar_Content}}" FontSize="16" FontWeight="SemiBold" />
             <WrapPanel ItemSpacing="12" LineSpacing="12">
                 <StackPanel Spacing="4" HorizontalAlignment="Center">
                     <m:Avatar Source="avares://Irihi.Mafia.Themes.TDesign/Assets/avatar1.png" />
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Avatar_Image}}" FontSize="12"
-                               Foreground="{DynamicResource TDFontGyColor}" HorizontalAlignment="Center" />
+                               HorizontalAlignment="Center" />
                 </StackPanel>
                 <StackPanel Spacing="4" HorizontalAlignment="Center">
                     <m:Avatar Content="A" />
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Avatar_Text}}" FontSize="12"
-                               Foreground="{DynamicResource TDFontGyColor}" HorizontalAlignment="Center" />
+                               HorizontalAlignment="Center" />
                 </StackPanel>
                 <StackPanel Spacing="4" HorizontalAlignment="Center">
                     <m:Avatar Content="{td:TempUser}" />
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Avatar_Icon}}" FontSize="12"
-                               Foreground="{DynamicResource TDFontGyColor}" HorizontalAlignment="Center" />
+                               HorizontalAlignment="Center" />
                 </StackPanel>
             </WrapPanel>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Avatar_Shape}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Avatar_Shape}}" FontSize="16" FontWeight="SemiBold" />
             <WrapPanel ItemSpacing="12" LineSpacing="12">
                 <StackPanel Spacing="4" HorizontalAlignment="Center">
                     <m:Avatar Content="A" />
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Avatar_Round}}" FontSize="12"
-                               Foreground="{DynamicResource TDFontGyColor}" HorizontalAlignment="Center" />
+                               HorizontalAlignment="Center" />
                 </StackPanel>
                 <StackPanel Spacing="4" HorizontalAlignment="Center">
                     <m:Avatar Classes="Square" Content="A" />
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Avatar_Square}}" FontSize="12"
-                               Foreground="{DynamicResource TDFontGyColor}" HorizontalAlignment="Center" />
+                               HorizontalAlignment="Center" />
                 </StackPanel>
             </WrapPanel>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Avatar_Size}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Avatar_Size}}" FontSize="16" FontWeight="SemiBold" />
             <WrapPanel ItemSpacing="12" LineSpacing="12" VerticalAlignment="Center">
                 <StackPanel Spacing="4" HorizontalAlignment="Center">
                     <m:Avatar Classes="Small" Content="A" />
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Avatar_Small}}" FontSize="12"
-                               Foreground="{DynamicResource TDFontGyColor}" HorizontalAlignment="Center" />
+                               HorizontalAlignment="Center" />
                 </StackPanel>
                 <StackPanel Spacing="4" HorizontalAlignment="Center">
                     <m:Avatar Classes="Medium" Content="A" />
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Avatar_Medium}}" FontSize="12"
-                               Foreground="{DynamicResource TDFontGyColor}" HorizontalAlignment="Center" />
+                               HorizontalAlignment="Center" />
                 </StackPanel>
                 <StackPanel Spacing="4" HorizontalAlignment="Center">
                     <m:Avatar Classes="Large" Content="A" />
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Avatar_Large}}" FontSize="12"
-                               Foreground="{DynamicResource TDFontGyColor}" HorizontalAlignment="Center" />
+                               HorizontalAlignment="Center" />
                 </StackPanel>
             </WrapPanel>
         </StackPanel>
