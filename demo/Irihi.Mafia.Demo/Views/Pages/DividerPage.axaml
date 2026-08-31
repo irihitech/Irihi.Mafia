@@ -1,0 +1,41 @@
+<ContentPage xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="using:Irihi.Mafia.Demo"
+             xmlns:m="https://irihi.tech/mafia"
+             mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
+             x:Class="Irihi.Mafia.Demo.Views.DividerPage">
+    <ScrollViewer>
+        <StackPanel Spacing="12" Margin="16,16,16,24">
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Divider_Title}}" FontSize="24" FontWeight="Bold" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Divider_Desc}}"
+                       TextWrapping="Wrap" />
+
+            <m:Divider />
+
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Divider_Horizontal}}" FontSize="16" FontWeight="SemiBold" />
+            <StackPanel Spacing="16">
+                <m:Divider />
+                <m:Divider HorizontalContentAlignment="Left"
+                           Content="{Translate {x:Static local:LanguageManager+Keys.Divider_Left}}" />
+                <m:Divider HorizontalContentAlignment="Center"
+                           Content="{Translate {x:Static local:LanguageManager+Keys.Divider_Center}}" />
+                <m:Divider HorizontalContentAlignment="Right"
+                           Content="{Translate {x:Static local:LanguageManager+Keys.Divider_Right}}" />
+            </StackPanel>
+
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Divider_Vertical}}" FontSize="16" FontWeight="SemiBold" />
+            <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+                <TextBlock VerticalAlignment="Center"
+                           Text="{Translate {x:Static local:LanguageManager+Keys.Divider_Text}}" />
+                <m:Divider Orientation="Vertical" />
+                <TextBlock VerticalAlignment="Center"
+                           Text="{Translate {x:Static local:LanguageManager+Keys.Divider_Text}}" />
+                <m:Divider Orientation="Vertical" />
+                <TextBlock VerticalAlignment="Center"
+                           Text="{Translate {x:Static local:LanguageManager+Keys.Divider_Text}}" />
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</ContentPage>

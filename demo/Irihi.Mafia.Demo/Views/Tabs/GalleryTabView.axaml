@@ -1,0 +1,53 @@
+<ContentPage xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="using:Irihi.Mafia.Demo"
+             xmlns:m="https://irihi.tech/mafia"
+             xmlns:vm="clr-namespace:Irihi.Mafia.Demo.ViewModels"
+             xmlns:td="https://irihi.tech/td"
+             xmlns:models="clr-namespace:Irihi.Mafia.Demo.Models"
+             mc:Ignorable="d" d:DesignWidth="800"
+             d:DesignHeight="450"
+             x:DataType="vm:GalleryTabViewModel"
+             x:Class="Irihi.Mafia.Demo.Views.GalleryTabView">
+    <ScrollViewer>
+        <StackPanel>
+            <m:Input
+                PlaceholderText="{Translate {x:Static local:LanguageManager+Keys.Gallery_SearchPlaceholder}}"
+                InnerLeftContent="{td:TempSearch}"
+                Classes="ClearButton"
+                Text="{Binding SearchText, Mode=TwoWay}" />
+
+            <m:CellGroup Header="{Translate {x:Static local:LanguageManager+Keys.Gallery_Section_Interactive}}"
+                         ItemsSource="{Binding InteractiveItems}">
+                <m:CellGroup.ItemTemplate>
+                    <DataTemplate DataType="models:ControlItem">
+                        <m:Cell
+                            Content="{Binding Title^}"
+                            Description="{Binding Description^}"
+                            Classes="Arrow"
+                            Command="{Binding Command}"
+                            CommandParameter="{Binding Name}" />
+                    </DataTemplate>
+                </m:CellGroup.ItemTemplate>
+            </m:CellGroup>
+
+            <m:Divider Margin="16,0" />
+
+            <m:CellGroup Header="{Translate {x:Static local:LanguageManager+Keys.Gallery_Section_Display}}"
+                         ItemsSource="{Binding DisplayItems}">
+                <m:CellGroup.ItemTemplate>
+                    <DataTemplate DataType="models:ControlItem">
+                        <m:Cell
+                            Content="{Binding Title^}"
+                            Description="{Binding Description^}"
+                            Classes="Arrow"
+                            Command="{Binding Command}"
+                            CommandParameter="{Binding Name}" />
+                    </DataTemplate>
+                </m:CellGroup.ItemTemplate>
+            </m:CellGroup>
+        </StackPanel>
+    </ScrollViewer>
+</ContentPage>

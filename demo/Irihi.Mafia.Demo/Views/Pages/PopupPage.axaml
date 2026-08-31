@@ -1,0 +1,88 @@
+<ContentPage xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="using:Irihi.Mafia.Demo"
+             xmlns:m="https://irihi.tech/mafia"
+             xmlns:vm="clr-namespace:Irihi.Mafia.Demo.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
+             x:Class="Irihi.Mafia.Demo.Views.PopupPage"
+             x:DataType="vm:PopupPageViewModel">
+    <Panel>
+        <ScrollViewer>
+            <StackPanel Spacing="12" Margin="16,16,16,24">
+                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Title}}" FontSize="24" FontWeight="Bold" />
+                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Desc}}"
+                           TextWrapping="Wrap" />
+
+                <m:Divider />
+
+                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Placement}}" FontSize="18" FontWeight="SemiBold" />
+                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto"
+                      ColumnSpacing="8" RowSpacing="8">
+                    <Button Grid.Row="0" Grid.Column="0" Content="Bottom"
+                            Command="{Binding OpenPopupCommand}" CommandParameter="Bottom" />
+                    <Button Grid.Row="0" Grid.Column="1" Content="Center"
+                            Command="{Binding OpenPopupCommand}" CommandParameter="Center" />
+                    <Button Grid.Row="1" Grid.Column="0" Content="Top"
+                            Command="{Binding OpenPopupCommand}" CommandParameter="Top" />
+                    <Button Grid.Row="1" Grid.Column="1" Content="Left"
+                            Command="{Binding OpenPopupCommand}" CommandParameter="Left" />
+                    <Button Grid.Row="2" Grid.Column="0" Content="Right"
+                            Command="{Binding OpenPopupCommand}" CommandParameter="Right" />
+                    <Button Grid.Row="2" Grid.Column="1" Content="FullScreen"
+                            Command="{Binding OpenPopupCommand}" CommandParameter="FullScreen" />
+                </Grid>
+
+                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Options}}" FontSize="18" FontWeight="SemiBold" />
+                <CheckBox Content="{Translate {x:Static local:LanguageManager+Keys.Popup_Modal}}" IsChecked="{Binding IsModal}" />
+                <CheckBox Content="{Translate {x:Static local:LanguageManager+Keys.Popup_LightDismiss}}" IsChecked="{Binding IsLightDismiss}" />
+
+                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Inheritance}}" FontSize="18" FontWeight="SemiBold" />
+                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Inheritance_Desc}}"
+                           TextWrapping="Wrap" />
+                <Button Content="{Translate {x:Static local:LanguageManager+Keys.Popup_InheritedButton}}"
+                        Command="{Binding OpenInheritedPopupCommand}"
+                        Classes="Primary" />
+            </StackPanel>
+        </ScrollViewer>
+
+        <m:Popup IsOpen="{Binding IsPopupOpen}"
+                 IsModal="{Binding IsModal}"
+                 IsLightDismissEnabled="{Binding IsLightDismiss}"
+                 Placement="{Binding PopupPlacement}">
+            <Border Background="{DynamicResource TDBgColorContainer}"
+                    CornerRadius="12"
+                    Padding="24"
+                    MinHeight="200">
+                <StackPanel Spacing="12">
+                    <TextBlock Text="{Binding PopupTitle}" FontSize="20" FontWeight="Bold" />
+                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_DismissHint}}" TextWrapping="Wrap" />
+                    <Button Content="{Translate {x:Static local:LanguageManager+Keys.Popup_Close}}"
+                            Command="{Binding ClosePopupCommand}"
+                            HorizontalAlignment="Center" />
+                </StackPanel>
+            </Border>
+        </m:Popup>
+
+        <Panel m:Popup.Placement="Bottom">
+            <m:Popup IsOpen="{Binding IsInheritedPopupOpen}"
+                     IsModal="True"
+                     IsLightDismissEnabled="True">
+                <Border Background="{DynamicResource TDBgColorContainer}"
+                        CornerRadius="12"
+                        Padding="24"
+                        MinHeight="150">
+                    <StackPanel Spacing="12">
+                        <TextBlock Text="Inherited: Bottom" FontSize="20" FontWeight="Bold" />
+                        <TextBlock Text="Placement inherited from parent Panel via m:Popup.Placement."
+                                   TextWrapping="Wrap" />
+                        <Button Content="{Translate {x:Static local:LanguageManager+Keys.Popup_Close}}"
+                                Command="{Binding CloseInheritedPopupCommand}"
+                                HorizontalAlignment="Center" />
+                    </StackPanel>
+                </Border>
+            </m:Popup>
+        </Panel>
+    </Panel>
+</ContentPage>

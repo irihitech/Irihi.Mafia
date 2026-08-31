@@ -1,0 +1,47 @@
+<ContentPage xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:Irihi.Mafia.Demo"
+             xmlns:m="https://irihi.tech/mafia"
+             x:Class="Irihi.Mafia.Demo.Views.SwitchPage">
+    <ScrollViewer>
+        <StackPanel Spacing="12" Margin="16,16,16,24">
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Title}}" FontSize="24" FontWeight="Bold" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Desc}}"
+                       TextWrapping="Wrap" />
+
+            <m:Divider />
+
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Sizes}}" FontSize="16" FontWeight="SemiBold" />
+            <StackPanel Spacing="12">
+                <StackPanel Spacing="4">
+                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Default}}" FontSize="13" />
+                    <ToggleSwitch IsChecked="True" />
+                </StackPanel>
+                <StackPanel Spacing="4">
+                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Small}}" FontSize="13" />
+                    <ToggleSwitch Classes="Small" />
+                </StackPanel>
+                <StackPanel Spacing="4">
+                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Large}}" FontSize="13" />
+                    <ToggleSwitch Classes="Large" IsChecked="True" />
+                </StackPanel>
+            </StackPanel>
+
+            <m:Divider />
+
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_States}}" FontSize="16" FontWeight="SemiBold" />
+            <StackPanel Spacing="8">
+                <WrapPanel>
+                    <StackPanel Margin="0,0,16,0" Spacing="4">
+                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_Off}}" FontSize="13" />
+                        <ToggleSwitch />
+                    </StackPanel>
+                    <StackPanel Spacing="4">
+                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Switch_On}}" FontSize="13" />
+                        <ToggleSwitch IsChecked="True" />
+                    </StackPanel>
+                </WrapPanel>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</ContentPage>

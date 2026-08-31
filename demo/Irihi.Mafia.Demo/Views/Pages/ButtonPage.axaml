@@ -1,0 +1,58 @@
+<ContentPage xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="using:Irihi.Mafia.Demo"
+             xmlns:m="https://irihi.tech/mafia"
+             mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
+             x:Class="Irihi.Mafia.Demo.Views.ButtonPage">
+    <ScrollViewer>
+        <StackPanel Spacing="12" Margin="16,16,16,24">
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Button_Title}}" FontSize="24" FontWeight="Bold" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Button_Desc}}"
+                       TextWrapping="Wrap" />
+
+            <m:Divider />
+
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Button_Fill}}" FontSize="16" FontWeight="SemiBold" />
+            <WrapPanel ItemSpacing="8" LineSpacing="8">
+                <Button Content="{Translate {x:Static local:LanguageManager+Keys.Button_Default}}" />
+                <Button Content="{Translate {x:Static local:LanguageManager+Keys.Button_Primary}}" Classes="Primary" />
+                <Button Content="{Translate {x:Static local:LanguageManager+Keys.Button_Danger}}" Classes="Danger" />
+                <Button Content="{Translate {x:Static local:LanguageManager+Keys.Button_Success}}" Classes="Success" />
+                <Button Content="{Translate {x:Static local:LanguageManager+Keys.Button_Warning}}" Classes="Warning" />
+                <Button Content="{Translate {x:Static local:LanguageManager+Keys.Button_Light}}" Classes="Light" />
+            </WrapPanel>
+
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Button_Outline}}" FontSize="16" FontWeight="SemiBold" />
+            <WrapPanel ItemSpacing="8" LineSpacing="8">
+                <Button Content="默认" Theme="{DynamicResource OutlineButton}" />
+                <Button Content="主要" Theme="{DynamicResource OutlineButton}" Classes="Primary" />
+                <Button Content="危险" Theme="{DynamicResource OutlineButton}" Classes="Danger" />
+                <Button Content="成功" Theme="{DynamicResource OutlineButton}" Classes="Success" />
+            </WrapPanel>
+
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Button_Text}}" FontSize="16" FontWeight="SemiBold" />
+            <WrapPanel ItemSpacing="8" LineSpacing="8">
+                <Button Content="默认" Theme="{DynamicResource TextButton}" />
+                <Button Content="主要" Theme="{DynamicResource TextButton}" Classes="Primary" />
+                <Button Content="危险" Theme="{DynamicResource TextButton}" Classes="Danger" />
+            </WrapPanel>
+
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Button_Sizes}}" FontSize="16" FontWeight="SemiBold" />
+            <WrapPanel ItemSpacing="8" LineSpacing="8">
+                <Button Content="{Translate {x:Static local:LanguageManager+Keys.Button_Large}}" Classes="Primary Large" />
+                <Button Content="{Translate {x:Static local:LanguageManager+Keys.Button_Medium}}" Classes="Primary Medium" />
+                <Button Content="{Translate {x:Static local:LanguageManager+Keys.Button_Small}}" Classes="Primary Small" />
+                <Button Content="{Translate {x:Static local:LanguageManager+Keys.Button_ExtraSmall}}" Classes="Primary ExtraSmall" />
+            </WrapPanel>
+
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Button_Shapes}}" FontSize="16" FontWeight="SemiBold" />
+            <WrapPanel ItemSpacing="8" LineSpacing="8">
+                <Button Classes="Primary Square" Content="{Translate {x:Static local:LanguageManager+Keys.Button_Square}}" />
+                <Button Classes="Primary Circle" Content="{Translate {x:Static local:LanguageManager+Keys.Button_Circle}}" />
+                <Button Classes="Primary Round" Content="{Translate {x:Static local:LanguageManager+Keys.Button_Round}}" />
+            </WrapPanel>
+        </StackPanel>
+    </ScrollViewer>
+</ContentPage>

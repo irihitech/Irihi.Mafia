@@ -1,30 +1,7 @@
-<TabbedPage xmlns="https://github.com/avaloniaui"
-            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-            xmlns:local="using:Irihi.Mafia.Demo"
-            xmlns:pages="using:Irihi.Mafia.Demo.Views.Pages"
-            xmlns:td="https://irihi.tech/td"
-            mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
-            x:Class="Irihi.Mafia.Demo.Views.MainView"
-            Classes="Tag"
-            TabPlacement="Bottom">
-    <TabbedPage.PageTransition>
-        <CompositePageTransition>
-            <CrossFade Duration="0:0:0.15" />
-            <PageSlide Orientation="Horizontal" Duration="0:0:0.2" />
-        </CompositePageTransition>
-    </TabbedPage.PageTransition>
-    <pages:ComponentsPageView
-        Name="ComponentsPageContent"
-        Header="{Translate {x:Static local:LanguageManager+Keys.MainView_Tab_Components}}"
-        Icon="{td:TempApp}" />
-    <pages:HomePageView
-        Name="HomePageContent"
-        Header="{Translate {x:Static local:LanguageManager+Keys.MainView_Tab_Home}}"
-        Icon="{td:TempHome}" />
-    <pages:ListPageView
-        Name="ListPageContent"
-        Header="{Translate {x:Static local:LanguageManager+Keys.MainView_Tab_Settings}}" 
-        Icon="{td:TempSetting}" />
-</TabbedPage>
+<NavigationPage xmlns="https://github.com/avaloniaui"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
+                x:Class="Irihi.Mafia.Demo.Views.MainView"
+                Name="MainNavigation" />

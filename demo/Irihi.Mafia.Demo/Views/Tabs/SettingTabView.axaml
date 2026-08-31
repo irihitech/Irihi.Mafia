@@ -1,0 +1,63 @@
+<ContentPage xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="using:Irihi.Mafia.Demo"
+             xmlns:vm="using:Irihi.Mafia.Demo.ViewModels"
+             xmlns:m="https://irihi.tech/mafia"
+             xmlns:td="https://irihi.tech/td"
+             mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
+             x:Class="Irihi.Mafia.Demo.Views.SettingTabView"
+             x:DataType="vm:SettingTabViewModel">
+    <ScrollViewer>
+        <StackPanel Spacing="0" Margin="0,0,0,24">
+            <Border Background="{DynamicResource TDBgColorContainer}" Padding="16,24,16,20">
+                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="16">
+                    <Border Grid.Column="0" Background="{DynamicResource TDPrimaryColor}"
+                            Width="64" Height="64" CornerRadius="32">
+                        <m:Avatar Content="M" />
+                    </Border>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="4">
+                        <TextBlock Text="Mafia Demo" FontSize="20" FontWeight="Bold" />
+                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.List_Online}}"
+                                   Foreground="{DynamicResource TDSuccessColor}" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <m:Divider />
+
+            <m:CellGroup Header="{Translate {x:Static local:LanguageManager+Keys.List_Section_Display}}">
+                <m:Picker ItemsSource="{Binding ThemeOptions}"
+                          SelectedIndex="{Binding SelectedThemeIndex, Mode=TwoWay}"
+                          Description="{Translate {x:Static local:LanguageManager+Keys.List_Theme_Description}}">
+                    <m:Picker.SelectionBoxItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding .^}" />
+                        </DataTemplate>
+                    </m:Picker.SelectionBoxItemTemplate>
+                    <m:Picker.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding .^}" />
+                        </DataTemplate>
+                    </m:Picker.ItemTemplate>
+                </m:Picker>
+                <m:Picker ItemsSource="{Binding LanguageOptions}"
+                          SelectedIndex="{Binding SelectedLanguageIndex, Mode=TwoWay}"
+                          Description="{Translate {x:Static local:LanguageManager+Keys.List_Language_Description}}" />
+                <!--<m:Cell Content="字体大小" Note="标准" Classes="Arrow" /> -->
+            </m:CellGroup>
+
+            <m:Divider />
+
+            <m:CellGroup Header="{Translate {x:Static local:LanguageManager+Keys.List_Section_About}}">
+                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.List_Version}}" Note="0.0.1" />
+                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.List_License}}" Note="MIT" />
+                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.List_Project}}" Note="GitHub" Classes="Arrow"
+                        Command="{Binding OpenProjectUrlCommand}" />
+                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.List_TechStack}}" Description="Avalonia 12 · .NET 10"
+                        InnerLeftContent="{td:TempApp}" />
+            </m:CellGroup>
+        </StackPanel>
+    </ScrollViewer>
+</ContentPage>

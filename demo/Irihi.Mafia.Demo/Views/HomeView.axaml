@@ -1,0 +1,28 @@
+﻿<TabbedPage xmlns="https://github.com/avaloniaui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:td="https://irihi.tech/td"
+            xmlns:local="clr-namespace:Irihi.Mafia.Demo"
+            xmlns:views="clr-namespace:Irihi.Mafia.Demo.Views"
+            mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+            x:Class="Irihi.Mafia.Demo.Views.HomeView">
+    <TabbedPage.PageTransition>
+        <CompositePageTransition>
+            <CrossFade Duration="0:0:0.15" />
+            <PageSlide Orientation="Horizontal" Duration="0:0:0.2" />
+        </CompositePageTransition>
+    </TabbedPage.PageTransition>
+    <views:GalleryTabView
+        Name="GalleryTabContent"
+        Header="{Translate {x:Static local:LanguageManager+Keys.MainView_Tab_Components}}"
+        Icon="{td:TempApp}" />
+    <views:HomeTabView
+        Name="HomeTabContent"
+        Header="{Translate {x:Static local:LanguageManager+Keys.MainView_Tab_Home}}"
+        Icon="{td:TempHome}" />
+    <views:SettingTabView
+        Name="SettingTabContent"
+        Header="{Translate {x:Static local:LanguageManager+Keys.MainView_Tab_Settings}}"
+        Icon="{td:TempSetting}" />
+</TabbedPage>
