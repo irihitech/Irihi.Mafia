@@ -1,4 +1,4 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+<ContentPage xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="using:Irihi.Mafia.Demo"
              xmlns:m="https://irihi.tech/mafia"
@@ -28,4 +28,4 @@
             </WrapPanel>
         </StackPanel>
     </ScrollViewer>
-</UserControl>
+</ContentPage>

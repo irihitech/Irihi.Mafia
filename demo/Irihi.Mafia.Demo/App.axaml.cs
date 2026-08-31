@@ -1,4 +1,5 @@
 using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Irihi.Mafia.Demo.Views;
@@ -23,11 +24,17 @@ public partial class App : Application
         }
         else if (ApplicationLifetime is IActivityApplicationLifetime activity)
         {
-            activity.MainViewFactory = () => new MainView();
+            activity.MainViewFactory = () => new PageNavigationHost()
+            {
+                Page = new MainView()
+            };
         }
         else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
         {
-            singleViewPlatform.MainView = new MainView();
+            singleViewPlatform.MainView = new PageNavigationHost()
+            {
+                Page = new MainView()
+            };
         }
 
         base.OnFrameworkInitializationCompleted();

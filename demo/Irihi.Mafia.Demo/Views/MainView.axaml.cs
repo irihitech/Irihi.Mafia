@@ -3,7 +3,7 @@ using Irihi.Mafia.Demo.ViewModels;
 
 namespace Irihi.Mafia.Demo.Views;
 
-public partial class MainView : UserControl
+public partial class MainView : TabbedPage
 {
     public MainView()
     {
