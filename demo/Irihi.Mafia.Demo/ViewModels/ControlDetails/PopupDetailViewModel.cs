@@ -8,7 +8,7 @@ public partial class PopupDetailViewModel: NavigationViewModelBase
 {
     [ObservableProperty] public partial PopupPlacement PopupPlacement { get; set; }
     
-    [ObservableProperty] public partial string PopupTitle { get; set; } = "";
+    [ObservableProperty] public partial string PopupTitle { get; set; } = string.Empty;
     
     [ObservableProperty] public partial bool IsPopupOpen { get; set; }
     

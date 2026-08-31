@@ -5,7 +5,7 @@
         <Setter Property="Background" Value="{DynamicResource TDBgColorPage}" />
         <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource TDBgColorPage}" />
         <Setter Property="Foreground" Value="{DynamicResource TDTextColorPrimary}" />
-        <Setter Property="FontSize" Value="{DynamicResource TDFontBodyMedium}" />
+        <Setter Property="FontSize" Value="{DynamicResource TDFontSizeBodyMedium}" />
         <Setter Property="FontFamily" Value="{DynamicResource TDFontFamily}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="Window">

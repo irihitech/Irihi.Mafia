@@ -1,4 +1,4 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+<ContentPage xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -24,11 +24,9 @@
                         <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Title_Mafia}}" FontSize="16" FontWeight="SemiBold" />
                         <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Subtitle_Welcome}}"
                                    TextWrapping="Wrap" FontSize="13"
-                                   Foreground="{DynamicResource TDFontGyColor}"
                                    MaxHeight="36" />
                     </StackPanel>
                     <TextBlock Grid.Column="2" Text="{Translate {x:Static local:LanguageManager+Keys.Home_Timestamp_Now}}" FontSize="12"
-                               Foreground="{DynamicResource TDFontGyColor}"
                                VerticalAlignment="Top" />
                 </Grid>
             </Border>
@@ -49,11 +47,9 @@
                         <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Title_CustomControls}}" FontSize="16" FontWeight="SemiBold" />
                         <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Subtitle_Controls}}"
                                    TextWrapping="Wrap" FontSize="13"
-                                   Foreground="{DynamicResource TDFontGyColor}"
                                    MaxHeight="36" />
                     </StackPanel>
                     <TextBlock Grid.Column="2" Text="{Translate {x:Static local:LanguageManager+Keys.Home_Timestamp_Yesterday}}" FontSize="12"
-                               Foreground="{DynamicResource TDFontGyColor}"
                                VerticalAlignment="Top" />
                 </Grid>
             </Border>
@@ -73,11 +69,9 @@
                         <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Title_TDesign}}" FontSize="16" FontWeight="SemiBold" />
                         <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Subtitle_TDesign}}"
                                    TextWrapping="Wrap" FontSize="13"
-                                   Foreground="{DynamicResource TDFontGyColor}"
                                    MaxHeight="36" />
                     </StackPanel>
                     <TextBlock Grid.Column="2" Text="昨天" FontSize="12"
-                               Foreground="{DynamicResource TDFontGyColor}"
                                VerticalAlignment="Top" />
                 </Grid>
             </Border>
@@ -98,11 +92,9 @@
                         <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Title_Popup}}" FontSize="16" FontWeight="SemiBold" />
                         <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Subtitle_Popup}}"
                                    TextWrapping="Wrap" FontSize="13"
-                                   Foreground="{DynamicResource TDFontGyColor}"
                                    MaxHeight="36" />
                     </StackPanel>
                     <TextBlock Grid.Column="2" Text="{Translate {x:Static local:LanguageManager+Keys.Home_Timestamp_Wednesday}}" FontSize="12"
-                               Foreground="{DynamicResource TDFontGyColor}"
                                VerticalAlignment="Top" />
                 </Grid>
             </Border>
@@ -122,11 +114,9 @@
                         <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Title_CrossPlatform}}" FontSize="16" FontWeight="SemiBold" />
                         <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Subtitle_CrossPlatform}}"
                                    TextWrapping="Wrap" FontSize="13"
-                                   Foreground="{DynamicResource TDFontGyColor}"
                                    MaxHeight="36" />
                     </StackPanel>
                     <TextBlock Grid.Column="2" Text="{Translate {x:Static local:LanguageManager+Keys.Home_Timestamp_Monday}}" FontSize="12"
-                               Foreground="{DynamicResource TDFontGyColor}"
                                VerticalAlignment="Top" />
                 </Grid>
             </Border>
@@ -136,7 +126,7 @@
             <Border Background="{DynamicResource TDBgColorContainer}" Padding="16,12"
                     Margin="0,0,0,24">
                 <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
-                    <Border Grid.Column="0" Background="{DynamicResource TDFontGyColor}"
+                    <Border Grid.Column="0"
                             Width="48" Height="48" CornerRadius="24"
                             VerticalAlignment="Top"
                             Opacity="0.3">
@@ -149,7 +139,6 @@
                         <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Title_About}}" FontSize="16" FontWeight="SemiBold" />
                         <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Home_Subtitle_About}}"
                                    TextWrapping="Wrap" FontSize="13"
-                                   Foreground="{DynamicResource TDFontGyColor}"
                                    MaxHeight="36" />
                     </StackPanel>
                     <TextBlock Grid.Column="2" Text="" FontSize="12"
@@ -158,4 +147,4 @@
             </Border>
         </StackPanel>
     </ScrollViewer>
-</UserControl>
+</ContentPage>

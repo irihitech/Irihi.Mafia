@@ -1,4 +1,4 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+<ContentPage xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="using:Irihi.Mafia.Demo"
              x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.PlaceholderDetailView">
@@ -9,9 +9,8 @@
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Placeholder_Title}}" FontSize="20" FontWeight="Bold"
                        HorizontalAlignment="Center" />
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Placeholder_Desc}}" 
-                       TextWrapping="Wrap" FontSize="14"
-                       Foreground="{DynamicResource TDFontGyColor}"
+                       TextWrapping="Wrap"
                        HorizontalAlignment="Center" />
         </StackPanel>
     </ScrollViewer>
-</UserControl>
+</ContentPage>

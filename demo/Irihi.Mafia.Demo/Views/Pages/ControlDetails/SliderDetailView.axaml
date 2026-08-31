@@ -1,4 +1,4 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+<ContentPage xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="using:Irihi.Mafia.Demo"
              xmlns:m="https://irihi.tech/mafia"
@@ -6,9 +6,8 @@
     <ScrollViewer>
         <StackPanel Spacing="12" Margin="16,16,16,24">
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Slider_Title}}" FontSize="24" FontWeight="Bold" />
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Slider_Desc}}" 
-                       TextWrapping="Wrap" FontSize="14"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Slider_Desc}}"
+                       TextWrapping="Wrap" />
 
             <m:Divider />
 
@@ -17,4 +16,4 @@
             <Slider Minimum="0" Maximum="100" Value="25" />
         </StackPanel>
     </ScrollViewer>
-</UserControl>
+</ContentPage>

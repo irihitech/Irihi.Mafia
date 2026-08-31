@@ -1,4 +1,4 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+<ContentPage xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -9,16 +9,13 @@
              x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.CellDetailView">
     <ScrollViewer>
         <StackPanel Spacing="12" Margin="16,16,16,24">
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Cell_Title}}" FontSize="24" FontWeight="Bold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Cell_Title}}" FontSize="24" FontWeight="Bold" />
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Cell_Desc}}"
-                       TextWrapping="Wrap" FontSize="14"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+                       TextWrapping="Wrap" />
 
             <m:Divider />
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Cell_Basic}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Cell_Basic}}" FontSize="16" FontWeight="SemiBold" />
             <m:CellGroup>
                 <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_Content}}" />
                 <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_Content}}" Classes="Arrow" />
@@ -29,8 +26,7 @@
                         InnerLeftContent="{td:TempApp}" />
             </m:CellGroup>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Cell_Advanced}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Cell_Advanced}}" FontSize="16" FontWeight="SemiBold" />
             <m:CellGroup>
                 <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_AdvancedContent}}"
                         Classes="Arrow"
@@ -45,4 +41,4 @@
             </m:CellGroup>
         </StackPanel>
     </ScrollViewer>
-</UserControl>
+</ContentPage>

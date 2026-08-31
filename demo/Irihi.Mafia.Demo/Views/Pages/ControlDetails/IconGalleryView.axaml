@@ -1,4 +1,4 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+<ContentPage xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -20,7 +20,7 @@
                     <tdicon:IconMode>FilledMultiple</tdicon:IconMode>
                 </m:Picker>
 
-                <TextBlock FontSize="14">
+                <TextBlock>
                     <Run Text="StrokeWidth: " />
                     <Run Text="{Binding #thickSlider.Value}" />
                 </TextBlock>
@@ -28,6 +28,7 @@
                 <Slider
                     Name="thickSlider"
                     Margin="10,8"
+                    Value="2"
                     Minimum="0.5"
                     Maximum="2.5"
                     TickFrequency="0.5"
@@ -73,4 +74,4 @@
             </StackPanel>
         </StackPanel>
     </ScrollViewer>
-</UserControl>
+</ContentPage>

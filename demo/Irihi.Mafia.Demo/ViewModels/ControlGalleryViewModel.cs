@@ -18,7 +18,7 @@ public partial class ControlGalleryViewModel : NavigationViewModelBase
     public ObservableCollection<ControlItem> InteractiveItems { get; } = [];
     public ObservableCollection<ControlItem> DisplayItems { get; } = [];
 
-    [ObservableProperty] public partial string SearchText { get; set; } = "";
+    [ObservableProperty] public partial string SearchText { get; set; } = string.Empty;
 
     public ControlGalleryViewModel()
     {
@@ -66,7 +66,7 @@ public partial class ControlGalleryViewModel : NavigationViewModelBase
     [RelayCommand]
     private void ShowControl(string controlName)
     {
-        UserControl content = controlName switch
+        ContentPage content = controlName switch
         {
             "Popup" => new PopupDetailView(),
             "Button" => new ButtonDetailView(),
@@ -92,13 +92,16 @@ public partial class ControlGalleryViewModel : NavigationViewModelBase
         };
         NavigationViewModelBase? datacontext = controlName switch
         {
-            "Popup" => new PopupDetailViewModel() { NavigationRoot = NavigationRoot },
-            "Button" => new ButtonDetailViewModel() { NavigationRoot = NavigationRoot },
-            "Calendar" => new CalendarDetailViewModel() { NavigationRoot = NavigationRoot },
-            "CalendarDatePicker" => new CalendarDatePickerDetailViewModel() { NavigationRoot = NavigationRoot },
-            "Picker" => new PickerDetailViewModel() { NavigationRoot = NavigationRoot },
+            "Popup" => new PopupDetailViewModel(),
+            "Button" => new ButtonDetailViewModel(),
+            "Calendar" => new CalendarDetailViewModel(),
+            "CalendarDatePicker" => new CalendarDatePickerDetailViewModel(),
+            "Picker" => new PickerDetailViewModel(),
             _ => null,
         };
-        NavigationRoot?.PushAsync(new ContentPage() { Header = controlName, Content = content, DataContext = datacontext, });
+
+        content.Header = controlName;
+        content.DataContext = datacontext;
+        NavigationRoot?.PushAsync(content);
     }
 }

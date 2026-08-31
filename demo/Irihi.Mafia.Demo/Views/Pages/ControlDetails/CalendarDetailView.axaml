@@ -1,4 +1,4 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+<ContentPage xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -16,36 +16,27 @@
             <TextBlock
                 FontSize="24"
                 FontWeight="Bold"
-                Foreground="{DynamicResource TDFontGyColor}"
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Title}}" />
 
             <TextBlock
-                FontSize="14"
-                Foreground="{DynamicResource TDFontGyColor}"
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Desc}}"
                 TextWrapping="Wrap" />
 
             <TextBlock
                 FontSize="18"
                 FontWeight="SemiBold"
-                Foreground="{DynamicResource TDFontGyColor}"
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_PagedSingle}}" />
 
             <m:Calendar SelectedDate="{Binding PagedSingleDate, Mode=TwoWay}" />
             <TextBlock
-                FontSize="14"
-                Foreground="{DynamicResource TDFontGyColor}"
                 Text="{Binding PagedSingleDateText, StringFormat='Selected: {0}'}" />
 
             <TextBlock
                 FontSize="18"
                 FontWeight="SemiBold"
-                Foreground="{DynamicResource TDFontGyColor}"
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Multiple}}" />
 
             <TextBlock
-                FontSize="14"
-                Foreground="{DynamicResource TDFontGyColor}"
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Multiple_Desc}}"
                 TextWrapping="Wrap" />
 
@@ -53,20 +44,15 @@
                 SelectionMode="Multiple"
                 SelectedDates="{Binding MultipleDates, Mode=TwoWay}" />
             <TextBlock
-                FontSize="14"
-                Foreground="{DynamicResource TDFontGyColor}"
                 Text="{Binding MultipleDatesText, StringFormat='Selected: {0}'}"
                 TextWrapping="Wrap" />
 
             <TextBlock
                 FontSize="18"
                 FontWeight="SemiBold"
-                Foreground="{DynamicResource TDFontGyColor}"
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Range}}" />
 
             <TextBlock
-                FontSize="14"
-                Foreground="{DynamicResource TDFontGyColor}"
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Range_Desc}}"
                 TextWrapping="Wrap" />
 
@@ -75,20 +61,15 @@
                 RangeStart="{Binding RangeStart, Mode=TwoWay}"
                 RangeEnd="{Binding RangeEnd, Mode=TwoWay}" />
             <TextBlock
-                FontSize="14"
-                Foreground="{DynamicResource TDFontGyColor}"
                 Text="{Binding RangeText, StringFormat='Range: {0}'}"
                 TextWrapping="Wrap" />
 
             <TextBlock
                 FontSize="18"
                 FontWeight="SemiBold"
-                Foreground="{DynamicResource TDFontGyColor}"
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Scroll}}" />
 
             <TextBlock
-                FontSize="14"
-                Foreground="{DynamicResource TDFontGyColor}"
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Scroll_Desc}}"
                 TextWrapping="Wrap" />
 
@@ -98,20 +79,15 @@
                 RangeStart="{Binding ScrollRangeStart, Mode=TwoWay}"
                 RangeEnd="{Binding ScrollRangeEnd, Mode=TwoWay}" />
             <TextBlock
-                FontSize="14"
-                Foreground="{DynamicResource TDFontGyColor}"
                 Text="{Binding ScrollRangeText, StringFormat='Range: {0}'}"
                 TextWrapping="Wrap" />
 
             <TextBlock
                 FontSize="18"
                 FontWeight="SemiBold"
-                Foreground="{DynamicResource TDFontGyColor}"
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_ScrollPopup}}" />
 
             <TextBlock
-                FontSize="14"
-                Foreground="{DynamicResource TDFontGyColor}"
                 Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_ScrollPopup_Desc}}"
                 TextWrapping="Wrap" />
 
@@ -149,8 +125,6 @@
                         RangeEnd="{Binding PopupRangeEnd, Mode=TwoWay}" />
 
                     <TextBlock
-                        FontSize="14"
-                        Foreground="{DynamicResource TDFontGyColor}"
                         Text="{Binding PopupRangeText, StringFormat='Range: {0}'}"
                         TextWrapping="Wrap" />
 
@@ -162,4 +136,4 @@
             </Border>
         </m:Popup>
     </Panel>
-</UserControl>
+</ContentPage>

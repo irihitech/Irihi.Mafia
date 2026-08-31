@@ -1,4 +1,4 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+<ContentPage xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -19,7 +19,7 @@
                     </Border>
                     <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="4">
                         <TextBlock Text="Mafia Demo" FontSize="20" FontWeight="Bold" />
-                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.List_Online}}" FontSize="14"
+                        <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.List_Online}}"
                                    Foreground="{DynamicResource TDSuccessColor}" />
                     </StackPanel>
                 </Grid>
@@ -60,4 +60,4 @@
             </m:CellGroup>
         </StackPanel>
     </ScrollViewer>
-</UserControl>
+</ContentPage>

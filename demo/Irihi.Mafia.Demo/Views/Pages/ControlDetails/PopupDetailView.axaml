@@ -1,4 +1,4 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+<ContentPage xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -11,16 +11,13 @@
     <Panel>
         <ScrollViewer>
             <StackPanel Spacing="12" Margin="16,16,16,24">
-                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Title}}" FontSize="24" FontWeight="Bold"
-                           Foreground="{DynamicResource TDFontGyColor}" />
-                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Desc}}" 
-                           TextWrapping="Wrap" FontSize="14"
-                           Foreground="{DynamicResource TDFontGyColor}" />
+                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Title}}" FontSize="24" FontWeight="Bold" />
+                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Desc}}"
+                           TextWrapping="Wrap" />
 
                 <m:Divider />
 
-                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Placement}}" FontSize="18" FontWeight="SemiBold"
-                           Foreground="{DynamicResource TDFontGyColor}" />
+                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Placement}}" FontSize="18" FontWeight="SemiBold" />
                 <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto"
                       ColumnSpacing="8" RowSpacing="8">
                     <Button Grid.Row="0" Grid.Column="0" Content="Bottom"
@@ -37,16 +34,13 @@
                             Command="{Binding OpenPopupCommand}" CommandParameter="FullScreen" />
                 </Grid>
 
-                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Options}}" FontSize="18" FontWeight="SemiBold"
-                           Foreground="{DynamicResource TDFontGyColor}" />
+                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Options}}" FontSize="18" FontWeight="SemiBold" />
                 <CheckBox Content="{Translate {x:Static local:LanguageManager+Keys.Popup_Modal}}" IsChecked="{Binding IsModal}" />
                 <CheckBox Content="{Translate {x:Static local:LanguageManager+Keys.Popup_LightDismiss}}" IsChecked="{Binding IsLightDismiss}" />
 
-                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Inheritance}}" FontSize="18" FontWeight="SemiBold"
-                           Foreground="{DynamicResource TDFontGyColor}" />
+                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Inheritance}}" FontSize="18" FontWeight="SemiBold" />
                 <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Inheritance_Desc}}"
-                           TextWrapping="Wrap" FontSize="14"
-                           Foreground="{DynamicResource TDFontGyColor}" />
+                           TextWrapping="Wrap" />
                 <Button Content="{Translate {x:Static local:LanguageManager+Keys.Popup_InheritedButton}}"
                         Command="{Binding OpenInheritedPopupCommand}"
                         Classes="Primary" />
@@ -91,4 +85,4 @@
             </m:Popup>
         </Panel>
     </Panel>
-</UserControl>
+</ContentPage>

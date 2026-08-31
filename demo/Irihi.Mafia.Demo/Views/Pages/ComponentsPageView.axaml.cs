@@ -4,7 +4,7 @@ using Irihi.Mafia.Demo.ViewModels;
 
 namespace Irihi.Mafia.Demo.Views.Pages;
 
-public partial class ComponentsPageView : UserControl
+public partial class ComponentsPageView : NavigationPage
 {
     public ComponentsPageView()
     {
@@ -14,9 +14,8 @@ public partial class ComponentsPageView : UserControl
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        MainNavigation.PushAsync(new ContentPage()
+        MainNavigation.PushAsync(new ControlGalleryView()
         {
-            Content = new ControlGalleryView(),
             Header = "Gallery", //LanguageManager.Instance.Components_Header,
             DataContext = new ControlGalleryViewModel() { NavigationRoot = MainNavigation, }
         });

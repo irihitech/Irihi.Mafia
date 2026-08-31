@@ -4,7 +4,7 @@ using Irihi.Mafia.Demo.ViewModels;
 
 namespace Irihi.Mafia.Demo.Views.Pages;
 
-public partial class ListPageView : UserControl
+public partial class ListPageView : ContentPage
 {
     public ListPageView()
     {

@@ -1,4 +1,4 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+<ContentPage xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -9,16 +9,13 @@
              x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.TabbedPageDetailView">
     <ScrollViewer>
         <StackPanel Spacing="12" Margin="16,16,16,24">
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Title}}" FontSize="24" FontWeight="Bold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Title}}" FontSize="24" FontWeight="Bold" />
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Desc}}"
-                       TextWrapping="Wrap" FontSize="14"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+                       TextWrapping="Wrap" />
 
             <m:Divider />
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Basic}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Basic}}" FontSize="16" FontWeight="SemiBold" />
             <TabbedPage TabPlacement="Bottom" Height="420">
                 <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Home}}"
                              Icon="{td:TempHome}">
@@ -42,8 +39,7 @@
                 </ContentPage>
             </TabbedPage>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Tag}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Tag}}" FontSize="16" FontWeight="SemiBold" />
             <TabbedPage Classes="Tag" TabPlacement="Bottom" Height="420">
                 <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Home}}"
                              Icon="{td:TempHome}">
@@ -68,4 +64,4 @@
             </TabbedPage>
         </StackPanel>
     </ScrollViewer>
-</UserControl>
+</ContentPage>

@@ -1,4 +1,4 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+<ContentPage xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -8,16 +8,13 @@
              x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.HyperlinkButtonDetailView">
     <ScrollViewer>
         <StackPanel Spacing="12" Margin="16,16,16,24">
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Title}}" FontSize="24" FontWeight="Bold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Title}}" FontSize="24" FontWeight="Bold" />
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Desc}}"
-                       TextWrapping="Wrap" FontSize="14"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+                       TextWrapping="Wrap" />
 
             <m:Divider />
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Basic}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Basic}}" FontSize="16" FontWeight="SemiBold" />
             <StackPanel Spacing="12">
                 <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" />
                 <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Underline" />
@@ -25,8 +22,7 @@
                 <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="WithIcon Underline" />
             </StackPanel>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Colors}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Colors}}" FontSize="16" FontWeight="SemiBold" />
             <StackPanel Spacing="12">
                 <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Primary WithIcon Underline" />
                 <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Success WithIcon Underline" />
@@ -34,8 +30,7 @@
                 <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Danger WithIcon Underline" />
             </StackPanel>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Disabled}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Disabled}}" FontSize="16" FontWeight="SemiBold" />
             <StackPanel Spacing="12">
                 <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" IsEnabled="False" />
                 <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Primary" IsEnabled="False" />
@@ -45,4 +40,4 @@
             </StackPanel>
         </StackPanel>
     </ScrollViewer>
-</UserControl>
+</ContentPage>

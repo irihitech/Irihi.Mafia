@@ -1,4 +1,4 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+<ContentPage xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -9,16 +9,13 @@
              x:Class="Irihi.Mafia.Demo.Views.Pages.ControlDetails.TabControlDetailView">
     <ScrollViewer>
         <StackPanel Spacing="12" Margin="16,16,16,24">
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Title}}" FontSize="24" FontWeight="Bold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Title}}" FontSize="24" FontWeight="Bold" />
             <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Desc}}"
-                       TextWrapping="Wrap" FontSize="14"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+                       TextWrapping="Wrap" />
 
             <m:Divider />
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Basic}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Basic}}" FontSize="16" FontWeight="SemiBold" />
             <TabControl>
                 <TabItem Header="{Translate {x:Static local:LanguageManager+Keys.TabControl_Recommend}}"
                          Icon="{td:TempApp}">
@@ -41,8 +38,7 @@
                 </TabItem>
             </TabControl>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Large}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Large}}" FontSize="16" FontWeight="SemiBold" />
             <TabControl Classes="Large">
                 <TabItem Header="{Translate {x:Static local:LanguageManager+Keys.TabControl_Recommend}}">
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Recommend_Content}}"
@@ -58,8 +54,7 @@
                 </TabItem>
             </TabControl>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Left}}" FontSize="16" FontWeight="SemiBold"
-                       Foreground="{DynamicResource TDFontGyColor}" />
+            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Left}}" FontSize="16" FontWeight="SemiBold" />
             <TabControl TabStripPlacement="Left" Height="160">
                 <TabItem Header="{Translate {x:Static local:LanguageManager+Keys.TabControl_Recommend}}">
                     <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabControl_Recommend_Content}}"
@@ -76,4 +71,4 @@
             </TabControl>
         </StackPanel>
     </ScrollViewer>
-</UserControl>
+</ContentPage>
