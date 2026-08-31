@@ -6,7 +6,9 @@
             xmlns:local="clr-namespace:Irihi.Mafia.Demo"
             xmlns:views="clr-namespace:Irihi.Mafia.Demo.Views"
             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-            x:Class="Irihi.Mafia.Demo.Views.HomeView">
+            x:Class="Irihi.Mafia.Demo.Views.HomeView"
+            Classes="Tag"
+            Header="{Binding  $self.SelectedPage?.Header}">
     <TabbedPage.PageTransition>
         <CompositePageTransition>
             <CrossFade Duration="0:0:0.15" />
