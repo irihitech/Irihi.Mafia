@@ -1,19 +1,18 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using Avalonia.Controls;
+using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Irihi.Mafia.Demo.Models;
-using Irihi.Mafia.Demo.Views;
 
 namespace Irihi.Mafia.Demo.ViewModels;
 
 public partial class GalleryTabViewModel : NavigationViewModelBase
 {
     private static readonly LanguageManager Manager = LanguageManager.Instance;
-    private readonly List<ControlItem> _allInteractive = [];
-    private readonly List<ControlItem> _allDisplay = [];
+    private readonly List<ControlItem> _allInteractive;
+    private readonly List<ControlItem> _allDisplay;
 
     public ObservableCollection<ControlItem> InteractiveItems { get; } = [];
     public ObservableCollection<ControlItem> DisplayItems { get; } = [];
@@ -22,86 +21,55 @@ public partial class GalleryTabViewModel : NavigationViewModelBase
 
     public GalleryTabViewModel()
     {
-        _allInteractive.AddRange(
+        _allInteractive =
         [
-            new(Manager, "Popup", nameof(LanguageManager.Keys.Gallery_Popup), nameof(LanguageManager.Keys.Gallery_Popup_Desc), ShowControlCommand),
-            new(Manager, "Button", nameof(LanguageManager.Keys.Gallery_Button), nameof(LanguageManager.Keys.Gallery_Button_Desc), ShowControlCommand),
-            new(Manager, "Calendar", nameof(LanguageManager.Keys.Gallery_Calendar), nameof(LanguageManager.Keys.Gallery_Calendar_Desc), ShowControlCommand),
-            new(Manager, "CalendarDatePicker", nameof(LanguageManager.Keys.Gallery_CalendarDatePicker), nameof(LanguageManager.Keys.Gallery_CalendarDatePicker_Desc), ShowControlCommand),
-            new(Manager, "Picker", nameof(LanguageManager.Keys.Gallery_Picker), nameof(LanguageManager.Keys.Gallery_Picker_Desc), ShowControlCommand),
-            new(Manager, "Switch", nameof(LanguageManager.Keys.Gallery_Switch), nameof(LanguageManager.Keys.Gallery_Switch_Desc), ShowControlCommand),
-            new(Manager, "Slider", nameof(LanguageManager.Keys.Gallery_Slider), nameof(LanguageManager.Keys.Gallery_Slider_Desc), ShowControlCommand),
-            new(Manager, "Progress", nameof(LanguageManager.Keys.Gallery_Progress), nameof(LanguageManager.Keys.Gallery_Progress_Desc), ShowControlCommand),
-            new(Manager, "CheckBox", nameof(LanguageManager.Keys.Gallery_CheckBox), nameof(LanguageManager.Keys.Gallery_CheckBox_Desc), ShowControlCommand),
-            new(Manager, "Input", nameof(LanguageManager.Keys.Gallery_Input), nameof(LanguageManager.Keys.Gallery_Input_Desc), ShowControlCommand),
-            new(Manager, "RadioButton", nameof(LanguageManager.Keys.Gallery_RadioButton), nameof(LanguageManager.Keys.Gallery_RadioButton_Desc), ShowControlCommand),
-        ]);
-        _allDisplay.AddRange(
+            CreateItem("Popup", nameof(LanguageManager.Keys.Gallery_Popup), nameof(LanguageManager.Keys.Gallery_Popup_Desc)),
+            CreateItem("Button", nameof(LanguageManager.Keys.Gallery_Button), nameof(LanguageManager.Keys.Gallery_Button_Desc)),
+            CreateItem("Calendar", nameof(LanguageManager.Keys.Gallery_Calendar), nameof(LanguageManager.Keys.Gallery_Calendar_Desc)),
+            CreateItem("CalendarDatePicker", nameof(LanguageManager.Keys.Gallery_CalendarDatePicker), nameof(LanguageManager.Keys.Gallery_CalendarDatePicker_Desc)),
+            CreateItem("Picker", nameof(LanguageManager.Keys.Gallery_Picker), nameof(LanguageManager.Keys.Gallery_Picker_Desc)),
+            CreateItem("Switch", nameof(LanguageManager.Keys.Gallery_Switch), nameof(LanguageManager.Keys.Gallery_Switch_Desc)),
+            CreateItem("Slider", nameof(LanguageManager.Keys.Gallery_Slider), nameof(LanguageManager.Keys.Gallery_Slider_Desc)),
+            CreateItem("Progress", nameof(LanguageManager.Keys.Gallery_Progress), nameof(LanguageManager.Keys.Gallery_Progress_Desc)),
+            CreateItem("CheckBox", nameof(LanguageManager.Keys.Gallery_CheckBox), nameof(LanguageManager.Keys.Gallery_CheckBox_Desc)),
+            CreateItem("Input", nameof(LanguageManager.Keys.Gallery_Input), nameof(LanguageManager.Keys.Gallery_Input_Desc)),
+            CreateItem("RadioButton", nameof(LanguageManager.Keys.Gallery_RadioButton), nameof(LanguageManager.Keys.Gallery_RadioButton_Desc)),
+        ];
+        _allDisplay =
         [
-            new(Manager, "Cell", nameof(LanguageManager.Keys.Gallery_Cell), nameof(LanguageManager.Keys.Gallery_Cell_Desc), ShowControlCommand),
-            new(Manager, "Avatar", nameof(LanguageManager.Keys.Gallery_Avatar), nameof(LanguageManager.Keys.Gallery_Avatar_Desc), ShowControlCommand),
-            new(Manager, "IconButton", nameof(LanguageManager.Keys.Gallery_IconButton), nameof(LanguageManager.Keys.Gallery_IconButton_Desc), ShowControlCommand),
-            new(Manager, "HyperlinkButton", nameof(LanguageManager.Keys.Gallery_HyperlinkButton), nameof(LanguageManager.Keys.Gallery_HyperlinkButton_Desc), ShowControlCommand),
-            new(Manager, "Divider", nameof(LanguageManager.Keys.Gallery_Divider), nameof(LanguageManager.Keys.Gallery_Divider_Desc), ShowControlCommand),
-            new(Manager, "TabControl", nameof(LanguageManager.Keys.Gallery_TabControl), nameof(LanguageManager.Keys.Gallery_TabControl_Desc), ShowControlCommand),
-            new(Manager, "TabbedPage", nameof(LanguageManager.Keys.Gallery_TabbedPage), nameof(LanguageManager.Keys.Gallery_TabbedPage_Desc), ShowControlCommand),
-            new(Manager, "Icon", nameof(LanguageManager.Keys.Gallery_Icon), nameof(LanguageManager.Keys.Gallery_Icon_Desc), ShowControlCommand),
-            new(Manager, "StickyPanel", nameof(LanguageManager.Keys.Gallery_StickyPanel), nameof(LanguageManager.Keys.Gallery_StickyPanel_Desc), ShowControlCommand),
-        ]);
+            CreateItem("Cell", nameof(LanguageManager.Keys.Gallery_Cell), nameof(LanguageManager.Keys.Gallery_Cell_Desc)),
+            CreateItem("Avatar", nameof(LanguageManager.Keys.Gallery_Avatar), nameof(LanguageManager.Keys.Gallery_Avatar_Desc)),
+            CreateItem("IconButton", nameof(LanguageManager.Keys.Gallery_IconButton), nameof(LanguageManager.Keys.Gallery_IconButton_Desc)),
+            CreateItem("HyperlinkButton", nameof(LanguageManager.Keys.Gallery_HyperlinkButton), nameof(LanguageManager.Keys.Gallery_HyperlinkButton_Desc)),
+            CreateItem("Divider", nameof(LanguageManager.Keys.Gallery_Divider), nameof(LanguageManager.Keys.Gallery_Divider_Desc)),
+            CreateItem("TabControl", nameof(LanguageManager.Keys.Gallery_TabControl), nameof(LanguageManager.Keys.Gallery_TabControl_Desc)),
+            CreateItem("TabbedPage", nameof(LanguageManager.Keys.Gallery_TabbedPage), nameof(LanguageManager.Keys.Gallery_TabbedPage_Desc)),
+            CreateItem("Icon", nameof(LanguageManager.Keys.Gallery_Icon), nameof(LanguageManager.Keys.Gallery_Icon_Desc)),
+            CreateItem("StickyPanel", nameof(LanguageManager.Keys.Gallery_StickyPanel), nameof(LanguageManager.Keys.Gallery_StickyPanel_Desc)),
+        ];
+
         ApplyFilter();
+        return;
+
+        ControlItem CreateItem(string name, string titleKey, string descriptionKey) => new(Manager, name, titleKey, descriptionKey, ShowControlCommand);
     }
 
-    partial void OnSearchTextChanged(string value) => ApplyFilter();
+    partial void OnSearchTextChanged(string value) => ApplyFilter(value);
 
-    private void ApplyFilter()
+    private void ApplyFilter(string value = "")
     {
         InteractiveItems.Clear();
-        foreach (var item in _allInteractive.Where(i => i.Matches(SearchText)))
+        foreach (var item in _allInteractive.Where(i => i.Matches(value)))
             InteractiveItems.Add(item);
         DisplayItems.Clear();
-        foreach (var item in _allDisplay.Where(i => i.Matches(SearchText)))
+        foreach (var item in _allDisplay.Where(i => i.Matches(value)))
             DisplayItems.Add(item);
     }
 
     [RelayCommand]
-    private void ShowControl(string controlName)
+    private async Task ShowControlAsync(string controlName)
     {
-        ContentPage content = controlName switch
-        {
-            "Popup" => new PopupPage(),
-            "Button" => new ButtonPage(),
-            "Calendar" => new CalendarPage(),
-            "CalendarDatePicker" => new CalendarDatePickerPage(),
-            "Picker" => new PickerPage(),
-            "Switch" => new SwitchPage(),
-            "Input" => new InputPage(),
-            "Slider" => new SliderPage(),
-            "Progress" => new ProgressPage(),
-            "CheckBox" => new CheckBoxPage(),
-            "RadioButton" => new RadioButtonPage(),
-            "Cell" => new CellPage(),
-            "Avatar" => new AvatarPage(),
-            "IconButton" => new IconButtonPage(),
-            "HyperlinkButton" => new HyperlinkButtonPage(),
-            "Divider" => new DividerPage(),
-            "TabControl" => new TabControlPage(),
-            "TabbedPage" => new TabbedPagePage(),
-            "Icon" => new IconGalleryPage(),
-            "StickyPanel" => new StickyPanelPage(),
-            _ => new PlaceholderPage(),
-        };
-        NavigationViewModelBase? datacontext = controlName switch
-        {
-            "Popup" => new PopupPageViewModel() { NavigationRoot = NavigationRoot },
-            "Button" => new ButtonPageViewModel() { NavigationRoot = NavigationRoot },
-            "Calendar" => new CalendarPageViewModel() { NavigationRoot = NavigationRoot },
-            "CalendarDatePicker" => new CalendarDatePickerPageViewModel() { NavigationRoot = NavigationRoot },
-            "Picker" => new PickerPageViewModel() { NavigationRoot = NavigationRoot },
-            _ => null,
-        };
-
-        content.Header = controlName;
-        content.DataContext = datacontext;
-        NavigationRoot?.PushAsync(content);
+        if (Navigator is null) return;
+        await Navigator.NavigateToAsync(controlName);
     }
 }

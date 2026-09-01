@@ -1,6 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.VisualTree;
+using Irihi.Mafia.Demo.Services;
 using Irihi.Mafia.Demo.ViewModels;
 
 namespace Irihi.Mafia.Demo.Views;
@@ -16,8 +17,11 @@ public partial class HomeView : TabbedPage
     {
         base.OnAttachedToVisualTree(e);
         var nav = this.FindAncestorOfType<NavigationPage>();
-        GalleryTabContent.DataContext = new GalleryTabViewModel { NavigationRoot = nav };
-        HomeTabContent.DataContext = new HomeTabViewModel { NavigationRoot = nav };
-        SettingTabContent.DataContext = new SettingTabViewModel { NavigationRoot = nav };
+        if (nav is null) return;
+
+        AppServices.Navigator = new NavigationService(nav);
+        GalleryTabContent.DataContext = new GalleryTabViewModel();
+        HomeTabContent.DataContext = new HomeTabViewModel();
+        SettingTabContent.DataContext = new SettingTabViewModel();
     }
 }

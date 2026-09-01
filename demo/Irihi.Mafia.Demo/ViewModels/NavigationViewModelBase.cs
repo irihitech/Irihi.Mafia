@@ -1,9 +1,9 @@
-using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
+using Irihi.Mafia.Demo.Services;
 
 namespace Irihi.Mafia.Demo.ViewModels;
 
-public class NavigationViewModelBase: ObservableObject
+public class NavigationViewModelBase : ObservableObject
 {
-    public NavigationPage? NavigationRoot { get; set; }
+    public static INavigationService? Navigator => AppServices.Navigator;
 }
