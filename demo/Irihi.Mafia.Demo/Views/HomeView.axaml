@@ -3,10 +3,11 @@
             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             xmlns:td="https://irihi.tech/td"
-            xmlns:local="clr-namespace:Irihi.Mafia.Demo"
+            xmlns:demo="https://irihi.tech/demo"
             xmlns:views="clr-namespace:Irihi.Mafia.Demo.Views"
-            mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+            mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
             x:Class="Irihi.Mafia.Demo.Views.HomeView"
+            NavigationPage.HasNavigationBar="False"
             Classes="Tag"
             Header="{Binding  $self.SelectedPage?.Header}">
     <TabbedPage.PageTransition>
@@ -17,14 +18,14 @@
     </TabbedPage.PageTransition>
     <views:GalleryTabView
         Name="GalleryTabContent"
-        Header="{Translate {x:Static local:LanguageManager+Keys.MainView_Tab_Components}}"
+        Header="{demo:Translate {x:Static demo:LanguageManager+Keys.MainView_Tab_Components}}"
         Icon="{td:TempApp}" />
     <views:HomeTabView
         Name="HomeTabContent"
-        Header="{Translate {x:Static local:LanguageManager+Keys.MainView_Tab_Home}}"
+        Header="{demo:Translate {x:Static demo:LanguageManager+Keys.MainView_Tab_Home}}"
         Icon="{td:TempHome}" />
     <views:SettingTabView
         Name="SettingTabContent"
-        Header="{Translate {x:Static local:LanguageManager+Keys.MainView_Tab_Settings}}"
+        Header="{demo:Translate {x:Static demo:LanguageManager+Keys.MainView_Tab_Settings}}"
         Icon="{td:TempSetting}" />
 </TabbedPage>

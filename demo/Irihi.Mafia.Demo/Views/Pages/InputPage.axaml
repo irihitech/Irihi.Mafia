@@ -2,70 +2,86 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="using:Irihi.Mafia.Demo"
              xmlns:m="https://irihi.tech/mafia"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             xmlns:demo="https://irihi.tech/demo"
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
-             x:Class="Irihi.Mafia.Demo.Views.InputPage">
-    <ScrollViewer>
-        <StackPanel Spacing="12">
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Input_Title}}" FontSize="24" FontWeight="Bold" />
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Input_Desc}}"
-                       TextWrapping="Wrap" />
+             x:Class="Irihi.Mafia.Demo.Views.InputPage"
+             Theme="{DynamicResource ScrollPage}">
+    <StackPanel Spacing="32">
+        <demo:GalleryBlock
+            Classes="PageStart"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Title}}"
+            Summary="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Desc}}" />
 
-            <m:Divider />
-
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Input_Basic}}" FontSize="16" FontWeight="SemiBold" />
+        <demo:GalleryBlock
+            Classes="Origin"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Basic}}">
             <StackPanel>
-                <m:Input PlaceholderText="{Translate {x:Static local:LanguageManager+Keys.Input_Basic_Default}}" />
-                <m:Input InnerLeftContent="{Translate {x:Static local:LanguageManager+Keys.Input_Basic_LabelText}}"
-                         PlaceholderText="{Translate {x:Static local:LanguageManager+Keys.Input_Basic_Default}}" />
-                <m:Input InnerLeftContent="{Translate {x:Static local:LanguageManager+Keys.Input_Basic_LabelText}}"
+                <m:Input PlaceholderText="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Basic_Default}}" />
+                <m:Input InnerLeftContent="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Basic_LabelText}}"
+                         PlaceholderText="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Basic_Default}}" />
+                <m:Input InnerLeftContent="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Basic_LabelText}}"
                          IsRequired="True"
-                         PlaceholderText="{Translate {x:Static local:LanguageManager+Keys.Input_Basic_Default}}" />
-                <m:Input InnerLeftContent="{Translate {x:Static local:LanguageManager+Keys.Input_Basic_LabelText}}"
-                         InnerRightContent="{Translate {x:Static local:LanguageManager+Keys.Input_Basic_Unit}}"
-                         PlaceholderText="{Translate {x:Static local:LanguageManager+Keys.Input_Basic_Default}}" />
+                         PlaceholderText="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Basic_Default}}" />
+                <m:Input InnerLeftContent="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Basic_LabelText}}"
+                         InnerRightContent="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Basic_Unit}}"
+                         PlaceholderText="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Basic_Default}}" />
             </StackPanel>
+        </demo:GalleryBlock>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Input_Description}}" FontSize="16" FontWeight="SemiBold" />
-            <m:Input InnerLeftContent="{Translate {x:Static local:LanguageManager+Keys.Input_Description_Label}}"
-                     Description="{Translate {x:Static local:LanguageManager+Keys.Input_Description_Text}}"
-                     PlaceholderText="{Translate {x:Static local:LanguageManager+Keys.Input_Description_Placeholder}}" />
+        <demo:GalleryBlock
+            Classes="Origin"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Description}}">
+            <m:Input InnerLeftContent="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Description_Label}}"
+                     Description="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Description_Text}}"
+                     PlaceholderText="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Description_Placeholder}}" />
+        </demo:GalleryBlock>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Input_Clearable}}" FontSize="16" FontWeight="SemiBold" />
-            <m:Input InnerLeftContent="{Translate {x:Static local:LanguageManager+Keys.Input_Basic_LabelText}}"
+        <demo:GalleryBlock
+            Classes="Origin"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Clearable}}">
+            <m:Input InnerLeftContent="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Basic_LabelText}}"
                      Classes="ClearButton" Text="TDesign"
-                     PlaceholderText="{Translate {x:Static local:LanguageManager+Keys.Input_Clearable_Placeholder}}" />
+                     PlaceholderText="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Clearable_Placeholder}}" />
+        </demo:GalleryBlock>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Input_Password}}" FontSize="16" FontWeight="SemiBold" />
-            <m:Input InnerLeftContent="{Translate {x:Static local:LanguageManager+Keys.Input_Password_Label}}"
+        <demo:GalleryBlock
+            Classes="Origin"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Password}}">
+            <m:Input InnerLeftContent="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Password_Label}}"
                      Classes="RevealPasswordButton" PasswordChar="●" Text="123456"
-                     PlaceholderText="{Translate {x:Static local:LanguageManager+Keys.Input_Password_Placeholder}}" />
+                     PlaceholderText="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Password_Placeholder}}" />
+        </demo:GalleryBlock>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Input_States}}" FontSize="16" FontWeight="SemiBold" />
+        <demo:GalleryBlock
+            Classes="Origin"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_States}}">
             <StackPanel>
-                <m:Input InnerLeftContent="{Translate {x:Static local:LanguageManager+Keys.Input_Error}}"
+                <m:Input InnerLeftContent="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Error}}"
                          Text="TDesign"
-                         Description="{Translate {x:Static local:LanguageManager+Keys.Input_Error_Desc}}">
+                         Description="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Error_Desc}}">
                     <DataValidationErrors.Error>
                         <system:Exception />
                     </DataValidationErrors.Error>
                 </m:Input>
-                <m:Input InnerLeftContent="{Translate {x:Static local:LanguageManager+Keys.Input_Disabled}}"
+                <m:Input InnerLeftContent="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Disabled}}"
                          IsEnabled="False" Text="TDesign" />
-                <m:Input InnerLeftContent="{Translate {x:Static local:LanguageManager+Keys.Input_ReadOnly}}"
+                <m:Input InnerLeftContent="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_ReadOnly}}"
                          IsReadOnly="True" Text="TDesign" />
             </StackPanel>
+        </demo:GalleryBlock>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Input_Action}}" FontSize="16" FontWeight="SemiBold" />
-            <m:Input InnerLeftContent="{Translate {x:Static local:LanguageManager+Keys.Input_Basic_LabelText}}"
-                     PlaceholderText="{Translate {x:Static local:LanguageManager+Keys.Input_Basic_Default}}">
+        <demo:GalleryBlock
+            Classes="Origin"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Action}}">
+            <m:Input InnerLeftContent="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Basic_LabelText}}"
+                     PlaceholderText="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Basic_Default}}">
                 <m:Input.InnerRightContent>
                     <Button Classes="Primary ExtraSmall"
-                            Content="{Translate {x:Static local:LanguageManager+Keys.Input_Action_Button}}" />
+                            Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Input_Action_Button}}" />
                 </m:Input.InnerRightContent>
             </m:Input>
-        </StackPanel>
-    </ScrollViewer>
+        </demo:GalleryBlock>
+    </StackPanel>
 </ContentPage>

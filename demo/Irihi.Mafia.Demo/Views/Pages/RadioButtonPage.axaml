@@ -2,38 +2,44 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="using:Irihi.Mafia.Demo"
-             xmlns:m="https://irihi.tech/mafia"
+             xmlns:demo="https://irihi.tech/demo"
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
-             x:Class="Irihi.Mafia.Demo.Views.RadioButtonPage">
-    <ScrollViewer>
-        <StackPanel Spacing="12" Margin="16,16,16,24">
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Title}}" FontSize="24" FontWeight="Bold" />
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Desc}}"
-                       TextWrapping="Wrap" />
+             x:Class="Irihi.Mafia.Demo.Views.RadioButtonPage"
+             Theme="{DynamicResource ScrollPage}">
+    <StackPanel Spacing="32">
+        <demo:GalleryBlock
+            Classes="PageStart"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.RadioButton_Title}}"
+            Summary="{demo:Translate {x:Static demo:LanguageManager+Keys.RadioButton_Desc}}" />
 
-            <m:Divider />
-
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Basic}}" FontSize="16" FontWeight="SemiBold" />
-            <StackPanel Spacing="8">
-                <RadioButton Content="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Option1}}" GroupName="Group1" IsChecked="True" />
-                <RadioButton Content="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Option2}}" GroupName="Group1" />
-                <RadioButton Content="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Option3}}" GroupName="Group1" />
+        <demo:GalleryBlock
+            Classes="Origin"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.RadioButton_Basic}}">
+            <StackPanel>
+                <RadioButton Content="{demo:Translate {x:Static demo:LanguageManager+Keys.RadioButton_Option1}}" GroupName="Group1" IsChecked="True" />
+                <RadioButton Content="{demo:Translate {x:Static demo:LanguageManager+Keys.RadioButton_Option2}}" GroupName="Group1" />
+                <RadioButton Content="{demo:Translate {x:Static demo:LanguageManager+Keys.RadioButton_Option3}}" GroupName="Group1" />
             </StackPanel>
+        </demo:GalleryBlock>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Justify}}" FontSize="16" FontWeight="SemiBold" />
-            <StackPanel Spacing="8">
-                <RadioButton Content="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Option1}}" GroupName="Group2" Classes="Justify" />
-                <RadioButton Content="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Option2}}" GroupName="Group2" Classes="Justify" IsChecked="True" />
+        <demo:GalleryBlock
+            Classes="Origin"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.RadioButton_Justify}}">
+            <StackPanel>
+                <RadioButton Content="{demo:Translate {x:Static demo:LanguageManager+Keys.RadioButton_Option1}}" GroupName="Group2" Classes="Justify" />
+                <RadioButton Content="{demo:Translate {x:Static demo:LanguageManager+Keys.RadioButton_Option2}}" GroupName="Group2" Classes="Justify" IsChecked="True" />
             </StackPanel>
+        </demo:GalleryBlock>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.RadioButton_States}}" FontSize="16" FontWeight="SemiBold" />
-            <StackPanel Spacing="8">
-                <RadioButton Content="{Translate {x:Static local:LanguageManager+Keys.RadioButton_DisabledChecked}}"
+        <demo:GalleryBlock
+            Classes="Origin"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.RadioButton_States}}">
+            <StackPanel>
+                <RadioButton Content="{demo:Translate {x:Static demo:LanguageManager+Keys.RadioButton_DisabledChecked}}"
                              GroupName="Group3" IsChecked="True" IsEnabled="False" />
-                <RadioButton Content="{Translate {x:Static local:LanguageManager+Keys.RadioButton_Disabled}}"
+                <RadioButton Content="{demo:Translate {x:Static demo:LanguageManager+Keys.RadioButton_Disabled}}"
                              GroupName="Group3" IsEnabled="False" />
             </StackPanel>
-        </StackPanel>
-    </ScrollViewer>
+        </demo:GalleryBlock>
+    </StackPanel>
 </ContentPage>

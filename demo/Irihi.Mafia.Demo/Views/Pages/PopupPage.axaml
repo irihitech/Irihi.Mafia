@@ -2,50 +2,61 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="using:Irihi.Mafia.Demo"
              xmlns:m="https://irihi.tech/mafia"
+             xmlns:demo="https://irihi.tech/demo"
              xmlns:vm="clr-namespace:Irihi.Mafia.Demo.ViewModels"
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
              x:Class="Irihi.Mafia.Demo.Views.PopupPage"
-             x:DataType="vm:PopupPageViewModel">
+             x:DataType="vm:PopupPageViewModel"
+             Theme="{DynamicResource ScrollPage}">
     <Panel>
-        <ScrollViewer>
-            <StackPanel Spacing="12" Margin="16,16,16,24">
-                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Title}}" FontSize="24" FontWeight="Bold" />
-                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Desc}}"
-                           TextWrapping="Wrap" />
+        <StackPanel Spacing="32">
+            <demo:GalleryBlock
+                Classes="PageStart"
+                Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Popup_Title}}"
+                Summary="{demo:Translate {x:Static demo:LanguageManager+Keys.Popup_Desc}}" />
 
-                <m:Divider />
-
-                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Placement}}" FontSize="18" FontWeight="SemiBold" />
-                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto"
+            <demo:GalleryBlock
+                Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Popup_Placement}}">
+                <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*"
                       ColumnSpacing="8" RowSpacing="8">
-                    <Button Grid.Row="0" Grid.Column="0" Content="Bottom"
-                            Command="{Binding OpenPopupCommand}" CommandParameter="Bottom" />
-                    <Button Grid.Row="0" Grid.Column="1" Content="Center"
-                            Command="{Binding OpenPopupCommand}" CommandParameter="Center" />
-                    <Button Grid.Row="1" Grid.Column="0" Content="Top"
+                    <Grid.Styles>
+                        <Style Selector="Button">
+                            <Setter Property="HorizontalAlignment" Value="Stretch" />
+                        </Style>
+                    </Grid.Styles>
+                    <Button Grid.Row="0" Grid.Column="1" Content="Top"
                             Command="{Binding OpenPopupCommand}" CommandParameter="Top" />
-                    <Button Grid.Row="1" Grid.Column="1" Content="Left"
+                    <Button Grid.Row="1" Grid.Column="1" Content="Center"
+                            Command="{Binding OpenPopupCommand}" CommandParameter="Center" />
+                    <Button Grid.Row="2" Grid.Column="1" Content="Bottom"
+                            Command="{Binding OpenPopupCommand}" CommandParameter="Bottom" />
+                    <Button Grid.Row="1" Grid.Column="0" Content="Left"
                             Command="{Binding OpenPopupCommand}" CommandParameter="Left" />
-                    <Button Grid.Row="2" Grid.Column="0" Content="Right"
+                    <Button Grid.Row="1" Grid.Column="2" Content="Right"
                             Command="{Binding OpenPopupCommand}" CommandParameter="Right" />
-                    <Button Grid.Row="2" Grid.Column="1" Content="FullScreen"
+                    <Button Grid.Row="0" Grid.Column="2" Content="FullScreen"
                             Command="{Binding OpenPopupCommand}" CommandParameter="FullScreen" />
                 </Grid>
+            </demo:GalleryBlock>
 
-                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Options}}" FontSize="18" FontWeight="SemiBold" />
-                <CheckBox Content="{Translate {x:Static local:LanguageManager+Keys.Popup_Modal}}" IsChecked="{Binding IsModal}" />
-                <CheckBox Content="{Translate {x:Static local:LanguageManager+Keys.Popup_LightDismiss}}" IsChecked="{Binding IsLightDismiss}" />
+            <demo:GalleryBlock
+                Classes="Origin"
+                Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Popup_Options}}">
+                <StackPanel>
+                    <CheckBox Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Popup_Modal}}" IsChecked="{Binding IsModal}" />
+                    <CheckBox Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Popup_LightDismiss}}" IsChecked="{Binding IsLightDismiss}" />
+                </StackPanel>
+            </demo:GalleryBlock>
 
-                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Inheritance}}" FontSize="18" FontWeight="SemiBold" />
-                <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_Inheritance_Desc}}"
-                           TextWrapping="Wrap" />
-                <Button Content="{Translate {x:Static local:LanguageManager+Keys.Popup_InheritedButton}}"
+            <demo:GalleryBlock
+                Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Popup_Inheritance}}"
+                Summary="{demo:Translate {x:Static demo:LanguageManager+Keys.Popup_Inheritance_Desc}}">
+                <Button Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Popup_InheritedButton}}"
                         Command="{Binding OpenInheritedPopupCommand}"
                         Classes="Primary" />
-            </StackPanel>
-        </ScrollViewer>
+            </demo:GalleryBlock>
+        </StackPanel>
 
         <m:Popup IsOpen="{Binding IsPopupOpen}"
                  IsModal="{Binding IsModal}"
@@ -57,8 +68,8 @@
                     MinHeight="200">
                 <StackPanel Spacing="12">
                     <TextBlock Text="{Binding PopupTitle}" FontSize="20" FontWeight="Bold" />
-                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Popup_DismissHint}}" TextWrapping="Wrap" />
-                    <Button Content="{Translate {x:Static local:LanguageManager+Keys.Popup_Close}}"
+                    <TextBlock Text="{demo:Translate {x:Static demo:LanguageManager+Keys.Popup_DismissHint}}" TextWrapping="Wrap" />
+                    <Button Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Popup_Close}}"
                             Command="{Binding ClosePopupCommand}"
                             HorizontalAlignment="Center" />
                 </StackPanel>
@@ -77,7 +88,7 @@
                         <TextBlock Text="Inherited: Bottom" FontSize="20" FontWeight="Bold" />
                         <TextBlock Text="Placement inherited from parent Panel via m:Popup.Placement."
                                    TextWrapping="Wrap" />
-                        <Button Content="{Translate {x:Static local:LanguageManager+Keys.Popup_Close}}"
+                        <Button Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Popup_Close}}"
                                 Command="{Binding CloseInheritedPopupCommand}"
                                 HorizontalAlignment="Center" />
                     </StackPanel>

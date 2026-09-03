@@ -2,105 +2,90 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="using:Irihi.Mafia.Demo"
              xmlns:m="https://irihi.tech/mafia"
+             xmlns:demo="https://irihi.tech/demo"
              xmlns:vm="clr-namespace:Irihi.Mafia.Demo.ViewModels"
-             mc:Ignorable="d"
-             d:DesignWidth="390"
-             d:DesignHeight="844"
+             mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
              x:Class="Irihi.Mafia.Demo.Views.CalendarPage"
-             x:DataType="vm:CalendarPageViewModel">
+             x:DataType="vm:CalendarPageViewModel"
+             Theme="{DynamicResource ScrollPage}">
     <Panel>
-        <ScrollViewer>
-            <StackPanel Spacing="12" Margin="16,16,16,24">
-            <TextBlock
-                FontSize="24"
-                FontWeight="Bold"
-                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Title}}" />
+        <StackPanel Spacing="32">
+            <demo:GalleryBlock
+                Classes="PageStart"
+                Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Calendar_Title}}"
+                Summary="{demo:Translate {x:Static demo:LanguageManager+Keys.Calendar_Desc}}" />
 
-            <TextBlock
-                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Desc}}"
-                TextWrapping="Wrap" />
+            <demo:GalleryBlock
+                Classes="Origin"
+                Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Calendar_PagedSingle}}">
+                <StackPanel Spacing="8">
+                    <m:Calendar SelectedDate="{Binding PagedSingleDate, Mode=TwoWay}" />
+                    <TextBlock
+                        Text="{Binding PagedSingleDateText, StringFormat='Selected: {0}'}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+            </demo:GalleryBlock>
 
-            <TextBlock
-                FontSize="18"
-                FontWeight="SemiBold"
-                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_PagedSingle}}" />
+            <demo:GalleryBlock
+                Classes="Origin"
+                Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Calendar_Multiple}}"
+                Summary="{demo:Translate {x:Static demo:LanguageManager+Keys.Calendar_Multiple_Desc}}">
+                <StackPanel Spacing="8">
+                    <m:Calendar
+                        SelectionMode="Multiple"
+                        SelectedDates="{Binding MultipleDates, Mode=TwoWay}" />
+                    <TextBlock
+                        Text="{Binding MultipleDatesText, StringFormat='Selected: {0}'}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+            </demo:GalleryBlock>
 
-            <m:Calendar SelectedDate="{Binding PagedSingleDate, Mode=TwoWay}" />
-            <TextBlock
-                Text="{Binding PagedSingleDateText, StringFormat='Selected: {0}'}" />
+            <demo:GalleryBlock
+                Classes="Origin"
+                Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Calendar_Range}}"
+                Summary="{demo:Translate {x:Static demo:LanguageManager+Keys.Calendar_Range_Desc}}">
+                <StackPanel Spacing="8">
+                    <m:Calendar
+                        SelectionMode="Range"
+                        RangeStart="{Binding RangeStart, Mode=TwoWay}"
+                        RangeEnd="{Binding RangeEnd, Mode=TwoWay}" />
+                    <TextBlock
+                        Text="{Binding RangeText, StringFormat='Range: {0}'}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+            </demo:GalleryBlock>
 
-            <TextBlock
-                FontSize="18"
-                FontWeight="SemiBold"
-                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Multiple}}" />
+            <demo:GalleryBlock
+                Classes="Origin"
+                Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Calendar_Scroll}}"
+                Summary="{demo:Translate {x:Static demo:LanguageManager+Keys.Calendar_Scroll_Desc}}">
+                <StackPanel Spacing="8">
+                    <m:Calendar
+                        DisplayMode="Scroll"
+                        SelectionMode="Range"
+                        RangeStart="{Binding ScrollRangeStart, Mode=TwoWay}"
+                        RangeEnd="{Binding ScrollRangeEnd, Mode=TwoWay}" />
+                    <TextBlock
+                        Text="{Binding ScrollRangeText, StringFormat='Range: {0}'}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+            </demo:GalleryBlock>
 
-            <TextBlock
-                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Multiple_Desc}}"
-                TextWrapping="Wrap" />
-
-            <m:Calendar
-                SelectionMode="Multiple"
-                SelectedDates="{Binding MultipleDates, Mode=TwoWay}" />
-            <TextBlock
-                Text="{Binding MultipleDatesText, StringFormat='Selected: {0}'}"
-                TextWrapping="Wrap" />
-
-            <TextBlock
-                FontSize="18"
-                FontWeight="SemiBold"
-                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Range}}" />
-
-            <TextBlock
-                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Range_Desc}}"
-                TextWrapping="Wrap" />
-
-            <m:Calendar
-                SelectionMode="Range"
-                RangeStart="{Binding RangeStart, Mode=TwoWay}"
-                RangeEnd="{Binding RangeEnd, Mode=TwoWay}" />
-            <TextBlock
-                Text="{Binding RangeText, StringFormat='Range: {0}'}"
-                TextWrapping="Wrap" />
-
-            <TextBlock
-                FontSize="18"
-                FontWeight="SemiBold"
-                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Scroll}}" />
-
-            <TextBlock
-                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_Scroll_Desc}}"
-                TextWrapping="Wrap" />
-
-            <m:Calendar
-                DisplayMode="Scroll"
-                SelectionMode="Range"
-                RangeStart="{Binding ScrollRangeStart, Mode=TwoWay}"
-                RangeEnd="{Binding ScrollRangeEnd, Mode=TwoWay}" />
-            <TextBlock
-                Text="{Binding ScrollRangeText, StringFormat='Range: {0}'}"
-                TextWrapping="Wrap" />
-
-            <TextBlock
-                FontSize="18"
-                FontWeight="SemiBold"
-                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_ScrollPopup}}" />
-
-            <TextBlock
-                Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_ScrollPopup_Desc}}"
-                TextWrapping="Wrap" />
-
-            <m:CellGroup>
-                <m:Cell
-                    Classes="Arrow"
-                    Command="{Binding OpenScrollPopupCommand}"
-                    Content="{Translate {x:Static local:LanguageManager+Keys.Calendar_ScrollPopup_Cell}}"
-                    Description="{Translate {x:Static local:LanguageManager+Keys.Calendar_ScrollPopup_CellDesc}}"
-                    Note="{Binding PopupRangeText}" />
-            </m:CellGroup>
+            <demo:GalleryBlock
+                Classes="Origin"
+                Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Calendar_ScrollPopup}}"
+                Summary="{demo:Translate {x:Static demo:LanguageManager+Keys.Calendar_ScrollPopup_Desc}}">
+                <m:CellGroup>
+                    <m:Cell
+                        Classes="Arrow"
+                        Command="{Binding OpenScrollPopupCommand}"
+                        Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Calendar_ScrollPopup_Cell}}"
+                        Description="{demo:Translate {x:Static demo:LanguageManager+Keys.Calendar_ScrollPopup_CellDesc}}"
+                        Note="{Binding PopupRangeText}" />
+                </m:CellGroup>
+            </demo:GalleryBlock>
         </StackPanel>
-        </ScrollViewer>
 
         <m:Popup
             IsOpen="{Binding IsScrollPopupOpen}"
@@ -116,7 +101,7 @@
                     <TextBlock
                         FontSize="20"
                         FontWeight="Bold"
-                        Text="{Translate {x:Static local:LanguageManager+Keys.Calendar_ScrollPopup}}" />
+                        Text="{demo:Translate {x:Static demo:LanguageManager+Keys.Calendar_ScrollPopup}}" />
 
                     <m:Calendar
                         DisplayMode="Scroll"
@@ -131,7 +116,7 @@
                     <Button
                         Classes="Primary"
                         Command="{Binding CloseScrollPopupCommand}"
-                        Content="{Translate {x:Static local:LanguageManager+Keys.Popup_Close}}" />
+                        Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Popup_Close}}" />
                 </StackPanel>
             </Border>
         </m:Popup>

@@ -2,42 +2,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="using:Irihi.Mafia.Demo"
-             xmlns:m="https://irihi.tech/mafia"
+             xmlns:demo="https://irihi.tech/demo"
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
-             x:Class="Irihi.Mafia.Demo.Views.HyperlinkButtonPage">
-    <ScrollViewer>
-        <StackPanel Spacing="12" Margin="16,16,16,24">
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Title}}" FontSize="24" FontWeight="Bold" />
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Desc}}"
-                       TextWrapping="Wrap" />
+             x:Class="Irihi.Mafia.Demo.Views.HyperlinkButtonPage"
+             Theme="{DynamicResource ScrollPage}">
+    <StackPanel Spacing="32">
+        <demo:GalleryBlock
+            Classes="PageStart"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.HyperlinkButton_Title}}"
+            Summary="{demo:Translate {x:Static demo:LanguageManager+Keys.HyperlinkButton_Desc}}" />
 
-            <m:Divider />
-
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Basic}}" FontSize="16" FontWeight="SemiBold" />
+        <demo:GalleryBlock
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.HyperlinkButton_Basic}}">
             <StackPanel Spacing="12">
-                <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" />
-                <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Underline" />
-                <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="WithIcon" />
-                <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="WithIcon Underline" />
+                <HyperlinkButton Content="{demo:Translate {x:Static demo:LanguageManager+Keys.HyperlinkButton_Link}}" />
+                <HyperlinkButton Content="{demo:Translate {x:Static demo:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Underline" />
+                <HyperlinkButton Content="{demo:Translate {x:Static demo:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="WithIcon" />
+                <HyperlinkButton Content="{demo:Translate {x:Static demo:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="WithIcon Underline" />
             </StackPanel>
+        </demo:GalleryBlock>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Colors}}" FontSize="16" FontWeight="SemiBold" />
+        <demo:GalleryBlock
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.HyperlinkButton_Colors}}">
             <StackPanel Spacing="12">
-                <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Primary WithIcon Underline" />
-                <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Success WithIcon Underline" />
-                <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Warning WithIcon Underline" />
-                <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Danger WithIcon Underline" />
+                <HyperlinkButton Content="{demo:Translate {x:Static demo:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Primary WithIcon Underline" />
+                <HyperlinkButton Content="{demo:Translate {x:Static demo:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Success WithIcon Underline" />
+                <HyperlinkButton Content="{demo:Translate {x:Static demo:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Warning WithIcon Underline" />
+                <HyperlinkButton Content="{demo:Translate {x:Static demo:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Danger WithIcon Underline" />
             </StackPanel>
+        </demo:GalleryBlock>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Disabled}}" FontSize="16" FontWeight="SemiBold" />
+        <demo:GalleryBlock
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.HyperlinkButton_Disabled}}">
             <StackPanel Spacing="12">
-                <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" IsEnabled="False" />
-                <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Primary" IsEnabled="False" />
-                <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Success" IsEnabled="False" />
-                <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Warning" IsEnabled="False" />
-                <HyperlinkButton Content="{Translate {x:Static local:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Danger" IsEnabled="False" />
+                <HyperlinkButton Content="{demo:Translate {x:Static demo:LanguageManager+Keys.HyperlinkButton_Link}}" IsEnabled="False" />
+                <HyperlinkButton Content="{demo:Translate {x:Static demo:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Primary" IsEnabled="False" />
+                <HyperlinkButton Content="{demo:Translate {x:Static demo:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Success" IsEnabled="False" />
+                <HyperlinkButton Content="{demo:Translate {x:Static demo:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Warning" IsEnabled="False" />
+                <HyperlinkButton Content="{demo:Translate {x:Static demo:LanguageManager+Keys.HyperlinkButton_Link}}" Classes="Danger" IsEnabled="False" />
             </StackPanel>
-        </StackPanel>
-    </ScrollViewer>
+        </demo:GalleryBlock>
+    </StackPanel>
 </ContentPage>

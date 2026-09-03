@@ -1,0 +1,53 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:demo="https://irihi.tech/demo">
+    <ControlTheme x:Key="{x:Type demo:GalleryBlock}" TargetType="demo:GalleryBlock">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="demo:GalleryBlock">
+                <StackPanel Spacing="8">
+                    <ContentPresenter
+                        Name="PART_Title"
+                        Content="{TemplateBinding Title}"
+                        IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                    <ContentPresenter
+                        Name="PART_Summery"
+                        Content="{TemplateBinding Summary}"
+                        IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                    <ContentPresenter
+                        Name="PART_ContentPresenter"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_Title">
+            <Setter Property="Margin" Value="16 0" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_Summery">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Foreground" Value="{DynamicResource TDTextColorSecondary}" />
+            <Setter Property="Margin" Value="16 0" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Margin" Value="16 0" />
+        </Style>
+        <Style Selector="^.Origin /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Margin" Value="0" />
+        </Style>
+
+        <Style Selector="^.PageStart">
+            <Style Selector="^ /template/ ContentPresenter#PART_Title">
+                <Setter Property="Margin" Value="16 24 16 0" />
+                <Setter Property="FontSize" Value="24" />
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- MainView Tabs -->
   <data name="MainView_Tab_Components" xml:space="preserve"><value>控件</value></data>
@@ -17,7 +17,6 @@
   <data name="List_TechStack" xml:space="preserve"><value>技术栈</value></data>
 
   <!-- HomePage -->
-  <data name="Home_SearchPlaceholder" xml:space="preserve"><value>搜索消息和功能...</value></data>
   <data name="Home_Title_Mafia" xml:space="preserve"><value>Mafia 控件库</value></data>
   <data name="Home_Subtitle_Welcome" xml:space="preserve"><value>欢迎使用 Mafia！这是一个专为移动端设计的 Avalonia 控件库，提供 Popup、Cell 等一系列移动端友好的控件。</value></data>
   <data name="Home_Timestamp_Now" xml:space="preserve"><value>现在</value></data>
@@ -92,8 +91,6 @@
   <data name="Input_Password" xml:space="preserve"><value>密码输入</value></data>
   <data name="Input_Password_Placeholder" xml:space="preserve"><value>请输入密码</value></data>
   <data name="Input_States" xml:space="preserve"><value>状态</value></data>
-  <data name="Input_Success" xml:space="preserve"><value>成功</value></data>
-  <data name="Input_Warning" xml:space="preserve"><value>警告</value></data>
   <data name="Input_Error" xml:space="preserve"><value>错误</value></data>
   <data name="Input_Disabled" xml:space="preserve"><value>禁用</value></data>
   <data name="Input_Description" xml:space="preserve"><value>描述</value></data>
@@ -101,8 +98,6 @@
   <data name="Input_Description_Text" xml:space="preserve"><value>验证码已发送至手机</value></data>
   <data name="Input_Description_Placeholder" xml:space="preserve"><value>请输入验证码</value></data>
   <data name="Input_Password_Label" xml:space="preserve"><value>密码</value></data>
-  <data name="Input_Success_Desc" xml:space="preserve"><value>校验通过</value></data>
-  <data name="Input_Warning_Desc" xml:space="preserve"><value>请注意内容格式</value></data>
   <data name="Input_Error_Desc" xml:space="preserve"><value>输入内容有误</value></data>
   <data name="Input_ReadOnly" xml:space="preserve"><value>只读</value></data>
   <data name="Input_Action" xml:space="preserve"><value>操作</value></data>
@@ -143,6 +138,9 @@
   <data name="Picker_Placeholder_Size" xml:space="preserve"><value>请选择尺码</value></data>
   <data name="Picker_Confirmable" xml:space="preserve"><value>可确认模式（IsConfirmable=True）</value></data>
   <data name="Picker_Confirmable_Desc" xml:space="preserve"><value>选择后需点击「确认」按钮才生效，点击遮罩取消恢复原值。</value></data>
+  <data name="Picker_MvvmDesc" xml:space="preserve"><value>数据驱动的下拉选择</value></data>
+  <data name="Picker_MvvmNote" xml:space="preserve"><value>双向绑定</value></data>
+  <data name="Picker_ConfirmDesc" xml:space="preserve"><value>左取消 | 中标题 | 右确认</value></data>
   <data name="Picker_Placeholder_Select" xml:space="preserve"><value>请选择</value></data>
   <data name="Picker_PopupTitle" xml:space="preserve"><value>选择选项</value></data>
 
@@ -261,17 +259,11 @@
   <!-- Avatar Detail -->
   <data name="Avatar_Title" xml:space="preserve"><value>Avatar 头像</value></data>
   <data name="Avatar_Desc" xml:space="preserve"><value>支持图片、文字、图标三种内容，圆形/方形两种形状，大/中/小三档尺寸。</value></data>
-  <data name="Avatar_Content" xml:space="preserve"><value>内容类型</value></data>
-  <data name="Avatar_Image" xml:space="preserve"><value>图片</value></data>
-  <data name="Avatar_Text" xml:space="preserve"><value>文字</value></data>
-  <data name="Avatar_Icon" xml:space="preserve"><value>图标</value></data>
-  <data name="Avatar_Shape" xml:space="preserve"><value>形状</value></data>
-  <data name="Avatar_Round" xml:space="preserve"><value>圆形</value></data>
-  <data name="Avatar_Square" xml:space="preserve"><value>方形</value></data>
-  <data name="Avatar_Size" xml:space="preserve"><value>尺寸</value></data>
-  <data name="Avatar_Small" xml:space="preserve"><value>小</value></data>
-  <data name="Avatar_Medium" xml:space="preserve"><value>中</value></data>
-  <data name="Avatar_Large" xml:space="preserve"><value>大</value></data>
+  <data name="Avatar_ContentTypes" xml:space="preserve"><value>组件类型</value></data>
+  <data name="Avatar_ImageAvatar" xml:space="preserve"><value>图片头像</value></data>
+  <data name="Avatar_CharacterAvatar" xml:space="preserve"><value>字符头像</value></data>
+  <data name="Avatar_IconAvatar" xml:space="preserve"><value>图标头像</value></data>
+  <data name="Avatar_SizeVariants" xml:space="preserve"><value>组件尺寸</value></data>
 
   <!-- IconButton Detail -->
   <data name="IconButton_Title" xml:space="preserve"><value>IconButton 图标按钮</value></data>
@@ -336,7 +328,6 @@
   <data name="Placeholder_Desc" xml:space="preserve"><value>该控件的详细演示页面正在开发中。</value></data>
 
   <!-- Components Page Header -->
-  <data name="Components_Header" xml:space="preserve"><value>控件列表</value></data>
 
   <!-- Theme Options -->
   <data name="Theme_Light" xml:space="preserve"><value>浅色</value></data>
@@ -354,6 +345,4 @@
   <data name="StickyPanel_Section_Group6" xml:space="preserve"><value>分组 6</value></data>
 
   <!-- Language Options -->
-  <data name="Lang_Chinese" xml:space="preserve"><value>中文</value></data>
-  <data name="Lang_English" xml:space="preserve"><value>English</value></data>
 </root>

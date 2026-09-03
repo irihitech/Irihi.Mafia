@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- MainView Tabs -->
   <data name="MainView_Tab_Components" xml:space="preserve"><value>Components</value></data>
@@ -17,7 +17,6 @@
   <data name="List_TechStack" xml:space="preserve"><value>Tech Stack</value></data>
 
   <!-- HomePage -->
-  <data name="Home_SearchPlaceholder" xml:space="preserve"><value>Search messages and features...</value></data>
   <data name="Home_Title_Mafia" xml:space="preserve"><value>Mafia Control Library</value></data>
   <data name="Home_Subtitle_Welcome" xml:space="preserve"><value>Welcome to Mafia! A mobile-first Avalonia control library featuring Popup, Cell and more mobile-friendly controls.</value></data>
   <data name="Home_Timestamp_Now" xml:space="preserve"><value>Now</value></data>
@@ -92,8 +91,6 @@
   <data name="Input_Password" xml:space="preserve"><value>Password</value></data>
   <data name="Input_Password_Placeholder" xml:space="preserve"><value>Enter password</value></data>
   <data name="Input_States" xml:space="preserve"><value>States</value></data>
-  <data name="Input_Success" xml:space="preserve"><value>Success</value></data>
-  <data name="Input_Warning" xml:space="preserve"><value>Warning</value></data>
   <data name="Input_Error" xml:space="preserve"><value>Error</value></data>
   <data name="Input_Disabled" xml:space="preserve"><value>Disabled</value></data>
   <data name="Input_Description" xml:space="preserve"><value>Description</value></data>
@@ -101,8 +98,6 @@
   <data name="Input_Description_Text" xml:space="preserve"><value>The code has been sent to your phone</value></data>
   <data name="Input_Description_Placeholder" xml:space="preserve"><value>Enter the code</value></data>
   <data name="Input_Password_Label" xml:space="preserve"><value>Password</value></data>
-  <data name="Input_Success_Desc" xml:space="preserve"><value>Validation passed</value></data>
-  <data name="Input_Warning_Desc" xml:space="preserve"><value>Please check the format</value></data>
   <data name="Input_Error_Desc" xml:space="preserve"><value>Invalid content</value></data>
   <data name="Input_ReadOnly" xml:space="preserve"><value>Read only</value></data>
   <data name="Input_Action" xml:space="preserve"><value>Actions</value></data>
@@ -143,6 +138,9 @@
   <data name="Picker_Placeholder_Size" xml:space="preserve"><value>Select size</value></data>
   <data name="Picker_Confirmable" xml:space="preserve"><value>Confirmable Mode (IsConfirmable=True)</value></data>
   <data name="Picker_Confirmable_Desc" xml:space="preserve"><value>Must tap "Confirm" to apply. Tap overlay to cancel and restore.</value></data>
+  <data name="Picker_MvvmDesc" xml:space="preserve"><value>Data-driven dropdown</value></data>
+  <data name="Picker_MvvmNote" xml:space="preserve"><value>Two-way binding</value></data>
+  <data name="Picker_ConfirmDesc" xml:space="preserve"><value>Cancel left | Title center | Confirm right</value></data>
   <data name="Picker_Placeholder_Select" xml:space="preserve"><value>Select</value></data>
   <data name="Picker_PopupTitle" xml:space="preserve"><value>Select option</value></data>
 
@@ -261,17 +259,11 @@
   <!-- Avatar Detail -->
   <data name="Avatar_Title" xml:space="preserve"><value>Avatar</value></data>
   <data name="Avatar_Desc" xml:space="preserve"><value>Supports image, text, and icon content; round and square shapes; large, medium, and small sizes.</value></data>
-  <data name="Avatar_Content" xml:space="preserve"><value>Content Types</value></data>
-  <data name="Avatar_Image" xml:space="preserve"><value>Image</value></data>
-  <data name="Avatar_Text" xml:space="preserve"><value>Text</value></data>
-  <data name="Avatar_Icon" xml:space="preserve"><value>Icon</value></data>
-  <data name="Avatar_Shape" xml:space="preserve"><value>Shapes</value></data>
-  <data name="Avatar_Round" xml:space="preserve"><value>Round</value></data>
-  <data name="Avatar_Square" xml:space="preserve"><value>Square</value></data>
-  <data name="Avatar_Size" xml:space="preserve"><value>Sizes</value></data>
-  <data name="Avatar_Small" xml:space="preserve"><value>Small</value></data>
-  <data name="Avatar_Medium" xml:space="preserve"><value>Medium</value></data>
-  <data name="Avatar_Large" xml:space="preserve"><value>Large</value></data>
+  <data name="Avatar_ContentTypes" xml:space="preserve"><value>Component Types</value></data>
+  <data name="Avatar_ImageAvatar" xml:space="preserve"><value>Image Avatar</value></data>
+  <data name="Avatar_CharacterAvatar" xml:space="preserve"><value>Character Avatar</value></data>
+  <data name="Avatar_IconAvatar" xml:space="preserve"><value>Icon Avatar</value></data>
+  <data name="Avatar_SizeVariants" xml:space="preserve"><value>Sizes</value></data>
 
   <!-- IconButton Detail -->
   <data name="IconButton_Title" xml:space="preserve"><value>IconButton</value></data>
@@ -336,7 +328,6 @@
   <data name="Placeholder_Desc" xml:space="preserve"><value>Detailed demo page is under development.</value></data>
 
   <!-- Components Page Header -->
-  <data name="Components_Header" xml:space="preserve"><value>Control Gallery</value></data>
 
   <!-- Theme Options (for Picker items) -->
   <data name="Theme_Light" xml:space="preserve"><value>Light</value></data>
@@ -354,6 +345,4 @@
   <data name="StickyPanel_Section_Group6" xml:space="preserve"><value>Group 6</value></data>
 
   <!-- Language Options -->
-  <data name="Lang_Chinese" xml:space="preserve"><value>中文</value></data>
-  <data name="Lang_English" xml:space="preserve"><value>English</value></data>
 </root>

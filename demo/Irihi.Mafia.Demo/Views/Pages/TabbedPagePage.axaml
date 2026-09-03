@@ -2,66 +2,69 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="using:Irihi.Mafia.Demo"
-             xmlns:m="https://irihi.tech/mafia"
              xmlns:td="https://irihi.tech/td"
+             xmlns:demo="https://irihi.tech/demo"
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
-             x:Class="Irihi.Mafia.Demo.Views.TabbedPagePage">
-    <ScrollViewer>
-        <StackPanel Spacing="12" Margin="16,16,16,24">
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Title}}" FontSize="24" FontWeight="Bold" />
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Desc}}"
-                       TextWrapping="Wrap" />
+             x:Class="Irihi.Mafia.Demo.Views.TabbedPagePage"
+             Theme="{DynamicResource ScrollPage}">
+    <StackPanel Spacing="32">
+        <demo:GalleryBlock
+            Classes="PageStart"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.TabbedPage_Title}}"
+            Summary="{demo:Translate {x:Static demo:LanguageManager+Keys.TabbedPage_Desc}}" />
 
-            <m:Divider />
-
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Basic}}" FontSize="16" FontWeight="SemiBold" />
+        <demo:GalleryBlock
+            Classes="Origin"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.TabbedPage_Basic}}">
             <TabbedPage TabPlacement="Bottom" Height="420">
-                <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Home}}"
+                <ContentPage Header="{demo:Translate {x:Static demo:LanguageManager+Keys.TabbedPage_Home}}"
                              Icon="{td:TempHome}">
-                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Home_Content}}"
+                    <TextBlock Text="{demo:Translate {x:Static demo:LanguageManager+Keys.TabbedPage_Home_Content}}"
                                Margin="16" TextWrapping="Wrap" />
                 </ContentPage>
-                <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Apps}}"
+                <ContentPage Header="{demo:Translate {x:Static demo:LanguageManager+Keys.TabbedPage_Apps}}"
                              Icon="{td:TempApp}">
-                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Apps_Content}}"
+                    <TextBlock Text="{demo:Translate {x:Static demo:LanguageManager+Keys.TabbedPage_Apps_Content}}"
                                Margin="16" TextWrapping="Wrap" />
                 </ContentPage>
-                <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Chat}}"
+                <ContentPage Header="{demo:Translate {x:Static demo:LanguageManager+Keys.TabbedPage_Chat}}"
                              Icon="{td:TempChat}">
-                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Chat_Content}}"
+                    <TextBlock Text="{demo:Translate {x:Static demo:LanguageManager+Keys.TabbedPage_Chat_Content}}"
                                Margin="16" TextWrapping="Wrap" />
                 </ContentPage>
-                <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Mine}}"
+                <ContentPage Header="{demo:Translate {x:Static demo:LanguageManager+Keys.TabbedPage_Mine}}"
                              Icon="{td:TempUser}">
-                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Mine_Content}}"
+                    <TextBlock Text="{demo:Translate {x:Static demo:LanguageManager+Keys.TabbedPage_Mine_Content}}"
                                Margin="16" TextWrapping="Wrap" />
                 </ContentPage>
             </TabbedPage>
+        </demo:GalleryBlock>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Tag}}" FontSize="16" FontWeight="SemiBold" />
+        <demo:GalleryBlock
+            Classes="Origin"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.TabbedPage_Tag}}">
             <TabbedPage Classes="Tag" TabPlacement="Bottom" Height="420">
-                <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Home}}"
+                <ContentPage Header="{demo:Translate {x:Static demo:LanguageManager+Keys.TabbedPage_Home}}"
                              Icon="{td:TempHome}">
-                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Home_Content}}"
+                    <TextBlock Text="{demo:Translate {x:Static demo:LanguageManager+Keys.TabbedPage_Home_Content}}"
                                Margin="16" TextWrapping="Wrap" />
                 </ContentPage>
-                <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Apps}}"
+                <ContentPage Header="{demo:Translate {x:Static demo:LanguageManager+Keys.TabbedPage_Apps}}"
                              Icon="{td:TempApp}">
-                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Apps_Content}}"
+                    <TextBlock Text="{demo:Translate {x:Static demo:LanguageManager+Keys.TabbedPage_Apps_Content}}"
                                Margin="16" TextWrapping="Wrap" />
                 </ContentPage>
-                <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Chat}}"
+                <ContentPage Header="{demo:Translate {x:Static demo:LanguageManager+Keys.TabbedPage_Chat}}"
                              Icon="{td:TempChat}">
-                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Chat_Content}}"
+                    <TextBlock Text="{demo:Translate {x:Static demo:LanguageManager+Keys.TabbedPage_Chat_Content}}"
                                Margin="16" TextWrapping="Wrap" />
                 </ContentPage>
-                <ContentPage Header="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Mine}}"
+                <ContentPage Header="{demo:Translate {x:Static demo:LanguageManager+Keys.TabbedPage_Mine}}"
                              Icon="{td:TempUser}">
-                    <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.TabbedPage_Mine_Content}}"
+                    <TextBlock Text="{demo:Translate {x:Static demo:LanguageManager+Keys.TabbedPage_Mine_Content}}"
                                Margin="16" TextWrapping="Wrap" />
                 </ContentPage>
             </TabbedPage>
-        </StackPanel>
-    </ScrollViewer>
+        </demo:GalleryBlock>
+    </StackPanel>
 </ContentPage>

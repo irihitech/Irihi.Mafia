@@ -2,43 +2,47 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="using:Irihi.Mafia.Demo"
              xmlns:m="https://irihi.tech/mafia"
              xmlns:td="https://irihi.tech/td"
+             xmlns:demo="https://irihi.tech/demo"
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
-             x:Class="Irihi.Mafia.Demo.Views.CellPage">
-    <ScrollViewer>
-        <StackPanel Spacing="12" Margin="16,16,16,24">
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Cell_Title}}" FontSize="24" FontWeight="Bold" />
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Cell_Desc}}"
-                       TextWrapping="Wrap" />
+             x:Class="Irihi.Mafia.Demo.Views.CellPage"
+             Theme="{DynamicResource ScrollPage}">
+    <StackPanel Spacing="32">
+        <demo:GalleryBlock
+            Classes="PageStart"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Cell_Title}}"
+            Summary="{demo:Translate {x:Static demo:LanguageManager+Keys.Cell_Desc}}" />
 
-            <m:Divider />
-
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Cell_Basic}}" FontSize="16" FontWeight="SemiBold" />
+        <demo:GalleryBlock
+            Classes="Origin"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Cell_Basic}}">
             <m:CellGroup>
-                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_Content}}" />
-                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_Content}}" Classes="Arrow" />
-                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_Required}}" Classes="Arrow" IsRequired="True" />
-                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_Note}}" Classes="Arrow"
-                        Note="{Translate {x:Static local:LanguageManager+Keys.Cell_NoteText}}" />
-                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_LeftIcon}}"
+                <m:Cell Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Cell_Content}}" />
+                <m:Cell Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Cell_Content}}" Classes="Arrow" />
+                <m:Cell Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Cell_Required}}" Classes="Arrow" IsRequired="True" />
+                <m:Cell Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Cell_Note}}" Classes="Arrow"
+                        Note="{demo:Translate {x:Static demo:LanguageManager+Keys.Cell_NoteText}}" />
+                <m:Cell Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Cell_LeftIcon}}"
                         InnerLeftContent="{td:TempApp}" />
             </m:CellGroup>
+        </demo:GalleryBlock>
 
-            <TextBlock Text="{Translate {x:Static local:LanguageManager+Keys.Cell_Advanced}}" FontSize="16" FontWeight="SemiBold" />
+        <demo:GalleryBlock
+            Classes="Origin"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Cell_Advanced}}">
             <m:CellGroup>
-                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_AdvancedContent}}"
+                <m:Cell Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Cell_AdvancedContent}}"
                         Classes="Arrow"
-                        Description="{Translate {x:Static local:LanguageManager+Keys.Cell_AdvancedDesc}}"
-                        Note="{Translate {x:Static local:LanguageManager+Keys.Cell_AdvancedNote}}"
+                        Description="{demo:Translate {x:Static demo:LanguageManager+Keys.Cell_AdvancedDesc}}"
+                        Note="{demo:Translate {x:Static demo:LanguageManager+Keys.Cell_AdvancedNote}}"
                         InnerLeftContent="{td:TempApp}"
                         InnerRightContent="{td:TempChevronRight}" />
-                <m:Cell Content="{Translate {x:Static local:LanguageManager+Keys.Cell_AdvancedContent}}"
-                        Description="{Translate {x:Static local:LanguageManager+Keys.Cell_AdvancedDesc}}"
+                <m:Cell Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Cell_AdvancedContent}}"
+                        Description="{demo:Translate {x:Static demo:LanguageManager+Keys.Cell_AdvancedDesc}}"
                         InnerLeftContent="{td:TempUser}"
                         InnerRightContent="{td:TempChevronLeft}" />
             </m:CellGroup>
-        </StackPanel>
-    </ScrollViewer>
+        </demo:GalleryBlock>
+    </StackPanel>
 </ContentPage>

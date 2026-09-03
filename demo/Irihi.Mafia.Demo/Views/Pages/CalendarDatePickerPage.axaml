@@ -2,69 +2,59 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="using:Irihi.Mafia.Demo"
              xmlns:m="https://irihi.tech/mafia"
+             xmlns:demo="https://irihi.tech/demo"
              xmlns:vm="clr-namespace:Irihi.Mafia.Demo.ViewModels"
-             mc:Ignorable="d"
-             d:DesignWidth="390"
-             d:DesignHeight="844"
+             mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
              x:Class="Irihi.Mafia.Demo.Views.CalendarDatePickerPage"
-             x:DataType="vm:CalendarDatePickerPageViewModel">
-    <ScrollViewer>
-        <StackPanel Spacing="12">
-            <TextBlock
-                FontSize="24"
-                FontWeight="Bold"
-                Text="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Title}}" />
+             x:DataType="vm:CalendarDatePickerPageViewModel"
+             Theme="{DynamicResource ScrollPage}">
+    <StackPanel Spacing="32">
+        <demo:GalleryBlock
+            Classes="PageStart"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.CalendarDatePicker_Title}}"
+            Summary="{demo:Translate {x:Static demo:LanguageManager+Keys.CalendarDatePicker_Desc}}" />
 
-            <TextBlock
-                Text="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Desc}}"
-                TextWrapping="Wrap" />
+        <demo:GalleryBlock
+            Classes="Origin"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.CalendarDatePicker_Basic}}">
+            <StackPanel Spacing="8">
+                <m:CellGroup>
+                    <m:CalendarDatePicker
+                        Content="{demo:Translate {x:Static demo:LanguageManager+Keys.CalendarDatePicker_Label}}"
+                        Description="{demo:Translate {x:Static demo:LanguageManager+Keys.CalendarDatePicker_LabelDesc}}"
+                        PlaceholderText="{demo:Translate {x:Static demo:LanguageManager+Keys.CalendarDatePicker_Placeholder}}"
+                        PopupTitle="{demo:Translate {x:Static demo:LanguageManager+Keys.CalendarDatePicker_PopupTitle}}"
+                        SelectedDate="{Binding SelectedDate, Mode=TwoWay}" />
+                </m:CellGroup>
+                <TextBlock
+                    Text="{Binding SelectedDateText, StringFormat='Selected: {0}'}"
+                    TextWrapping="Wrap" />
+            </StackPanel>
+        </demo:GalleryBlock>
 
-            <TextBlock
-                FontSize="18"
-                FontWeight="SemiBold"
-                Text="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Basic}}" />
+        <demo:GalleryBlock
+            Classes="Origin"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.CalendarDatePicker_Scroll}}"
+            Summary="{demo:Translate {x:Static demo:LanguageManager+Keys.CalendarDatePicker_Scroll_Desc}}">
+            <StackPanel Spacing="8">
+                <m:CellGroup>
+                    <m:CalendarDatePicker
+                        Content="{demo:Translate {x:Static demo:LanguageManager+Keys.CalendarDatePicker_ScrollLabel}}"
+                        DisplayMode="Scroll"
+                        PopupTitle="{demo:Translate {x:Static demo:LanguageManager+Keys.CalendarDatePicker_PopupTitle}}"
+                        PlaceholderText="{demo:Translate {x:Static demo:LanguageManager+Keys.CalendarDatePicker_Placeholder}}"
+                        SelectedDate="{Binding ScrollSelectedDate, Mode=TwoWay}" />
 
-            <m:CellGroup>
-                <m:CalendarDatePicker
-                    Content="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Label}}"
-                    Description="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_LabelDesc}}"
-                    PlaceholderText="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Placeholder}}"
-                    PopupTitle="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_PopupTitle}}"
-                    SelectedDate="{Binding SelectedDate, Mode=TwoWay}" />
-            </m:CellGroup>
-
-            <TextBlock
-                Text="{Binding SelectedDateText, StringFormat='Selected: {0}'}"
-                TextWrapping="Wrap" />
-
-            <TextBlock
-                FontSize="18"
-                FontWeight="SemiBold"
-                Text="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Scroll}}" />
-
-            <TextBlock
-                Text="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Scroll_Desc}}"
-                TextWrapping="Wrap" />
-
-            <m:CellGroup>
-                <m:CalendarDatePicker
-                    Content="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_ScrollLabel}}"
-                    DisplayMode="Scroll"
-                    PopupTitle="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_PopupTitle}}"
-                    PlaceholderText="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Placeholder}}"
-                    SelectedDate="{Binding ScrollSelectedDate, Mode=TwoWay}" />
-
-                <m:CalendarDatePicker
-                    Content="{Translate {x:Static local:LanguageManager+Keys.CalendarDatePicker_Disabled}}"
-                    IsEnabled="False"
-                    SelectedDate="2026-08-21" />
-            </m:CellGroup>
-
-            <TextBlock
-                Text="{Binding ScrollSelectedDateText, StringFormat='Selected: {0}'}"
-                TextWrapping="Wrap" />
-        </StackPanel>
-    </ScrollViewer>
+                    <m:CalendarDatePicker
+                        Content="{demo:Translate {x:Static demo:LanguageManager+Keys.CalendarDatePicker_Disabled}}"
+                        IsEnabled="False"
+                        SelectedDate="2026-08-21" />
+                </m:CellGroup>
+                <TextBlock
+                    Text="{Binding ScrollSelectedDateText, StringFormat='Selected: {0}'}"
+                    TextWrapping="Wrap" />
+            </StackPanel>
+        </demo:GalleryBlock>
+    </StackPanel>
 </ContentPage>
