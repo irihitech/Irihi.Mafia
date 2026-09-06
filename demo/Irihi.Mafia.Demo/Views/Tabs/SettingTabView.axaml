@@ -53,6 +53,22 @@
                 Classes="Arrow"
                 Content="{demo:Translate {x:Static demo:LanguageManager+Keys.List_CheckUpdate}}"
                 Command="{Binding CheckUpdateCommand}" />
+            <m:Picker
+                IsVisible="{OnPlatform {x:True},Android={x:False}}"
+                ItemsSource="{Binding ScenarioOptions}"
+                SelectedIndex="{Binding SelectedScenarioIndex, Mode=TwoWay}"
+                Description="{demo:Translate {x:Static demo:LanguageManager+Keys.Update_Scenario_Description}}">
+                <m:Picker.SelectionBoxItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding .^}" />
+                    </DataTemplate>
+                </m:Picker.SelectionBoxItemTemplate>
+                <m:Picker.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding .^}" />
+                    </DataTemplate>
+                </m:Picker.ItemTemplate>
+            </m:Picker>
             <m:Cell Content="{demo:Translate {x:Static demo:LanguageManager+Keys.List_License}}" Note="MIT" />
             <m:Cell Content="{demo:Translate {x:Static demo:LanguageManager+Keys.List_Project}}" Note="GitHub" Classes="Arrow"
                     Command="{Binding OpenProjectUrlCommand}" />
@@ -71,7 +87,7 @@
             </Border>
         </m:Popup>
 
-        <m:Popup IsOpen="{Binding UpdatePopupState, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static vm:UpdatePopupState.NewVersion}}"
+        <m:Popup IsOpen="{Binding UpdatePopupState, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static vm:UpdatePopupState.UpdateAvailable}}"
                  IsModal="True"
                  IsLightDismissEnabled="False"
                  Placement="Bottom">

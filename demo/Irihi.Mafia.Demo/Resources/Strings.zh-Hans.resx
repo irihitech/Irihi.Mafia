@@ -30,6 +30,13 @@
   <data name="Update_Install_Message_Prefix" xml:space="preserve"><value>新版本 </value></data>
   <data name="Update_Install_Message_Suffix" xml:space="preserve"><value> 已下载，是否立即安装?</value></data>
   <data name="Update_AlreadyLatest" xml:space="preserve"><value>当前已是最新版本</value></data>
+  <data name="Update_Scenario_Description" xml:space="preserve"><value>模拟场景</value></data>
+  <data name="Update_Scenario_Success" xml:space="preserve"><value>成功流程</value></data>
+  <data name="Update_Scenario_AlreadyLatest" xml:space="preserve"><value>已是最新</value></data>
+  <data name="Update_Scenario_CheckFailed" xml:space="preserve"><value>检查失败</value></data>
+  <data name="Update_Scenario_DownloadFailed" xml:space="preserve"><value>下载中断</value></data>
+  <data name="Update_Scenario_HashMismatch" xml:space="preserve"><value>校验失败</value></data>
+  <data name="Update_Scenario_InstallFailed" xml:space="preserve"><value>安装失败</value></data>
   <data name="Update_Ok" xml:space="preserve"><value>确定</value></data>
   <data name="Update_Cancel" xml:space="preserve"><value>取消</value></data>
 

@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -6,6 +9,10 @@ using Irihi.Mafia.Demo.Services;
 
 namespace Irihi.Mafia.Demo.ViewModels;
 
+/// <summary>
+/// 设置页当前展示的弹窗状态。整个页面同一时刻只有一个弹窗，
+/// 用单个枚举表达当前状态，避免多个 IsXxxPopupOpen 布尔互相矛盾。
+/// </summary>
 public enum UpdatePopupState
 {
     /// <summary>无弹窗。</summary>
@@ -15,7 +22,7 @@ public enum UpdatePopupState
     Checking,
 
     /// <summary>发现新版本，询问是否下载。</summary>
-    NewVersion,
+    UpdateAvailable,
 
     /// <summary>正在下载更新。</summary>
     Downloading,
@@ -29,7 +36,7 @@ public enum UpdatePopupState
 
 public partial class SettingTabViewModel
 {
-    private readonly IUpdateService _updateService;
+    private IUpdateService _updateService;
 
     public string CurrentVersion => _updateService.CurrentVersion;
 
@@ -53,14 +60,84 @@ public partial class SettingTabViewModel
     [ObservableProperty]
     public partial DownloadProgress Progress { get; set; } = new(0, 0, 0, 0, 0);
 
+    #region MockPicker
+
+    [ObservableProperty] public partial int SelectedScenarioIndex { get; set; }
+
+    /// <summary>模拟场景与选项文案。</summary>
+    private static readonly List<(MockUpdateScenario Scenario, IObservable<string?> Label)> MockScenarios =
+    [
+        (MockUpdateScenario.Success, LanguageManager.Instance.Update_Scenario_Success),
+        (MockUpdateScenario.AlreadyLatest, LanguageManager.Instance.Update_Scenario_AlreadyLatest),
+        (MockUpdateScenario.CheckFailed, LanguageManager.Instance.Update_Scenario_CheckFailed),
+        (MockUpdateScenario.DownloadFailed, LanguageManager.Instance.Update_Scenario_DownloadFailed),
+        (MockUpdateScenario.HashMismatch, LanguageManager.Instance.Update_Scenario_HashMismatch),
+        (MockUpdateScenario.InstallFailed, LanguageManager.Instance.Update_Scenario_InstallFailed),
+    ];
+
+    /// <summary>模拟场景选项。</summary>
+    public ObservableCollection<IObservable<string?>> ScenarioOptions { get; } = new(MockScenarios.Select(x => x.Label));
+
     public SettingTabViewModel(IUpdateService? updateService = null)
     {
         _updateService = updateService ?? AppServices.Updater!;
-
-        _updateService.ProgressChanged += p => Progress = p;
-        _updateService.DownloadCompleted += OnDownloadCompleted;
-        _updateService.UpdateFailed += OnUpdateFailed;
+        Subscribe(_updateService);
     }
+
+    partial void OnSelectedScenarioIndexChanged(int value)
+    {
+        if (value < 0 || value >= MockScenarios.Count) return;
+        if (OperatingSystem.IsAndroid()) return;
+        SwitchTo(MockScenarios[value].Scenario);
+    }
+
+    private void SwitchTo(MockUpdateScenario scenario)
+    {
+        Unsubscribe(_updateService);
+        if (_updateService is MockUpdateService mock) mock.Dispose();
+
+        _updateService = new MockUpdateService(scenario);
+        Subscribe(_updateService);
+
+        UpdatePopupState = UpdatePopupState.None;
+        IsLatestVersion = false;
+        MessageText = string.Empty;
+        TargetVersion = null;
+        Progress = new DownloadProgress(0, 0, 0, 0, 0);
+    }
+
+    #endregion
+
+    #region Update Event Sub/Unsub
+
+    private void Subscribe(IUpdateService service)
+    {
+        service.ProgressChanged += HandleProgress;
+        service.DownloadCompleted += OnDownloadCompleted;
+        service.UpdateFailed += OnUpdateFailed;
+    }
+
+    private void Unsubscribe(IUpdateService service)
+    {
+        service.ProgressChanged -= HandleProgress;
+        service.DownloadCompleted -= OnDownloadCompleted;
+        service.UpdateFailed -= OnUpdateFailed;
+    }
+
+    private void HandleProgress(DownloadProgress progress) => Progress = progress;
+
+    private void OnDownloadCompleted() => UpdatePopupState = UpdatePopupState.ReadyToInstall;
+
+    private void OnUpdateFailed(string message)
+    {
+        IsLatestVersion = false;
+        MessageText = message;
+        UpdatePopupState = UpdatePopupState.Notice;
+    }
+
+    #endregion
+
+    #region Command
 
     [RelayCommand]
     private async Task CheckUpdateAsync()
@@ -73,7 +150,7 @@ public partial class SettingTabViewModel
             if (result.UpdateFound)
             {
                 TargetVersion = result.TargetVersion;
-                UpdatePopupState = UpdatePopupState.NewVersion;
+                UpdatePopupState = UpdatePopupState.UpdateAvailable;
             }
             else
             {
@@ -116,12 +193,5 @@ public partial class SettingTabViewModel
     [RelayCommand]
     private void CloseMessage() => UpdatePopupState = UpdatePopupState.None;
 
-    private void OnDownloadCompleted() => UpdatePopupState = UpdatePopupState.ReadyToInstall;
-
-    private void OnUpdateFailed(string message)
-    {
-        IsLatestVersion = false;
-        MessageText = message;
-        UpdatePopupState = UpdatePopupState.Notice;
-    }
+    #endregion
 }
