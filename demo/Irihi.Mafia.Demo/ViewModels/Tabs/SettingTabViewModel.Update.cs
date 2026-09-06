@@ -6,31 +6,36 @@ using Irihi.Mafia.Demo.Services;
 
 namespace Irihi.Mafia.Demo.ViewModels;
 
+public enum UpdatePopupState
+{
+    /// <summary>无弹窗。</summary>
+    None,
+
+    /// <summary>正在检查更新。</summary>
+    Checking,
+
+    /// <summary>发现新版本，询问是否下载。</summary>
+    NewVersion,
+
+    /// <summary>正在下载更新。</summary>
+    Downloading,
+
+    /// <summary>下载完成，询问是否安装。</summary>
+    ReadyToInstall,
+
+    /// <summary>提示信息（已是最新 / 更新失败），正文见 MessageText。</summary>
+    Notice,
+}
+
 public partial class SettingTabViewModel
 {
-    private readonly IUpdateService? _updateService;
+    private readonly IUpdateService _updateService;
 
     public string CurrentVersion => _updateService.CurrentVersion;
 
-    /// <summary>正在检查更新（转圈弹窗）。</summary>
+    /// <summary>更新弹窗状态</summary>
     [ObservableProperty]
-    public partial bool IsCheckingPopupOpen { get; set; }
-
-    /// <summary>发现新版本确认弹窗。</summary>
-    [ObservableProperty]
-    public partial bool IsCheckUpdatePopupOpen { get; set; }
-
-    /// <summary>下载进度弹窗。</summary>
-    [ObservableProperty]
-    public partial bool IsDownloadPopupOpen { get; set; }
-
-    /// <summary>下载完成、确认安装弹窗。</summary>
-    [ObservableProperty]
-    public partial bool IsInstallPopupOpen { get; set; }
-
-    /// <summary>提示弹窗（已是最新 / 更新失败）。</summary>
-    [ObservableProperty]
-    public partial bool IsMessagePopupOpen { get; set; }
+    public partial UpdatePopupState UpdatePopupState { get; set; }
 
     /// <summary>已是最新版本（决定提示弹窗显示的内容）。</summary>
     [ObservableProperty]
@@ -50,8 +55,7 @@ public partial class SettingTabViewModel
 
     public SettingTabViewModel(IUpdateService? updateService = null)
     {
-        _updateService = updateService ?? AppServices.Updater;
-        if (_updateService is null) return;
+        _updateService = updateService ?? AppServices.Updater!;
 
         _updateService.ProgressChanged += p => Progress = p;
         _updateService.DownloadCompleted += OnDownloadCompleted;
@@ -61,37 +65,34 @@ public partial class SettingTabViewModel
     [RelayCommand]
     private async Task CheckUpdateAsync()
     {
-        IsCheckingPopupOpen = true;
+        UpdatePopupState = UpdatePopupState.Checking;
         try
         {
             var result = await _updateService.CheckForUpdateAsync();
-            IsCheckingPopupOpen = false;
 
             if (result.UpdateFound)
             {
                 TargetVersion = result.TargetVersion;
-                IsCheckUpdatePopupOpen = true;
+                UpdatePopupState = UpdatePopupState.NewVersion;
             }
             else
             {
                 IsLatestVersion = true;
-                IsMessagePopupOpen = true;
+                UpdatePopupState = UpdatePopupState.Notice;
             }
         }
         catch (Exception ex)
         {
-            IsCheckingPopupOpen = false;
             IsLatestVersion = false;
             MessageText = ex.Message;
-            IsMessagePopupOpen = true;
+            UpdatePopupState = UpdatePopupState.Notice;
         }
     }
 
     [RelayCommand]
     private void ConfirmUpdate()
     {
-        IsCheckUpdatePopupOpen = false;
-        IsDownloadPopupOpen = true;
+        UpdatePopupState = UpdatePopupState.Downloading;
         _ = _updateService.DownloadAsync();
     }
 
@@ -99,35 +100,28 @@ public partial class SettingTabViewModel
     private void CancelUpdate()
     {
         _updateService.Cancel();
-        IsCheckUpdatePopupOpen = false;
-        IsDownloadPopupOpen = false;
+        UpdatePopupState = UpdatePopupState.None;
     }
 
     [RelayCommand]
     private void InstallConfirm()
     {
-        IsInstallPopupOpen = false;
+        UpdatePopupState = UpdatePopupState.None;
         _ = _updateService.InstallAsync();
     }
 
     [RelayCommand]
-    private void InstallCancel() => IsInstallPopupOpen = false;
+    private void InstallCancel() => UpdatePopupState = UpdatePopupState.None;
 
     [RelayCommand]
-    private void CloseMessage() => IsMessagePopupOpen = false;
+    private void CloseMessage() => UpdatePopupState = UpdatePopupState.None;
 
-    private void OnDownloadCompleted()
-    {
-        IsDownloadPopupOpen = false;
-        IsInstallPopupOpen = true;
-    }
+    private void OnDownloadCompleted() => UpdatePopupState = UpdatePopupState.ReadyToInstall;
 
     private void OnUpdateFailed(string message)
     {
-        IsCheckingPopupOpen = false;
-        IsDownloadPopupOpen = false;
         IsLatestVersion = false;
         MessageText = message;
-        IsMessagePopupOpen = true;
+        UpdatePopupState = UpdatePopupState.Notice;
     }
 }

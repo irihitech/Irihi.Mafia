@@ -60,7 +60,7 @@
                     InnerLeftContent="{td:TempApp}" />
         </m:CellGroup>
 
-        <m:Popup IsOpen="{Binding IsCheckingPopupOpen}"
+        <m:Popup IsOpen="{Binding UpdatePopupState, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static vm:UpdatePopupState.Checking}}"
                  IsModal="True"
                  IsLightDismissEnabled="False"
                  Placement="Center">
@@ -71,7 +71,7 @@
             </Border>
         </m:Popup>
 
-        <m:Popup IsOpen="{Binding IsCheckUpdatePopupOpen}"
+        <m:Popup IsOpen="{Binding UpdatePopupState, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static vm:UpdatePopupState.NewVersion}}"
                  IsModal="True"
                  IsLightDismissEnabled="False"
                  Placement="Bottom">
@@ -103,7 +103,7 @@
             </Border>
         </m:Popup>
 
-        <m:Popup IsOpen="{Binding IsDownloadPopupOpen}"
+        <m:Popup IsOpen="{Binding UpdatePopupState, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static vm:UpdatePopupState.Downloading}}"
                  IsModal="True"
                  IsLightDismissEnabled="False"
                  Placement="Bottom">
@@ -135,7 +135,7 @@
             </Border>
         </m:Popup>
 
-        <m:Popup IsOpen="{Binding IsInstallPopupOpen}"
+        <m:Popup IsOpen="{Binding UpdatePopupState, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static vm:UpdatePopupState.ReadyToInstall}}"
                  IsModal="True"
                  IsLightDismissEnabled="False"
                  Placement="Bottom">
@@ -168,7 +168,7 @@
             </Border>
         </m:Popup>
 
-        <m:Popup IsOpen="{Binding IsMessagePopupOpen}"
+        <m:Popup IsOpen="{Binding UpdatePopupState, Converter={x:Static ObjectConverters.Equal}, ConverterParameter={x:Static vm:UpdatePopupState.Notice}}"
                  IsModal="True"
                  IsLightDismissEnabled="False"
                  Placement="Center">
