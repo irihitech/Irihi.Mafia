@@ -16,6 +16,23 @@
   <data name="List_Project" xml:space="preserve"><value>Project</value></data>
   <data name="List_TechStack" xml:space="preserve"><value>Tech Stack</value></data>
 
+  <!-- Update (check for updates) -->
+  <data name="Update_Section_General" xml:space="preserve"><value>General</value></data>
+  <data name="List_CheckUpdate" xml:space="preserve"><value>Check Update</value></data>
+  <data name="List_CheckUpdate_Desc" xml:space="preserve"><value>Check for new versions</value></data>
+  <data name="Update_Checking" xml:space="preserve"><value>Checking for updates...</value></data>
+  <data name="Update_Found_Title" xml:space="preserve"><value>New Version Found</value></data>
+  <data name="Update_Found_Message_Prefix" xml:space="preserve"><value>New version </value></data>
+  <data name="Update_Found_Message_Suffix" xml:space="preserve"><value> is available. Update now?</value></data>
+  <data name="Update_Download_Title" xml:space="preserve"><value>Downloading Update</value></data>
+  <data name="Update_Download_Speed_Prefix" xml:space="preserve"><value>Speed: </value></data>
+  <data name="Update_Install_Title" xml:space="preserve"><value>Download Complete</value></data>
+  <data name="Update_Install_Message_Prefix" xml:space="preserve"><value>New version </value></data>
+  <data name="Update_Install_Message_Suffix" xml:space="preserve"><value> has been downloaded. Install now?</value></data>
+  <data name="Update_AlreadyLatest" xml:space="preserve"><value>You're up to date</value></data>
+  <data name="Update_Ok" xml:space="preserve"><value>OK</value></data>
+  <data name="Update_Cancel" xml:space="preserve"><value>Cancel</value></data>
+
   <!-- HomePage -->
   <data name="Home_Title_Mafia" xml:space="preserve"><value>Mafia Control Library</value></data>
   <data name="Home_Subtitle_Welcome" xml:space="preserve"><value>Welcome to Mafia! A mobile-first Avalonia control library featuring Popup, Cell and more mobile-friendly controls.</value></data>

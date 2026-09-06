@@ -26,3 +26,7 @@ public class TempChevronLeft : ChevronLeft, ITempIcon;
 public class TempSearch : Search, ITempIcon;
 
 public class TempSetting : Setting, ITempIcon;
+
+public class TempCheckCircle : CheckCircle, ITempIcon;
+
+public class TempCloseCircle : CloseCircle, ITempIcon;

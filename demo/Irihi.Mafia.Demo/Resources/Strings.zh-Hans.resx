@@ -16,6 +16,23 @@
   <data name="List_Project" xml:space="preserve"><value>项目地址</value></data>
   <data name="List_TechStack" xml:space="preserve"><value>技术栈</value></data>
 
+  <!-- Update (check for updates) -->
+  <data name="Update_Section_General" xml:space="preserve"><value>通用</value></data>
+  <data name="List_CheckUpdate" xml:space="preserve"><value>检查更新</value></data>
+  <data name="List_CheckUpdate_Desc" xml:space="preserve"><value>检测是否有新版本</value></data>
+  <data name="Update_Checking" xml:space="preserve"><value>正在检查更新...</value></data>
+  <data name="Update_Found_Title" xml:space="preserve"><value>发现新版本</value></data>
+  <data name="Update_Found_Message_Prefix" xml:space="preserve"><value>检测到新版本 </value></data>
+  <data name="Update_Found_Message_Suffix" xml:space="preserve"><value> 是否立即更新?</value></data>
+  <data name="Update_Download_Title" xml:space="preserve"><value>正在下载更新</value></data>
+  <data name="Update_Download_Speed_Prefix" xml:space="preserve"><value>下载速度：</value></data>
+  <data name="Update_Install_Title" xml:space="preserve"><value>下载完成</value></data>
+  <data name="Update_Install_Message_Prefix" xml:space="preserve"><value>新版本 </value></data>
+  <data name="Update_Install_Message_Suffix" xml:space="preserve"><value> 已下载，是否立即安装?</value></data>
+  <data name="Update_AlreadyLatest" xml:space="preserve"><value>当前已是最新版本</value></data>
+  <data name="Update_Ok" xml:space="preserve"><value>确定</value></data>
+  <data name="Update_Cancel" xml:space="preserve"><value>取消</value></data>
+
   <!-- HomePage -->
   <data name="Home_Title_Mafia" xml:space="preserve"><value>Mafia 控件库</value></data>
   <data name="Home_Subtitle_Welcome" xml:space="preserve"><value>欢迎使用 Mafia！这是一个专为移动端设计的 Avalonia 控件库，提供 Popup、Cell 等一系列移动端友好的控件。</value></data>

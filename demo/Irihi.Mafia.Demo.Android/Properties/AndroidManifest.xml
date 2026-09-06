@@ -4,5 +4,16 @@
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE " />
-	<application android:name="android.app.Application" android:label="Irihi.Mafia.Demo" android:icon="@drawable/Icon" />
+  <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+	<application android:name="Irihi.Mafia.Demo.Android.Application" android:label="Irihi.Mafia.Demo" android:icon="@drawable/Icon">
+		<provider
+			android:name="androidx.core.content.FileProvider"
+			android:authorities="tech.irihi.Mafia.Demo.generalupdate.fileprovider"
+			android:exported="false"
+			android:grantUriPermissions="true">
+			<meta-data
+				android:name="android.support.FILE_PROVIDER_PATHS"
+				android:resource="@xml/generalupdate_file_paths" />
+		</provider>
+	</application>
 </manifest>

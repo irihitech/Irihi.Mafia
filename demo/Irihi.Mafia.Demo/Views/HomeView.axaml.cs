@@ -22,6 +22,6 @@ public partial class HomeView : TabbedPage
         AppServices.Navigator = new NavigationService(nav);
         GalleryTabContent.DataContext = new GalleryTabViewModel();
         HomeTabContent.DataContext = new HomeTabViewModel();
-        SettingTabContent.DataContext = new SettingTabViewModel();
+        SettingTabContent.DataContext = new SettingTabViewModel(AppServices.Updater);
     }
 }

@@ -45,16 +45,157 @@
             <m:Picker ItemsSource="{Binding LanguageOptions}"
                       SelectedIndex="{Binding SelectedLanguageIndex, Mode=TwoWay}"
                       Description="{demo:Translate {x:Static demo:LanguageManager+Keys.List_Language_Description}}" />
-            <!--<m:Cell Content="字体大小" Note="标准" Classes="Arrow" /> -->
         </m:CellGroup>
 
         <m:CellGroup Header="{demo:Translate {x:Static demo:LanguageManager+Keys.List_Section_About}}">
-            <m:Cell Content="{demo:Translate {x:Static demo:LanguageManager+Keys.List_Version}}" Note="0.0.1" />
+            <m:Cell Content="{demo:Translate {x:Static demo:LanguageManager+Keys.List_Version}}" Note="{Binding CurrentVersion}" />
+            <m:Cell
+                Classes="Arrow"
+                Content="{demo:Translate {x:Static demo:LanguageManager+Keys.List_CheckUpdate}}"
+                Command="{Binding CheckUpdateCommand}" />
             <m:Cell Content="{demo:Translate {x:Static demo:LanguageManager+Keys.List_License}}" Note="MIT" />
             <m:Cell Content="{demo:Translate {x:Static demo:LanguageManager+Keys.List_Project}}" Note="GitHub" Classes="Arrow"
                     Command="{Binding OpenProjectUrlCommand}" />
             <m:Cell Content="{demo:Translate {x:Static demo:LanguageManager+Keys.List_TechStack}}" Description="Avalonia 12 · .NET 10"
                     InnerLeftContent="{td:TempApp}" />
         </m:CellGroup>
+
+        <m:Popup IsOpen="{Binding IsCheckingPopupOpen}"
+                 IsModal="True"
+                 IsLightDismissEnabled="False"
+                 Placement="Center">
+            <Border Background="{DynamicResource TDBgColorContainer}"
+                    CornerRadius="16"
+                    Padding="24">
+                <TextBlock Text="{demo:Translate {x:Static demo:LanguageManager+Keys.Update_Checking}}" />
+            </Border>
+        </m:Popup>
+
+        <m:Popup IsOpen="{Binding IsCheckUpdatePopupOpen}"
+                 IsModal="True"
+                 IsLightDismissEnabled="False"
+                 Placement="Bottom">
+            <Border Background="{DynamicResource TDBgColorContainer}"
+                    CornerRadius="16,16,0,0"
+                    Padding="20,24">
+                <StackPanel Spacing="16">
+                    <TextBlock Text="{demo:Translate {x:Static demo:LanguageManager+Keys.Update_Found_Title}}"
+                               HorizontalAlignment="Center"
+                               FontSize="18"
+                               FontWeight="Bold" />
+                    <TextBlock HorizontalAlignment="Center"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap">
+                        <Run Text="{demo:Translate {x:Static demo:LanguageManager+Keys.Update_Found_Message_Prefix}}" />
+                        <Run Text="{Binding TargetVersion}" FontWeight="Bold" />
+                        <Run Text="{demo:Translate {x:Static demo:LanguageManager+Keys.Update_Found_Message_Suffix}}" />
+                    </TextBlock>
+                    <UniformGrid Columns="2" ColumnSpacing="12">
+                        <Button HorizontalAlignment="Stretch"
+                                Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Update_Cancel}}"
+                                Command="{Binding CancelUpdateCommand}" />
+                        <Button Classes="Primary"
+                                HorizontalAlignment="Stretch"
+                                Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Update_Ok}}"
+                                Command="{Binding ConfirmUpdateCommand}" />
+                    </UniformGrid>
+                </StackPanel>
+            </Border>
+        </m:Popup>
+
+        <m:Popup IsOpen="{Binding IsDownloadPopupOpen}"
+                 IsModal="True"
+                 IsLightDismissEnabled="False"
+                 Placement="Bottom">
+            <Border Background="{DynamicResource TDBgColorContainer}"
+                    CornerRadius="16,16,0,0"
+                    Padding="20,24">
+                <StackPanel Spacing="14">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <TextBlock Text="{demo:Translate {x:Static demo:LanguageManager+Keys.Update_Download_Title}}"
+                                   FontSize="18"
+                                   FontWeight="Bold"
+                                   VerticalAlignment="Center" />
+                        <m:IconButton Grid.Column="1"
+                                      Classes="Circle"
+                                      Command="{Binding CancelUpdateCommand}">
+                            <m:IconButton.Icon>
+                                <td:TempClose />
+                            </m:IconButton.Icon>
+                        </m:IconButton>
+                    </Grid>
+                    <ProgressBar Value="{Binding Progress.ProgressPercentage}"
+                                 Maximum="100" />
+                    <TextBlock HorizontalAlignment="Center">
+                        <Run Text="{demo:Translate {x:Static demo:LanguageManager+Keys.Update_Download_Speed_Prefix}}" />
+                        <Run Text="{Binding Progress.SpeedMbPerSecond, StringFormat='{}{0:F2}'}" />
+                        <Run Text=" MB/s" />
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+        </m:Popup>
+
+        <m:Popup IsOpen="{Binding IsInstallPopupOpen}"
+                 IsModal="True"
+                 IsLightDismissEnabled="False"
+                 Placement="Bottom">
+            <Border Background="{DynamicResource TDBgColorContainer}"
+                    CornerRadius="16,16,0,0"
+                    Padding="20,24">
+                <StackPanel Spacing="16">
+                    <td:TempCheck Width="40" Height="40" HorizontalAlignment="Center"
+                                  Stroke1="{DynamicResource TDSuccessColor}" />
+                    <TextBlock Text="{demo:Translate {x:Static demo:LanguageManager+Keys.Update_Install_Title}}"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center" />
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Center"
+                               HorizontalAlignment="Center">
+                        <Run Text="{demo:Translate {x:Static demo:LanguageManager+Keys.Update_Install_Message_Prefix}}" />
+                        <Run Text="{Binding TargetVersion}" FontWeight="Bold" />
+                        <Run Text="{demo:Translate {x:Static demo:LanguageManager+Keys.Update_Install_Message_Suffix}}" />
+                    </TextBlock>
+                    <UniformGrid Columns="2" ColumnSpacing="12">
+                        <Button HorizontalAlignment="Stretch"
+                                Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Update_Cancel}}"
+                                Command="{Binding InstallCancelCommand}" />
+                        <Button Classes="Primary"
+                                HorizontalAlignment="Stretch"
+                                Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Update_Ok}}"
+                                Command="{Binding InstallConfirmCommand}" />
+                    </UniformGrid>
+                </StackPanel>
+            </Border>
+        </m:Popup>
+
+        <m:Popup IsOpen="{Binding IsMessagePopupOpen}"
+                 IsModal="True"
+                 IsLightDismissEnabled="False"
+                 Placement="Center">
+            <Border Background="{DynamicResource TDBgColorContainer}"
+                    CornerRadius="16"
+                    Padding="20,24"
+                    MaxWidth="280">
+                <StackPanel Spacing="16">
+                    <StackPanel IsVisible="{Binding IsLatestVersion}" Spacing="8">
+                        <td:TempCheckCircle Width="40" Height="40" HorizontalAlignment="Center"
+                                            Stroke1="{DynamicResource TDSuccessColor}" />
+                        <TextBlock Text="{demo:Translate {x:Static demo:LanguageManager+Keys.Update_AlreadyLatest}}"
+                                   FontSize="16" FontWeight="SemiBold"
+                                   HorizontalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel IsVisible="{Binding !IsLatestVersion}" Spacing="8">
+                        <td:TempCloseCircle Width="40" Height="40" HorizontalAlignment="Center"
+                                            Stroke1="{DynamicResource TDDangerColor}" />
+                        <TextBlock Text="{Binding MessageText}"
+                                   TextWrapping="Wrap" TextAlignment="Center" />
+                    </StackPanel>
+                    <Button Classes="Primary"
+                            Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Update_Ok}}"
+                            Command="{Binding CloseMessageCommand}"
+                            HorizontalAlignment="Center" />
+                </StackPanel>
+            </Border>
+        </m:Popup>
     </StackPanel>
 </ContentPage>
