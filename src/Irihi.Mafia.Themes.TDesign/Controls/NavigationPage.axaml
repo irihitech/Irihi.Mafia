@@ -19,9 +19,9 @@
                     <DockPanel>
                         <Border
                             Name="PART_NavBarSpacer"
+                            DockPanel.Dock="Top"
                             Height="{TemplateBinding EffectiveBarHeight}"
-                            IsVisible="False"
-                            DockPanel.Dock="Top" />
+                            IsVisible="False" />
                         <ContentPresenter
                             Name="PART_BottomCommandBar"
                             DockPanel.Dock="Bottom"
@@ -43,42 +43,42 @@
                         Background="{DynamicResource TDNavigationPageBarBackground}"
                         BorderBrush="{DynamicResource TDNavigationPageBarBorderBrush}"
                         BorderThickness="{DynamicResource TDNavigationPageBarBorderThickness}">
-                        <Grid ColumnDefinitions="Auto,*,Auto">
+                        <Panel>
                             <Button
                                 Name="PART_BackButton"
-                                Grid.Column="0"
-                                MinHeight="{TemplateBinding EffectiveBarHeight}"
-                                MinWidth="{TemplateBinding EffectiveBarHeight}"
+                                HorizontalAlignment="Left"
+                                MinHeight="{TemplateBinding BarHeight}"
+                                MinWidth="{TemplateBinding BarHeight}"
                                 Padding="{DynamicResource TDNavigationPageBackButtonPadding}"
+                                Foreground="{DynamicResource TDNavigationPageBackButtonForeground}"
                                 IsVisible="{TemplateBinding IsBackButtonEffectivelyVisible}"
                                 Theme="{StaticResource TextButton}">
                                 <Panel Background="Transparent">
                                     <tdicon:ChevronLeft
                                         Name="PART_BackButtonDefaultIcon"
-                                        Stroke1="{DynamicResource TDNavigationPageBackButtonForeground}" />
+                                        Stroke1="{Binding $parent[Button].Foreground}" />
                                     <ContentPresenter
                                         Name="PART_BackButtonContentPresenter"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Center"
-                                        Foreground="{DynamicResource TDNavigationPageBackButtonForeground}" />
+                                        Foreground="{Binding $parent[Button].Foreground}" />
                                 </Panel>
                             </Button>
                             <ContentPresenter
                                 Name="PART_Header"
-                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
                                 Foreground="{DynamicResource TDNavigationPageHeaderForeground}"
                                 FontWeight="{DynamicResource TDNavigationPageHeaderFontWeight}"
                                 FontSize="{DynamicResource TDNavigationPageHeaderFontSize}"
                                 Content="{Binding CurrentPage?.Header, RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}"
                                 ContentTemplate="{Binding CurrentPage?.HeaderTemplate, RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}"
-                                VerticalAlignment="Center"
                                 Margin="{DynamicResource TDNavigationPageHeaderMargin}" />
                             <ContentPresenter
                                 Name="PART_TopCommandBar"
-                                Grid.Column="2"
                                 HorizontalAlignment="Right"
                                 Content="{Binding CurrentPage?.(NavigationPage.TopCommandBar), RelativeSource={RelativeSource TemplatedParent}, FallbackValue={x:Null}}" />
-                        </Grid>
+                        </Panel>
                     </Border>
 
                     <Border
