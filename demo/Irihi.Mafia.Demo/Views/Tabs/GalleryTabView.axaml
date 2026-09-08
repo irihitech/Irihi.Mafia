@@ -10,6 +10,8 @@
              mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
              x:DataType="vm:GalleryTabViewModel"
              x:Class="Irihi.Mafia.Demo.Views.GalleryTabView"
+             AutomaticallyApplySafeAreaPadding="False"
+             Margin="{Binding $self.SafeAreaPadding}"
              Theme="{DynamicResource ScrollPage}">
     <ContentPage.TopCommandBar>
         <m:Input
