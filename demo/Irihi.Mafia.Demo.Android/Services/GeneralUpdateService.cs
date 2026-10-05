@@ -15,13 +15,14 @@ namespace Irihi.Mafia.Demo.Android.Services;
 
 /// <summary>
 /// 基于 GeneralUpdate.Avalonia.Android 的真实更新服务。
-/// 流程：ValidateAsync（检查版本）→ DownloadAndVerifyAsync（断点续传 + SHA-256 校验）→ LaunchInstallerAsync（安装）。
+/// 流程：CheckForUpdateAsync（向更新服务器查询最新包并比较版本）→ DownloadAsync（断点续传 + SHA-256 校验）→ InstallAsync（安装）。
+/// 最新包信息由组件从 UpdateConfig.UpdateServer 查询得到，客户端不内置。
 /// 所有事件都会调度到 UI 线程后触发。
 /// </summary>
 public sealed class GeneralUpdateService : IUpdateService
 {
     private readonly IAndroidBootstrap _bootstrap;
-    private readonly UpdatePackageInfo _packageInfo;
+    private UpdatePackageInfo? _packageInfo;
     private CancellationTokenSource? _cts;
     private string? _apkFilePath;
 
@@ -43,20 +44,12 @@ public sealed class GeneralUpdateService : IUpdateService
         {
             DownloadDirectoryPath = Path.Combine(Application.Context.CacheDir!.AbsolutePath!, "update"),
             FileProviderAuthority = UpdateConfig.FileProviderAuthority,
+            UpdateServer = UpdateConfig.UpdateServer,
         };
 
         _bootstrap = GeneralUpdateBootstrap.CreateDefault(
             options,
             activityProvider: new MainActivityProvider());
-
-        _packageInfo = new UpdatePackageInfo
-        {
-            Version = UpdateConfig.Latest.Version,
-            DownloadUrl = UpdateConfig.Latest.DownloadUrl,
-            FileName = UpdateConfig.Latest.FileName,
-            FileSize = UpdateConfig.Latest.FileSize,
-            Sha256 = UpdateConfig.Latest.Sha256 ?? string.Empty,
-        };
 
         _bootstrap.AddListenerDownloadProgressChanged += (_, e) =>
             Dispatcher.UIThread.Post(() => ProgressChanged?.Invoke(new DownloadProgress(
@@ -79,10 +72,11 @@ public sealed class GeneralUpdateService : IUpdateService
         _cts?.Cancel();
         _cts = new CancellationTokenSource();
 
-        var result = await _bootstrap.ValidateAsync(_packageInfo, CurrentVersion, _cts.Token);
+        var result = await _bootstrap.ValidateAsync(CurrentVersion, _cts.Token);
         if (!result.Success)
             throw new InvalidOperationException(result.Message ?? "Check for update failed.");
 
+        _packageInfo = result.PackageInfo;
         return new UpdateCheckResult(
             result.UpdateFound,
             result.CurrentVersion,
@@ -94,6 +88,12 @@ public sealed class GeneralUpdateService : IUpdateService
     {
         try
         {
+            if (_packageInfo is null)
+            {
+                UpdateFailed?.Invoke("No update package info. Check for updates first.");
+                return;
+            }
+
             _cts?.Cancel();
             _cts = new CancellationTokenSource();
 
@@ -116,7 +116,7 @@ public sealed class GeneralUpdateService : IUpdateService
 
     public async Task InstallAsync()
     {
-        if (string.IsNullOrEmpty(_apkFilePath))
+        if (string.IsNullOrEmpty(_apkFilePath) || _packageInfo is null)
         {
             UpdateFailed?.Invoke("APK file not found.");
             return;

@@ -3,14 +3,6 @@ using System.Threading.Tasks;
 
 namespace Irihi.Mafia.Demo.Services;
 
-/// <summary>待检查/下载的更新包信息。</summary>
-public sealed record UpdatePackageInfo(
-    string Version,
-    string DownloadUrl,
-    string FileName,
-    long FileSize,
-    string? Sha256 = null);
-
 /// <summary>检查更新的结果。</summary>
 public sealed record UpdateCheckResult(
     bool UpdateFound,

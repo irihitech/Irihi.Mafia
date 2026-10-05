@@ -1,9 +1,10 @@
-﻿using Irihi.Mafia.Demo.Services;
+﻿using GeneralUpdate.Avalonia.Android.Models;
 
 namespace Irihi.Mafia.Demo.Android.Services;
 
 /// <summary>
 /// 更新相关的配置。接入真实更新服务器时，把下面的占位值替换成你自己的信息。
+/// 最新包信息由组件在运行时向更新服务器查询，客户端不再内置。
 /// </summary>
 public static class UpdateConfig
 {
@@ -17,11 +18,16 @@ public static class UpdateConfig
     /// <summary>FileProvider authority，必须与 AndroidManifest.xml 中 provider 的 android:authorities 一致。</summary>
     public const string FileProviderAuthority = "tech.irihi.Mafia.Demo.generalupdate.fileprovider";
 
-    /// <summary>服务器上的最新版本信息（占位示例，请替换）。</summary>
-    public static readonly UpdatePackageInfo Latest = new(
-        Version: "0.0.2",
-        DownloadUrl: "https://example.com/app-release.apk",
-        FileName: "app-release.apk",
-        FileSize: 0,
-        Sha256: null);
+    /// <summary>更新服务器（占位示例，请替换）。ValidateAsync 会用下面的标识信息向服务器查询最新包。</summary>
+    public static UpdateServerOptions UpdateServer { get; } = new()
+    {
+        // GeneralUpdate 参考协议的校验接口；改用自建 JSON 接口时设 UseJsonEndpoint = true。
+        RequestUrl = "https://example.com/Upgrade/Verification",
+        AppKey = "your-app-key",
+        ProductId = "your-product-id",
+        // AppType / Platform 为服务器约定的整型标识，需与服务端配置一致。
+        AppType = 1,
+        Platform = 1,
+        UseJsonEndpoint = false,
+    };
 }
