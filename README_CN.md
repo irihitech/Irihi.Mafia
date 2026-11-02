@@ -84,40 +84,52 @@ xmlns:m="https://irihi.tech/mafia"
 |---------|-------------|
 | `Avatar` | 带图片源的按钮，适用于用户头像 |
 | `Calendar` | 面向移动端的日历控件，支持翻页、滚动浏览月份，以及单选、多选、范围选择 |
+| `CalendarDatePicker` | 日期选择单元格，带下拉日历、占位文本与日期格式支持 |
 | `Cell` | 带描述、备注和左右内容插槽的列表项 |
 | `CellGroup` | 将 `Cell` 项分组显示，带分组标题 |
 | `Divider` | 水平或垂直分隔线 |
 | `IconButton` | 带图标、加载状态、形状和变体选项的按钮 |
+| `Input` | 面向移动端的文本输入框，带描述与左右内容插槽 |
 | `Picker` | 带确认模式和搜索功能的下拉选择控件 |
 | `Popup` | 灵活的弹出层，支持模态遮罩、位置和动画 |
+| `StickyPanel` | 滚动时保持内容吸顶/吸底的布局基元 |
+
+主题包同时对 Avalonia 内置控件（`Button`、`CheckBox`、`Switch`、`Slider`、`TabControl`、`ScrollViewer` 等）以及 Avalonia 12 的页面/导航壳（`NavigationPage`、`TabbedPage`、`ContentPage`、`DrawerPage`）进行了重新样式化。完整映射（每个控件对应的源码、主题、令牌、演示与测试）见 [docs/control-index.md](docs/control-index.md)。
 
 ## 项目结构
 
 ```
 src/
-├── Irihi.Mafia/                      # 核心控件库
+├── Irihi.Mafia/                      # 核心控件库（仅逻辑，无 XAML）
 │   ├── Controls/                     # 自定义控件实现
 │   │   ├── Avatar/
+│   │   ├── Calendar/                 # Calendar、CalendarDatePicker 及其部件
 │   │   ├── Cell/
 │   │   ├── Divider.cs
 │   │   ├── IconButton.cs
+│   │   ├── Input.cs
 │   │   ├── Picker.cs
-│   │   └── Primitives/               # Popup、OverlayPopupHost
+│   │   └── Primitives/               # Popup、OverlayPopupHost、StickyPanel
 │   └── Common/                       # 共享枚举（Position、PopupPlacement）
 │
-└── Irihi.Mafia.Themes.TDesign/       # TDesign 风格视觉库
+└── Irihi.Mafia.Themes.TDesign/       # TDesign 风格视觉库（全部 XAML）
     ├── TDesignTheme.axaml             # 主题入口
-    ├── Controls/                      # 24 个 ControlTheme 定义
+    ├── Controls/                      # 29 个 ControlTheme 定义
     ├── Tokens/                        # 设计令牌（颜色、字体、圆角、尺寸）
-    ├── Themes/                        # 明暗变体资源字典
+    ├── Themes/                        # Shared / Light / Dark 资源字典
     └── Styles/                        # 全局样式选择器
 
 demo/
-├── Irihi.Mafia.Demo/                 # 共享演示应用
+├── Irihi.Mafia.Demo/                 # 共享演示应用（视图、i18n 资源）
 ├── Irihi.Mafia.Demo.Desktop          # Windows/macOS/Linux 启动器
 ├── Irihi.Mafia.Demo.Browser          # WebAssembly 启动器
 ├── Irihi.Mafia.Demo.Android          # Android 启动器
-└── Irihi.Mafia.Demo.iOS              # iOS 启动器
+├── Irihi.Mafia.Demo.iOS              # iOS 启动器
+└── Sandbox/                          # 试验用桌面应用
+
+test/
+├── Irihi.Mafia.UnitTest/             # 控件逻辑测试（xunit.v3）
+└── Irihi.Mafia.HeadlessTest/         # 无头 UI 测试（Avalonia.Headless.XUnit）
 ```
 
 ## 主题定制
@@ -154,9 +166,19 @@ dotnet test
 dotnet run --project demo/Irihi.Mafia.Demo.Desktop
 ```
 
+## 文档
+
+- [控件索引](docs/control-index.md) — 每个控件到源码、主题、令牌、演示与测试的完整映射
+- [新增控件指南](docs/add-new-control.md) — 端到端清单（7 个触点）
+- [组件规范](docs/component-spec.md) — 新增或升级组件的设计模板
+- [令牌映射](docs/token-mapping.md) — 分层令牌体系与命名规则
+- [移动 UI 规范](docs/mobile-ui-spec.md) — 移动优先的行为基线
+
+面向 AI 编程工具的智能体指引见 [AGENTS.md](AGENTS.md)。
+
 ## 贡献
 
-欢迎提交 Issue 或 Pull Request！
+欢迎提交 Issue 或 Pull Request！新增或修改控件请遵循 [docs/add-new-control.md](docs/add-new-control.md)。
 
 ## 许可证
 

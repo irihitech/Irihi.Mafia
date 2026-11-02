@@ -84,40 +84,52 @@ xmlns:m="https://irihi.tech/mafia"
 |---------|-------------|
 | `Avatar` | Button with an image source, for user avatars |
 | `Calendar` | Mobile-first calendar with paged and scroll month browsing plus single/multiple/range selection |
+| `CalendarDatePicker` | Date-selection cell with a drop-down calendar and placeholder/date-format support |
 | `Cell` | List item with description, note, and inner content slots |
 | `CellGroup` | Groups `Cell` items under a header |
 | `Divider` | A horizontal or vertical separator line |
 | `IconButton` | Button with icon, loading state, shape and variant options |
+| `Input` | Mobile-friendly text input with description and inner content slots |
 | `Picker` | Drop-down selection control with confirm mode and search |
 | `Popup` | Flexible popup with modal mask, placement and animation support |
+| `StickyPanel` | Layout primitive that keeps content pinned while scrolling |
+
+The theme package also restyles built-in Avalonia controls (`Button`, `CheckBox`, `Switch`, `Slider`, `TabControl`, `ScrollViewer`, …) and the Avalonia 12 page/navigation shells (`NavigationPage`, `TabbedPage`, `ContentPage`, `DrawerPage`). See the complete mapping — every control to its source, theme, tokens, demo, and tests — in [docs/control-index.md](docs/control-index.md).
 
 ## Project Structure
 
 ```
 src/
-├── Irihi.Mafia/                      # Core control library
+├── Irihi.Mafia/                      # Core control library (logic only, no XAML)
 │   ├── Controls/                     # Custom control implementations
 │   │   ├── Avatar/
+│   │   ├── Calendar/                 # Calendar, CalendarDatePicker + parts
 │   │   ├── Cell/
 │   │   ├── Divider.cs
 │   │   ├── IconButton.cs
+│   │   ├── Input.cs
 │   │   ├── Picker.cs
-│   │   └── Primitives/               # Popup, OverlayPopupHost
+│   │   └── Primitives/               # Popup, OverlayPopupHost, StickyPanel
 │   └── Common/                       # Shared enums (Position, PopupPlacement)
 │
-└── Irihi.Mafia.Themes.TDesign/       # TDesign-themed visual library
+└── Irihi.Mafia.Themes.TDesign/       # TDesign-themed visual library (all XAML)
     ├── TDesignTheme.axaml             # Theme entry point
-    ├── Controls/                      # 24 ControlTheme definitions
+    ├── Controls/                      # 29 ControlTheme definitions
     ├── Tokens/                        # Design tokens (colors, fonts, radius, sizes)
-    ├── Themes/                        # Light & Dark variant resource dictionaries
+    ├── Themes/                        # Shared / Light / Dark resource dictionaries
     └── Styles/                        # Global style selectors
 
 demo/
-├── Irihi.Mafia.Demo/                 # Shared demo application
+├── Irihi.Mafia.Demo/                 # Shared demo application (views, i18n resources)
 ├── Irihi.Mafia.Demo.Desktop          # Windows/macOS/Linux launcher
 ├── Irihi.Mafia.Demo.Browser          # WebAssembly launcher
 ├── Irihi.Mafia.Demo.Android          # Android launcher
-└── Irihi.Mafia.Demo.iOS              # iOS launcher
+├── Irihi.Mafia.Demo.iOS              # iOS launcher
+└── Sandbox/                          # Scratch desktop app
+
+test/
+├── Irihi.Mafia.UnitTest/             # Control logic tests (xunit.v3)
+└── Irihi.Mafia.HeadlessTest/         # Headless UI tests (Avalonia.Headless.XUnit)
 ```
 
 ## Theme Customization
@@ -154,9 +166,19 @@ dotnet test
 dotnet run --project demo/Irihi.Mafia.Demo.Desktop
 ```
 
+## Documentation
+
+- [Control index](docs/control-index.md) — every control mapped to its source, theme, tokens, demo, and tests
+- [Adding a new control](docs/add-new-control.md) — the end-to-end checklist (7 touchpoints)
+- [Component spec](docs/component-spec.md) — design template for new or upgraded components
+- [Token mapping](docs/token-mapping.md) — the layered token system and naming rules
+- [Mobile UI spec](docs/mobile-ui-spec.md) — mobile-first behavior baseline
+
+Agent instructions for AI coding tools live in [AGENTS.md](AGENTS.md).
+
 ## Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request.
+Contributions are welcome! Please open an issue or submit a pull request. To add or modify a control, follow [docs/add-new-control.md](docs/add-new-control.md).
 
 ## License
 
