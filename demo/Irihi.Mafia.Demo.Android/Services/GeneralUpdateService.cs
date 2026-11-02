@@ -45,6 +45,8 @@ public sealed class GeneralUpdateService : IUpdateService
             DownloadDirectoryPath = Path.Combine(Application.Context.CacheDir!.AbsolutePath!, "update"),
             FileProviderAuthority = UpdateConfig.FileProviderAuthority,
             UpdateServer = UpdateConfig.UpdateServer,
+            // 更新服务器当前为 HTTP，组件默认强制 HTTPS 下载，需显式放行。
+            AllowInsecureHttpDownloads = true,
         };
 
         _bootstrap = GeneralUpdateBootstrap.CreateDefault(
