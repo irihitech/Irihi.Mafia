@@ -2,6 +2,10 @@
 
 How to add a control `Foo` to Irihi.Mafia, with every file that must change. For design questions (API contract, variants, states) fill in [component-spec.md](component-spec.md) first; for token strategy see [token-mapping.md](token-mapping.md); for mobile behavior rules see [mobile-ui-spec.md](mobile-ui-spec.md).
 
+## Step 0 — Category spec
+
+Check [specs/](specs/README.md) for the control's category. If a spec sheet exists, follow its API mapping table and token plan — deviations require editing the spec in the same change, and landing the control backfills its *Implementation notes (landed)* subsection. If the category has no spec yet, fill [component-spec.md](component-spec.md) per control, or create the category spec first ([spec-template.md](specs/spec-template.md)) when adding several controls from one TDesign group.
+
 Pick your path first:
 
 - **Path A — new custom control** (new public API + visuals): do all steps.

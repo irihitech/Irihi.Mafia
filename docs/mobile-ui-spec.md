@@ -4,6 +4,8 @@ This document defines the baseline mobile-first behavior for Irihi.Mafia.
 
 The visual and interaction reference is **TDesign Mobile Vue**, translated into Avalonia for phone-sized and other touch-oriented devices.
 
+Category specs reference these rules by stable ID (M1–M8); the ID catalog lives in [specs/spec-template.md](specs/spec-template.md#m-rules--mobile-behavior-ids).
+
 ## 1. Primary Design Target
 
 - Default target: phone-sized layouts

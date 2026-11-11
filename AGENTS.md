@@ -95,7 +95,7 @@ Full details in [docs/](docs/) — the essentials, in one place:
 6. **Mobile-first behavior 移动行为** — touch targets, pressed/disabled/loading feedback, safe areas, overlay stacking, scroll locking, virtual keyboard. See [docs/mobile-ui-spec.md](docs/mobile-ui-spec.md).
 7. **Public API 公共 API** — Avalonia styled properties, PascalCase, NRT enabled; keep mobile concepts explicit (`Placement`, `PopupVisible`, `SafeAreaInset`, `Size`, `Status`).
 8. **Control inventory 控件清单** — every control (custom, themed built-in, page shell) is indexed in [docs/control-index.md](docs/control-index.md). **Update it when adding controls.** 新增控件必须同步更新该索引。
-9. **New control workflow 新增控件流程** — follow the 7-touchpoint checklist in [docs/add-new-control.md](docs/add-new-control.md).
+9. **New control workflow 新增控件流程** — spec-first: check the category spec in [docs/specs/](docs/specs/README.md) (fill it if missing), then follow the checklist in [docs/add-new-control.md](docs/add-new-control.md) starting at its Step 0. 规格先行：先查类别规格书（没有就先补），再走 add-new-control 清单。
 
 ## Reference tooling | 参考工具
 
@@ -128,7 +128,9 @@ Conventional Commits, one logical change per commit. Never commit or push unless
 | Doc | Purpose |
 |-----|---------|
 | [docs/control-index.md](docs/control-index.md) | Every control → source/theme/tokens/demo/tests mapping |
-| [docs/add-new-control.md](docs/add-new-control.md) | End-to-end checklist for adding a control (7 touchpoints) |
+| [docs/specs/README.md](docs/specs/README.md) | Spec-first workflow + category spec status (pilot: [feedback](docs/specs/feedback.md)) |
+| [docs/specs/spec-template.md](docs/specs/spec-template.md) | Category spec skeleton + M-rule IDs (M1–M8) for mobile behavior |
+| [docs/add-new-control.md](docs/add-new-control.md) | End-to-end checklist for adding a control (Step 0 + 7 touchpoints) |
 | [docs/component-spec.md](docs/component-spec.md) | Component design template: API contract, variants, states |
 | [docs/token-mapping.md](docs/token-mapping.md) | Token layers, naming, Light/Dark strategy |
 | [docs/mobile-ui-spec.md](docs/mobile-ui-spec.md) | Mobile-first behavior baseline: touch, overlays, safe area |
