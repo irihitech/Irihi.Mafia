@@ -306,6 +306,7 @@
   <data name="HyperlinkButton_Basic" xml:space="preserve"><value>Basic Usage</value></data>
   <data name="HyperlinkButton_Link" xml:space="preserve"><value>Jump link</value></data>
   <data name="HyperlinkButton_Colors" xml:space="preserve"><value>Color Variants</value></data>
+  <data name="HyperlinkButton_Size" xml:space="preserve"><value>Size Variants</value></data>
   <data name="HyperlinkButton_Disabled" xml:space="preserve"><value>Disabled</value></data>
 
   <!-- Divider Detail -->

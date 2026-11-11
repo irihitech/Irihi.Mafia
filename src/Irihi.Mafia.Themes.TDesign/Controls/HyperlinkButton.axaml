@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:m="https://irihi.tech/mafia"
                     xmlns:tdicon="https://irihi.tech/iconica/tdesign">
     <Design.PreviewWith>
         <StackPanel Margin="20">
@@ -13,6 +14,8 @@
             <HyperlinkButton Content="跳转链接" IsEnabled="False" Classes="Success" />
             <HyperlinkButton Content="跳转链接" IsEnabled="False" Classes="Warning" />
             <HyperlinkButton Content="跳转链接" IsEnabled="False" Classes="Danger" />
+            <m:HyperlinkButton Content="跳转链接" Size="Large" Classes="WithIcon Underline" />
+            <m:HyperlinkButton Content="跳转链接" Size="Small" />
         </StackPanel>
     </Design.PreviewWith>
 
@@ -22,6 +25,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Foreground" Value="{DynamicResource TDLinkDefaultForeground}" />
+        <Setter Property="FontSize" Value="{DynamicResource TDLinkMediumFontSize}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="HyperlinkButton">
                 <ReversibleStackPanel
@@ -37,6 +41,7 @@
                     <ContentPresenter
                         Name="PART_ContentPresenter"
                         Foreground="{TemplateBinding Foreground}"
+                        TextElement.FontSize="{TemplateBinding FontSize}"
                         Content="{TemplateBinding Content}"
                         ContentTemplate="{TemplateBinding ContentTemplate}"
                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
@@ -53,6 +58,25 @@
         </Style>
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Foreground" Value="{DynamicResource TDLinkDefaultDisabledForeground}" />
+        </Style>
+
+        <Style Selector="^.Small">
+            <Setter Property="FontSize" Value="{DynamicResource TDLinkSmallFontSize}" />
+            <Style Selector="^ /template/ tdicon|Link#PART_LinkGlyph">
+                <Setter Property="Width" Value="{DynamicResource TDLinkSmallIconWidth}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Medium">
+            <Setter Property="FontSize" Value="{DynamicResource TDLinkMediumFontSize}" />
+            <Style Selector="^ /template/ tdicon|Link#PART_LinkGlyph">
+                <Setter Property="Width" Value="{DynamicResource TDLinkMediumIconWidth}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Large">
+            <Setter Property="FontSize" Value="{DynamicResource TDLinkLargeFontSize}" />
+            <Style Selector="^ /template/ tdicon|Link#PART_LinkGlyph">
+                <Setter Property="Width" Value="{DynamicResource TDLinkLargeIconWidth}" />
+            </Style>
         </Style>
 
         <Style Selector="^.Primary">
