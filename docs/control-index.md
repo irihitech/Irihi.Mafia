@@ -22,6 +22,7 @@ Control kinds:
 | `CalendarDatePicker` | `Controls/Calendar/CalendarDatePicker.cs` | `Controls/CalendarDatePicker.axaml` | Calendar token files | `CalendarDatePickerPage.axaml` | `UnitTest/CalendarDatePickerTest.cs` |
 | `Cell` / `CellGroup` | `Controls/Cell/{Cell,CellGroup,ICell}.cs` | `Controls/Cell.axaml` + global `Styles/Cell.axaml` | `Themes/{Shared,Light,Dark}/Cell.axaml` | `CellPage.axaml` | — |
 | `Divider` | `Controls/Divider.cs` | `Controls/Divider.axaml` | `Themes/{Shared,Light,Dark}/Divider.axaml` | `DividerPage.axaml` | — |
+| `HyperlinkButton` | `Controls/HyperlinkButton.cs` (subclass of the Avalonia built-in; `StyleKeyOverride` → built-in theme; `Size` styled property mirrors `Small`/`Medium`/`Large` classes) | `Controls/HyperlinkButton.axaml` | `Themes/{Shared,Light,Dark}/HyperlinkButton.axaml` | `HyperlinkButtonPage.axaml` | `UnitTest/HyperlinkButtonTest.cs` |
 | `IconButton` | `Controls/IconButton.cs` | `Controls/IconButton.axaml` (default + `OutlineIconButton`, `TextIconButton`) | — (`TDIconButtonInnerSpacing` lives in `Themes/Shared/Button.axaml`) | `IconButtonPage.axaml` | — |
 | `Input` | `Controls/Input.cs` | `Controls/Input.axaml` | `Themes/{Shared,Light,Dark}/Input.axaml` | `InputPage.axaml` | — |
 | `Picker` | `Controls/Picker.cs` | `Controls/Picker.axaml` | `Themes/{Shared,Light,Dark}/Picker.axaml` | `PickerPage.axaml` | — |
@@ -30,7 +31,7 @@ Control kinds:
 | `OverlayPopupHost` | `Controls/Primitives/OverlayPopupHost.cs` | themed inside `Controls/Popup.axaml` | Popup token files | — (via Popup demo) | `UnitTest/OverlayPopupHostTest.cs` |
 | `StickyPanel` | `Controls/Primitives/StickyPanel.cs` | — (behavior-only primitive) | — | `StickyPanelPage.axaml` | `HeadlessTest/StickyPanelTests.cs` |
 
-Shared enums (`Position`, `PopupPlacement`) live in `src/Irihi.Mafia/Common/`.
+Shared enums (`Position`, `PopupPlacement`, `ControlSize`) live in `src/Irihi.Mafia/Common/`.
 
 ## 2. Themed Avalonia built-ins
 
@@ -40,7 +41,6 @@ No class in this repo — only a ControlTheme under `src/Irihi.Mafia.Themes.TDes
 |---------|--------------|------------------|-----------|
 | `Button` | `Controls/Button.axaml` | `Themes/{Shared,Light,Dark}/Button.axaml` | `ButtonPage.axaml` |
 | `CheckBox` | `Controls/CheckBox.axaml` | `Themes/{Shared,Light,Dark}/CheckBox.axaml` | `CheckBoxPage.axaml` |
-| `HyperlinkButton` | `Controls/HyperlinkButton.axaml` | `Themes/{Shared,Light,Dark}/HyperlinkButton.axaml` | `HyperlinkButtonPage.axaml` |
 | `Progress` | `Controls/Progress.axaml` | `Themes/{Shared,Light,Dark}/Progress.axaml` | `ProgressPage.axaml` |
 | `RadioButton` | `Controls/RadioButton.axaml` | `Themes/{Shared,Light,Dark}/RadioButton.axaml` | `RadioButtonPage.axaml` |
 | `Slider` | `Controls/Slider.axaml` | `Themes/{Shared,Light,Dark}/Slider.axaml` | `SliderPage.axaml` |

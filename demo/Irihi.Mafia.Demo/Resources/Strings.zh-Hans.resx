@@ -306,6 +306,7 @@
   <data name="HyperlinkButton_Basic" xml:space="preserve"><value>基础用法</value></data>
   <data name="HyperlinkButton_Link" xml:space="preserve"><value>跳转链接</value></data>
   <data name="HyperlinkButton_Colors" xml:space="preserve"><value>颜色变体</value></data>
+  <data name="HyperlinkButton_Size" xml:space="preserve"><value>尺寸变体</value></data>
   <data name="HyperlinkButton_Disabled" xml:space="preserve"><value>禁用状态</value></data>
 
   <!-- Divider Detail -->
