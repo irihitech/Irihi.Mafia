@@ -90,8 +90,8 @@
   <data name="Gallery_Avatar_Desc" xml:space="preserve"><value>图片/文字头像</value></data>
   <data name="Gallery_IconButton" xml:space="preserve"><value>IconButton 图标按钮</value></data>
   <data name="Gallery_IconButton_Desc" xml:space="preserve"><value>图文组合按钮</value></data>
-  <data name="Gallery_HyperlinkButton" xml:space="preserve"><value>HyperlinkButton 链接按钮</value></data>
-  <data name="Gallery_HyperlinkButton_Desc" xml:space="preserve"><value>文字链接按钮</value></data>
+  <data name="Gallery_Link" xml:space="preserve"><value>Link 链接</value></data>
+  <data name="Gallery_Link_Desc" xml:space="preserve"><value>文字链接</value></data>
   <data name="Gallery_Divider" xml:space="preserve"><value>Divider 分割线</value></data>
   <data name="Gallery_Divider_Desc" xml:space="preserve"><value>水平/垂直分割</value></data>
   <data name="Gallery_TabControl" xml:space="preserve"><value>TabControl 标签页</value></data>
@@ -300,13 +300,14 @@
   <data name="IconButton_Button" xml:space="preserve"><value>按钮</value></data>
   <data name="IconButton_Disabled" xml:space="preserve"><value>禁用状态</value></data>
 
-  <!-- HyperlinkButton Detail -->
-  <data name="HyperlinkButton_Title" xml:space="preserve"><value>HyperlinkButton 链接按钮</value></data>
-  <data name="HyperlinkButton_Desc" xml:space="preserve"><value>文字链接按钮，支持默认与 Primary/Success/Warning/Danger 多种语义色，可附加下划线与链接图标。</value></data>
-  <data name="HyperlinkButton_Basic" xml:space="preserve"><value>基础用法</value></data>
-  <data name="HyperlinkButton_Link" xml:space="preserve"><value>跳转链接</value></data>
-  <data name="HyperlinkButton_Colors" xml:space="preserve"><value>颜色变体</value></data>
-  <data name="HyperlinkButton_Disabled" xml:space="preserve"><value>禁用状态</value></data>
+  <!-- Link Detail -->
+  <data name="Link_Title" xml:space="preserve"><value>Link 链接</value></data>
+  <data name="Link_Desc" xml:space="preserve"><value>文字链接，支持默认与 Primary/Success/Warning/Danger 多种语义色，可附加下划线与链接图标，支持 Small/Medium/Large 三种尺寸。</value></data>
+  <data name="Link_Basic" xml:space="preserve"><value>基础用法</value></data>
+  <data name="Link_Jump" xml:space="preserve"><value>跳转链接</value></data>
+  <data name="Link_Colors" xml:space="preserve"><value>颜色变体</value></data>
+  <data name="Link_Size" xml:space="preserve"><value>尺寸变体</value></data>
+  <data name="Link_Disabled" xml:space="preserve"><value>禁用状态</value></data>
 
   <!-- Divider Detail -->
   <data name="Divider_Title" xml:space="preserve"><value>Divider 分割线</value></data>

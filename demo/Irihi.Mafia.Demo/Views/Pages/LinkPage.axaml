@@ -1,0 +1,57 @@
+<ContentPage xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:m="https://irihi.tech/mafia"
+             xmlns:demo="https://irihi.tech/demo"
+             mc:Ignorable="d" d:DesignWidth="390" d:DesignHeight="844"
+             x:Class="Irihi.Mafia.Demo.Views.LinkPage"
+             Theme="{DynamicResource ScrollPage}">
+    <StackPanel Spacing="32">
+        <demo:GalleryBlock
+            Classes="PageStart"
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Title}}"
+            Summary="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Desc}}" />
+
+        <demo:GalleryBlock
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Basic}}">
+            <StackPanel Spacing="12">
+                <m:Link Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Jump}}" />
+                <m:Link Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Jump}}" Classes="Underline" />
+                <m:Link Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Jump}}" Classes="WithIcon" />
+                <m:Link Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Jump}}" Classes="WithIcon Underline" />
+            </StackPanel>
+        </demo:GalleryBlock>
+
+        <demo:GalleryBlock
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Size}}">
+            <StackPanel Spacing="12">
+                <m:Link Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Jump}}" Size="Small" />
+                <m:Link Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Jump}}" Size="Medium" />
+                <m:Link Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Jump}}" Size="Large" />
+                <m:Link Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Jump}}" Size="Large" Classes="Primary WithIcon Underline" />
+            </StackPanel>
+        </demo:GalleryBlock>
+
+        <demo:GalleryBlock
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Colors}}">
+            <StackPanel Spacing="12">
+                <m:Link Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Jump}}" Classes="Primary WithIcon Underline" />
+                <m:Link Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Jump}}" Classes="Success WithIcon Underline" />
+                <m:Link Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Jump}}" Classes="Warning WithIcon Underline" />
+                <m:Link Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Jump}}" Classes="Danger WithIcon Underline" />
+            </StackPanel>
+        </demo:GalleryBlock>
+
+        <demo:GalleryBlock
+            Title="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Disabled}}">
+            <StackPanel Spacing="12">
+                <m:Link Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Jump}}" IsEnabled="False" />
+                <m:Link Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Jump}}" Classes="Primary" IsEnabled="False" />
+                <m:Link Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Jump}}" Classes="Success" IsEnabled="False" />
+                <m:Link Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Jump}}" Classes="Warning" IsEnabled="False" />
+                <m:Link Content="{demo:Translate {x:Static demo:LanguageManager+Keys.Link_Jump}}" Classes="Danger" IsEnabled="False" />
+            </StackPanel>
+        </demo:GalleryBlock>
+    </StackPanel>
+</ContentPage>
