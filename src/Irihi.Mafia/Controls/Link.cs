@@ -1,8 +1,6 @@
-using System;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
-using Avalonia.Controls.Primitives;
 using Irihi.Mafia.Common;
 
 namespace Irihi.Mafia.Controls;
@@ -12,7 +10,7 @@ namespace Irihi.Mafia.Controls;
 /// built on the built-in HyperlinkButton.
 /// </summary>
 [PseudoClasses(PC_Small, PC_Medium, PC_Large)]
-public class Link : global::Avalonia.Controls.HyperlinkButton
+public class Link : HyperlinkButton
 {
     public const string PC_Small = ":small";
     public const string PC_Medium = ":medium";
