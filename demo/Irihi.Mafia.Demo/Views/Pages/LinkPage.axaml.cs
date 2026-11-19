@@ -2,9 +2,9 @@ using Avalonia.Controls;
 
 namespace Irihi.Mafia.Demo.Views;
 
-public partial class HyperlinkButtonPage : ContentPage
+public partial class LinkPage : ContentPage
 {
-    public HyperlinkButtonPage()
+    public LinkPage()
     {
         InitializeComponent();
     }

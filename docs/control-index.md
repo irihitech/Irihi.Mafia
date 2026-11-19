@@ -22,9 +22,9 @@ Control kinds:
 | `CalendarDatePicker` | `Controls/Calendar/CalendarDatePicker.cs` | `Controls/CalendarDatePicker.axaml` | Calendar token files | `CalendarDatePickerPage.axaml` | `UnitTest/CalendarDatePickerTest.cs` |
 | `Cell` / `CellGroup` | `Controls/Cell/{Cell,CellGroup,ICell}.cs` | `Controls/Cell.axaml` + global `Styles/Cell.axaml` | `Themes/{Shared,Light,Dark}/Cell.axaml` | `CellPage.axaml` | — |
 | `Divider` | `Controls/Divider.cs` | `Controls/Divider.axaml` | `Themes/{Shared,Light,Dark}/Divider.axaml` | `DividerPage.axaml` | — |
-| `HyperlinkButton` | `Controls/HyperlinkButton.cs` (subclass of the Avalonia built-in; `StyleKeyOverride` → built-in theme; `Size` styled property mirrors `Small`/`Medium`/`Large` classes) | `Controls/HyperlinkButton.axaml` | `Themes/{Shared,Light,Dark}/HyperlinkButton.axaml` | `HyperlinkButtonPage.axaml` | `UnitTest/HyperlinkButtonTest.cs` |
 | `IconButton` | `Controls/IconButton.cs` | `Controls/IconButton.axaml` (default + `OutlineIconButton`, `TextIconButton`) | — (`TDIconButtonInnerSpacing` lives in `Themes/Shared/Button.axaml`) | `IconButtonPage.axaml` | — |
 | `Input` | `Controls/Input.cs` | `Controls/Input.axaml` | `Themes/{Shared,Light,Dark}/Input.axaml` | `InputPage.axaml` | — |
+| `Link` | `Controls/Link.cs` (subclass of the Avalonia built-in `HyperlinkButton`; `Size` styled property drives `:small`/`:medium`/`:large` pseudo-classes) | `Controls/Link.axaml` | `Themes/{Shared,Light,Dark}/Link.axaml` | `LinkPage.axaml` | `UnitTest/LinkTest.cs` |
 | `Picker` | `Controls/Picker.cs` | `Controls/Picker.axaml` | `Themes/{Shared,Light,Dark}/Picker.axaml` | `PickerPage.axaml` | — |
 | `PickerItem` | `Controls/PickerItem.cs` | themed inside `Controls/Picker.axaml` | Picker token files | (Picker demo) | — |
 | `Popup` | `Controls/Primitives/Popup.cs` | `Controls/Popup.axaml` | `Themes/{Shared,Light,Dark}/Popup.axaml` | `PopupPage.axaml` | `UnitTest/PopupTest.cs` |

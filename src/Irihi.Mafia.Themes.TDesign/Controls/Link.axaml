@@ -4,22 +4,22 @@
                     xmlns:tdicon="https://irihi.tech/iconica/tdesign">
     <Design.PreviewWith>
         <StackPanel Margin="20">
-            <HyperlinkButton Content="跳转链接" Classes="WithIcon Underline" />
-            <HyperlinkButton Content="跳转链接" Classes="Primary Underline WithIcon" />
-            <HyperlinkButton Content="跳转链接" Classes="Success Underline WithIcon" />
-            <HyperlinkButton Content="跳转链接" Classes="Warning Underline WithIcon" />
-            <HyperlinkButton Content="跳转链接" Classes="Danger Underline WithIcon" />
-            <HyperlinkButton Content="跳转链接" IsEnabled="False" />
-            <HyperlinkButton Content="跳转链接" IsEnabled="False" Classes="Primary" />
-            <HyperlinkButton Content="跳转链接" IsEnabled="False" Classes="Success" />
-            <HyperlinkButton Content="跳转链接" IsEnabled="False" Classes="Warning" />
-            <HyperlinkButton Content="跳转链接" IsEnabled="False" Classes="Danger" />
-            <m:HyperlinkButton Content="跳转链接" Size="Large" Classes="WithIcon Underline" />
-            <m:HyperlinkButton Content="跳转链接" Size="Small" />
+            <m:Link Content="跳转链接" Classes="WithIcon Underline" />
+            <m:Link Content="跳转链接" Classes="Primary Underline WithIcon" />
+            <m:Link Content="跳转链接" Classes="Success Underline WithIcon" />
+            <m:Link Content="跳转链接" Classes="Warning Underline WithIcon" />
+            <m:Link Content="跳转链接" Classes="Danger Underline WithIcon" />
+            <m:Link Content="跳转链接" IsEnabled="False" />
+            <m:Link Content="跳转链接" IsEnabled="False" Classes="Primary" />
+            <m:Link Content="跳转链接" IsEnabled="False" Classes="Success" />
+            <m:Link Content="跳转链接" IsEnabled="False" Classes="Warning" />
+            <m:Link Content="跳转链接" IsEnabled="False" Classes="Danger" />
+            <m:Link Content="跳转链接" Size="Large" Classes="WithIcon Underline" />
+            <m:Link Content="跳转链接" Size="Small" />
         </StackPanel>
     </Design.PreviewWith>
 
-    <ControlTheme TargetType="HyperlinkButton" x:Key="{x:Type HyperlinkButton}">
+    <ControlTheme TargetType="m:Link" x:Key="{x:Type m:Link}">
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -27,7 +27,7 @@
         <Setter Property="Foreground" Value="{DynamicResource TDLinkDefaultForeground}" />
         <Setter Property="FontSize" Value="{DynamicResource TDLinkMediumFontSize}" />
         <Setter Property="Template">
-            <ControlTemplate TargetType="HyperlinkButton">
+            <ControlTemplate TargetType="m:Link">
                 <ReversibleStackPanel
                     Name="PART_RootPanel"
                     Orientation="Horizontal"
@@ -60,19 +60,19 @@
             <Setter Property="Foreground" Value="{DynamicResource TDLinkDefaultDisabledForeground}" />
         </Style>
 
-        <Style Selector="^.Small">
+        <Style Selector="^:small">
             <Setter Property="FontSize" Value="{DynamicResource TDLinkSmallFontSize}" />
             <Style Selector="^ /template/ tdicon|Link#PART_LinkGlyph">
                 <Setter Property="Width" Value="{DynamicResource TDLinkSmallIconWidth}" />
             </Style>
         </Style>
-        <Style Selector="^.Medium">
+        <Style Selector="^:medium">
             <Setter Property="FontSize" Value="{DynamicResource TDLinkMediumFontSize}" />
             <Style Selector="^ /template/ tdicon|Link#PART_LinkGlyph">
                 <Setter Property="Width" Value="{DynamicResource TDLinkMediumIconWidth}" />
             </Style>
         </Style>
-        <Style Selector="^.Large">
+        <Style Selector="^:large">
             <Setter Property="FontSize" Value="{DynamicResource TDLinkLargeFontSize}" />
             <Style Selector="^ /template/ tdicon|Link#PART_LinkGlyph">
                 <Setter Property="Width" Value="{DynamicResource TDLinkLargeIconWidth}" />

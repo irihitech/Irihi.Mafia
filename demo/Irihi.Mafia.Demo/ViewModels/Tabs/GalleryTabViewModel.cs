@@ -40,7 +40,7 @@ public partial class GalleryTabViewModel : NavigationViewModelBase
             CreateItem("Cell", nameof(LanguageManager.Keys.Gallery_Cell), nameof(LanguageManager.Keys.Gallery_Cell_Desc)),
             CreateItem("Avatar", nameof(LanguageManager.Keys.Gallery_Avatar), nameof(LanguageManager.Keys.Gallery_Avatar_Desc)),
             CreateItem("IconButton", nameof(LanguageManager.Keys.Gallery_IconButton), nameof(LanguageManager.Keys.Gallery_IconButton_Desc)),
-            CreateItem("HyperlinkButton", nameof(LanguageManager.Keys.Gallery_HyperlinkButton), nameof(LanguageManager.Keys.Gallery_HyperlinkButton_Desc)),
+            CreateItem("Link", nameof(LanguageManager.Keys.Gallery_Link), nameof(LanguageManager.Keys.Gallery_Link_Desc)),
             CreateItem("Divider", nameof(LanguageManager.Keys.Gallery_Divider), nameof(LanguageManager.Keys.Gallery_Divider_Desc)),
             CreateItem("TabControl", nameof(LanguageManager.Keys.Gallery_TabControl), nameof(LanguageManager.Keys.Gallery_TabControl_Desc)),
             CreateItem("TabbedPage", nameof(LanguageManager.Keys.Gallery_TabbedPage), nameof(LanguageManager.Keys.Gallery_TabbedPage_Desc)),

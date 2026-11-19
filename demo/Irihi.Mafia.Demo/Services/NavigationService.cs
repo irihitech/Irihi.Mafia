@@ -25,7 +25,7 @@ public sealed class NavigationService(INavigation navigation) : INavigationServi
         ["Cell"] = () => new CellPage(),
         ["Avatar"] = () => new AvatarPage(),
         ["IconButton"] = () => new IconButtonPage(),
-        ["HyperlinkButton"] = () => new HyperlinkButtonPage(),
+        ["Link"] = () => new LinkPage(),
         ["Divider"] = () => new DividerPage(),
         ["TabControl"] = () => new TabControlPage(),
         ["TabbedPage"] = () => new TabbedPagePage(),

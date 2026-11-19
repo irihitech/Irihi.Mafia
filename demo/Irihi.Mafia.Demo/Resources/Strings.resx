@@ -90,8 +90,8 @@
   <data name="Gallery_Avatar_Desc" xml:space="preserve"><value>Image/text avatar</value></data>
   <data name="Gallery_IconButton" xml:space="preserve"><value>IconButton</value></data>
   <data name="Gallery_IconButton_Desc" xml:space="preserve"><value>Icon+text button</value></data>
-  <data name="Gallery_HyperlinkButton" xml:space="preserve"><value>HyperlinkButton</value></data>
-  <data name="Gallery_HyperlinkButton_Desc" xml:space="preserve"><value>Hyperlink text button</value></data>
+  <data name="Gallery_Link" xml:space="preserve"><value>Link</value></data>
+  <data name="Gallery_Link_Desc" xml:space="preserve"><value>Text link</value></data>
   <data name="Gallery_Divider" xml:space="preserve"><value>Divider</value></data>
   <data name="Gallery_Divider_Desc" xml:space="preserve"><value>Horizontal/vertical divider</value></data>
   <data name="Gallery_TabControl" xml:space="preserve"><value>TabControl</value></data>
@@ -300,14 +300,14 @@
   <data name="IconButton_Button" xml:space="preserve"><value>Button</value></data>
   <data name="IconButton_Disabled" xml:space="preserve"><value>Disabled</value></data>
 
-  <!-- HyperlinkButton Detail -->
-  <data name="HyperlinkButton_Title" xml:space="preserve"><value>HyperlinkButton</value></data>
-  <data name="HyperlinkButton_Desc" xml:space="preserve"><value>Text link button with default and Primary/Success/Warning/Danger semantic colors; supports underline and a link icon.</value></data>
-  <data name="HyperlinkButton_Basic" xml:space="preserve"><value>Basic Usage</value></data>
-  <data name="HyperlinkButton_Link" xml:space="preserve"><value>Jump link</value></data>
-  <data name="HyperlinkButton_Colors" xml:space="preserve"><value>Color Variants</value></data>
-  <data name="HyperlinkButton_Size" xml:space="preserve"><value>Size Variants</value></data>
-  <data name="HyperlinkButton_Disabled" xml:space="preserve"><value>Disabled</value></data>
+  <!-- Link Detail -->
+  <data name="Link_Title" xml:space="preserve"><value>Link</value></data>
+  <data name="Link_Desc" xml:space="preserve"><value>Text link with default and Primary/Success/Warning/Danger semantic colors; supports underline, a link icon, and small/medium/large sizes.</value></data>
+  <data name="Link_Basic" xml:space="preserve"><value>Basic Usage</value></data>
+  <data name="Link_Jump" xml:space="preserve"><value>Jump link</value></data>
+  <data name="Link_Colors" xml:space="preserve"><value>Color Variants</value></data>
+  <data name="Link_Size" xml:space="preserve"><value>Size Variants</value></data>
+  <data name="Link_Disabled" xml:space="preserve"><value>Disabled</value></data>
 
   <!-- Divider Detail -->
   <data name="Divider_Title" xml:space="preserve"><value>Divider</value></data>
