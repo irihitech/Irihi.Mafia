@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Data;
 using Avalonia.Input;
 using Avalonia.LogicalTree;
 using Avalonia.Media;
@@ -13,7 +14,7 @@ namespace Irihi.Mafia.Controls.Primitives;
 public class Popup : Control
 {
     public static readonly StyledProperty<bool> IsOpenProperty =
-        AvaloniaProperty.Register<Popup, bool>(nameof(IsOpen), defaultBindingMode: global::Avalonia.Data.BindingMode.TwoWay);
+        AvaloniaProperty.Register<Popup, bool>(nameof(IsOpen), defaultBindingMode: BindingMode.TwoWay);
 
     public bool IsOpen
     {
